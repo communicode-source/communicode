@@ -42,7 +42,16 @@ nav a {
   -moz-transition: background .25s;
   transition: background .25s; }
 
+nav a:visited {
+  background: $grey !important;
+  color: $white !important; }
+
+
 nav a:hover {
+  background: $grey !important;
+  color: $white !important; }
+
+nav a:active {
   background: $grey !important;
   color: $white !important; }
 
