@@ -35,3 +35,9 @@ npm-debug.log
 
 #ngrok
 ngrok
+
+# Webpack files
+dist/
+
+# Intellij Idea project files
+.idea/
