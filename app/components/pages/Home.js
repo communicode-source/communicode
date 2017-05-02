@@ -93,11 +93,14 @@ const Home = () =>
               <center>
                 <div className={main.text}>
                   <h2>We're Under Construction...</h2>
-                  <h4>Don't worry, we'll be here soon.</h4>
+                  <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
                   <div className={classNames('input-group', home['input-container'])}>
-                    <span className={classNames('input-group-addon', home['email-addon'])} id="basic-addon1">Wanna Change the World?</span>
+                    <span className={classNames('input-group-addon', home['email-addon'])} id="basic-addon1"><i className="fa fa-envelope-o" aria-hidden="true"></i></span>
                     <input type="text" className={classNames('form-control', home.input)} placeholder="boring@probablygmail.com" aria-describedby="basic-addon1" />
-                  </div>
+                    <span className={classNames('input-group-btn', home['mail-submit'])}>
+                      <button className={classNames('btn', main['primary-btn'], home[''])} type="button">Help Us Change the World <i className="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    </span>
+                </div>
                 </div>
               </center>
             </div>

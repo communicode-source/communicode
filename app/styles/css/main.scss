@@ -8,12 +8,14 @@
 =========================================
 -----------------------------------------*/
 html {
-  height: 100%; }
+  height: 100%;
+  overflow-x: hidden;}
 
 body {
   /* height: 100%; */
   /* Made Buttons Unclickable */
-  font-family: $font-stack; }
+  font-family: $font-stack;
+  background: $white;}
 
 /*---------------------------------------
    Typography
@@ -605,7 +607,7 @@ footer {
     font-family: "Montserrat", sans-serif;
     font-weight: bold; }
   footer a:hover {
-    color: $grey; }
+    color: $yellow; }
   footer h6 {
     color: $white;
   }

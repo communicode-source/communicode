@@ -3,40 +3,54 @@ import { Link } from 'react-router';
 import CLogoLight from '../../styles/Images/Logo/CLight.svg';
 import styles from '../../styles/css/static/header.scss';
 import NotifyModal from '../modals/NotifyModal.js';
+import NativeListener from 'react-native-listener';
 
-const Header = () =>
-  <div>
-    <nav className={styles.nav}>
-        <div className="container">
+export default class Header extends React.Component {
 
-            <ul className={styles.left}>
-              <li className="no-hover">
-                <Link to="/" className="pull-left logo" className={styles.a}>
-                  <img className={styles.logo} src={CLogoLight} />
-                </Link>
-              </li>
-            </ul>
+    handleModalClick(e) {
+        e.preventDefault();
+    }
 
-            <ul className="nav navbar-nav navbar-left">
-              <li className="no-hover">
-                <Link className={styles.a} to="/why">Why Communicode?</Link>
-              </li>
-              <li className="no-hover">
-                <Link className={styles.a} to="/about">About Us</Link>
-              </li>
-            </ul>
+    render() {
+        return (
+          <div>
+            <nav className={styles.nav}>
+                <div className="container">
 
-            <div className="collapse navbar-collapse">
-                <ul className="nav navbar-nav navbar-right right">
-                    <li>
-                        <Link className={styles.a} data-toggle="modal" data-target="#notify" to="#">Notify Me</Link>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <NotifyModal />
-  </div>;
+                    <ul className={styles.left}>
+                      <li className="no-hover">
+                        <Link to="/" className="pull-left logo" className={styles.a}>
+                          <img className={styles.logo} src={CLogoLight} />
+                        </Link>
+                      </li>
+                    </ul>
+
+                    <ul className="nav navbar-nav navbar-left">
+                      <li className="no-hover">
+                        <Link className={styles.a} to="/why">Why Communicode?</Link>
+                      </li>
+                      <li className="no-hover">
+                        <Link className={styles.a} to="/about">About Us</Link>
+                      </li>
+                    </ul>
+
+                    <div className="collapse navbar-collapse">
+                        <ul className="nav navbar-nav navbar-right right">
+                            <li>
+                                <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                  <Link className={styles.a} data-toggle="modal" data-target="#notify" to="#">Notify Me</Link>
+                                </NativeListener>
+                          </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <NotifyModal />
+          </div>
+        );
+    }
+}
+
 
 /*
   I am writing this so that future Trevor knows what
@@ -46,5 +60,3 @@ const Header = () =>
 
   You're welcome future trevor.
 */
-
-export default Header;
