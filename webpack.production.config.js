@@ -88,6 +88,13 @@ module.exports = {
         }, {
             test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
             loader: 'file'
+        },
+        {
+          test: /\.(jpg|png)$/,
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[hash].[ext]',
+          },
         }]
     },
     postcss: [

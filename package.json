@@ -7,7 +7,9 @@
     "test": "",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "eslint": "eslint .",
+    "bundle": "webpack --config webpack.production.config.js",
+    "prestart": "npm run bundle"
   },
   "keywords": [
     "es6",
