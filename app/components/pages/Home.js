@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 import home from '../../styles/css/pages/home.scss';
 import main from '../../styles/css/main.scss';
+import Subscribe from '../layout/Subscribe';
 
 const primaryBtnClassnames = classNames(main['primary-btn'], main.btn, home.a);
 const darkBtnClassnames = classNames(main['dark-btn'], main['no-transition'], main.btn, home.a);
@@ -19,7 +20,7 @@ const Home = () =>
                     <h1>Let's Create Together.</h1>
                     <h3>Help change the world through the power of technology</h3>
                     <Link to="/developers" className={primaryBtnClassnames}>Developers</Link>
-                    <Link href="#" className={darkBtnClassnames}>Nonprofits</Link>
+                    <Link to="/nonprofits" className={darkBtnClassnames}>Nonprofits</Link>
                 </div>
             </center>
         </div>
@@ -36,7 +37,7 @@ const Home = () =>
                         <hr />
                         <p>
                             Communicode matches designers and developers to causes they care about to help propel nonprofit technology into the 21<sup>st</sup>
-                            Century
+                             Century
                         </p>
                         <center>
                             <a href="#" className={infoTextButtonClassnames}>Learn More</a>
@@ -93,27 +94,7 @@ const Home = () =>
                     </p>
                 </div>
             </div>
-            <div className="row">
-                <div className={classNames('col-md-12', home['create-account'])}>
-                    <center>
-                        <div className={main.text}>
-                            <h2>We're Under Construction...</h2>
-                            <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
-                            <div className={classNames('input-group', home['input-container'])}>
-                                <span className={classNames('input-group-addon', home['email-addon'])} id="basic-addon1"><i className="fa fa-envelope-o"
-                                                                                                                            aria-hidden="true"/></span>
-                                <input type="text" className={classNames('form-control', home.input)} placeholder="boring@probablygmail.com"
-                                       aria-describedby="basic-addon1"/>
-                                <span className={classNames('input-group-btn', home['mail-submit'])}>
-                                    <button className={classNames('btn', main['primary-btn'], home[''])} type="button">
-                                        Help Us Change the World <i className="fa fa-arrow-right" aria-hidden="true"/>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </center>
-                </div>
-            </div>
+            <Subscribe/>
         </div>
     </div>;
 

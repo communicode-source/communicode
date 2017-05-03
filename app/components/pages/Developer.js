@@ -2,25 +2,25 @@ import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
 import dev from '../../styles/css/pages/developer.scss';
-import home from '../../styles/css/pages/home.scss';
-import main from '../../styles/css/main.scss';
+import common from '../../styles/css/pages/common.scss';
+import Subscribe from '../layout/Subscribe';
 
 const Developer = () =>
 
     <div>
-        <div className={classNames('container-fluid', dev.hero)}>
+        <div className={classNames('container-fluid', common.hero, dev.hero)}>
             <center>
-                <div className={dev['hero-text']}>
+                <div className={common['hero-text']}>
                     <h1>For Developers</h1>
                     <h3>Develop your portfolio and change the world.</h3>
                 </div>
             </center>
         </div>
-        <div className={classNames('container-fluid', dev.dev2, dev.dev)}>
+        <div className={classNames('container-fluid', common.about2)}>
             <Divider />
             <div className="container">
                 <div className="row">
-                    <div className={classNames('col-md-12', dev.mission)}>
+                    <div className={classNames('col-md-12', common.mission)}>
                         <center>
                             <h1>Let's Code Some Good.</h1>
                             <hr />
@@ -29,10 +29,10 @@ const Developer = () =>
                     </div>
                 </div>
             </div>
-            <div id={dev['more-info-good']} className="row">
-                <div className={classNames('col-md-6', dev['small-info-container'])}>
+            <div id={common['more-info-good']} className="row">
+                <div className={classNames('col-md-6', common['small-info-container'])}>
                     <center>
-                        <div className={dev['small-info']}>
+                        <div className={common['small-info']}>
                             <h3>What do we do?</h3>
                             <hr />
                             <p>
@@ -45,13 +45,13 @@ const Developer = () =>
                         </div>
                     </center>
                 </div>
-                <div id={dev['info-background-1']} className={classNames('col-md-6')}/>
+                <div id={common['info-background-1']} className={classNames('col-md-6')}/>
             </div>
-            <div id={dev['more-info-good']} className="row">
-                <div id={dev['info-background-2']} className={classNames('col-md-6')}/>
-                <div className={classNames('col-md-6', dev['small-info-container'])}>
+            <div id={common['more-info-good']} className="row">
+                <div id={common['info-background-2']} className={classNames('col-md-6')}/>
+                <div className={classNames('col-md-6', common['small-info-container'])}>
                     <center>
-                        <div className={dev['small-info']}>
+                        <div className={common['small-info']}>
                             <h3>Why should I volunteer?</h3>
                             <hr />
                             <p>
@@ -64,27 +64,7 @@ const Developer = () =>
                     </center>
                 </div>
             </div>
-            <div className="row">
-                <div className={classNames('col-md-12', home['create-account'])}>
-                    <center>
-                        <div className={main.text}>
-                            <h2>Convinced?</h2>
-                            <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
-                            <div className={classNames('input-group', home['input-container'])}>
-                                <span className={classNames('input-group-addon', home['email-addon'])} id="basic-addon1"><i className="fa fa-envelope-o"
-                                                                                                                            aria-hidden="true"/></span>
-                                <input type="text" className={classNames('form-control', home.input)} placeholder="boring@probablygmail.com"
-                                       aria-describedby="basic-addon1"/>
-                                <span className={classNames('input-group-btn', home['mail-submit'])}>
-                                    <button className={classNames('btn', main['primary-btn'], home[''])} type="button">
-                                        Help Us Change the World <i className="fa fa-arrow-right" aria-hidden="true"/>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </center>
-                </div>
-            </div>
+            <Subscribe/>
         </div>
     </div>;
 

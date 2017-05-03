@@ -2,7 +2,7 @@
 @import '../fonts';
 
 .hero {
-  background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url(https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0c68baec38ad565c4503c6635682d1c7) no-repeat center center;
+  background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url(https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0c68baec38ad565c4503c6635682d1c7) no-repeat center center fixed;
   background-size: cover;
   height: 500px;
   width: 100%;
@@ -78,7 +78,7 @@
   background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(https://images.unsplash.com/photo-1484417894907-623942c8ee29?dpr=1&auto=format&fit=crop&w=1500&h=844&q=80&cs=tinysrgb&crop=&bg=);
   background-size: cover;
   background-position-x: center;
-  border-right: 2px solid #F2F2F2;
+  border-right: 2px solid #F2F2F2; //Only display this if the whole row is present
 }
 
 .nonprofits {
@@ -89,7 +89,7 @@
 
 .unified-section {
   background: $light-grey-background;
-  padding: 80px 50px;
+  padding: 80px 10%;
 }
 
 .unified-section h2 {
@@ -149,7 +149,7 @@
 }
 
 .create-account h4 {
-  padding: 10px 0px;
+  padding: 10px 5%;
 }
 
 .create-account .text {
@@ -419,37 +419,4 @@ legend {
   margin: 20px;
   width: 90%;
   color: #333;
-}
-
-.input-container {
-  max-width: 30%;
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-
-.input-container input {
-  height: 50px;
-}
-
-.input-container .email-addon {
-  background: #ffb24e;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.input-container input:focus {
-  border-color: #ffb24e;
-  -webkit-box-shadow: 0px 0px 0px 0px;
-  box-shadow: 0px 0px 0px 0px;
-  outline: 0;
-}
-
-.input-container .mail-submit {
-  background: $yellow;
-  color: $black;
-}
-
-.input-container .mail-submit button {
-  background: $yellow;
-  color: $black;
 }

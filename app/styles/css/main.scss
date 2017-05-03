@@ -17,6 +17,7 @@ body {
   /* Made Buttons Unclickable */
   font-family: $font-stack;
   background: $white;
+  padding: 0 !important; // Hack to prevent body from shifting when modal opens
 }
 
 /*---------------------------------------

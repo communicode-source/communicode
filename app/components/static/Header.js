@@ -25,7 +25,6 @@ export default class Header extends React.Component {
                                 </Link>
                             </li>
                         </ul>
-
                         <ul className="nav navbar-nav navbar-left">
                             <li className="no-hover">
                                 <Link className={styles.a} to="/about">About Us</Link>
