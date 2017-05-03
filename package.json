@@ -1,13 +1,13 @@
 {
-  "name": "webpack-react-redux",
+  "name": "Communicode",
   "version": "1.0.0",
   "description": "A boilerplate for playing around with react, redux and react-router with the help of webpack.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "build": "rimraf dist && ./node_modules/webpack/bin/webpack.js --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
-    "bundle": "webpack --config webpack.production.config.js",
+    "bundle": "./node_modules/webpack/bin/webpack.js --config webpack.production.config.js",
     "prestart": "npm run bundle"
   },
   "keywords": [
