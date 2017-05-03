@@ -1,7 +1,7 @@
 @import '../colors';
 @import '../fonts';
 
-/* We could do a cool paralax here instead */
+/* We could do a cool parallax here instead */
 
 body {
   background: #ddd;
@@ -24,7 +24,7 @@ body {
 }
 
 .hero h1 {
-  color: #F2F2F2;
+  color: $hero-font-color;
   font-size: 60px;
   letter-spacing: -1px;
   line-height: 1;
@@ -34,7 +34,7 @@ body {
 
 .hero h3 {
   font-size: 23px;
-  color: #F2F2F2;
+  color: $hero-font-color;
   text-align: center;
   line-height: 1;
   margin-bottom: 40px;
@@ -51,7 +51,7 @@ body {
 hr {
   width: 25px;
   border-width: 2px;
-  border-top: 5px solid #333;
+  border-top: 5px solid $black;
   border-color: $yellow;
 }
 
@@ -107,10 +107,16 @@ hr {
   border-radius: 100%;
 }
 
+.person a, .person a:hover {
+  color: $black;
+  cursor: default;
+  text-decoration: none;
+}
+
 /* ABOUT 2 */
 
 .about2 {
-  padding: 0px !important;
+  padding: 0 !important;
   margin-bottom: 20px;
 }
 
@@ -119,13 +125,13 @@ hr {
 }
 
 .about-text p {
-  padding: 0px 30px;
+  padding: 0 30px;
   font-size: 14px;
   line-height: 35px;
 }
 
 #info {
-  background-color: #333333;
+  background-color: $black;
   width: 100%;
   color: white;
   text-align: center;
@@ -183,7 +189,7 @@ hr {
 }
 
 #for-good {
-  background-color: #333333;
+  background-color: $black;
   width: 100%;
   color: white;
   text-align: center;
@@ -229,7 +235,7 @@ hr {
 .info-panel h2 {
   font-size: 28px;
   font-family: "Montserrat", sans-serif;
-  color: #F2F2F2;
+  color: $hero-font-color;
   text-transform: uppercase;
 }
 
@@ -240,7 +246,7 @@ hr {
 }
 
 .info-panel p {
-  color: #F2F2F2;
+  color: $hero-font-color;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -288,18 +294,18 @@ hr {
   height: 100%;
   top: 0;
   left: 0;
-  background: #333;
+  background: $black;
 }
 
 .register-half h2 {
-  color: #f2f2f2;
+  color: $hero-font-color;
   font-size: 36px;
 }
 
 .register-half h4 {
   font-family: "Georgia", sans-serif;
   text-align: center;
-  color: #ffb42e;
+  color: $yellow;
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -308,7 +314,7 @@ hr {
 }
 
 .register-half p {
-  color: #F2F2F2;
+  color: $hero-font-color;
   margin: 5px 20px;
   font-size: 16px;
   letter-spacing: .5px;
@@ -323,19 +329,19 @@ hr {
   font-weight: bold;
   font-family: "Georgia", sans-serif;
   letter-spacing: 3px;
-  color: #ffb42e;
+  color: $yellow;
 }
 
 legend {
   display: block;
   width: 70%;
-  padding: 10px 0px;
+  padding: 10px 0;
   margin-bottom: 20px;
   margin: 20px;
   font-size: 21px;
   line-height: inherit;
   border: 0;
-  color: #F2F2F2;
+  color: $hero-font-color;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -417,7 +423,7 @@ legend {
   border: 0;
   border-bottom: 1px solid #e6e6e6;
   margin: 20px;
-  color: #f2f2f2;
+  color: $hero-font-color;
   -webkit-transition: border-bottom-color .5s;
   transition: border-bottom-color .5s;
   transition-timing-function: linear;
@@ -426,13 +432,13 @@ legend {
 .register-input:focus {
   background: transparent;
   outline: 0;
-  border-bottom-color: #ffb42e;
+  border-bottom-color: $yellow;
 }
 
 .register-form button {
   margin: 20px;
   width: 90%;
-  color: #333;
+  color: $black;
 }
 
 /*
