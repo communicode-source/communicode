@@ -18,7 +18,7 @@ const Home = () =>
                 <div className={home['hero-text']}>
                     <h1>Let's Create Together.</h1>
                     <h3>Help change the world through the power of technology</h3>
-                    <Link href="#" className={primaryBtnClassnames}>Developers</Link>
+                    <Link to="/developers" className={primaryBtnClassnames}>Developers</Link>
                     <Link href="#" className={darkBtnClassnames}>Nonprofits</Link>
                 </div>
             </center>

@@ -28,10 +28,13 @@ export default class Header extends React.Component {
 
                         <ul className="nav navbar-nav navbar-left">
                             <li className="no-hover">
-                                <Link className={styles.a} to="/why">Why Communicode?</Link>
+                                <Link className={styles.a} to="/about">About Us</Link>
                             </li>
                             <li className="no-hover">
-                                <Link className={styles.a} to="/about">About Us</Link>
+                                <Link className={styles.a} to="/developers">For Developers</Link>
+                            </li>
+                            <li className="no-hover">
+                                <Link className={styles.a} to="/nonprofits">For Nonprofits</Link>
                             </li>
                         </ul>
 

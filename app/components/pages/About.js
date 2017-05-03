@@ -33,7 +33,7 @@ const About = () =>
                     </div>
                 </div>
             </div>
-            <div id={about['for-good']} className="row">
+            <div id={about['more-info-good']} className="row">
                 <div className={classNames('col-md-6', about['small-info-container'])}>
                     <center>
                         <div className={about['small-info']}>

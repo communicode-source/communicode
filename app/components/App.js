@@ -5,7 +5,7 @@ import Footer from './static/Footer';
 const App = ({children}) =>
     <div>
         <Header />
-        { children }
+        {children}
         <Footer />
     </div>;
 

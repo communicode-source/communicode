@@ -8,7 +8,7 @@ body {
 }
 
 .hero {
-  background: linear-gradient(rgba(51, 51, 51, 1.6), rgba(51, 51, 51, 0.6)), url('https://images.unsplash.com/photo-1484061305560-3133ddda73cf?dpr=1&auto=format&fit=crop&w=1500&h=989&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center fixed;
+  background: linear-gradient(rgba(51, 51, 51, 1.6), rgba(51, 51, 51, 0.6)), url('https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center fixed;
   height: 500px;
   width: 100%;
   -webkit-background-size: cover;
@@ -42,7 +42,7 @@ body {
 
 /* NEW ABOUT STYLING -- ABOUT 1 */
 
-.about1 {
+.dev1 {
   width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -115,19 +115,40 @@ hr {
 
 /* ABOUT 2 */
 
-.about2 {
+.dev2 {
   padding: 0 !important;
   margin-bottom: 20px;
 }
 
-.about-text h3 {
+.dev-text h3 {
   padding: 20px 30px;
 }
 
-.about-text p {
+.dev-text p {
   padding: 0 30px;
   font-size: 14px;
   line-height: 35px;
+}
+
+#more-info-good {
+  background-color: $black;
+  width: 100%;
+  color: white;
+}
+
+#more-info-good h2 {
+  color: $white;
+}
+
+#more-info-good p {
+  font-size: 16px;
+  line-height: 33px;
+  padding: 0px 100px;
+  text-align: justify !important;
+}
+
+#more-info-good center {
+  margin-top: 30px;
 }
 
 #info {
@@ -158,12 +179,14 @@ hr {
 }
 
 .small-info-container {
-  padding: 8px;
+  padding: 25px;
+}
+
+.small-info-container hr {
+  margin: 35px 0px;
 }
 
 .small-info {
-  text-align: left;
-  max-width: 350px;
   margin-bottom: 50px;
 }
 
@@ -173,11 +196,21 @@ hr {
 
 .small-info p {
   text-align: left !important;
+  font-size: 16px;
 }
 
-.info-background {
-  background: linear-gradient(rgba(2255, 180, 46, 0.3), rgba(255, 180, 46, 0.3)), url('https://images.unsplash.com/photo-1426024120108-99cc76989c71?dpr=1&auto=format&fit=crop&w=1500&h=996&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
-  height: 500px;
+#info-background-1 {
+  background: linear-gradient(rgba(2255, 180, 46, 0.1), rgba(255, 180, 46, 0.1)), url('https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  height: 400px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#info-background-2 {
+  background: linear-gradient(rgba(2255, 180, 46, 0.1), rgba(255, 180, 46, 0.1)), url('https://images.unsplash.com/photo-1482745637430-91c0bbcea3e1?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -186,28 +219,6 @@ hr {
 
 .more-info-container {
   padding: 50px;
-}
-
-#more-info-good {
-  background-color: $black;
-  width: 100%;
-  color: white;
-  text-align: center;
-  margin: 0 auto !important;
-}
-
-#more-info-good h2 {
-  color: $white;
-}
-
-#more-info-good p {
-  text-align: center;
-  font-size: 14px;
-  line-height: 25px;
-}
-
-#more-info-good center {
-  margin-top: 25px;
 }
 
 #for-good {
@@ -435,36 +446,3 @@ legend {
     opacity: 1;
   }
 }
-
-.register-input {
-  width: 90%;
-  border: none;
-  background-color: transparent;
-  height: 45px;
-  padding: 10px;
-  border: 0;
-  border-bottom: 1px solid #e6e6e6;
-  margin: 20px;
-  color: $hero-font-color;
-  -webkit-transition: border-bottom-color .5s;
-  transition: border-bottom-color .5s;
-  transition-timing-function: linear;
-}
-
-.register-input:focus {
-  background: transparent;
-  outline: 0;
-  border-bottom-color: $yellow;
-}
-
-.register-form button {
-  margin: 20px;
-  width: 90%;
-  color: $black;
-}
-
-/*
-TO DO
--- SHOULD THE NAV ANIMATION (REGISTER, DIRECTLY ABOVE HERE) BE IN MAIN?
--- IS THE HERO H1/H3 DIFFERENT FROM THE STANDARD H1/H3? WHY?
-*/
