@@ -40,7 +40,7 @@ const Home = () =>
                              Century
                         </p>
                         <center>
-                            <a href="#" className={infoTextButtonClassnames}>Learn More</a>
+                            <Link to="/developers" className={infoTextButtonClassnames}>Learn More</Link>
                         </center>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ const Home = () =>
                         <hr />
                         <p>Communicode helps usher your nonprofit into the digital age with updated technology services from volunteers who care</p>
                         <center>
-                            <a href="#" className={infoTextButtonClassnames}>Learn More</a>
+                            <Link to="/nonprofits" className={infoTextButtonClassnames}>Learn More</Link>
                         </center>
                     </div>
                 </div>
@@ -95,7 +95,7 @@ const Home = () =>
                 </div>
             </div>
             <Subscribe/>
-        </div>
+        </div>;
     </div>;
 
 export default Home;

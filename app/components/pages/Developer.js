@@ -30,22 +30,22 @@ const Developer = () =>
                 </div>
             </div>
             <div id={common['more-info-good']} className="row">
-                <div className={classNames('col-md-6', common['small-info-container'])}>
+                <div id={common['info-background-1']} className="col-md-6 col-md-push-6"/>
+                <div className={classNames('col-md-6', 'col-md-pull-6', common['small-info-container'])}>
                     <center>
                         <div className={common['small-info']}>
                             <h3>What do we do?</h3>
                             <hr />
                             <p>
-                              Communicode is a communication platform. When you sign up, you tell us what type nonprofits
-                              you are interested in helping. We use these interests and your skills to deliver the best
-                              nonprofit matches to you. We provide the connection, you just have to do the reaching.
-                              Our thinking: the better and more interesting the matches you get, the more you will help.
-                              And the more you'll change the world.
+                                Communicode is a communication platform. When you sign up, you tell us what type nonprofits
+                                you are interested in helping. We use these interests and your skills to deliver the best
+                                nonprofit matches to you. We provide the connection, you just have to do the reaching.
+                                Our thinking: the better and more interesting the matches you get, the more you will help.
+                                And the more you'll change the world.
                             </p>
                         </div>
                     </center>
                 </div>
-                <div id={common['info-background-1']} className={classNames('col-md-6')}/>
             </div>
             <div id={common['more-info-good']} className="row">
                 <div id={common['info-background-2']} className={classNames('col-md-6')}/>

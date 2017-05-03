@@ -10,7 +10,7 @@ export default class Root extends Component {
         return (
             <Provider store={store}>
                 <div>
-                    <Router history={history} routes={routes}/>
+                    <Router history={history} routes={routes} onUpdate={() => window.scrollTo(0, 0)}/>
                     <DevTools />
                 </div>
             </Provider>

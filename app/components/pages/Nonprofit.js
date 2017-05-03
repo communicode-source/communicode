@@ -30,7 +30,8 @@ const Nonprofit = () =>
                 </div>
             </div>
             <div id={common['more-info-good']} className="row">
-                <div className={classNames('col-md-6', common['small-info-container'])}>
+                <div id={common['info-background-1']} className="col-md-6 col-md-push-6"/>
+                <div className={classNames('col-md-6', 'col-md-pull-6', common['small-info-container'])}>
                     <center>
                         <div className={common['small-info']}>
                             <h3>What do we do?</h3>
@@ -45,7 +46,6 @@ const Nonprofit = () =>
                         </div>
                     </center>
                 </div>
-                <div id={common['info-background-1']} className={classNames('col-md-6')}/>
             </div>
             <div id={common['more-info-good']} className="row">
                 <div id={common['info-background-2']} className={classNames('col-md-6')}/>
