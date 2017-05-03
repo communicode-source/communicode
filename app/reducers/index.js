@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import * as types from '../actions/types';
 
 const filter = (state = '', action) => {
-    switch (action.type) {
+    switch(action.type) {
         case types.FILTER:
             return action.filter;
         default:
@@ -11,10 +11,9 @@ const filter = (state = '', action) => {
     }
 };
 
-
 const rootReducer = combineReducers({
     filter,
-    routing
+    routing,
 });
 
 export default rootReducer;

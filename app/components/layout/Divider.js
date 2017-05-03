@@ -1,13 +1,14 @@
 import React from 'react';
 import home from '../../styles/css/pages/home.scss';
+import classNames from 'classnames';
 
 const Divider = () =>
-  <div>
-    <div className="row">
-      <div className="col-md-12" className={home.divider}>
+    <div>
+        <div className="row">
+            <div className={classNames('col-md-12', home.divider)}>
 
-      </div>
-    </div>
-  </div>;
+            </div>
+        </div>
+    </div>;
 
 export default Divider;
