@@ -11,7 +11,20 @@ const filter = (state = '', action) => {
     }
 };
 
+const subscription = (state = '', action) => {
+    switch(action.type) {
+        case types.SUBSCRIBE:
+            return action.email;
+        case types.SUBSCRIBE_USER:
+            alert('Submitted: ' + action.email);
+            return action.email;
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
+    subscription,
     filter,
     routing,
 });

@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 import home from '../../styles/css/pages/home.scss';
 import main from '../../styles/css/main.scss';
-import Subscribe from '../layout/Subscribe';
 
 const primaryBtnClassnames = classNames(main['primary-btn'], main.btn, home.a);
 const darkBtnClassnames = classNames(main['dark-btn'], main['no-transition'], main.btn, home.a);
@@ -94,7 +93,6 @@ const Home = () =>
                     </p>
                 </div>
             </div>
-            <Subscribe/>
         </div>;
     </div>;
 

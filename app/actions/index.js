@@ -6,3 +6,17 @@ export function filterTable(filter) {
         filter,
     };
 }
+
+export function subscribeUser(email) {
+    return {
+        type: types.SUBSCRIBE,
+        email
+    };
+}
+
+export function sendSubscription(email) {
+    return {
+        type: types.SUBSCRIBE_USER,
+        email
+    };
+}
