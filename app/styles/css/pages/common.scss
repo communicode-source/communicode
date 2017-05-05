@@ -481,3 +481,17 @@ legend {
   background: $yellow;
   color: $black;
 }
+
+.hiddenDesktop {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .hiddenDesktop {
+    display: block;
+  }
+
+  .hiddenMobile {
+    display: none;
+  }
+}

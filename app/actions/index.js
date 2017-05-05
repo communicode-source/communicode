@@ -7,14 +7,15 @@ export function filterTable(filter) {
     };
 }
 
-export function subscribeUser(email) {
+export function validateEmail(email) {
     return {
         type: types.SUBSCRIBE,
         email
     };
 }
 
-export function sendSubscription(email) {
+export function sendSubscription(event, email) {
+    event.preventDefault();
     return {
         type: types.SUBSCRIBE_USER,
         email
