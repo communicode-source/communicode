@@ -1,8 +1,8 @@
 import React from 'react';
 import main from '../../styles/css/main.scss';
-// import home from '../../styles/css/pages/home.scss';
 import modal from '../../styles/css/modals/notify.scss';
 import classNames from 'classnames';
+
 
 const primaryBtnClassnames = classNames(main['primary-btn'], main.btn, modal.button, modal.sendEmailBtn);
 

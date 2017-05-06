@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import Divider from '../layout/Divider';
 import nonprofit from '../../styles/css/pages/nonprofit.scss';
 import common from '../../styles/css/pages/common.scss';
-import Subscribe from '../layout/Subscribe';
 
 const Nonprofit = () =>
 
@@ -64,7 +63,6 @@ const Nonprofit = () =>
                     </center>
                 </div>
             </div>
-            <Subscribe/>
         </div>
     </div>;
 

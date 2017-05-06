@@ -4,7 +4,8 @@ import CLogoLight from '../../styles/images/logo/CLight.svg';
 import styles from '../../styles/css/static/header.scss';
 import NotifyModal from '../modals/NotifyModal.js';
 import NativeListener from 'react-native-listener';
-import classNames from 'classnames';
+
+import * as classes from '../../styles/classes/Header';
 
 export default class Header extends React.Component {
 
@@ -15,29 +16,35 @@ export default class Header extends React.Component {
     render() {
         return (
             <div>
-                <nav className={styles.nav}>
+                <nav className={classes.HEADER_NAV}>
                     <div className="container">
+
+                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+                            <span className={classes.HEADER_BUTTON_COLLAPSE}></span>
+                            <span className={classes.HEADER_BUTTON_COLLAPSE}></span>
+                            <span className={classes.HEADER_BUTTON_COLLAPSE}></span>
+                        </button>
 
                         <ul className={styles.left}>
                             <li className="no-hover">
-                                <Link to="/" className={classNames('pull-left logo', styles.a)}>
+                                <Link to="/" className={classes.NAV_LOGO}>
                                     <img className={styles.logo} src={CLogoLight}/>
                                 </Link>
                             </li>
                         </ul>
-                        <ul className="nav navbar-nav navbar-left">
-                            <li className="no-hover">
-                                <Link className={styles.a} to="/about">About Us</Link>
-                            </li>
-                            <li className="no-hover">
-                                <Link className={styles.a} to="/developers">For Developers</Link>
-                            </li>
-                            <li className="no-hover">
-                                <Link className={styles.a} to="/nonprofits">For Nonprofits</Link>
-                            </li>
-                        </ul>
+                        <div className={classes.HEADER_NAV_COLLAPSE} id="mainNav">
+                            <ul className="nav navbar-nav navbar-left">
+                                <li className="no-hover">
+                                    <Link className={styles.a} to="/about">About Us</Link>
+                                </li>
+                                <li className="no-hover">
+                                    <Link className={styles.a} to="/developers">For Developers</Link>
+                                </li>
+                                <li className="no-hover">
+                                    <Link className={styles.a} to="/nonprofits">For Nonprofits</Link>
+                                </li>
+                            </ul>
 
-                        <div className="collapse navbar-collapse">
                             <ul className="nav navbar-nav navbar-right right">
                                 <li>
                                     <NativeListener onClick={this.handleModalClick.bind(this)}>

@@ -137,3 +137,15 @@ span.notif-name {
   background-position-x: center;
   padding: 50px;
 }
+
+
+@media (max-width: 760px) {
+  .collapse-container {
+    background: #333;
+    margin-top: 49px;
+  }
+}
+
+.collapse-button {
+  background: #f2f2f2;
+}

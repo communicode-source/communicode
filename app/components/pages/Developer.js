@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import Divider from '../layout/Divider';
 import dev from '../../styles/css/pages/developer.scss';
 import common from '../../styles/css/pages/common.scss';
-import Subscribe from '../layout/Subscribe';
 
 const Developer = () =>
 
@@ -64,7 +63,6 @@ const Developer = () =>
                     </center>
                 </div>
             </div>
-            <Subscribe/>
         </div>
     </div>;
 
