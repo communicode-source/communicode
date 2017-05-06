@@ -1,0 +1,63 @@
+@import '../colors';
+
+@media (max-width: 767px) {
+  #sidebar {
+    right: 0;
+    transform: translateY(-100%);
+  }
+  footer {
+    padding: 25px;
+    height: 200px;
+  }
+  footer ul {
+    padding: 0;
+  }
+}
+
+footer .copyright {
+  color: #bebdbb;
+  text-align: center;
+}
+
+footer {
+  background-color: $black;
+  padding-top: 50px;
+  height: inherit;
+  /* Seems necessary for overlap. Adjust to breakpoints or remove */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /*z-index: -100;
+    position: fixed;*/
+}
+
+footer img {
+  width: 100px;
+}
+
+footer #icon {
+  width: 75%;
+  max-width: 75px;
+}
+
+footer ul {
+  list-style-type: none !important;
+}
+
+footer ul li {
+  margin-bottom: 20px;
+}
+
+footer a {
+  color: $white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: $yellow;
+}
+
+footer h6 {
+  color: $white;
+}
