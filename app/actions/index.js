@@ -21,3 +21,25 @@ export function sendSubscription(event, email) {
         email
     };
 }
+
+export function registerLocalUser(event, user) {
+    event.preventDefault();
+    return {
+        type: types.LOCAL_REGISTER_CLICK,
+        data: user
+    };
+}
+
+export function validateUserEmail(email) {
+    return {
+        type: types.VALIDATE_EMAIL,
+        email
+    };
+}
+
+export function validatePassword(password) {
+    return {
+        type: types.VALIDATE_PASSWORD,
+        password
+    };
+}

@@ -1,6 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 import { mailchimpSignUp } from '../api';
+import { localRegister } from '../api';
 import * as types from './types';
 
 
