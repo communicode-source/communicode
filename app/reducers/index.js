@@ -22,9 +22,21 @@ const subscription = (state = '', action) => {
     }
 };
 
+const register = (state = '', action) => {
+    switch(action.type) {
+        case action.VALIDATE_EMAIL:
+            return action.email;
+        case action.VALIDATE_PASSWORD:
+            return action.password;
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
     subscription,
     filter,
+    register,
     routing,
 });
 

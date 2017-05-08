@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import CLogoLight from '../../styles/images/logo/CLight.svg';
 import styles from '../../styles/css/static/header.scss';
-import NotifyModal from '../modals/NotifyModal.js';
+import LoginModal from '../../containers/RegisterContainer.js';
 import NativeListener from 'react-native-listener';
 
 import * as classes from '../../styles/classes/Header';
@@ -48,14 +48,14 @@ export default class Header extends React.Component {
                             <ul className="nav navbar-nav navbar-right right">
                                 <li>
                                     <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                        <Link className={styles.a} data-toggle="modal" data-target="#notify" to="#">Notify Me</Link>
+                                        <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Register / Sign in</Link>
                                     </NativeListener>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
-                <NotifyModal />
+                <LoginModal />
             </div>
         );
     }
