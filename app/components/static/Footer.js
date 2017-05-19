@@ -17,14 +17,14 @@ const Footer = () =>
 
             <div className="col-xs-2 col-sm-2 col-md-1">
                 <ul>
-                    <li className={footer.socialLink}><h6><a className="btn btn-social-icon btn-facebook" href="#"><span className="fa fa-facebook"></span></a></h6></li>
+                    <li className={footer.socialLink}><h6><a className="btn btn-social-icon btn-facebook" href="https://facebook.com/communicode.co"><span className="fa fa-facebook"></span></a></h6></li>
                 </ul>
             </div>
             <div className="col-xs-2 col-sm-2 col-md-1">
                 <ul>
                     <li className={footer.socialLink}>
                         <h6>
-                            <a className="btn btn-social-icon btn-instagram" href="#">
+                            <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/communicode.co">
                                 <span className="fa fa-instagram"></span>
                             </a>
                         </h6>
@@ -35,7 +35,7 @@ const Footer = () =>
                 <ul>
                     <li className={footer.socialLink}>
                         <h6>
-                            <a className="btn btn-social-icon btn-twitter" href="#">
+                            <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
                                 <span className="fa fa-twitter"></span>
                             </a>
                         </h6>
