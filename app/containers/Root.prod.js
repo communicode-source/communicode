@@ -13,7 +13,9 @@ const logPageView = () => {
 
 const pageUpdate = () => {
     window.scrollTo(0, 0);
-    logPageView();
+    if(process.env.NODE_ENV === 'production') {
+        logPageView();
+    }
 };
 
 export default class Root extends Component {

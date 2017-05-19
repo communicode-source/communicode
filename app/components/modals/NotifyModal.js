@@ -1,7 +1,7 @@
 import React from 'react';
-import main from '../../styles/css/main.scss';
-import modal from '../../styles/css/modals/notify.scss';
-import common from '../../styles/css/pages/common.scss';
+import main from '../../assets/css/main.scss';
+import modal from '../../assets/css/modals/notify.scss';
+import common from '../../assets/css/pages/common.scss';
 import classNames from 'classnames';
 
 

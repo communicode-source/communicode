@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
-import dev from '../../styles/css/pages/developer.scss';
-import common from '../../styles/css/pages/common.scss';
+import dev from '../../assets/css/pages/developer.scss';
+import common from '../../assets/css/pages/common.scss';
 
 const Developer = () =>
 

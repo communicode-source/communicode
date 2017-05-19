@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-import CLogoLight from '../../styles/images/logo/CLight.svg';
-import styles from '../../styles/css/static/header.scss';
+import CLogoLight from '../../assets/images/logo/CLight.svg';
+import styles from '../../assets/css/static/header.scss';
 import NotifyModal from '../modals/NotifyModal.js';
 import NativeListener from 'react-native-listener';
 
-import * as classes from '../../styles/classes/Header';
+import * as classes from '../../assets/classes/Header';
 
 export default class Header extends React.Component {
 

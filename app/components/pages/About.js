@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
-import about from '../../styles/css/pages/about.scss';
-import home from '../../styles/css/pages/home.scss';
-import main from '../../styles/css/main.scss';
+import about from '../../assets/css/pages/about.scss';
+import home from '../../assets/css/pages/home.scss';
+import main from '../../assets/css/main.scss';
 
 const primaryBtnClassnames = classNames(main['primary-btn'], main.btn, home.a);
 const darkBtnClassnames = classNames(main['dark-btn'], main['no-transition'], main.btn, home.a);
@@ -93,73 +93,73 @@ const About = () =>
                     <hr />
                     <div id={about.staff}>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/trevor.jpg')}/>
+                            <img src={require('../../assets/images/team/trevor.jpg')}/>
                             <h4>Trevor Crupi</h4>
                             <hr />
                             <p><i>Communicode CEO</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/cooper.jpg')}/>
+                            <img src={require('../../assets/images/team/cooper.jpg')}/>
                             <h4>Cooper Campbell</h4>
                             <hr />
                             <p><i>Communicode CTO</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/sharon.jpg')}/>
+                            <img src={require('../../assets/images/team/sharon.jpg')}/>
                             <h4>Sharon Hoffman</h4>
                             <hr />
                             <p><i>Communicode COO</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/cam.jpg')}/>
+                            <img src={require('../../assets/images/team/cam.jpg')}/>
                             <h4>Cam Todd<sup>TM</sup></h4>
                             <hr />
                             <p><i>VP of Marketing</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/alicia.jpg')}/>
+                            <img src={require('../../assets/images/team/alicia.jpg')}/>
                             <h4>Alicia Silhavy</h4>
                             <hr />
                             <p><i>Creative Director</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/christian.jpg')}/>
+                            <img src={require('../../assets/images/team/christian.jpg')}/>
                             <h4>Christian Espinoza</h4>
                             <hr />
                             <p><i>Mobile Engineer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/sami.jpg')}/>
+                            <img src={require('../../assets/images/team/sami.jpg')}/>
                             <h4>Sami Fassnacht</h4>
                             <hr />
                             <p><i>Mobile Engineer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/nick.jpg')}/>
+                            <img src={require('../../assets/images/team/nick.jpg')}/>
                             <h4>Nick von Bulow</h4>
                             <hr />
                             <p><i>System Administrator</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/charles.jpg')}/>
+                            <img src={require('../../assets/images/team/charles.jpg')}/>
                             <h4>Charles Engel</h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/daniel.jpg')}/>
+                            <img src={require('../../assets/images/team/daniel.jpg')}/>
                             <h4>Daniel Adelfinsky</h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/nich.jpg')}/>
+                            <img src={require('../../assets/images/team/nich.jpg')}/>
                             <h4><a href="/poetry">Nich Dullam</a></h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
-                            <img src={require('../../styles/images/team/xander.jpg')}/>
+                            <img src={require('../../assets/images/team/xander.jpg')}/>
                             <h4>Xander Weintraut</h4>
                             <hr />
                             <p><i>Developer</i></p>

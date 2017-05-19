@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
-import nonprofit from '../../styles/css/pages/nonprofit.scss';
-import common from '../../styles/css/pages/common.scss';
+import nonprofit from '../../assets/css/pages/nonprofit.scss';
+import common from '../../assets/css/pages/common.scss';
 
 const Nonprofit = () =>
 

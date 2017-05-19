@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { validateEmail, sendSubscription } from '../actions';
 import classNames from 'classnames';
-import common from '../styles/css/pages/common.scss';
-import main from '../styles/css/main.scss';
+import common from '../assets/css/pages/common.scss';
+import main from '../assets/css/main.scss';
 
 
 const SubscriptionContainer = () =>

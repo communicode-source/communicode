@@ -1,6 +1,6 @@
 import React from 'react';
-import main from '../../styles/css/main.scss';
-import footer from '../../styles/css/static/footer.scss';
+import main from '../../assets/css/main.scss';
+import footer from '../../assets/css/static/footer.scss';
 import classNames from 'classnames';
 
 const Footer = () =>
@@ -8,7 +8,7 @@ const Footer = () =>
         <div className={classNames('container', footer.wrap)}><div className="row">
 
             <div className="col-xs-4 col-sm-2">
-                <img id="icon" src={require('../../styles/images/logo/CLight.svg')} />
+                <img id="icon" src={require('../../assets/images/logo/CLight.svg')} />
             </div>
 
             <div className="col-xs-12 col-sm-6 hidden-xs">
@@ -25,7 +25,7 @@ const Footer = () =>
                     <li className={footer.socialLink}>
                         <h6>
                             <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/communicode.co">
-                                <span className="fa fa-instagram"></span>
+                                <span className="fa fa-instagram"/>
                             </a>
                         </h6>
                     </li>
@@ -36,7 +36,7 @@ const Footer = () =>
                     <li className={footer.socialLink}>
                         <h6>
                             <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-twitter"></span>
+                                <span className="fa fa-facebook"/>
                             </a>
                         </h6>
                     </li>

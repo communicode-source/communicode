@@ -8,14 +8,15 @@
     "build": "rimraf dist && ./node_modules/webpack/bin/webpack.js --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
     "bundle": "./node_modules/webpack/bin/webpack.js --config webpack.production.config.js",
-    "prestart": "npm run bundle"
+    "bundle-dev": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "prestart": "npm run bundle-dev"
   },
   "keywords": [
     "es6",
     "react",
     "redux"
   ],
-  "author": "Jean-Pierre Sierens",
+  "author": "Communicode LLC",
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",

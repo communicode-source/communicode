@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import common from '../../styles/css/pages/common.scss';
-import main from '../../styles/css/main.scss';
+import common from '../../assets/css/pages/common.scss';
+import main from '../../assets/css/main.scss';
 
 const Subscribe = () =>
     <div className="row">

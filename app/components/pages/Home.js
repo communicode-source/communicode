@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import home from '../../styles/css/pages/home.scss';
-import main from '../../styles/css/main.scss';
+import home from '../../assets/css/pages/home.scss';
+import main from '../../assets/css/main.scss';
 
 const primaryBtnClassnames = classNames(main['primary-btn'], main.btn, home.a);
 const darkBtnClassnames = classNames(main['dark-btn'], main['no-transition'], main.btn, home.a);
@@ -56,7 +56,7 @@ const Home = () =>
             </div>
             <div className={classNames('row', home['unified-section'])}>
                 <div className="col-md-12 col-sm-12 col-lg-6 hidden-sm hidden-xs">
-                    <img width="100%" src={require('../../styles/images/homepage/TripleBrowsers.png')}/>
+                    <img width="100%" src={require('../../assets/images/homepage/TripleBrowsers.png')}/>
                 </div>
                 <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
                     <h2>We're Creating a Revolution</h2>
@@ -67,34 +67,34 @@ const Home = () =>
                     <div className="row hidden-sm hidden-xs">
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-social-icon btn-facebook" href="https://facebook.com/communicode.co">
-                                <span className="fa fa-facebook"></span>
+                                <span className="fa fa-facebook"/>
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/communicode.co">
-                                <span className="fa fa-instagram"></span>
+                                <span className="fa fa-instagram"/>
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-twitter"></span>
+                                <span className="fa fa-twitter"/>
                             </a>
                         </div>
                     </div>
                     <div className="row hidden-lg hidden-md">
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-block btn-facebook" href="https://facebook.com/communicode.co">
-                                <span className="fa fa-facebook"></span>&nbsp;&nbsp;Follow us on Facebook
+                                <span className="fa fa-facebook"/>&nbsp;&nbsp;Follow us on Facebook
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-block btn-instagram" href="https://instagram.com/communicode.co">
-                                <span className="fa fa-instagram"></span>&nbsp;&nbsp;Follow us on Instagram
+                                <span className="fa fa-instagram"/>&nbsp;&nbsp;Follow us on Instagram
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-block btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-twitter"></span>&nbsp;&nbsp;Follow us on Twitter
+                                <span className="fa fa-twitter"/>&nbsp;&nbsp;Follow us on Twitter
                             </a>
                         </div>
                     </div>

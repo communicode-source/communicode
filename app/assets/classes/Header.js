@@ -1,4 +1,4 @@
-import header from '../../styles/css/static/header.scss';
+import header from '..//css/static/header.scss';
 import classNames from 'classnames';
 
 export const HEADER_NAV = classNames(header.nav);

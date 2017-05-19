@@ -1,5 +1,5 @@
 import React from 'react';
-import home from '../../styles/css/pages/home.scss';
+import home from '../../assets/css/pages/home.scss';
 import classNames from 'classnames';
 
 const Divider = () =>
