@@ -23,41 +23,40 @@ const Nonprofit = () =>
                         <center>
                             <h1>Let's Code Some Good.</h1>
                             <hr />
-                            <h3>As developers, we love passion-driven people like you. We’re here to help you find your next big project: build your skills, build your portfolio, and build your community.</h3>
+                            <h3>As entrepreneurs, we love your willingness to want to change the world. In the modern information age, that's impossible to do without the right technology.</h3>
                         </center>
                     </div>
                 </div>
             </div>
             <div id={common['more-info-good']} className="row">
-                <div id={common['info-background-1']} className="col-md-6 col-md-push-6"/>
+                <div id={common['info-background-nonprofit-1']} className="col-md-6 col-md-push-6"/>
                 <div className={classNames('col-md-6', 'col-md-pull-6', common['small-info-container'])}>
                     <center>
                         <div className={common['small-info']}>
-                            <h3>What do we do?</h3>
+                            <h3>How can we help?</h3>
                             <hr />
                             <p>
-                                Communicode is a communication platform. When you sign up, you tell us what type nonprofits
-                                you are interested in helping. We use these interests and your skills to deliver the best
-                                common matches to you. We provide the connection, you just have to do the reaching.
-                                Our thinking: the better and more interesting the matches you get, the more you will help.
-                                And the more you'll change the world.
+                                As entrepreneurs, we know that in modern times, it can be incredibly hard to juggle all the things it takes to run
+                                a nonprofit. But as programmers, we know that it is almost impossible to make a difference without a digital presence.
+                                Communicode connects your nonprofit with programmers and designers  who are interested in helping you and looking to
+                                expand their portfolio by volunteering their tech and creative skills.
                             </p>
                         </div>
                     </center>
                 </div>
             </div>
             <div id={common['more-info-good']} className="row">
-                <div id={common['info-background-2']} className={classNames('col-md-6')}/>
+                <div id={common['info-background-nonprofit-2']} className={classNames('col-md-6')}/>
                 <div className={classNames('col-md-6', common['small-info-container'])}>
                     <center>
                         <div className={common['small-info']}>
-                            <h3>Why should I volunteer?</h3>
+                            <h3>Why should I join?</h3>
                             <hr />
                             <p>
-                                In today's world, it's almost impossible to get a job without doing projects. Communicode gives
-                                you the opportunity to build a portfolio or work with new technology while simultaneously helping
-                                to modernize nonprofits. Need to show expertise in a new skill for a job? Get immediate hands on
-                                experience with it as you guide nonprofits into the 21<sup>st</sup> century.
+                                As we said before, it is almost impossible to grow and make an impact in the 21<sup>st</sup> century without having a <i>solid </i>
+                              online presence. Joining Communicode gives you easy access to programmers and designers who want to help you make that difference by volunteering
+                               their time in the most impactful way they can. You the nonprofit post projects (websites, mobile apps, advice, etc.) and we use machine learning
+                               algorithms to match you with the perfect volunteer. Easy peesy.
                             </p>
                         </div>
                     </center>

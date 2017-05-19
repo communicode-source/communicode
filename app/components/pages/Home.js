@@ -18,7 +18,7 @@ const Home = () =>
                 <div className={home['hero-text']}>
                     <h1>Let's Create Together.</h1>
                     <h3>Help change the world through the power of technology</h3>
-                    <Link to="/developers" className={primaryBtnClassnames}>Developers</Link>
+                    <Link to="/developers" className={primaryBtnClassnames}>Volunteers</Link>
                     <Link to="/nonprofits" className={darkBtnClassnames}>Nonprofits</Link>
                 </div>
             </center>
@@ -61,7 +61,8 @@ const Home = () =>
                 <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
                     <h2>We're Creating a Revolution</h2>
                     <p>
-                        Help do something that makes a real-world difference. Communicode will match you with causes you care about. Save job requests you are interested in and make a difference with the skills you have.
+                        Help create a real world difference. Communicode matches developers and designers with nonprofits to help carry out any design, branding, or technology needs.
+                        Follow us for more information and updates.
                     </p>
                     <div className="row hidden-sm hidden-xs">
                         <div className="col-md-4 col-xs-12">

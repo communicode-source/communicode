@@ -3,9 +3,12 @@
 
 .hero {
   background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url(https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0c68baec38ad565c4503c6635682d1c7) no-repeat center center;
-  background-size: cover;
   height: 500px;
   width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .hero-text {

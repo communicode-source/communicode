@@ -201,7 +201,7 @@ hr {
 }
 
 #info-background-1 {
-  background: linear-gradient(rgba(2255, 180, 46, 0.1), rgba(255, 180, 46, 0.1)), url('https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
   height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -210,7 +210,25 @@ hr {
 }
 
 #info-background-2 {
-  background: linear-gradient(rgba(2255, 180, 46, 0.1), rgba(255, 180, 46, 0.1)), url('https://images.unsplash.com/photo-1482745637430-91c0bbcea3e1?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1482745637430-91c0bbcea3e1?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  height: 400px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#info-background-nonprofit-1 {
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  height: 400px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#info-background-nonprofit-2 {
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1483808161634-29aa1b0e585e?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
   height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -482,6 +500,10 @@ legend {
 .input-container .mail-submit button {
   background: $yellow;
   color: $black;
+}
+
+.create-account {
+  padding: 30px;
 }
 
 .hiddenDesktop {

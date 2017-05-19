@@ -1,10 +1,11 @@
 import React from 'react';
 import main from '../../styles/css/main.scss';
 import footer from '../../styles/css/static/footer.scss';
+import classNames from 'classnames';
 
 const Footer = () =>
     <footer className={main.footer}>
-        <div className="container"><div className="row">
+        <div className={classNames('container', footer.wrap)}><div className="row">
 
             <div className="col-xs-4 col-sm-2">
                 <img id="icon" src={require('../../styles/images/logo/CLight.svg')} />
