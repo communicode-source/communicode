@@ -13,9 +13,9 @@ module.exports = {
     ],
     // Where you want the output to go
     output: {
-        path: path.join(__dirname, '/dist/'),
+        path: path.join(__dirname, 'dist', 'assets'),
         filename: '[name]-[hash].min.js',
-        publicPath: '/',
+        publicPath: '/assets',
     },
     plugins: [
         // webpack gives your modules and chunks ids to identify them. Webpack can vary the
@@ -29,7 +29,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'app/index.tpl.html',
             inject: 'body',
-            filename: 'index.html',
+            filename: '../index.html',
         }),
         // extracts the css from the js files and puts them on a separate .css file. this is for
         // performance and is used in prod environments. Styles load faster on their own .css

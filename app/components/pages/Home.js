@@ -66,34 +66,34 @@ const Home = () =>
                     </p>
                     <div className="row hidden-sm hidden-xs">
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-facebook" href="#">
+                            <a className="btn btn-social-icon btn-facebook" href="https://facebook.com/communicode.co">
                                 <span className="fa fa-facebook"></span>
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-instagram" href="#">
+                            <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/communicode.co">
                                 <span className="fa fa-instagram"></span>
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-twitter" href="#">
+                            <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
                                 <span className="fa fa-twitter"></span>
                             </a>
                         </div>
                     </div>
                     <div className="row hidden-lg hidden-md">
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-block btn-facebook" href="#">
+                            <a className="btn btn-block btn-facebook" href="https://facebook.com/communicode.co">
                                 <span className="fa fa-facebook"></span>&nbsp;&nbsp;Follow us on Facebook
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-block btn-instagram" href="#">
+                            <a className="btn btn-block btn-instagram" href="https://instagram.com/communicode.co">
                                 <span className="fa fa-instagram"></span>&nbsp;&nbsp;Follow us on Instagram
                             </a>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-block btn-twitter" href="#">
+                            <a className="btn btn-block btn-twitter" href="https://twitter.com/communicodeLLC">
                                 <span className="fa fa-twitter"></span>&nbsp;&nbsp;Follow us on Twitters
                             </a>
                         </div>
