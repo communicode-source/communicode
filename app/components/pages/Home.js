@@ -36,7 +36,7 @@ const Home = () =>
                         <hr />
                         <p>
                             Communicode matches designers and developers to causes they care about to help propel nonprofit technology into the 21<sup>st</sup>
-                             Century
+                          &nbsp; century
                         </p>
                         <center>
                             <Link to="/developers" className={infoTextButtonClassnames}>Learn More</Link>
@@ -55,15 +55,48 @@ const Home = () =>
                 </div>
             </div>
             <div className={classNames('row', home['unified-section'])}>
-                <div className="col-md-6">
+                <div className="col-md-12 col-sm-12 col-lg-6">
                     <img width="100%" src={require('../../styles/images/homepage/TripleBrowsers.png')}/>
                 </div>
-                <div className={classNames('col-md-6', home['unified-section'])}>
+                <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
                     <h2>We're Creating a Revolution</h2>
                     <p>
                         Help do something that makes a real-world difference. Communicode will match you with causes you care about. Save job requests you are interested in and make a difference with the skills you have.
                     </p>
-                    <Link href="#" className={darkBtnClassnames}>Join the Revolution</Link>
+                    <div className="row hidden-sm hidden-xs">
+                        <div className="col-md-4 col-xs-12">
+                            <a className="btn btn-social-icon btn-facebook" href="#">
+                                <span className="fa fa-facebook"></span>
+                            </a>
+                        </div>
+                        <div className="col-md-4 col-xs-12">
+                            <a className="btn btn-social-icon btn-instagram" href="#">
+                                <span className="fa fa-instagram"></span>
+                            </a>
+                        </div>
+                        <div className="col-md-4 col-xs-12">
+                            <a className="btn btn-social-icon btn-twitter" href="#">
+                                <span className="fa fa-twitter"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div className="row hidden-lg hidden-md">
+                        <div className="col-md-4 col-xs-12">
+                            <a className="btn btn-block btn-facebook" href="#">
+                                <span className="fa fa-facebook"></span>&nbsp;&nbsp;Follow us on Facebook
+                            </a>
+                        </div>
+                        <div className="col-md-4 col-xs-12">
+                            <a className="btn btn-block btn-instagram" href="#">
+                                <span className="fa fa-instagram"></span>&nbsp;&nbsp;Follow us on Instagram
+                            </a>
+                        </div>
+                        <div className="col-md-4 col-xs-12">
+                            <a className="btn btn-block btn-twitter" href="#">
+                                <span className="fa fa-twitter"></span>&nbsp;&nbsp;Follow us on Twitters
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className={classNames('row', home.features)}>

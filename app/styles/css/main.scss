@@ -434,11 +434,11 @@ button:focus {
 .primary-btn {
   border: 3px solid $yellow;
   background-color: $yellow;
-  color: $white;
+  color: $black;
 }
 
 .primary-btn:hover {
-  color: $white;
+  color: $black;
 }
 
 .default-btn {
@@ -447,7 +447,7 @@ button:focus {
 }
 
 .default-btn:hover {
-  background-color: #e4e3e1;
+  background-color: $black;
 }
 
 .light-btn {
@@ -466,8 +466,8 @@ button:focus {
 }
 
 .dark-btn:hover {
-  color: $black;
-  background-color: #e4e3e1 !important;
+  color: $white;
+  background-color: $black !important;
 }
 
 .dark-on-dark-btn {
