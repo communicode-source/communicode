@@ -24,7 +24,7 @@ const NotifyModal = () =>
                                 <div className={classNames('input-group', modal['input-container'])}>
                                     <span className={classNames('input-group-addon', modal['email-addon'])} id="basic-addon1"><i
                                         className={classNames('fa', 'fa-envelope-o', modal.i)} aria-hidden="true"/></span>
-                                    <input type="text" className={classNames('form-control', common.input, 'email')} value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;" required/>
+                                    <input type="text" className={classNames('form-control', common.input, 'email')} value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required/>
                                     <div style={{position: 'absolute', 'left': '-5000px'}} aria-hidden="true"><input type="text" name="b_bbb63083dbb4eed5b711d098c_9119f49dfd" tabIndex="-1" value="" /></div>
                                 </div>
                             </div>
