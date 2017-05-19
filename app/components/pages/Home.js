@@ -106,7 +106,7 @@ const Home = () =>
                     <hr />
                     <p>
                         Need a few more projects to create a portfolio? Communicode
-                        gives you the opportunity to expand your portfolio, completely free.
+                        gives you the opportunity to expand your portfolio, entirely free.
                     </p>
                 </div>
                 <div id={home['work-panel']} className={classNames('col-md-4', home['info-panel'])}>
