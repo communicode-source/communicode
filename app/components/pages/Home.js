@@ -35,7 +35,7 @@ const Home = () =>
                         <h2>Volunteers</h2>
                         <hr />
                         <p>
-                            Communicode matches designers and developers to causes they care about to help propel nonprofit technology into the 21<sup>st</sup>
+                            Communicode matches designers and programmers to causes they care about to help usher nonprofits into the 21<sup>st</sup>
                           &nbsp; century
                         </p>
                         <center>
@@ -47,7 +47,7 @@ const Home = () =>
                     <div className={home['info-text']}>
                         <h2>Nonprofits</h2>
                         <hr />
-                        <p>Communicode helps usher your nonprofit into the digital age with updated technology services from volunteers who care</p>
+                        <p>Communicode helps propel your nonprofit into the digital age by matching you with volunteers who share your same passion</p>
                         <center>
                             <Link to="/nonprofits" className={infoTextButtonClassnames}>Learn More</Link>
                         </center>
@@ -94,7 +94,7 @@ const Home = () =>
                         </div>
                         <div className="col-md-4 col-xs-12">
                             <a className="btn btn-block btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-twitter"></span>&nbsp;&nbsp;Follow us on Twitters
+                                <span className="fa fa-twitter"></span>&nbsp;&nbsp;Follow us on Twitter
                             </a>
                         </div>
                     </div>

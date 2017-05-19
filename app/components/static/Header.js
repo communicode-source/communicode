@@ -38,7 +38,7 @@ export default class Header extends React.Component {
                                     <Link className={styles.a} to="/about">About Us</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link className={styles.a} to="/developers">For Developers</Link>
+                                    <Link className={styles.a} to="/developers">For Volunteers</Link>
                                 </li>
                                 <li className="no-hover">
                                     <Link className={styles.a} to="/nonprofits">For Nonprofits</Link>

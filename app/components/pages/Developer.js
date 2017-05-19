@@ -23,7 +23,7 @@ const Developer = () =>
                         <center>
                             <h1>Let's Code Some Good.</h1>
                             <hr />
-                            <h3>As developers and designers, we love passion-driven people like you. We’re here to help you find your next big project: build your skills, build your portfolio, and build your community.</h3>
+                            <h3>As developers and designers, we love passion-driven people like you. We’re here to help you find your next big project, build your skills, build your portfolio, and build your community.</h3>
                         </center>
                     </div>
                 </div>

@@ -21,9 +21,9 @@ const Nonprofit = () =>
                 <div className="row">
                     <div className={classNames('col-md-12', common.mission)}>
                         <center>
-                            <h1>Let's Code Some Good.</h1>
+                            <h1>Let's Do Big Things.</h1>
                             <hr />
-                            <h3>As entrepreneurs, we love your willingness to want to change the world. In the modern information age, that's impossible to do without the right technology.</h3>
+                            <h3>As entrepreneurs, we love your willingness to change the world. In the modern era, that's impossible to do without the right technology.</h3>
                         </center>
                     </div>
                 </div>
@@ -36,7 +36,7 @@ const Nonprofit = () =>
                             <h3>How can we help?</h3>
                             <hr />
                             <p>
-                                As entrepreneurs, we know that in modern times, it can be incredibly hard to juggle all the things it takes to run
+                                As entrepreneurs, we know that in modern times it can be incredibly hard to juggle all the things it takes to run
                                 a nonprofit. But as programmers, we know that it is almost impossible to make a difference without a digital presence.
                                 Communicode connects your nonprofit with programmers and designers  who are interested in helping you and looking to
                                 expand their portfolio by volunteering their tech and creative skills.
@@ -53,9 +53,9 @@ const Nonprofit = () =>
                             <h3>Why should I join?</h3>
                             <hr />
                             <p>
-                                As we said before, it is almost impossible to grow and make an impact in the 21<sup>st</sup> century without having a <i>solid </i>
+                                As we said before, it is almost impossible to grow and make an impact nowadays without having a solid
                               online presence. Joining Communicode gives you easy access to programmers and designers who want to help you make that difference by volunteering
-                               their time in the most impactful way they can. You the nonprofit post projects (websites, mobile apps, advice, etc.) and we use machine learning
+                               their time in the most impactful way they can. You the nonprofit post projects (websites, mobile apps, advice, anything really) and we use machine learning
                                algorithms to match you with the perfect volunteer. Easy peesy.
                             </p>
                         </div>
