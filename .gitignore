@@ -39,5 +39,8 @@ ngrok
 # Webpack files
 dist/
 
+# Google Cloud Deploy
+deploy/
+
 # Intellij Idea project files
 .idea/

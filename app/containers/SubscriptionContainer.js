@@ -17,7 +17,7 @@ const SubscriptionContainer = () =>
                             <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
                             <div className={classNames('input-group', common['input-container'])}>
                                 <span className={classNames('input-group-addon', common['email-addon'])} id="basic-addon1"><i className="fa fa-envelope-o" aria-hidden="true"/></span>
-                                <input type="text" className={classNames('form-control', common.input, 'email')} value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;" required/>
+                                <input type="text" className={classNames('form-control', common.input, 'email')} value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" onFocus="if(this.value==this.defaultValue)this.value='';" onBlur="if(this.value=='')this.value=this.defaultValue;" required/>
                                 <div style={{position: 'absolute', 'left': '-5000px'}} aria-hidden="true"><input type="text" name="b_bbb63083dbb4eed5b711d098c_9119f49dfd" tabIndex="-1" value="" /></div>
                                 <span className={classNames('input-group-btn', common['mail-submit'])}>
                                     <button className={classNames('btn', main['primary-btn'], common.hiddenMobile)} type="submit">
