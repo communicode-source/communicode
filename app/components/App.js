@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import Header from './static/Header';
 import Footer from './static/Footer';
-import SubscriptionContainer from '../containers/SubscriptionContainer';
+import SubscribeComponent from './layout/SubscribeComponent';
 
 const App = ({children}) =>
     <div>
         <Header />
         {children}
-        <SubscriptionContainer />
+        <SubscribeComponent />
         <Footer />
     </div>;
 

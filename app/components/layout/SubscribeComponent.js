@@ -1,23 +1,25 @@
-import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { validateEmail, sendSubscription } from '../actions';
+import React from 'react';
 import classNames from 'classnames';
-import common from '../assets/css/pages/common.scss';
-import main from '../assets/css/main.scss';
+import common from '../../assets/css/pages/common.scss';
+import main from '../../assets/css/main.scss';
 
 
-const SubscriptionContainer = () =>
+const Subscribe = () =>
     <div className="row">
         <div className={classNames('col-md-12', common['create-account'])}>
             <center>
-                <div id="mc_embed_signup">
-                    <form action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
+                <div>
+                    <form action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
                         <div className={main.text}>
                             <h2>Convinced?</h2>
                             <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
                             <div className={classNames('input-group', common['input-container'])}>
-                                <span className={classNames('input-group-addon', common['email-addon'])} id="basic-addon1"><i className="fa fa-envelope-o" aria-hidden="true"/></span>
-                                <input type="text" className={classNames('form-control', common.input, 'email')} value="" name="EMAIL" id="mce-EMAIL" placeholder="Email Address" required/>
+                                <span className={classNames('input-group-addon', common['email-addon'])} id="basic-addon1">
+                                    <i className="fa fa-envelope-o" aria-hidden="true"/>
+                                </span>
+                                <div>
+                                    <input type="email" className={classNames('form-control', common.input, 'email')} name="EMAIL" placeholder="Email Address" required />
+                                </div>
                                 <div style={{position: 'absolute', 'left': '-5000px'}} aria-hidden="true"><input type="text" name="b_bbb63083dbb4eed5b711d098c_9119f49dfd" tabIndex="-1" value="" /></div>
                                 <span className={classNames('input-group-btn', common['mail-submit'])}>
                                     <button className={classNames('btn', main['primary-btn'], common.hiddenMobile)} type="submit">
@@ -49,26 +51,4 @@ const SubscriptionContainer = () =>
 </div>
 */
 
-SubscriptionContainer.propTypes = {
-    email: PropTypes.string,
-    onValidate: PropTypes.func,
-    onSubscribeSubmit: PropTypes.func
-};
-
-const mapStateToProps = (state) => {
-    return {
-        email: state.email
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onValidate: email => dispatch(validateEmail(email)),
-        onSubscribeSubmit: (event, email) => dispatch(sendSubscription(event, email))
-    };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SubscriptionContainer);
+export default Subscribe;
