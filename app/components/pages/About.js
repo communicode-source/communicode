@@ -50,7 +50,7 @@ const About = () =>
                         </div>
 
                         <div className={about['small-info']}>
-                            <h3>Free??!!</h3>
+                            <h3>Free!</h3>
                             <p>Communicode is completely free to use for developers and nonprofits. Our gift to you.</p>
                         </div>
                     </center>
@@ -92,73 +92,73 @@ const About = () =>
                     <h2>Our Staff</h2>
                     <hr />
                     <div id={about.staff}>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/trevor.jpg')}/>
                             <h4>Trevor Crupi</h4>
                             <hr />
                             <p><i>Communicode CEO</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/cooper.jpg')}/>
                             <h4>Cooper Campbell</h4>
                             <hr />
                             <p><i>Communicode CTO</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/sharon.jpg')}/>
                             <h4>Sharon Hoffman</h4>
                             <hr />
                             <p><i>Communicode COO</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/cam.jpg')}/>
                             <h4>Cam Todd<sup>TM</sup></h4>
                             <hr />
                             <p><i>VP of Marketing</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/alicia.jpg')}/>
                             <h4>Alicia Silhavy</h4>
                             <hr />
                             <p><i>Creative Director</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/christian.jpg')}/>
                             <h4>Christian Espinoza</h4>
                             <hr />
                             <p><i>Mobile Engineer</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/sami.jpg')}/>
                             <h4>Sami Fassnacht</h4>
                             <hr />
                             <p><i>Mobile Engineer</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/nick.jpg')}/>
                             <h4>Nick von Bulow</h4>
                             <hr />
                             <p><i>System Administrator</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/charles.jpg')}/>
                             <h4>Charles Engel</h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/daniel.jpg')}/>
                             <h4>Daniel Adelfinsky</h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/nich.jpg')}/>
                             <h4><a href="/poetry">Nich Dullam</a></h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
-                        <div className={about.person}>
+                        <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-xl-3')}>
                             <img src={require('../../styles/images/team/xander.jpg')}/>
                             <h4>Xander Weintraut</h4>
                             <hr />
