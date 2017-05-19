@@ -12,7 +12,7 @@ const Footer = () =>
             </div>
 
             <div className="col-xs-12 col-sm-6 hidden-xs">
-                <h6 className="copyright">©2015 Communicode</h6>
+                <h6 className="copyright">©2017 Communicode LLC</h6>
             </div>
 
             <div className="col-xs-2 col-sm-2 col-md-1">
@@ -46,28 +46,5 @@ const Footer = () =>
         </div></div>
     </footer>;
 
-/*
-
- /*
- <div className="col-xs-4 col-sm-2">
- <ul>
- <li><h6><a href="#">Log In</a></h6></li>
- <li><h6><a href="#">Register</a></h6></li>
- <li><h6><a href="#">About Us</a></h6></li>
- <li><h6><a href="#">FAQs</a></h6></li>
- </ul>
- </div>
- <div className="col-xs-4 col-sm-2">
- <ul>
- <li><h6><a href="#">Contact</a></h6></li>
- <li><h6><a href="#">Sitemap</a></h6></li>
- <li><h6><a href="#">Terms of Use</a></h6></li>
- <li><h6><a href="#">Privacy Policy</a></h6></li>
- </ul>
- </div>
- <div className="col-xs-12 col-sm-6 hidden-xs">
- <h6 className="copyright">©2017 Communicode</h6>
- </div>
- */
 
 export default Footer;

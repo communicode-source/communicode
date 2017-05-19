@@ -36,7 +36,7 @@ const Developer = () =>
                             <h3>What do we do?</h3>
                             <hr />
                             <p>
-                                Communicode is a communication platform. When you sign up, you tell us what type nonprofits
+                                Communicode is a communication platform. When you sign up, you tell us what type of nonprofits
                                 you are interested in helping. We use these interests and your skills to deliver the best
                                 nonprofit matches to you. We provide the connection, you just have to do the reaching.
                                 Our thinking: the better and more interesting the matches you get, the more you will help.
@@ -57,7 +57,7 @@ const Developer = () =>
                                 In today's world, it's almost impossible to get a job without doing projects. Communicode gives
                                 you the opportunity to build a portfolio or work with new technology while simultaneously helping
                                 to modernize nonprofits. Need to show expertise in a new skill for a job? Get immediate hands on
-                                experience with it as you guide nonprofits into the 21<sup>st</sup> century.
+                                experience with it as you guide nonprofits through the maze that is the internet.
                             </p>
                         </div>
                     </center>

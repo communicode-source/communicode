@@ -11,7 +11,7 @@ const Nonprofit = () =>
             <center>
                 <div className={common['hero-text']}>
                     <h1>For Nonprofits</h1>
-                    <h3>Connect to talented developers and grow your common.</h3>
+                    <h3>Connect to talented tech volunteers and expand your influence.</h3>
                 </div>
             </center>
         </div>
@@ -55,7 +55,7 @@ const Nonprofit = () =>
                             <p>
                                 As we said before, it is almost impossible to grow and make an impact nowadays without having a solid
                               online presence. Joining Communicode gives you easy access to programmers and designers who want to help you make that difference by volunteering
-                               their time in the most impactful way they can. You the nonprofit post projects (websites, mobile apps, advice, anything really) and we use machine learning
+                               their time in the most impactful way they can. You, the nonprofit, post projects (websites, mobile apps, advice, anything really) and we use machine learning
                                algorithms to match you with the perfect volunteer. Easy peesy.
                             </p>
                         </div>

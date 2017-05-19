@@ -55,13 +55,13 @@ const Home = () =>
                 </div>
             </div>
             <div className={classNames('row', home['unified-section'])}>
-                <div className="col-md-12 col-sm-12 col-lg-6">
+                <div className="col-md-12 col-sm-12 col-lg-6 hidden-sm hidden-xs">
                     <img width="100%" src={require('../../styles/images/homepage/TripleBrowsers.png')}/>
                 </div>
                 <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
                     <h2>We're Creating a Revolution</h2>
                     <p>
-                        Help create a real world difference. Communicode matches developers and designers with nonprofits to help carry out any design, branding, or technology needs.
+                        Let's make an impact together. Communicode matches developers and designers with nonprofits to help carry out any design, branding, or technology needs.
                         Follow us for more information and updates.
                     </p>
                     <div className="row hidden-sm hidden-xs">
