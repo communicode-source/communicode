@@ -8,7 +8,7 @@ import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
 
 export default (
-    <Route path="/" component={App}>
+    <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="/about" component={About}/>
         <Route path="/developers" component={Developers} />

@@ -17,6 +17,12 @@
   padding-top: 160px;
 }
 
+@media (max-device-width: 768px) {
+  .hero-text {
+    padding-top: 100px !important;
+  }
+}
+
 .hero h1 {
   color: #F2F2F2;
   font-size: 60px;
@@ -187,9 +193,7 @@
     @media (max-width: 767px) { ... }*/
 /* Landscape phones and down */
 @media (max-width: 480px) {
-  .hero-text {
-    margin-top: 100px;
-  }
+
 }
 
 /* Overlay style */
