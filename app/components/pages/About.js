@@ -66,7 +66,7 @@ const About = () =>
                         machine learning software to match you with nonprofits and projects that most interest you. Help develop and design websites,
                         apps, logos, and anything else that will help launch nonprofits into the 21<sup>st</sup> century.
                     </p>
-                    <Link href="#" className={primaryBtnClassnames}>Developers</Link>
+                    <Link href="/developers" className={primaryBtnClassnames}>Developers</Link>
                 </div>
                 <div className={classNames('col-md-6', about['more-info'])}>
                     <h2>Nonprofits</h2>
@@ -76,7 +76,7 @@ const About = () =>
                         information age it's almost impossible to make a deep impact on the world without the right technology. Communicode allows you to
                         post tech projects you need completed and matches you up with a developer who can do it.
                     </p>
-                    <Link href="#" className={darkBtnClassnames}>Nonprofits</Link>
+                    <Link href="/nonprofits" className={darkBtnClassnames}>Nonprofits</Link>
                 </div>
             </div>
             <div id={about['for-good']} className="row">
