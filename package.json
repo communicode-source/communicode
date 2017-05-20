@@ -9,9 +9,8 @@
     "eslint": "eslint .",
     "bundle": "./node_modules/webpack/bin/webpack.js --config webpack.production.config.js",
     "bundle-dev": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
-    "deploy": "npm run bundle && gcloud app deploy app.yaml --no-promote",
-    "deploy-production": "npm run bundle && gcloud app deploy app.yaml --promote",
-    "prestart": "npm run bundle-dev"
+    "deploy": "npm run build && gcloud app deploy app.yaml --no-promote",
+    "deploy-production": "npm run build && gcloud app deploy app.yaml --promote"
   },
   "keywords": [
     "es6",

@@ -4,8 +4,14 @@ import CLogoLight from '../../assets/images/logo/CLight.svg';
 import styles from '../../assets/css/static/header.scss';
 import NotifyModal from '../modals/NotifyModal.js';
 import NativeListener from 'react-native-listener';
+import classNames from 'classnames';
 
-import * as classes from '../../assets/classes/Header';
+const headerNavClassnames = classNames(styles.nav);
+const navLogoClassnames = classNames('pull-left logo', styles.a);
+
+const headerNavCollapseClassnames = classNames('collapse', 'navbar-collapse', styles['collapse-container']);
+const headerButtonCollapseClassnames  = classNames('icon-bar', styles['collapse-button']);
+
 
 export default class Header extends React.Component {
 
@@ -16,23 +22,23 @@ export default class Header extends React.Component {
     render() {
         return (
             <div>
-                <nav className={classes.HEADER_NAV}>
+                <nav className={headerNavClassnames}>
                     <div className="container">
 
                         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
-                            <span className={classes.HEADER_BUTTON_COLLAPSE}></span>
-                            <span className={classes.HEADER_BUTTON_COLLAPSE}></span>
-                            <span className={classes.HEADER_BUTTON_COLLAPSE}></span>
+                            <span className={headerButtonCollapseClassnames}/>
+                            <span className={headerButtonCollapseClassnames}/>
+                            <span className={headerButtonCollapseClassnames}/>
                         </button>
 
                         <ul className={styles.left}>
                             <li className="no-hover">
-                                <Link to="/" className={classes.NAV_LOGO}>
+                                <Link to="/" className={navLogoClassnames}>
                                     <img className={styles.logo} src={CLogoLight}/>
                                 </Link>
                             </li>
                         </ul>
-                        <div className={classes.HEADER_NAV_COLLAPSE} id="mainNav">
+                        <div className={headerNavCollapseClassnames} id="mainNav">
                             <ul className="nav navbar-nav navbar-left">
                                 <li className="no-hover">
                                     <Link className={styles.a} to="/about">About Us</Link>
