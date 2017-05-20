@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "rimraf dist && ./node_modules/webpack/bin/webpack.js --config ./webpack.production.config.js --progress --profile --colors",
+    "build": "./node_modules/webpack/bin/webpack.js --config ./webpack.production.config.js --progress --profile --colors",
     "eslint": "eslint .",
     "bundle": "./node_modules/webpack/bin/webpack.js --config webpack.production.config.js",
     "bundle-dev": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
@@ -50,7 +50,10 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^5.0.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "favicons-webpack-plugin": "^0.0.7",
     "html-webpack-plugin": "^2.16.1",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-webpack-plugin": "^1.4.4",
     "json-loader": "^0.5.4",
     "node-sass": "^3.7.0",
     "postcss-loader": "^0.9.1",
@@ -64,6 +67,7 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
+    "webpack-cleanup-plugin": "^0.5.1",
     "webpack-dev-server": "^1.14.1"
   }
 }

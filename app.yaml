@@ -3,6 +3,7 @@ api_version: 1
 threadsafe: false
 
 handlers:
+# todo: add headers to leverage browser caching
 - url: /assets
   static_dir: dist/assets
   secure: always
