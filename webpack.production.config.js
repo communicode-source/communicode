@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
@@ -13,9 +14,9 @@ module.exports = {
     ],
     // Where you want the output to go
     output: {
-        path: path.join(__dirname, 'dist', 'assets'),
-        filename: '[name]-[hash].min.js',
-        publicPath: '/assets/',
+        path: path.join(__dirname, 'dist'),
+        filename: 'assets/[name]-[hash].min.js',
+        publicPath: '/',
     },
     plugins: [
         // webpack gives your modules and chunks ids to identify them. Webpack can vary the
@@ -23,18 +24,36 @@ module.exports = {
         // this plugin
         new webpack.optimize.OccurenceOrderPlugin(),
 
+        // copies files from one place to another
+        new CopyWebpackPlugin([
+            {
+                // copy all of the manifest icons into the assets folder
+                from: 'app/assets/images/manifest-icons',
+                to: 'assets'
+            },
+            {
+                // 404 error page handler
+                from: 'app/404.py'
+            }
+        ]),
+
         // handles creating an index.html file and injecting assets. necessary because assets
         // change name because the hash part changes. We want hash name changes to bust cache
         // on client browsers.
         new HtmlWebpackPlugin({
             template: 'app/index.tpl.html',
             inject: 'body',
-            filename: '../index.html',
+            filename: 'index.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: 'app/index.tpl.html',
+            inject: 'body',
+            filename: '404.html',
         }),
         // extracts the css from the js files and puts them on a separate .css file. this is for
         // performance and is used in prod environments. Styles load faster on their own .css
         // file as they dont have to wait for the JS to load.
-        new ExtractTextPlugin('[name]-[hash].min.css'),
+        new ExtractTextPlugin('assets/[name]-[hash].min.css'),
         // handles uglifying js
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
@@ -86,16 +105,9 @@ module.exports = {
             test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
             loader: 'url?limit=10000&mimetype=application/font-woff',
         }, {
-            test: /\.(ttf|eot|svg)(\?[a-z0-9#=&.]+)?$/,
-            loader: 'file',
-        },
-            {
-                test: /\.(jpg|png)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[hash].[ext]',
-                },
-            }],
+            test: /\.(jpg|png|ttf|eot|svg)$/,
+            loader: 'file-loader?name=assets/[hash].[ext]',
+        }],
     },
     postcss: [
         require('autoprefixer'),

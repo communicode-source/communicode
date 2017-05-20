@@ -1,14 +1,29 @@
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: false
 
 handlers:
-- url: /assets/(.*)
-  static_files: dist/assets/\1
-  upload: dist/assets/(.*)
+- url: /assets
+  static_dir: dist/assets
   secure: always
 
-- url: /.*
+- url: /($|about|developers|nonprofits|poetry)
   static_files: dist/index.html
   upload: dist/index.html
   secure: always
+
+- url: /.*
+  script: dist/404.py
+  secure: always
+
+skip_files:
+- ^app/
+- ^node_modules/
+- ^package.json
+- ^README.md
+- ^LICENSE
+- ^server.js
+- ^webpack.config.js
+- ^webpack.production.config.js
+- ^yarn.lock
+- ^[.]
