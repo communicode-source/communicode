@@ -8,9 +8,7 @@ export default class Root extends Component {
         const {store, history} = this.props;
         return (
             <Provider store={store}>
-                <div>
-                    <Router history={history} routes={routes} onUpdate={() => window.scrollTo(0, 0)}/>
-                </div>
+                <Router history={history} routes={routes} onUpdate={() => window.scrollTo(0, 0)}/>
             </Provider>
         );
     }

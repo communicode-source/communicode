@@ -12,6 +12,7 @@ var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var ImageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
+    bail: true,
     // The entry file. All your app roots fromn here.
     entry: [
         path.join(__dirname, 'app/index.js'),
