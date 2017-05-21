@@ -7,7 +7,7 @@ import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
 import NotFoundPage from './components/pages/NotFound';
 
-export default (
+export const routes = (
     <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="/about" component={About}/>
@@ -16,3 +16,5 @@ export default (
         <Route path="*" component={NotFoundPage}/>
     </Route>
 );
+
+export default routes;

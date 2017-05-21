@@ -2,12 +2,15 @@ import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
 import SubscribeComponent from '../layout/SubscribeComponent';
+import Title from 'react-title-component';
+
 import dev from '../../assets/css/pages/developer.scss';
 import common from '../../assets/css/pages/common.scss';
 
 const Developer = () =>
 
     <div>
+        <Title render={parentTitle => `Developers | ${parentTitle}`}/>
         <div className={classNames('container-fluid', common.hero, dev.hero)}>
             <center>
                 <div className={common['hero-text']}>

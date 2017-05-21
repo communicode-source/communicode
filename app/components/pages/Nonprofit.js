@@ -2,12 +2,15 @@ import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
 import SubscribeComponent from '../layout/SubscribeComponent';
+import Title from 'react-title-component';
+
 import nonprofit from '../../assets/css/pages/nonprofit.scss';
 import common from '../../assets/css/pages/common.scss';
 
 const Nonprofit = () =>
 
     <div>
+        <Title render={parentTitle => `Nonprofits | ${parentTitle}`}/>
         <div className={classNames('container-fluid', common.hero, nonprofit.hero)}>
             <center>
                 <div className={common['hero-text']}>

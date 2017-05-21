@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
 import SubscribeComponent from '../layout/SubscribeComponent';
+import Title from 'react-title-component';
 
 import about from '../../assets/css/pages/about.scss';
 import home from '../../assets/css/pages/home.scss';
@@ -14,6 +15,7 @@ const darkBtnClassnames = classNames(main['dark-btn'], main['no-transition'], ma
 const About = () =>
 
     <div>
+        <Title render={parentTitle => `About Us | ${parentTitle}`}/>
         <div className={classNames('container-fluid', about.hero)}>
             <center>
                 <div className={about['hero-text']}>

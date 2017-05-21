@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import SubscribeComponent from '../layout/SubscribeComponent';
+import Title from 'react-title-component';
 
 import classNames from 'classnames';
 import home from '../../assets/css/pages/home.scss';
@@ -15,6 +16,7 @@ const infoTextButtonClassnames = classNames(main['primary-btn'], main['btn-small
 const Home = () =>
 
     <div>
+        <Title render={parentTitle => `${parentTitle}`}/>
         <div className={classNames(home['container-fluid'], home.hero)}>
             <center>
                 <div className={home['hero-text']}>

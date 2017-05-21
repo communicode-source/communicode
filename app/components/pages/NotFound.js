@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
+import Title from 'react-title-component';
 
 import main from '../../assets/css/main.scss';
 
@@ -10,6 +11,7 @@ import styles from '../../assets/css/pages/notfound.scss';
 
 const NotFound = () =>
     <div id={styles['error-page']}>
+        <Title render={parentTitle => `Page Not Found | ${parentTitle}`}/>
         <div className="container-fluid" id={styles['error-page-container']}>
             <div className="row">
                 <center><span id={styles['error-404']}>404</span></center>

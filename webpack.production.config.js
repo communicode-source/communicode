@@ -10,6 +10,8 @@ var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var ImageminMozjpeg = require('imagemin-mozjpeg');
+var SitemapPlugin = require('sitemap-webpack-plugin');
+var ReactRouterPathExtractorPlugin = require('react-router-path-extractor-webpack-plugin');
 
 module.exports = {
     bail: true,
@@ -108,6 +110,15 @@ module.exports = {
             ]
 
         }),
+        new ReactRouterPathExtractorPlugin('./app/routes.js', function(paths, routes) {
+            paths.splice(paths.indexOf('/nomatch'), 1);
+            return [
+                new SitemapPlugin('https://communicode.co', paths, {
+                    skipGzip: true,
+                    changeFreq: 'hourly'
+                })
+            ];
+        })
         /*
         new WebpackCleanupPlugin( {
             exclude: ['assets/icons/*']
@@ -143,7 +154,8 @@ module.exports = {
             test: /\.scss$/,
             // we extract the styles into their own .css file instead of having
             // them inside the js.
-            loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'),
+            // loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'),
+            loader: 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'
         }, {
             test: /\.woff(2)?(\?[a-z0-9#=&.]+)?$/,
             loader: 'url?limit=10000&mimetype=application/font-woff',
