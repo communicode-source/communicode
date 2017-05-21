@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
+import SubscribeComponent from '../layout/SubscribeComponent';
 import nonprofit from '../../assets/css/pages/nonprofit.scss';
 import common from '../../assets/css/pages/common.scss';
 
@@ -63,6 +64,7 @@ const Nonprofit = () =>
                 </div>
             </div>
         </div>
+        <SubscribeComponent/>
     </div>;
 
 export default Nonprofit;

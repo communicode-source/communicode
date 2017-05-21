@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
+import SubscribeComponent from '../layout/SubscribeComponent';
+
 import about from '../../assets/css/pages/about.scss';
 import home from '../../assets/css/pages/home.scss';
 import main from '../../assets/css/main.scss';
@@ -112,7 +114,7 @@ const About = () =>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
                             <img src={require('../../assets/images/team/cam.jpg')}/>
-                            <h4>Cam Todd<sup>TM</sup></h4>
+                            <h4>Cam Todd</h4>
                             <hr />
                             <p><i>VP of Marketing</i></p>
                         </div>
@@ -154,7 +156,7 @@ const About = () =>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
                             <img src={require('../../assets/images/team/nich.jpg')}/>
-                            <h4><a href="/poetry">Nich Dullam</a></h4>
+                            <h4><Link to="/poetry">Nich Dullam</Link></h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
@@ -168,6 +170,7 @@ const About = () =>
                 </div>
             </div>
         </div>
+        <SubscribeComponent/>
     </div>;
 
 export default About;

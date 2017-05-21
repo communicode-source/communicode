@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import SubscribeComponent from '../layout/SubscribeComponent';
+
 import classNames from 'classnames';
 import home from '../../assets/css/pages/home.scss';
 import main from '../../assets/css/main.scss';
@@ -127,7 +129,8 @@ const Home = () =>
                     </p>
                 </div>
             </div>
-        </div>;
+        </div>
+        <SubscribeComponent/>
     </div>;
 
 export default Home;

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Divider from '../layout/Divider';
+import SubscribeComponent from '../layout/SubscribeComponent';
 import dev from '../../assets/css/pages/developer.scss';
 import common from '../../assets/css/pages/common.scss';
 
@@ -64,6 +65,7 @@ const Developer = () =>
                 </div>
             </div>
         </div>
+        <SubscribeComponent/>
     </div>;
 
 export default Developer;

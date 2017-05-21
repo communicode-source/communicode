@@ -36,7 +36,7 @@ const Footer = () =>
                     <li className={footer.socialLink}>
                         <h6>
                             <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-facebook"/>
+                                <span className="fa fa-twitter"/>
                             </a>
                         </h6>
                     </li>

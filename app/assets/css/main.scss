@@ -29,7 +29,8 @@ body {
 }
 
 #content-main {
-  flex: 1
+  flex: 1;
+  padding-top: 50px; // to offset the 50px height of the navbar
 }
 
 /*---------------------------------------
