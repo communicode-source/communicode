@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import common from '../styles/css/pages/common.scss';
 import main from '../styles/css/main.scss';
 
-
 const SubscriptionContainer = ( props ) => {
     let input;
 
@@ -64,7 +63,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SubscriptionContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SubscriptionContainer);

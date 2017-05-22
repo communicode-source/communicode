@@ -6,7 +6,7 @@ import SubscriptionContainer from '../containers/SubscriptionContainer';
 const App = ({children}) =>
     <div>
         <Header />
-        {children}
+            {children}
         <SubscriptionContainer />
         <Footer />
     </div>;

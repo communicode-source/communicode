@@ -22,10 +22,16 @@ export function sendSubscription(event, email) {
     };
 }
 
-export function registerLocalUser(event, user) {
-    event.preventDefault();
+export function registerLocalUser(user) {
     return {
         type: types.LOCAL_REGISTER_CLICK,
+        data: user
+    };
+}
+
+export function registerGoogleUser(user) {
+    return {
+        type: types.GOOGLE_REGISTER_CLICK,
         data: user
     };
 }
@@ -41,5 +47,12 @@ export function validatePassword(password) {
     return {
         type: types.VALIDATE_PASSWORD,
         password
+    };
+}
+
+export function getProjectFeed(id) {
+    return {
+        type: types.GET_FEED,
+        id
     };
 }
