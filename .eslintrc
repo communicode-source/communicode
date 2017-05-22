@@ -38,7 +38,7 @@
     /**
      * Variables
      */
-    "no-shadow": 2,
+    "no-shadow": 0,
     // http://eslint.org/docs/rules/no-shadow
     "no-shadow-restricted-names": 2,
     // http://eslint.org/docs/rules/no-shadow-restricted-names
@@ -52,7 +52,7 @@
         "args": "after-used"
       }
     ],
-    "no-use-before-define": 2,
+    "no-use-before-define": 0,
     // http://eslint.org/docs/rules/no-use-before-define
 
     /**

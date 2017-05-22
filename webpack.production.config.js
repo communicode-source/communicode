@@ -10,11 +10,8 @@ var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var ImageminMozjpeg = require('imagemin-mozjpeg');
-var SitemapPlugin = require('sitemap-webpack-plugin');
-var ReactRouterPathExtractorPlugin = require('react-router-path-extractor-webpack-plugin');
 
 module.exports = {
-    bail: true,
     // The entry file. All your app roots fromn here.
     entry: [
         path.join(__dirname, 'app/index.js'),
@@ -31,26 +28,18 @@ module.exports = {
         // this plugin
         new webpack.optimize.OccurenceOrderPlugin(),
 
-        // copies files from one place to another
-        new CopyWebpackPlugin([
-            {
-                // 404 error page handler
-                from: 'app/404.py'
-            }
-        ]),
-
         // handles creating an index.html file and injecting assets. necessary because assets
         // change name because the hash part changes. We want hash name changes to bust cache
         // on client browsers.
         new HtmlWebpackPlugin({
-            template: 'app/index.tpl.html',
+            template: 'html-loader!app/index.ejs.html',
             inject: 'body',
-            filename: 'index.html',
+            filename: 'index.ejs.html',
         }),
         new HtmlWebpackPlugin({
             template: 'app/index.tpl.html',
             inject: 'body',
-            filename: '404.html',
+            filename: 'index.html',
         }),
         new FaviconsWebpackPlugin({
             logo: './app/assets/images/logo/C.png',
@@ -109,23 +98,7 @@ module.exports = {
                 })
             ]
 
-        }),
-        /*
-        new ReactRouterPathExtractorPlugin('./app/routes.js', function(paths, routes) {
-            paths.splice(paths.indexOf('/nomatch'), 1);
-            return [
-                new SitemapPlugin('https://communicode.co', paths, {
-                    skipGzip: true,
-                    changeFreq: 'hourly'
-                })
-            ];
         })
-        */
-        /*
-        new WebpackCleanupPlugin( {
-            exclude: ['assets/icons/*']
-        })
-        */
     ],
 
     // ESLint options
