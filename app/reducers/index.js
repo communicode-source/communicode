@@ -22,12 +22,28 @@ const subscription = (state = '', action) => {
     }
 };
 
-const register = (state = '', action) => {
+const user = (state = '', action) => {
+    switch(action.type) {
+        case types.ADD_LOCAL_USER_SUCCESS:
+            return action.data;
+        case types.ADD_LOCAL_USER_FAILED:
+            return false;
+        default:
+            return state;
+    }
+};
+
+const error = (state = '', action) => {
     switch(action.type) {
         case action.VALIDATE_EMAIL:
             return action.email;
         case action.VALIDATE_PASSWORD:
             return action.password;
+        case types.ADD_LOCAL_USER_FAILED:
+            return action.error;
+        case types.ADD_LOCAL_USER_SUCCESS:
+            action.error = '';
+            return action.error;
         default:
             return state;
     }
@@ -36,7 +52,8 @@ const register = (state = '', action) => {
 const rootReducer = combineReducers({
     subscription,
     filter,
-    register,
+    user,
+    error,
     routing,
 });
 

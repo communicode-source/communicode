@@ -1,5 +1,5 @@
-@import 'colors';
-@import 'fonts';
+@import './fonts.scss';
+@import './colors.scss';
 
 /** BACKGROUNDS **/
 /* --------------------------------------
@@ -9,8 +9,7 @@
 -----------------------------------------*/
 html {
   height: 100%;
-  overflow-x: hidden;
-}
+  overflow-x: hidden; }
 
 body {
   /* height: 100%; */
@@ -37,379 +36,180 @@ body {
    Typography
 -----------------------------------------*/
 /* HEADINGS */
-h1, h2, h3, h4, h5, h6 {
-  color: $black;
-}
-
 h1 {
-  font-family: $font-stack;
+  font-family: 'Montserrat', sans-serif;
   font-size: 40px;
-  text-align: center;
-}
+  text-align: center; }
 
 h2 {
-  font-family: $font-stack;
+  font-family: 'Montserrat', sans-serif;
   font-size: 32px;
-  text-align: center;
-}
+  text-align: center; }
 
 h3 {
-  font-family: $font-stack;
-  font-size: 24px;
-}
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px; }
 
 h4 {
-  font-size: 18px;
-}
+  font-size: 18px; }
 
 h5 {
-  font-size: 16px;
-}
+  font-size: 16px; }
 
 h6 {
-  font-family: $font-stack;
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 p {
-  font-size: 12px;
-}
+  font-size: 12px; }
 
 /*---------------------------------------
    LINKS
 -----------------------------------------*/
 a {
-  color: #777777;
-}
+  color: #777777; }
 
 a:hover {
   text-decoration: underline;
-  color: #777777;
-}
+  color: #777777; }
 
 a.darklink {
-  color: $black;
-}
+  color: #333333; }
 
 a.darklink:hover {
   text-decoration: none;
-  color: #000000;
-}
+  color: #000000; }
 
 /* Move stuff below Navbar */
+.content {
+  margin-top: 50px; }
 
-/*
- *
- * login-register modal
- * Autor: Creative Tim
- * Web-autor: creative.tim
- * Web script: http://creative-tim.com
- *
- */
+/*---------------------------------------
+   FORMS
+-----------------------------------------*/
+form .title {
+  border-top: 1px solid #E6E6E6;
+  padding: 25px;
+  text-align: center; }
 
-/*  Shake animation  */
+form .title h6 {
+  line-height: 16px;
+  font-weight: normal;
+  color: #777;
+  margin-bottom: 0;
+  font-size: 13px; }
 
-@charset "UTF-8";
-
-.animated {
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
-  -o-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-.animated.hinges {
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
-}
-
-.animated.slow {
-  -webkit-animation-duration: 3s;
-  -moz-animation-duration: 3s;
-  -o-animation-duration: 3s;
-  animation-duration: 3s;
-}
-
-.animated.snail {
-  -webkit-animation-duration: 4s;
-  -moz-animation-duration: 4s;
-  -o-animation-duration: 4s;
-  animation-duration: 4s;
-}
-
-@-webkit-keyframes shake {
-  0%, 100% {
-    -webkit-transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
-    -webkit-transform: translateX(10px);
-  }
-}
-
-@-moz-keyframes shake {
-  0%, 100% {
-    -moz-transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    -moz-transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
-    -moz-transform: translateX(10px);
-  }
-}
-
-@-o-keyframes shake {
-  0%, 100% {
-    -o-transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    -o-transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
-    -o-transform: translateX(10px);
-  }
-}
-
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-10px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(10px);
-  }
-}
-
-.shake {
-  -webkit-animation-name: shake;
-  -moz-animation-name: shake;
-  -o-animation-name: shake;
-  animation-name: shake;
-}
-
-.login #fname {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-right: 1px solid #e6e6e6;
-}
-
-.login #lname {
-
-}
-
-.login .modal-dialog {
-  width: 400px;
-}
-
-.login .modal-footer {
-  border-top: 0;
-  margin-top: 0;
-  padding: 10px 20px 20px;
-}
-
-.login .modal-header {
-  border: 0 none;
-  padding: 15px 15px 15px;
-  /*     padding: 11px 15px; */
-}
-
-.login .modal-body {
-  /*     background-color: #eeeeee; */
-}
-
-.registerBox {
-  padding-top: 0;
-}
-
-.login .division {
-  float: none;
-  margin: 0 auto 18px;
+#form-container {
   overflow: hidden;
-  position: relative;
-  text-align: center;
+  /* border: 3px solid #333333; */
+  background-color: #e4e3e1;
+  /*border-radius: 5px;
+    box-shadow: 0px 0px 30px #333;*/ }
+
+.modal-content input {
+  color: #333; }
+
+.modal-body {
+  padding: 0px; }
+
+.modal-title {
+  color: #333; }
+
+.step {
+  margin-top: 15% !important; }
+
+form h1 {
+  font-size: 18px;
+  margin: 0; }
+
+input, select {
   width: 100%;
-}
-
-.login .division .line {
-  border-top: 1px solid #DFDFDF;
-  position: absolute;
-  top: 10px;
-  width: 34%;
-}
-
-.login .division .line.l {
-  left: 0;
-}
-
-.login .division .line.r {
-  right: 0;
-}
-
-.login .division span {
-  color: #424242;
-  font-size: 17px;
-}
-
-.login .box .social {
-  float: none;
-  margin: 0 auto 30px;
-  text-align: center;
-}
-
-.login .social .circle {
-  background-color: #EEEEEE;
-  color: #FFFFFF;
-  border-radius: 100px;
-  display: inline-block;
-  margin: 0 17px;
-  padding: 15px;
-}
-
-.login .social .circle .fa {
-  font-size: 16px;
-}
-
-.login .social .facebook {
-  background-color: #455CA8;
-  color: #FFFFFF;
-}
-
-.login .social .google {
-  background-color: #F74933;
-}
-
-.login .social .github {
-  background-color: #403A3A;
-}
-
-.login .facebook:hover {
-  background-color: #6E83CD;
-}
-
-.login .google:hover {
-  background-color: #FF7566;
-}
-
-.login .github:hover {
-  background-color: #4D4D4d;;
-}
-
-.login .forgot {
-  color: #797979;
-  margin-left: 0;
-  overflow: hidden;
-  text-align: center;
-  width: 100%;
-}
-
-.login .btn-login, .registerDeveloperBox .btn-register, .registerNonprofitBox .btn-register {
-  background-color: $yellow;
-  border-color: $yellow;
-  border-width: 0;
-  color: $black;
-  display: block;
-  margin: 0 auto;
-  padding: 15px;
-  text-transform: uppercase;
-  width: 100%;
-}
-
-.login .btn-login:hover, .registerDeveloperBox .btn-register:hover, .registerNonprofitBox .btn-register:hover {
-  background-color: #ffc02e;
-  color: $black;
-}
-
-.login .form-control {
-  border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0.09);
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.09) inset;
-  color: #FFFFFF;
-}
-
-.login .form-control:hover {
-  background-color: rgba(0, 0, 0, .16);
-}
-
-.login .form-control:focus {
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.04) inset;
-  background-color: rgba(0, 0, 0, 0.23);
-  color: #FFFFFF;
-}
-
-.login .box .form input[type="text"], .login .box .form input[type="password"] {
-  border-radius: 3px;
   border: none;
-  color: $black;
-  font-size: 16px;
-  height: 46px;
-  margin-bottom: 5px;
-  padding: 13px 12px;
+  background-color: white;
+  height: 50px;
+  padding: 10px;
+  border-bottom: 1.5px solid #e6e6e6; }
+
+textarea {
+  resize: none;
+  height: 100px;
+  border: none;
+  padding: 15px;
+  border-bottom: 1px solid #e6e6e6; }
+
+input:focus, textarea:focus {
+  outline: 0;
+  border-bottom-color: #ffb42e; }
+
+input[type=checkbox] {
+  height: auto;
+  width: auto;
+  padding: 0; }
+
+form .reminders {
+  border-bottom: 3px solid #333333;
+  /*margin: 0;*/
+  padding: 10px;
+  background-color: #333333;
+  color: #e4e3e1;
+  border-top: none; }
+
+form .reminders h6 {
+  font-weight: normal;
+  margin: 0;
+  padding: 0; }
+
+form .red-alert {
+  background-color: #FA334F;
+  text-align: center; }
+
+form .green-alert {
+  background-color: darkseagreen;
+  text-align: center; }
+
+.has-error {
+  display: block !important; }
+
+#icon-container {
+  text-align: right;
+  padding: 0; }
+
+label {
+  font-family: "montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: bold; }
+
+.low-message {
+  font-size: 13px;
+  text-align: left;
+  margin: 20px 0px;
+  text-shadow: 0px 0px 20px #FF8E3A;
+  color: #444;
+  font-weight: normal; }
+
+.low-message a {
+  color: white;
+  font-weight: normal; }
+
+.low-message span {
+  float: right; }
+
+#login-button {
+  border-color: #e4e3e1;
   width: 100%;
-}
-
-@media (max-width: 400px) {
-  .login .modal-dialog {
-    width: 100%;
-  }
-}
-
-.big-login, .big-register {
-  background-color: $yellow;
-  color: #FFFFFF;
-  border-radius: 7px;
-  border-width: 2px;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 200;
-  padding: 16px 60px;
+  margin: 0;
   text-transform: uppercase;
-  transition: all 0.3s ease 0s;
-}
+  color: #777; }
 
-.big-login:hover {
-  background-color: #ffc02e;
-  color: #FFFFFF;
-}
-
-.big-register {
-  background-color: rgba(0, 0, 0, .0);
-  color: $yellow;
-  border-color: $yellow;
-}
-
-.big-register:hover {
-  border-color: #00A4E4;
-  color: #00A4E4;
-}
-
-.modal-panel {
-  height: 200px;
-  padding: 12.5% 12.5%;
-}
-
-.modal-panel h3 {
-  color: #fff !important;
-  font-style: italic;
-  text-transform: capitalize;
-}
+#login-button:focus {
+  border-color: #2980B9; }
 
 /*---------------------------------------
    BUTTONS
 -----------------------------------------*/
 button, .btn {
-  font-family: $font-stack;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   padding: 10px 20px;
   margin: 2.5px;
@@ -417,11 +217,10 @@ button, .btn {
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-}
+  transition: all .2s ease-out; }
 
 .btn-small {
-  font-family: $font-stack;
+  font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   padding: 5px 10px;
   margin: 2.5px;
@@ -429,20 +228,17 @@ button, .btn {
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-}
+  transition: all .2s ease-out; }
 
 .no-transition {
   -moz-transition: none !important;
   -webkit-transition: none !important;
   -o-transition: none !important;
-  transition: none !important;
-}
+  transition: none !important; }
 
 button:focus {
   outline: 0;
-  border: 3px solid #2980B9;
-}
+  border: 3px solid #2980B9; }
 
 .primary-btn {
   border: 3px solid $yellow;
@@ -455,28 +251,24 @@ button:focus {
 }
 
 .default-btn {
-  border: 3px solid $black;
-  background: none;
-}
+  border: 3px solid #333333;
+  background: none; }
 
 .default-btn:hover {
   background-color: $black;
 }
 
 .light-btn {
-  border: 3px solid $black;
-  background-color: #e4e3e1;
-}
+  border: 3px solid #333333;
+  background-color: #e4e3e1; }
 
 .light-btn:hover {
-  background-color: #CFCDCA;
-}
+  background-color: #CFCDCA; }
 
 .dark-btn {
-  border: 3px solid $black;
-  background-color: $black;
-  color: #e4e3e1;
-}
+  border: 3px solid #333333;
+  background-color: #333333;
+  color: #e4e3e1; }
 
 .dark-btn:hover {
   color: $white;
@@ -485,13 +277,11 @@ button:focus {
 
 .dark-on-dark-btn {
   border: 3px solid #e4e3e1;
-  background-color: $black;
-  color: #e4e3e1;
-}
+  background-color: #333333;
+  color: #e4e3e1; }
 
 .dark-on-dark-btn:hover {
-  opacity: .9;
-}
+  opacity: .9; }
 
 /*----------------------------------------------------------
 
@@ -499,12 +289,10 @@ button:focus {
 
 ----------------------------------------------------------*/
 .white {
-  color: $white !important;
-}
+  color: #F2F2F2 !important; }
 
 .dark {
-  color: $black !important;
-}
+  color: #333 !important; }
 
 /*----------------------------------------------------------
     BREAKPOINTS FOR BOOTSTRAP
@@ -527,6 +315,96 @@ button:focus {
     NAVBAR/SIDEBAR
 
 ----------------------------------------------------------*/
+/* ===========================
+   NAVBAR
+============================== */
+nav {
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333333;
+  /*
+    background-image: url(../images/Logo/CLight.svg);
+        background-size: auto 25px;
+        background-position: center center;
+        background-repeat: no-repeat;
+    */
+  /*box-shadow: 0px 0px 15px 5px #9A9A9A;*/
+  /*box-shadow: 0px 0px 8px 5px #9A9A9A;*/
+  color: #e4e3e1;
+  z-index: 100;
+  display: block; }
+
+nav .left {
+  list-style-type: none;
+  padding: 0;
+  float: left;
+  display: table-row;
+  margin-left: 1.5em; }
+
+nav .right {
+  float: right !important;
+  margin-right: -15px; }
+
+nav a {
+  color: #e4e3e1;
+  font-weight: normal;
+  font-size: 12px; }
+
+nav a i {
+  margin-left: 5px; }
+
+.logo {
+  margin-top: 7px; }
+
+nav img {
+  height: 35px;
+  width: auto; }
+
+nav .logo {
+  padding: 0; }
+
+#MenuController {
+  height: 25px;
+  width: auto;
+  background: none;
+  border: none;
+  margin-top: 14px; }
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #222222;
+  color: white; }
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #222222;
+  color: white; }
+
+a:hover {
+  color: white; }
+
+.dropdown > ul > li > a:hover {
+  background-color: #e4e3e1; }
+
+.dropdown > ul > li a > i {
+  margin-left: -12px;
+  margin-top: 2px;
+  color: #FFB42E;
+  font-size: 18px; }
+
+.dropdown > ul > li > a > img {
+  margin-left: 5px; }
+
+.notif-image {
+  height: 40px;
+  border-radius: 50%; }
+
+span.notif {
+  margin-left: 10px; }
+
+span.notif-name {
+  font-weight: 700; }
 
 /* ===========================
    SIDEBAR
@@ -556,32 +434,27 @@ button:focus {
   -webkit-transition: all .2s ease-out;
   -moz-transition: all .2s ease-out;
   -o-transition: all .2s ease-out;
-  transition: all .2s ease-out;
-}
+  transition: all .2s ease-out; }
 
 /* ===========================
    MAIN LINKS
 ============================== */
 #sidebar .top {
-  padding-top: 30px;
-}
+  padding-top: 30px; }
 
 #sidebar ul {
   list-style-type: none;
   padding: 0;
-  font-size: 12px;
-}
+  font-size: 12px; }
 
 #sidebar li {
   padding: 12px;
   padding-left: 30px;
-  padding-right: 30px;
-}
+  padding-right: 30px; }
 
 #sidebar li:hover {
   background-color: #e4e3e1;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 /* ===========================
    FEATURED SECTION
@@ -589,20 +462,16 @@ button:focus {
 #sidebar .bottom {
   position: absolute;
   bottom: 0;
-  width: 100%;
-}
+  width: 100%; }
 
 #featured_link {
-  color: $black;
-}
+  color: #333333; }
 
 #featured_link:hover {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 #sidebar #project:hover, #sidebar #nonprofit:hover {
-  background-size: auto 120%;
-}
+  background-size: auto 120%; }
 
 #sidebar #project, #sidebar #nonprofit {
   -webkit-transition: all 1s ease-out;
@@ -615,13 +484,12 @@ button:focus {
   color: white;
   background-size: cover;
   /*min-height: 150px;*/
-  text-shadow: 0 0 15px $black;
+  text-shadow: 0px 0px 15px #333;
   background-position: center center;
-  box-shadow: inset 0 0 30px #555;
+  box-shadow: inset 0px 0px 30px #555;
   opacity: .9;
   border-radius: 3px;
-  /*border: 1px solid #E6E6E6;*/
-}
+  /*border: 1px solid #E6E6E6;*/ }
 
 /* ===========================
    FEATURED HEADINGS
@@ -632,44 +500,32 @@ button:focus {
   opacity: .99;
   /*font-weight: normal;*/
   margin: 0;
-  margin-top: 15px;
-}
+  margin-top: 15px; }
 
 #sidebar #project h7, #sidebar #nonprofit h7 {
   font-size: 12px;
   font-weight: normal;
-  opacity: .8;
-}
+  opacity: .8; }
 
 #sidebar #project i, #sidebar #nonprofit i {
   /*margin: 10px;
-    margin-left: 0;*/
-}
-
-/* ===========================
-   CONTROL BACKGROUNDS
-============================== */
-#sidebar #project {
-  background-image: url(/images/backgrounds/pinetree.jpeg);
-}
-
-#sidebar #nonprofit {
-  background-image: url(/images/backgrounds/bamboo.jpeg);
-}
+    margin-left: 0;*/ }
 
 /* ===========================
    CONTROL OPEN/CLOSE
 ============================== */
 .sidebar_open {
   transform: none !important;
-  box-shadow: 0 0 20px $black;
-}
+  box-shadow: 0px 0px 20px #333; }
 
 /* ==========================
 
 Reusable Components
 
 ===========================*/
+.divider {
+  background: #333;
+  height: 50px; }
 
 /* ====================================================================================================
    BREAKPOINT CONTROLS
@@ -677,7 +533,6 @@ Reusable Components
 /*-------------------------------------------------
     EXTRA SMALL DEVICES                    ie. phones
     -------------------------------------------------*/
-
 .mailchimp {
   position: absolute; left: -5000px;
 }
