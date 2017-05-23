@@ -17,8 +17,10 @@ const handleRegister = (data, methods) => {
     }
     else if(data.provider === 'google') {
         const accessToken = data.accessToken;
+        const tokenId = data.tokenId;
         const provider = data.provider;
-        methods.onRegisterGoogle({access_token: accessToken, provider: provider, accountType: 0});
+
+        methods.onRegisterGoogle({access_token: accessToken, token_id: tokenId, provider: provider, accountType: 0});
     }
 };
 

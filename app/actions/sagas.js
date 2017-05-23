@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import { registerUser } from '../api';
+import { registerUser, getProjectFeed } from '../api';
 import * as types from './types';
 
 
@@ -33,6 +33,25 @@ export function* registerNewUser(action) {
     }
 }
 
+export function* requestProjectFeed(action) {
+    try {
+        const feed = yield call(getProjectFeed, action.data);
+
+        yield* handleServerResponse(
+            feed,
+            types.GET_FEED_SUCCESS,
+            types.GET_FEED_FAILURE,
+            "Couldn't fetch feed :("
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.GET_FEED_FAILURE,
+            error: e
+        });
+    }
+}
+
 function* watchRegisterNewUser() {
     yield* takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
 }
@@ -41,9 +60,14 @@ function* watchRegisterGoogleUser() {
     yield* takeEvery(types.GOOGLE_REGISTER_CLICK, registerNewUser);
 }
 
+function* watchGetProjectFeed() {
+    yield* takeEvery(types.REQUEST_FEED, requestProjectFeed);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
-        watchRegisterGoogleUser()
+        watchRegisterGoogleUser(),
+        watchGetProjectFeed()
     ];
 }
