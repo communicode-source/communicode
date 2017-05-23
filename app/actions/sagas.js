@@ -32,6 +32,25 @@ export function* registerNewUser(action) {
     }
 }
 
+export function* registerGoogleUser(action) {
+    try {
+        const user = yield call(registerUser, action.data);
+
+        yield* handleServerResponse(
+            user,
+            types.ADD_GOOGLE_USER_SUCCESS,
+            types.ADD_GOOGLE_USER_FAILED,
+            'Sorry, Could not create user :('
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.ADD_GOOGLE_USER_FAILED,
+            error: e
+        });
+    }
+}
+
 export function* requestProjectFeed(action) {
     try {
         const feed = yield call(getProjectFeed, action.data);
@@ -56,7 +75,7 @@ function* watchRegisterNewUser() {
 }
 
 function* watchRegisterGoogleUser() {
-    yield* takeEvery(types.GOOGLE_REGISTER_CLICK, registerNewUser);
+    yield* takeEvery(types.GOOGLE_REGISTER_CLICK, registerGoogleUser);
 }
 
 function* watchGetProjectFeed() {
