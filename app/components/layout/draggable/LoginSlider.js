@@ -19,7 +19,7 @@ const handleRegister = (data, methods) => {
         const accessToken = data.accessToken;
         const tokenId = data.tokenId;
         const provider = data.provider;
-
+        console.log(tokenId);
         methods.onRegisterGoogle({access_token: accessToken, token_id: tokenId, provider: provider, accountType: 0});
     }
 };
