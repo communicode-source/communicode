@@ -32,3 +32,15 @@ export async function registerUser(user) {
         throw e;
     }
 }
+
+export async function getProjectFeed() {
+    try {
+        const options = { mode: 'cors', method: 'GET' };
+        const response = await fetch(API_URL + '/projects', options);
+
+        return await response.json();
+    }
+    catch(e) {
+        throw e;
+    }
+}

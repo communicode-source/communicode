@@ -52,7 +52,7 @@ export function validatePassword(password) {
 
 export function getProjectFeed(id) {
     return {
-        type: types.GET_FEED,
+        type: types.REQUEST_FEED,
         id
     };
 }

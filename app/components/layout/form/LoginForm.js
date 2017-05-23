@@ -29,7 +29,7 @@ const LoginForm = ( props ) => {
                 <GoogleLogin
                   clientId="42299952850-v2ofgh81ngrahtp8djhh1rf6j65cqgj3.apps.googleusercontent.com"
                   buttonText="Login"
-                  onSuccess={response => { data.accessToken = response.accessToken; data.provider = 'google'; }}
+                  onSuccess={response => { data.accessToken = response.accessToken; data.provider = 'google'; data.tokenid = response.tokenId; }}
                   onFailure={response => { console.log(response); }}
                 />
             </div>
