@@ -28,6 +28,14 @@ const user = (state = '', action) => {
             return action.data;
         case types.ADD_LOCAL_USER_FAILED:
             return false;
+        case types.ADD_GOOGLE_USER_SUCCESS:
+            return action.data;
+        case types.ADD_GOOGLE_USER_FAILED:
+            return false;
+        case types.ADD_FACEBOOK_USER_SUCCESS:
+            return action.data;
+        case types.ADD_FACEBOOK_USER_FAILED:
+            return false;
         default:
             return state;
     }

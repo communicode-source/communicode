@@ -57,7 +57,12 @@ export default class Header extends React.Component {
                             <ul className="nav navbar-nav navbar-right right">
                                 <li>
                                     <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                        <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Register / Sign in</Link>
+                                        <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Register</Link>
+                                    </NativeListener>
+                                </li>
+                                <li>
+                                    <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                        <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Login</Link>
                                     </NativeListener>
                                 </li>
                             </ul>

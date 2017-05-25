@@ -5,6 +5,7 @@ import DevTools from '../containers/DevTools';
 import rootSaga from '../actions/sagas.js';
 
 import logger from '../middleware/logger';
+// import auth from '../middleware/auth';
 
 const sagaMiddleware = createSagaMiddleware();
 

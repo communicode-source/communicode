@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { registerLocalUser, registerGoogleUser } from '../actions';
+import { registerLocalUser, registerGoogleUser, registerFacebookUser } from '../actions';
 import LoginModal from '../components/modals/LoginModal';
 
 const mapStateToProps = (state) => {
@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onRegisterLocal: (user) => dispatch(registerLocalUser(user)),
+        onRegisterFacebook: (user) => dispatch(registerFacebookUser(user)),
         onRegisterGoogle: (user) => dispatch(registerGoogleUser(user))
     };
 };

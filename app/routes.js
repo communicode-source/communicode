@@ -12,6 +12,7 @@ import ProjectFeed from './containers/ProjectFeedContainer';
 export const routes = (
     <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={App}>
         <IndexRoute component={Home}/>
+        <Route path="/home" component={Home}/>
         <Route path="/about" component={About}/>
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />

@@ -52,6 +52,25 @@ export function* registerGoogleUser(action) {
     }
 }
 
+export function* registerFacebookUser(action) {
+    try {
+        const user = yield call(registerUser, action.data);
+
+        yield* handleServerResponse(
+            user,
+            types.ADD_FACEBOOK_USER_SUCCESS,
+            types.ADD_FACEBOOK_USER_FAILED,
+            'Sorry, Could not create user :('
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.ADD_FACEBOOK_USER_FAILED,
+            error: e
+        });
+    }
+}
+
 export function* requestProjectFeed(action) {
     try {
         const feed = yield call(getProjectFeed, action.data);
@@ -79,6 +98,10 @@ function* watchRegisterGoogleUser() {
     yield* takeEvery(types.GOOGLE_REGISTER_CLICK, registerGoogleUser);
 }
 
+function* watchRegisterFacebookUser() {
+    yield* takeEvery(types.FACEBOOK_REGISTER_CLICK, registerFacebookUser);
+}
+
 function* watchGetProjectFeed() {
     yield* takeEvery(types.REQUEST_FEED, requestProjectFeed);
 }
@@ -87,6 +110,7 @@ export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
         watchRegisterGoogleUser(),
+        watchRegisterFacebookUser(),
         watchGetProjectFeed()
     ];
 }

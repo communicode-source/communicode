@@ -21,8 +21,15 @@ const handleRegister = (data, methods) => {
         const provider = data.provider;
         methods.onRegisterGoogle({access_token: accessToken, token_id: tokenId, provider: provider, accountType: 0});
     }
+     else if(data.provider === 'facebook') {
+         const accessToken = data.accessToken;
+         const provider = data.provider;
+         const name = data.user.name;
+         const email = data.user.email;
+         const userid = data.user.userid;
+         methods.onRegisterFacebook({token_id: accessToken, name, email, userid, provider, accountType: 0});
+     }
 };
-
 
 const LoginSlider = ({ registerData, methods }) => {
     return (
