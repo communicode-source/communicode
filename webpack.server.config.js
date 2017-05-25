@@ -1,16 +1,20 @@
+require('babel-register');
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
 
 var CopyFilesPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var sitemap = require('./app/sitemap');
 
 module.exports = {
     entry: path.resolve(__dirname, 'server.prod.js'),
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'server.bundle.js',
-        publicPath: '/'
+        publicPath: '/',
+        libraryTarget: 'umd'
     },
     target: 'node',
     // keep node_module paths out of the bundle
@@ -36,7 +40,10 @@ module.exports = {
                 from: 'app.yaml'
             }
         ]),
-        new ExtractTextPlugin('assets/[name]-[hash].css'),
+        new ExtractTextPlugin('/dev/null'),
+        new StaticSiteGeneratorPlugin({
+            paths: sitemap.staticPaths,
+        }),
         // handles uglifying js
         new webpack.optimize.UglifyJsPlugin({
             compress: {

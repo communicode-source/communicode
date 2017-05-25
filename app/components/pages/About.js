@@ -97,73 +97,73 @@ const About = () =>
                     <hr />
                     <div id={about.staff}>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/trevor.jpg')}/>
+                            <img src={require('../../assets/images/team/trevor.png')}/>
                             <h4>Trevor Crupi</h4>
                             <hr />
                             <p><i>Communicode CEO</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/cooper.jpg')}/>
+                            <img src={require('../../assets/images/team/cooper.png')}/>
                             <h4>Cooper Campbell</h4>
                             <hr />
                             <p><i>Communicode CTO</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/sharon.jpg')}/>
+                            <img src={require('../../assets/images/team/sharon.png')}/>
                             <h4>Sharon Hoffman</h4>
                             <hr />
                             <p><i>Communicode COO</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/cam.jpg')}/>
+                            <img src={require('../../assets/images/team/cam.png')}/>
                             <h4>Cam Todd</h4>
                             <hr />
                             <p><i>VP of Marketing</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/alicia.jpg')}/>
+                            <img src={require('../../assets/images/team/alicia.png')}/>
                             <h4>Alicia Silhavy</h4>
                             <hr />
                             <p><i>Creative Director</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/christian.jpg')}/>
+                            <img src={require('../../assets/images/team/christian.png')}/>
                             <h4>Christian Espinoza</h4>
                             <hr />
                             <p><i>Mobile Engineer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/sami.jpg')}/>
+                            <img src={require('../../assets/images/team/sami.png')}/>
                             <h4>Sami Fassnacht</h4>
                             <hr />
                             <p><i>Mobile Engineer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/nick.jpg')}/>
+                            <img src={require('../../assets/images/team/nick.png')}/>
                             <h4>Nick von Bulow</h4>
                             <hr />
                             <p><i>System Administrator</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/charles.jpg')}/>
+                            <img src={require('../../assets/images/team/charles.png')}/>
                             <h4>Charles Engel</h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/daniel.jpg')}/>
+                            <img src={require('../../assets/images/team/daniel.png')}/>
                             <h4>Daniel Adelfinsky</h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/nich.jpg')}/>
+                            <img src={require('../../assets/images/team/nich.png')}/>
                             <h4><Link to="/poetry">Nich Dullam</Link></h4>
                             <hr />
                             <p><i>Developer</i></p>
                         </div>
                         <div className={classNames(about.person, 'col-xs-12', 'col-sm-6', 'col-md-3')}>
-                            <img src={require('../../assets/images/team/xander.jpg')}/>
+                            <img src={require('../../assets/images/team/xander.png')}/>
                             <h4>Xander Weintraut</h4>
                             <hr />
                             <p><i>Developer</i></p>

@@ -1,15 +1,16 @@
 'use strict';
-
+require('babel-register');
 var path = require('path');
 var webpack = require('webpack');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var ImageminMozjpeg = require('imagemin-mozjpeg');
+var SitemapPlugin = require('sitemap-webpack-plugin');
+var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var sitemap = require('./app/sitemap');
 
 module.exports = {
     // The entry file. All your app roots fromn here.
@@ -61,6 +62,9 @@ module.exports = {
                 windows: true
             }
         }),
+        new SitemapPlugin(sitemap.baseURL, sitemap.publicPaths, {
+            skipGzip: true
+        }),
         // extracts the css from the js files and puts them on a separate .css file. this is for
         // performance and is used in prod environments. Styles load faster on their own .css
         // file as they dont have to wait for the JS to load.
@@ -84,10 +88,10 @@ module.exports = {
         }),
         new ImageminPlugin({
             optipng: {
-                optimizationLevel: 3
+                optimizationLevel: 9
             },
             gifsicle: {
-                optimizationLevel: 3
+                optimizationLevel: 9
             },
             jpegtran: null,
             svgo: {},
