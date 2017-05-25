@@ -36,6 +36,13 @@ export function registerGoogleUser(user) {
     };
 }
 
+export function registerFacebookUser(user) {
+    return {
+        type: types.FACEBOOK_REGISTER_CLICK,
+        data: user
+    };
+}
+
 export function validateUserEmail(email) {
     return {
         type: types.VALIDATE_EMAIL,

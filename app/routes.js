@@ -11,6 +11,7 @@ import ProjectFeed from './containers/ProjectFeedContainer';
 export default (
     <Route path="/" component={App}>
         <IndexRoute component={Home}/>
+        <Route path="/home" component={Home}/>
         <Route path="/about" component={About}/>
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import LoginForm from '../layout/form/LoginForm';
 
-const LoginModal = ({ onRegisterLocal, onRegisterGoogle, error }) =>
+const LoginModal = ({ onRegisterLocal, onRegisterGoogle, onRegisterFacebook, error }) =>
     <div className="modal fade login" id="login">
         <div className="modal-dialog login animated">
             <div className="modal-content">
@@ -11,7 +11,7 @@ const LoginModal = ({ onRegisterLocal, onRegisterGoogle, error }) =>
                 </div>
 
                 <div className="modal-body">
-                    <LoginForm onRegisterGoogle={onRegisterGoogle} onRegisterLocal={onRegisterLocal} error={error} />
+                    <LoginForm onRegisterFacebook={onRegisterFacebook} onRegisterGoogle={onRegisterGoogle} onRegisterLocal={onRegisterLocal} error={error} />
                 </div>
             </div>
         </div>
@@ -20,6 +20,7 @@ const LoginModal = ({ onRegisterLocal, onRegisterGoogle, error }) =>
 LoginModal.propTypes = {
     onRegisterLocal: PropTypes.func,
     onRegisterGoogle: PropTypes.func,
+    onRegisterFacebook: PropTypes.func,
     error: PropTypes.string
 };
 

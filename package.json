@@ -28,6 +28,7 @@
     "react-dnd": "^2.4.0",
     "react-dom": "^15.0.2",
     "react-draggable": "^2.2.6",
+    "react-facebook-login": "^3.6.0",
     "react-google-login": "^2.8.9",
     "react-hot-loader": "^3.0.0-beta.2",
     "react-native-listener": "^1.0.1",
