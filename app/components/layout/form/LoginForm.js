@@ -24,9 +24,6 @@ const LoginForm = ( props ) => {
 
         <div id={classes.MODAL_ID}>
             <div className={classes.ROW}>
-                <div className={classes.AUTH_ICON}><i className={classes.FACEBOOK_ICON} aria-hidden="true"></i></div>
-                <div className={classes.AUTH_ICON}><i className={classes.GOOGLE_ICON} aria-hidden="true"></i></div>
-                <div className={classes.AUTH_ICON}><i className="fa fa-github" aria-hidden="true"></i></div>
                 <GoogleLogin
                   clientId="42299952850-v2ofgh81ngrahtp8djhh1rf6j65cqgj3.apps.googleusercontent.com"
                   buttonText="Login"
@@ -77,6 +74,12 @@ const LoginForm = ( props ) => {
 // Error Syntax: <h6 className={classes.INPUT_LABEL_ERROR}>Invalid Email</h6>
 // <LoginSlider data={emailInput, passwordInput} onClick={() => handleRegister(emailInput, passwordInput, onRegisterLocal)} />
 // data={...data} onRegisterLocal={} {() => handleRegister(emailInput, passwordInput, providerType, {onRegisterLocal, onRegisterGoogle})}
+
+/*
+<div className={classes.AUTH_ICON}><i className={classes.FACEBOOK_ICON} aria-hidden="true"></i></div>
+<div className={classes.AUTH_ICON}><i className={classes.GOOGLE_ICON} aria-hidden="true"></i></div>
+<div className={classes.AUTH_ICON}><i className="fa fa-github" aria-hidden="true"></i></div>
+*/
 
 LoginForm.propTypes = {
     onRegisterLocal: PropTypes.func,

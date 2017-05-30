@@ -11,9 +11,6 @@ const handleRegister = (data, methods) => {
         if(!email || !password) return;
 
         methods.onRegisterLocal({ email, password, provider });
-
-        data.emailInput.value = '';
-        data.passwordInput.value = '';
     }
     else if(data.provider === 'google') {
         const accessToken = data.accessToken;
