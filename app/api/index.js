@@ -44,3 +44,15 @@ export async function getProjectFeed() {
         throw e;
     }
 }
+
+export async function getInterests() {
+    try {
+        const options = {mode: 'cors', method: 'GET'};
+        const response = await fetch(API_URL + '/interests', options);
+
+        return await response.json();
+    }
+    catch(e) {
+        throw e;
+    }
+}

@@ -63,3 +63,10 @@ export function getProjectFeed(id) {
         id
     };
 }
+
+export function checkInterestsBox(title) {
+    return {
+        type: types.CLICK_INTEREST_BOX,
+        title
+    };
+}

@@ -57,12 +57,29 @@ const error = (state = '', action) => {
     }
 };
 
+const interests = (state = '', action) => {
+    switch(action.type) {
+        case types.CLICK_INTEREST_BOX:
+            const newState = Object.assign([], state);
+            const index = newState.indexOf(action.title);
+            if(index === -1) {
+                newState.push(action.title);
+                return newState;
+            }
+            newState.splice(index, 1);
+            return newState;
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
     subscription,
     filter,
     user,
     error,
     routing,
+    interests,
 });
 
 export default rootReducer;

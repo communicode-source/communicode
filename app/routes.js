@@ -6,6 +6,7 @@ import About from './components/pages/About';
 import Home from './components/pages/Home';
 import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
+import Interests from './components/pages/Interests';
 import ProjectFeed from './containers/ProjectFeedContainer';
 
 export default (
@@ -15,6 +16,7 @@ export default (
         <Route path="/about" component={About}/>
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
+        <Route path="/interests" component={Interests} />
         <Route path="/feed" component={ProjectFeed} />
     </Route>
 );
