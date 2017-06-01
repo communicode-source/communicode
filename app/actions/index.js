@@ -21,3 +21,10 @@ export function sendSubscription(event, email) {
         email
     };
 }
+
+export function checkInterestsBox(title) {
+    return {
+        type: types.CLICK_INTEREST_BOX,
+        title
+    };
+}

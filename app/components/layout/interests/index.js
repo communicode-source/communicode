@@ -11,13 +11,17 @@ import InterestCard from './InterestCard';
       else
         Choose interests
 */
-
 class MainInterests extends React.Component {
     constructor({interests, stateInterests = [], onClickInterest}) {
         super();
         this.interests = interests;
         this.stateInterests = stateInterests;
         this.onClickInterest = onClickInterest;
+    };
+
+    componentWillUpdate(props) {
+        this.stateInterests = props.stateInterests;
+        return;
     };
 
     render() {
