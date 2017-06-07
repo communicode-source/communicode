@@ -8,9 +8,7 @@ var StatsPlugin = require('stats-webpack-plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var ImageminMozjpeg = require('imagemin-mozjpeg');
-var SitemapPlugin = require('sitemap-webpack-plugin');
-var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-var sitemap = require('./app/sitemap');
+
 
 module.exports = {
     // The entry file. All your app roots fromn here.
@@ -61,9 +59,6 @@ module.exports = {
                 yandex: false,
                 windows: true
             }
-        }),
-        new SitemapPlugin(sitemap.baseURL, sitemap.publicPaths, {
-            skipGzip: true
         }),
         // extracts the css from the js files and puts them on a separate .css file. this is for
         // performance and is used in prod environments. Styles load faster on their own .css
