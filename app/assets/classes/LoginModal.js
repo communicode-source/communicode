@@ -28,3 +28,6 @@ export const SLIDE_HANDLER   = classNames(modal.handleCont);
 export const HANDLE          = classNames(modal.handle);
 export const HANDLE_ARROWS   = classNames('fa', 'fa-arrows-h', modal.fa, modal['fa-arrows-h'], modal.i);
 export const LEFT_SIDE       = classNames(modal.leftSide);
+
+export const SOCIAL_CONTAINER   = classNames('col-md-12', modal['social-container']);
+export const SOCIAL_CONTAINER_2 = classNames('col-md-12', modal['social-container'], modal['social-container-2']);

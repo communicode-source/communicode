@@ -2,66 +2,128 @@ import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import * as types from '../actions/types';
 
-const filter = (state = '', action) => {
+const user = (state = {
+    isFetching: false,
+    isAuthenticated: localStorage.getItem('id_token') ? true : false,
+    provider: 'local',
+    error: ''
+}, action) => {
     switch(action.type) {
-        case types.FILTER:
-            return action.filter;
-        default:
-            return state;
-    }
-};
-
-const subscription = (state = '', action) => {
-    switch(action.type) {
-        case types.SUBSCRIBE:
-            return action.email;
-        case types.SUBSCRIBE_USER:
-            return action.email;
-        default:
-            return state;
-    }
-};
-
-const user = (state = '', action) => {
-    switch(action.type) {
+        case types.VALIDATE_EMAIL:
+            return Object.assign({}, state, {
+                email: action.data
+            });
+        case types.VALIDATE_PASSWORD:
+            return Object.assign({}, state, {
+                password: action.data
+            });
+        case types.UPDATE_PROVIDER:
+            return Object.assign({}, state, {
+                provider: action.data,
+                accessToken: action.response.accessToken || '',
+                tokenId: action.response.tokenId || '',
+                name: action.response.name || action.response.profileObj.name || '',
+                email: action.response.email || action.response.profileObj.email || '',
+                imageUrl: action.imageUrl || '',
+                userid: action.response.userID || ''
+            });
         case types.ADD_LOCAL_USER_SUCCESS:
-            return action.data;
+            return Object.assign({}, state, {
+                data: action.data,
+                isFetching: false,
+                isAuthenticated: true,
+                error: ''
+            });
         case types.ADD_LOCAL_USER_FAILED:
-            return false;
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
         case types.ADD_GOOGLE_USER_SUCCESS:
-            return action.data;
+            return Object.assign({}, state, {
+                data: action.data,
+                isFetching: false,
+                isAuthenticated: true,
+                error: ''
+            });
         case types.ADD_GOOGLE_USER_FAILED:
-            return false;
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
         case types.ADD_FACEBOOK_USER_SUCCESS:
-            return action.data;
+            return Object.assign({}, state, {
+                data: action.data,
+                isFetching: false,
+                isAuthenticated: true,
+                error: ''
+            });
         case types.ADD_FACEBOOK_USER_FAILED:
-            return false;
-        default:
-            return state;
-    }
-};
-
-const error = (state = '', action) => {
-    switch(action.type) {
-        case action.VALIDATE_EMAIL:
-            return action.email;
-        case action.VALIDATE_PASSWORD:
-            return action.password;
-        case types.ADD_LOCAL_USER_FAILED:
-            return action.error;
-        case types.ADD_LOCAL_USER_SUCCESS:
-            action.error = '';
-            return action.error;
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
+        case types.GET_LOGGED_IN_LOCAL_STORAGE_SUCCESS:
+            return Object.assign({}, state, {
+                isAuthenticated: true,
+                profile: action.data.msg
+            });
+        case types.GET_LOGGED_IN_LOCAL_STORAGE_FAILED:
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
+        case types.LOCAL_LOGIN_SUCCESS:
+            return Object.assign({}, state, {
+                profile: action.data.msg,
+                isFetching: false,
+                isAuthenticated: true,
+                error: ''
+            });
+        case types.GOOGLE_LOGIN_SUCCESS:
+            return Object.assign({}, state, {
+                profile: action.data.msg,
+                isFetching: false,
+                isAuthenticated: true,
+                error: ''
+            });
+        case types.FACEBOOK_LOGIN_SUCCESS:
+            return Object.assign({}, state, {
+                profile: action.data.msg,
+                isFetching: false,
+                isAuthenticated: true,
+                error: ''
+            });
+        case types.LOCAL_LOGIN_FAILED:
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
+        case types.GOOGLE_LOGIN_FAILED:
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
+        case types.FACEBOOK_LOGIN_FAILED:
+            return Object.assign({}, state, {
+                profile: action.data.msg,
+                isFetching: false,
+                isAuthenticated: false,
+                error: action.error.message
+            });
         default:
             return state;
     }
 };
 
 const rootReducer = combineReducers({
-    subscription,
-    filter,
     user,
-    error,
     routing,
 });
 
