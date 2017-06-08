@@ -8,6 +8,8 @@ import configureStore from './store/configureStore';
 import Root from './containers/Root';
 
 const store = configureStore({
+    interests: [
+    ],
     isAuthenticated: false
 });
 

@@ -21,7 +21,21 @@ const subscription = (state = '', action) => {
             return state;
     }
 };
-
+const interests = (state = '', action) => {
+    switch(action.type) {
+        case types.CLICK_INTEREST_BOX:
+            const newState = [...state];
+            const index = newState.indexOf(action.title);
+            if(index === -1) {
+                newState.push(action.title);
+                return newState;
+            }
+            newState.splice(index, 1);
+            return newState;
+        default:
+            return state;
+    }
+};
 const user = (state = '', action) => {
     switch(action.type) {
         case types.ADD_LOCAL_USER_SUCCESS:
@@ -63,6 +77,7 @@ const rootReducer = combineReducers({
     user,
     error,
     routing,
+    interests,
 });
 
 export default rootReducer;
