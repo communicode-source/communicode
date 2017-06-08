@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import interestsCss from './../../../assets/css/pages/interests.scss';
 import classNames from 'classnames';
 import InterestCard from './InterestCard';
-
+import NameModal from './../../modals/NameModal';
 /*
   If ComponentDidMount fires,
     check if there is a name in the db
@@ -40,8 +40,11 @@ class MainInterests extends React.Component {
             return null;
         });
         return (
-            <div className={classNames(interestsCss['interests-main'], 'container-fluid')}>
+            <div>
+                <NameModal/>
+                <div className={classNames(interestsCss['interests-main'], 'container-fluid')}>
                 {interestsBoxes}
+                </div>
             </div>
         );
     };
