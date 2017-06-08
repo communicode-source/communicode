@@ -21,7 +21,6 @@ const subscription = (state = '', action) => {
             return state;
     }
 };
-
 const interests = (state = '', action) => {
     switch(action.type) {
         case types.CLICK_INTEREST_BOX:
@@ -33,6 +32,36 @@ const interests = (state = '', action) => {
             }
             newState.splice(index, 1);
             return newState;
+const user = (state = '', action) => {
+    switch(action.type) {
+        case types.ADD_LOCAL_USER_SUCCESS:
+            return action.data;
+        case types.ADD_LOCAL_USER_FAILED:
+            return false;
+        case types.ADD_GOOGLE_USER_SUCCESS:
+            return action.data;
+        case types.ADD_GOOGLE_USER_FAILED:
+            return false;
+        case types.ADD_FACEBOOK_USER_SUCCESS:
+            return action.data;
+        case types.ADD_FACEBOOK_USER_FAILED:
+            return false;
+        default:
+            return state;
+    }
+};
+
+const error = (state = '', action) => {
+    switch(action.type) {
+        case action.VALIDATE_EMAIL:
+            return action.email;
+        case action.VALIDATE_PASSWORD:
+            return action.password;
+        case types.ADD_LOCAL_USER_FAILED:
+            return action.error;
+        case types.ADD_LOCAL_USER_SUCCESS:
+            action.error = '';
+            return action.error;
         default:
             return state;
     }
@@ -41,6 +70,8 @@ const interests = (state = '', action) => {
 const rootReducer = combineReducers({
     subscription,
     filter,
+    user,
+    error,
     routing,
     interests,
 });

@@ -11,6 +11,9 @@ const store = configureStore({
     interests: [
     ]
 });
+    isAuthenticated: false
+});
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(
