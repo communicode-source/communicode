@@ -14,6 +14,12 @@ export function validatePassword(password) {
     };
 }
 
+export function checkInterestsBox(title) {
+    return {
+        type: types.CLICK_INTEREST_BOX,
+        title
+    };
+}
 export function registerLocalUser(user) {
     return {
         type: types.LOCAL_REGISTER_CLICK,

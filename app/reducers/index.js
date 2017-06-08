@@ -2,6 +2,21 @@ import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import * as types from '../actions/types';
 
+const interests = (state = '', action) => {
+    switch(action.type) {
+        case types.CLICK_INTEREST_BOX:
+            const newState = [...state];
+            const index = newState.indexOf(action.title);
+            if(index === -1) {
+                newState.push(action.title);
+                return newState;
+            }
+            newState.splice(index, 1);
+            return newState;
+        default:
+            return state;
+    }
+};
 const user = (state = {
     isFetching: false,
     isAuthenticated: localStorage.getItem('id_token') ? true : false,
@@ -125,6 +140,7 @@ const user = (state = {
 const rootReducer = combineReducers({
     user,
     routing,
+    interests,
 });
 
 export default rootReducer;
