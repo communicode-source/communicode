@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import { registerUser, getProjectFeed } from '../api';
+import { registerUser, decodeJWT, loginUser } from '../api';
 import * as types from './types';
 
 
@@ -71,20 +71,78 @@ export function* registerFacebookUser(action) {
     }
 }
 
-export function* requestProjectFeed(action) {
+export function* loginLocalUser(action) {
     try {
-        const feed = yield call(getProjectFeed, action.data);
+        const user = yield call(loginUser, action.data);
 
         yield* handleServerResponse(
-            feed,
-            types.GET_FEED_SUCCESS,
-            types.GET_FEED_FAILURE,
-            "Couldn't fetch feed :("
+            user,
+            types.LOCAL_LOGIN_SUCCESS,
+            types.LOCAL_LOGIN_FAILED,
+            'Sorry, Login Went wrong.'
         );
     }
     catch(e) {
         yield put({
-            type: types.GET_FEED_FAILURE,
+            type: types.LOCAL_LOGIN_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* loginGoogleUser(action) {
+    try {
+        const user = yield call(loginUser, action.data);
+
+        yield* handleServerResponse(
+            user,
+            types.GOOGLE_LOGIN_SUCCESS,
+            types.GOOGLE_LOGIN_FAILED,
+            'Sorry, Login Went wrong.'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.GOOGLE_LOGIN_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* loginFacebookUser(action) {
+    console.log(action);
+    try {
+        const user = yield call(loginUser, action.data);
+
+        yield* handleServerResponse(
+            user,
+            types.FACEBOOK_LOGIN_SUCCESS,
+            types.FACEBOOK_LOGIN_FAILED,
+            'Sorry, Login Went wrong.'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.FACEBOOK_LOGIN_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* getLoggedInUser(action) {
+    try {
+        const user = yield call(decodeJWT, action.data);
+
+        yield* handleServerResponse(
+            user,
+            types.GET_LOGGED_IN_LOCAL_STORAGE_SUCCESS,
+            types.GET_LOGGED_IN_LOCAL_STORAGE_FAILED,
+            'Sorry, could not find you.'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.GET_LOGGED_IN_LOCAL_STORAGE_FAILED,
             error: e
         });
     }
@@ -102,8 +160,20 @@ function* watchRegisterFacebookUser() {
     yield* takeEvery(types.FACEBOOK_REGISTER_CLICK, registerFacebookUser);
 }
 
-function* watchGetProjectFeed() {
-    yield* takeEvery(types.REQUEST_FEED, requestProjectFeed);
+function* watchLocalLoginUser() {
+    yield* takeEvery(types.LOCAL_LOGIN_CLICK, loginLocalUser);
+}
+
+function* watchGoogleLoginUser() {
+    yield* takeEvery(types.GOOGLE_LOGIN_CLICK, loginGoogleUser);
+}
+
+function* watchFacebookLoginUser() {
+    yield* takeEvery(types.FACEBOOK_LOGIN_CLICK, loginFacebookUser);
+}
+
+function* watchGetLoggedInUser() {
+    yield* takeEvery(types.GET_LOGGED_IN_LOCAL_STORAGE, getLoggedInUser);
 }
 
 export default function* rootSaga() {
@@ -111,6 +181,9 @@ export default function* rootSaga() {
         watchRegisterNewUser(),
         watchRegisterGoogleUser(),
         watchRegisterFacebookUser(),
-        watchGetProjectFeed()
+        watchLocalLoginUser(),
+        watchGoogleLoginUser(),
+        watchFacebookLoginUser(),
+        watchGetLoggedInUser()
     ];
 }

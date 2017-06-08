@@ -1,26 +1,26 @@
 import React, { PropTypes } from 'react';
 import LoginForm from '../layout/form/LoginForm';
 
-const LoginModal = ({ onRegisterLocal, onRegisterGoogle, onRegisterFacebook, error }) =>
+const LoginModal = ({ onLoginLocal, onLoginGoogle, onLoginFacebook, error }) =>
     <div className="modal fade login" id="login">
         <div className="modal-dialog login animated">
             <div className="modal-content">
                 <div className="modal-header">
                     <button type="button" className="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 className="modal-title">Login with</h4>
+                    <h4 className="modal-title">Login for Communicode</h4>
                 </div>
 
                 <div className="modal-body">
-                    <LoginForm onRegisterFacebook={onRegisterFacebook} onRegisterGoogle={onRegisterGoogle} onRegisterLocal={onRegisterLocal} error={error} />
+                    <LoginForm methods={{onLoginFacebook, onLoginGoogle, onLoginLocal}} error={error} />
                 </div>
             </div>
         </div>
     </div>;
 
 LoginModal.propTypes = {
-    onRegisterLocal: PropTypes.func,
-    onRegisterGoogle: PropTypes.func,
-    onRegisterFacebook: PropTypes.func,
+    onLoginLocal: PropTypes.func,
+    onLoginGoogle: PropTypes.func,
+    onLoginFacebook: PropTypes.func,
     error: PropTypes.string
 };
 

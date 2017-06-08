@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import CLogoLight from '../../assets/images/logo/CLight.svg';
 import styles from '../../assets/css/static/header.scss';
-import LoginModal from '../../containers/RegisterContainer.js';
+import RegisterModal from '../../containers/RegisterContainer.js';
+import LoginModal from '../../containers/LoginContainer.js';
+import NavbarGreeting from '../layout/dynamic/NavbarGreeting.js';
 import NativeListener from 'react-native-listener';
 import classNames from 'classnames';
 
@@ -13,13 +15,15 @@ const headerNavCollapseClassnames = classNames('collapse', 'navbar-collapse', st
 const headerButtonCollapseClassnames  = classNames('icon-bar', styles['collapse-button']);
 
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
     handleModalClick(e) {
         e.preventDefault();
     }
 
     render() {
+        const { isAuthenticated, user } = this.props;
+
         return (
             <div>
                 <nav className={headerNavClassnames}>
@@ -54,25 +58,47 @@ export default class Header extends React.Component {
                                 </li>
                             </ul>
 
-                            <ul className="nav navbar-nav navbar-right right">
-                                <li>
-                                    <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                        <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Register</Link>
-                                    </NativeListener>
-                                </li>
-                                <li>
-                                    <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                        <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Login</Link>
-                                    </NativeListener>
-                                </li>
-                            </ul>
+                            {!isAuthenticated &&
+                                <ul className="nav navbar-nav navbar-right right">
+                                    <li>
+                                        <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                            <Link className={styles.a} data-toggle="modal" data-target="#register" to="#">Register</Link>
+                                        </NativeListener>
+                                    </li>
+                                    <li>
+                                        <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                            <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Login</Link>
+                                        </NativeListener>
+                                    </li>
+                                </ul>
+                            }
+
+                            {isAuthenticated &&
+                                <ul className="nav navbar-nav navbar-right right">
+                                    <li>
+                                        <Link className={styles.a}>
+                                            <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
+                                        </Link>
+                                    </li>
+                                </ul>
+                            }
                         </div>
                     </div>
                 </nav>
-                <LoginModal />
+                {!isAuthenticated &&
+                    <div>
+                        <RegisterModal />
+                        <LoginModal />
+                    </div>
+                }
             </div>
         );
     }
+};
+
+Header.propTypes = {
+    isAuthenticated: PropTypes.bool,
+    user: PropTypes.object
 };
 
 /*
@@ -83,3 +109,5 @@ export default class Header extends React.Component {
 
  You're welcome future trevor.
  */
+
+export default Header;

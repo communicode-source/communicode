@@ -1,24 +1,16 @@
 import * as types from './types';
 
-export function filterTable(filter) {
-    return {
-        type: types.FILTER,
-        filter,
-    };
-}
-
 export function validateEmail(email) {
     return {
-        type: types.SUBSCRIBE,
-        email
+        type: types.VALIDATE_EMAIL,
+        data: email
     };
 }
 
-export function sendSubscription(event, email) {
-    event.preventDefault();
+export function validatePassword(password) {
     return {
-        type: types.SUBSCRIBE_USER,
-        email
+        type: types.VALIDATE_PASSWORD,
+        data: password
     };
 }
 
@@ -32,6 +24,23 @@ export function registerLocalUser(user) {
     return {
         type: types.LOCAL_REGISTER_CLICK,
         data: user
+    };
+}
+
+export function updateRegisterProvider(provider, response) {
+    let imageUrl;
+    if(provider === 'google') {
+        imageUrl = response.profileObj.imageUrl;
+    }
+    else if(provider === 'facebook') {
+        imageUrl = response.picture.data.url;
+    }
+
+    return {
+        type: types.UPDATE_PROVIDER,
+        data: provider,
+        response: response,
+        imageUrl: imageUrl
     };
 }
 
@@ -49,23 +58,30 @@ export function registerFacebookUser(user) {
     };
 }
 
-export function validateUserEmail(email) {
+export function loginLocalUser(user) {
     return {
-        type: types.VALIDATE_EMAIL,
-        email
+        type: types.LOCAL_LOGIN_CLICK,
+        data: user
     };
 }
 
-export function validatePassword(password) {
+export function loginGoogleUser(user) {
     return {
-        type: types.VALIDATE_PASSWORD,
-        password
+        type: types.GOOGLE_LOGIN_CLICK,
+        data: user
     };
 }
 
-export function getProjectFeed(id) {
+export function loginFacebookUser(user) {
     return {
-        type: types.REQUEST_FEED,
-        id
+        type: types.FACEBOOK_LOGIN_CLICK,
+        data: user
+    };
+}
+
+export function getLoggedInUser(isAuthenticated) {
+    return {
+        type: types.GET_LOGGED_IN_LOCAL_STORAGE,
+        data: isAuthenticated
     };
 }
