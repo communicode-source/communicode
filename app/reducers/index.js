@@ -32,6 +32,10 @@ const interests = (state = '', action) => {
             }
             newState.splice(index, 1);
             return newState;
+        default:
+            return state;
+    }
+};
 const user = (state = '', action) => {
     switch(action.type) {
         case types.ADD_LOCAL_USER_SUCCESS:
