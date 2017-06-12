@@ -2,7 +2,7 @@
 @import '../fonts';
 
 .hero {
-  background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url('../../images/backgrounds/home/header.png') no-repeat center center;
+  background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url('../../images/backgrounds/home/header.jpg') no-repeat center center;
   height: 500px;
   width: 100%;
   -webkit-background-size: cover;
@@ -89,7 +89,7 @@
 /* DEV AND NONPROFT MAIN PRICS */
 
 .developers {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/developers.png');
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/developers.jpg');
   background-size: cover;
   background-position-x: center;
   @media (min-width: 991px) {
@@ -98,7 +98,7 @@
 }
 
 .nonprofits {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/nonprofits.png');
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/nonprofits.jpg');
   background-size: cover;
   background-position-x: center;
 }
@@ -144,13 +144,13 @@
 }
 
 #portfolio-panel {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/portfolio.png');
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/portfolio.jpg');
   background-size: cover;
   background-position-x: center;
 }
 
 #work-panel {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/work.png');
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/work.jpg');
   background-size: cover;
   background-position: center bottom;
 }
