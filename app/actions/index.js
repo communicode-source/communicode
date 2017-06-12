@@ -79,9 +79,23 @@ export function loginFacebookUser(user) {
     };
 }
 
+export function overlayLoginModal(shouldShowModal) {
+    return {
+        type: types.OVERLAY_LOGIN_MODAL,
+        data: shouldShowModal
+    };
+}
+
 export function getLoggedInUser(isAuthenticated) {
     return {
         type: types.GET_LOGGED_IN_LOCAL_STORAGE,
         data: isAuthenticated
+    };
+}
+
+export function setRedirectUrl(currentURL) {
+    return {
+        type: types.SET_REDIRECT_URL,
+        data: currentURL
     };
 }

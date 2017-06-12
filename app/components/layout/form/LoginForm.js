@@ -4,9 +4,6 @@ import * as rules from '../../../rules';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
-// import { DragSource, DropTarget } from 'react-dnd';
-// import { findDOMNode } from 'react-dom';
-
 const handleLogin = (data, methods) => {
     if(data.provider === 'local') {
         const email = data.email.value;
@@ -79,7 +76,7 @@ const LoginForm = ( props ) => {
                         <h6 className={classes.INPUT_LABEL_NAME}>Email</h6>
                         <h6 className={classes.INPUT_LABEL_ERROR}>{error}</h6>
                     </div>
-                    <input type="text" placeholder="Email"
+                    <input type="email" placeholder="Email" required
                       ref={ node => {data.email = node;}}
                       maxLength={`${rules.MAX_EMAIL_LENGTH}`}/>
                 </div>
@@ -87,14 +84,14 @@ const LoginForm = ( props ) => {
                     <div className={classes.INPUT_LABEL}>
                         <h6 className={classes.INPUT_LABEL_NAME}>Password</h6>
                     </div>
-                    <input type="password" placeholder="Password"
+                    <input type="password" placeholder="Password" required
                       ref={ node => {data.password = node;}}
                       maxLength={`${rules.MAX_PASSWORD_LENGTH}`} />
                 </div>
             </form>
 
-            <div className="login-submit-button">
-                <button onClick={() => handleLogin(data, methods)} type="submit">Let's change the World!</button>
+            <div className="login-submit-button row">
+                <button onClick={() => handleLogin(data, methods)} type="submit" className={classes.SUBMIT_BUTTON}>Let's change the World!</button>
             </div>
         </div>
     );

@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
-import { getLoggedInUser } from '../actions';
+import { getLoggedInUser, overlayLoginModal } from '../actions';
 import App from '../components/App';
 
 const mapStateToProps = (state) => {
     return {
         isAuthenticated: state.user.isAuthenticated,
-        user: state.user
+        user: state.user,
+        shouldShowLoginModal: state.overlay.shouldShowLoginModal
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onGetLoggedInUser: (isAuthenticated) => dispatch(getLoggedInUser(isAuthenticated))
+        onGetLoggedInUser: (isAuthenticated) => dispatch(getLoggedInUser(isAuthenticated)),
+        showLoginModal: (shouldShowLoginModal) => dispatch(overlayLoginModal(shouldShowLoginModal))
     };
 };
 

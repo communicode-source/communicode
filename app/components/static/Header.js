@@ -17,12 +17,17 @@ const headerButtonCollapseClassnames  = classNames('icon-bar', styles['collapse-
 
 class Header extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
     handleModalClick(e) {
         e.preventDefault();
     }
 
     render() {
-        const { isAuthenticated, user } = this.props;
+        const { isAuthenticated, user, shouldShowLoginModal, showLoginModal } = this.props;
 
         return (
             <div>
@@ -67,7 +72,7 @@ class Header extends React.Component {
                                     </li>
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link className={styles.a} data-toggle="modal" data-target="#login" to="#">Login</Link>
+                                            <Link className={styles.a} onClick={ () => { showLoginModal(true); } } to="#">Login</Link>
                                         </NativeListener>
                                     </li>
                                 </ul>
@@ -88,7 +93,7 @@ class Header extends React.Component {
                 {!isAuthenticated &&
                     <div>
                         <RegisterModal />
-                        <LoginModal />
+                        <LoginModal shouldShowModal={shouldShowLoginModal} />
                     </div>
                 }
             </div>
@@ -98,6 +103,8 @@ class Header extends React.Component {
 
 Header.propTypes = {
     isAuthenticated: PropTypes.bool,
+    shouldShowLoginModal: PropTypes.bool,
+    showLoginModal: PropTypes.func,
     user: PropTypes.object
 };
 

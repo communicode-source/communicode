@@ -22,13 +22,15 @@ class App extends React.Component {
         const {
             children,
             isAuthenticated,
-            user
+            user,
+            shouldShowLoginModal,
+            showLoginModal
         } = this.props;
 
         return (
             <div id={main['app-container']}>
                 <Title render="Communicode"/>
-                <Header user={user} isAuthenticated={isAuthenticated} />
+                <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} />
                 <div id={main['content-main']}>{children}</div>
                 <Footer />
             </div>
@@ -40,7 +42,9 @@ App.propTypes = {
     children: PropTypes.object,
     isAuthenticated: PropTypes.bool,
     onGetLoggedInUser: PropTypes.func,
-    user: PropTypes.object
+    user: PropTypes.object,
+    showLoginModal: PropTypes.func,
+    shouldShowLoginModal: PropTypes.bool
 };
 
 export default App;

@@ -110,7 +110,6 @@ export function* loginGoogleUser(action) {
 }
 
 export function* loginFacebookUser(action) {
-    console.log(action);
     try {
         const user = yield call(loginUser, action.data);
 

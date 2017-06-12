@@ -17,6 +17,18 @@ const interests = (state = '', action) => {
             return state;
     }
 };
+
+const redirect = (state = '', action) => {
+    switch(action.type) {
+        case types.SET_REDIRECT_URL:
+            return Object.assign({}, state, {
+                loginRedirectUrl: action.data
+            });
+        default:
+            return state;
+    }
+};
+
 const user = (state = {
     isFetching: false,
     isAuthenticated: localStorage.getItem('id_token') ? true : false,
@@ -137,10 +149,25 @@ const user = (state = {
     }
 };
 
+const overlay = (state = {
+    shouldShowLoginModal: false
+}, action) => {
+    switch (action.type) {
+        case types.OVERLAY_LOGIN_MODAL:
+            return Object.assign({}, state, {
+                shouldShowLoginModal: action.data
+            });
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
     user,
     routing,
     interests,
+    redirect,
+    overlay
 });
 
 export default rootReducer;

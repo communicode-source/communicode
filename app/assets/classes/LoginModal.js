@@ -1,5 +1,8 @@
 import modal from '../css/modals/loginModal.scss';
+import main from '../css/main.scss';
+
 import classNames from 'classnames';
+
 
 // Main Modal stuff
 export const MODAL_ID  = classNames(modal.modal);
@@ -31,3 +34,5 @@ export const LEFT_SIDE       = classNames(modal.leftSide);
 
 export const SOCIAL_CONTAINER   = classNames('col-md-12', modal['social-container']);
 export const SOCIAL_CONTAINER_2 = classNames('col-md-12', modal['social-container'], modal['social-container-2']);
+
+export const SUBMIT_BUTTON = classNames('col-md-12', main['primary-btn']);

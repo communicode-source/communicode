@@ -48,7 +48,7 @@ export async function loginUser(data) {
         const responseData = await response.json();
 
         if(responseData === 100) {
-            throw new Error('Error logging in.');
+            throw new Error('User not found');
         }
 
         if(responseData === 101 ) {
