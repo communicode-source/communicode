@@ -99,3 +99,9 @@ export function setRedirectUrl(currentURL) {
         data: currentURL
     };
 }
+
+export function logoutUser() {
+    return {
+        type: types.LOGOUT_USER
+    };
+}

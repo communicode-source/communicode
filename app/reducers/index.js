@@ -144,6 +144,11 @@ const user = (state = {
                 isAuthenticated: false,
                 error: action.error.message
             });
+        case types.LOGOUT_USER:
+            return {
+                isFetching: false,
+                isAuthenticated: false,
+            };
         default:
             return state;
     }
@@ -156,6 +161,22 @@ const overlay = (state = {
         case types.OVERLAY_LOGIN_MODAL:
             return Object.assign({}, state, {
                 shouldShowLoginModal: action.data
+            });
+        case types.LOCAL_LOGIN_SUCCESS:
+            return Object.assign({}, state, {
+                shouldShowLoginModal: false
+            });
+        case types.GOOGLE_LOGIN_SUCCESS:
+            return Object.assign({}, state, {
+                shouldShowLoginModal: false
+            });
+        case types.FACEBOOK_LOGIN_SUCCESS:
+            return Object.assign({}, state, {
+                shouldShowLoginModal: false
+            });
+        case types.LOGOUT_USER:
+            return Object.assign({}, state, {
+                shouldShowLoginModal: false
             });
         default:
             return state;

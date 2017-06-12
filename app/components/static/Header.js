@@ -4,6 +4,7 @@ import CLogoLight from '../../assets/images/logo/CLight.svg';
 import styles from '../../assets/css/static/header.scss';
 import RegisterModal from '../../containers/RegisterContainer.js';
 import LoginModal from '../../containers/LoginContainer.js';
+import Logout from '../../containers/LogoutContainer.js';
 import NavbarGreeting from '../layout/dynamic/NavbarGreeting.js';
 import NativeListener from 'react-native-listener';
 import classNames from 'classnames';
@@ -13,7 +14,7 @@ const navLogoClassnames = classNames('pull-left logo', styles.a);
 
 const headerNavCollapseClassnames = classNames('collapse', 'navbar-collapse', styles['collapse-container']);
 const headerButtonCollapseClassnames  = classNames('icon-bar', styles['collapse-button']);
-
+const dropdownClassnames = classNames(styles.a, 'dropdown-toggle');
 
 class Header extends React.Component {
 
@@ -80,16 +81,20 @@ class Header extends React.Component {
 
                             {isAuthenticated &&
                                 <ul className="nav navbar-nav navbar-right right">
-                                    <li>
-                                        <Link className={styles.a}>
+                                    <li className="dropdown">
+                                        <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                             <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
                                         </Link>
+                                        <ul className="dropdown-menu">
+                                            <Logout />
+                                        </ul>
                                     </li>
                                 </ul>
                             }
                         </div>
                     </div>
                 </nav>
+
                 {!isAuthenticated &&
                     <div>
                         <RegisterModal />
