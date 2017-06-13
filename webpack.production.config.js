@@ -37,8 +37,8 @@ module.exports = {
         }),
         new FaviconsWebpackPlugin({
             logo: './app/assets/images/logo/C.png',
-            prefix: 'assets/',
-            persistentCache: true,
+            prefix: 'assets/[hash]-',
+            persistentCache: false,
             inject: true,
             background: '#f2f2f2',
             title: 'Communicode',

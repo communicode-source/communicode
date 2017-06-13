@@ -43,7 +43,10 @@ const runServer = () => {
         return next();
     });
     app.use('/', httpsRedirect());
-    app.use('/assets', Express.static('assets'));
+    app.use('/assets', Express.static('assets', {
+        // We can set such a high expiration date because assets have filename hashes
+        maxAge: '1y'
+    }));
 
     const paths = flattenRoutes(createRoutes(routes));
 
