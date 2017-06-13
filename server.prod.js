@@ -34,6 +34,14 @@ const runServer = () => {
     const app = Express();
 
     app.use(compression());
+    app.use((req, res, next) => {
+        const host = req.get('Host');
+        // We like the domain without www more so let's use it!
+        if(host.startsWith('www.')) {
+            return res.redirect(301, 'https://communicode.co/' + req.originalUrl);
+        }
+        return next();
+    });
     app.use('/', httpsRedirect());
     app.use('/assets', Express.static('assets'));
 
@@ -53,6 +61,10 @@ const runServer = () => {
         else {
             app.use(routePath, Express.static(routePath.substr(1)));
         }
+    });
+    // Workaround for 404 error
+    app.get('/fonts/*', (req, res) => {
+        return res.redirect(301, 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0' + req.originalUrl);
     });
     app.get('/sitemap.xml', (req, res) => {
         res.sendFile('sitemap.xml', {root: '.'});
