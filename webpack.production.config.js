@@ -31,14 +31,9 @@ module.exports = {
         // change name because the hash part changes. We want hash name changes to bust cache
         // on client browsers.
         new HtmlWebpackPlugin({
-            template: 'html-loader!app/index.ejs.html',
+            template: '!!html-loader!app/index.ejs.html',
             inject: 'body',
             filename: 'index.ejs.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: 'app/index.tpl.html',
-            inject: 'body',
-            filename: 'index.html',
         }),
         new FaviconsWebpackPlugin({
             logo: './app/assets/images/logo/C.png',
