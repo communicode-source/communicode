@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import classNames from 'classnames';
 import common from '../../assets/css/pages/common.scss';
 import main from '../../assets/css/main.scss';
@@ -9,7 +10,7 @@ const Subscribe = () =>
         <div className={classNames('col-md-12', common['create-account'])}>
             <center>
                 <div>
-                    <form action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
+                    <form onSubmit={() => ReactGA.event({category: 'User', action: 'Subscribed to the mailing list'})} action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
                         <div className={main.text}>
                             <h2>Convinced?</h2>
                             <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
