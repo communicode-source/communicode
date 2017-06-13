@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import main from '../../assets/css/main.scss';
 import modal from '../../assets/css/modals/notify.scss';
 import common from '../../assets/css/pages/common.scss';
@@ -17,7 +18,7 @@ const NotifyModal = () =>
                     <h3 className="modal-title" id="myModalLabel">Stay In the Loop</h3>
                 </div>
                 <div>
-                    <form action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
+                    <form onSubmit={() => ReactGA.event({category: 'User', action: 'Subscribed to the mailing list'})} action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
                         <div className={main.text}>
                             <div className="modal-body">
                                 <h4 className={modal['modal-body-text']}>Don't worry, we'll be here soon. And we can't do it without you.</h4>

@@ -3,6 +3,10 @@ import { Link } from 'react-router';
 import SubscribeComponent from '../layout/SubscribeComponent';
 import Title from 'react-title-component';
 
+import FacebookSocialButton from '../layout/FacebookSocialButton';
+import TwitterSocialButton from '../layout/TwitterSocialButton';
+import InstagramSocialButton from '../layout/InstagramSocialButton';
+
 import classNames from 'classnames';
 import home from '../../assets/css/pages/home.scss';
 import main from '../../assets/css/main.scss';
@@ -70,19 +74,13 @@ const Home = () =>
                     </p>
                     <div className="row hidden-sm hidden-xs">
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-facebook" href="https://facebook.com/communicode.co">
-                                <span className="fa fa-facebook"/>
-                            </a>
+                            <FacebookSocialButton/>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/communicode.co">
-                                <span className="fa fa-instagram"/>
-                            </a>
+                            <InstagramSocialButton/>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-twitter"/>
-                            </a>
+                            <TwitterSocialButton/>
                         </div>
                     </div>
                     <div className="row hidden-lg hidden-md">

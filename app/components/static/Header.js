@@ -6,6 +6,8 @@ import NotifyModal from '../modals/NotifyModal.js';
 import NativeListener from 'react-native-listener';
 import classNames from 'classnames';
 
+import ReactGA from 'react-ga';
+
 const headerNavClassnames = classNames(styles.nav);
 const navLogoClassnames = classNames('pull-left logo', styles.a);
 
@@ -56,12 +58,15 @@ export default class Header extends React.Component {
 
                             <ul className="nav navbar-nav navbar-right right">
                                 <li>
-                                    <Link href="https://blog.communicode.co" target="_blank">
+                                    <ReactGA.OutboundLink to="https://blog.communicode.co" eventLabel="Blog" target="_blank">
                                         Visit our Blog
-                                    </Link>
+                                    </ReactGA.OutboundLink>
                                 </li>
                                 <li>
-                                    <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                    <NativeListener onClick={() => {
+                                        this.handleModalClick();
+                                        ReactGA.modalview('/about/subscribe');
+                                    }}>
                                         <Link className={styles.a} data-toggle="modal" data-target="#notify" to="#">Stay in the Loop</Link>
                                     </NativeListener>
                                 </li>
