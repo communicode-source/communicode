@@ -13,8 +13,8 @@
     "eslint": "eslint .",
     "bundle": "./node_modules/webpack/bin/webpack.js --config webpack.production.config.js",
     "bundle-dev": "./node_modules/webpack/bin/webpack.js --config webpack.config.js",
-    "deploy": "npm run build && cd dist && gcloud app deploy app.yaml --no-promote",
-    "deploy-production": "npm run build && cd dist && gcloud app deploy app.yaml --promote"
+    "deploy": "npm run build && cd dist && gcloud app deploy app.yaml --no-promote -q",
+    "deploy-production": "npm run build && cd dist && gcloud app deploy app.yaml --promote --stop-previous-version"
   },
   "keywords": [
     "es6",
