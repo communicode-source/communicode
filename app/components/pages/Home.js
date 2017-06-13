@@ -64,7 +64,7 @@ const Home = () =>
             </div>
             <div className={classNames('row', home['unified-section'])}>
                 <div className="col-md-12 col-sm-12 col-lg-6 hidden-sm hidden-xs">
-                    <img width="100%" src={require('../../assets/images/homepage/TripleBrowsers.png')}/>
+                    <img width="100%" src={require('../../assets/images/homepage/TripleBrowsersLogo.png')}/>
                 </div>
                 <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
                     <h2>We're Creating a Revolution</h2>

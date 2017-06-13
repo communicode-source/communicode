@@ -92,7 +92,7 @@ module.exports = {
             svgo: {},
             plugins: [
                 ImageminMozjpeg({
-                    quality: 90,
+                    quality: 60,
                     progressive: true
                 })
             ]
