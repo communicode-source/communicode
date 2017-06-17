@@ -1,0 +1,68 @@
+
+=========================== THIS IS THE REVIEWS PAGE ===========================
+    Classes:
+        reviews         - profile.scss
+        review          - profile.scss
+        right           - profile.scss
+        stars           - profile.scss
+        icon            - profile.scss
+        fa              - external
+        fa-star         - external
+        fa-star-half-o  - external
+    Parent-Node(s):
+        reviews - Class:
+            Props-
+                reviews (array).
+                onTabClick (func).
+
+            Methods-
+                constructor({reviews})
+                componentWillReceiveProps(newProps)
+                render()
+    Child-Nodes:
+        dependencies-
+            import React from 'react';
+            import classNames from 'classnames';
+            import styles from './../../etc';
+            import PropTypes from 'prop-types';
+        review - Class:
+            Props-
+                profileImage
+                personName
+                projectName
+                stars
+                reviewText
+                recommendation
+            Methods-
+                constructor({props}) {}
+                getStarBuild(qtyStarred) {
+                    let iStar = 0;
+                    const starNode = [];
+                    while(iStar < Math.floor(qtyStarred)) {
+                        starNode.push(<i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>);
+                        iStar++;
+                    }
+                    if(qtyStarred % 1 !== 0) {
+                        starNode.push(<i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>)
+                    }
+                    while(iStar < 5) {
+                        starNode.push(<i className={classNames('fa', 'fa-star-o')} aria-hidden="true"></i>);
+                        iStar++;
+                    }
+                    return starNode;
+                }
+                render() {}
+            HTLML-
+                <div className={classNames('review')}>
+                    <img src={this.profileImage} className={classNames('icon')} />
+                    <div classNames={classNames('right')}>
+                        <h3>{this.personName}, <i>{this.projectName}</i></h3>
+                        <div className={classNames('stars')}>
+                            {this.getStarBuild(this.stars)}
+                        </div>
+                        <p>{this.reviewText}</p>
+                        <i>Would I recommend?</i>
+                        <p>{this.recommendation}</p>
+                    </div>
+                </div>
+================================================================================
