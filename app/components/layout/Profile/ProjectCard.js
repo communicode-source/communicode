@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 
 class ProjectCard extends React.Component {
-    constructor({image = null, github = null, website = null; description = null, name = null}) {
+    constructor({image = null, github = null, website = null, description = null, name = null}) {
         super();
         this.image = image;
         this.description = description;
@@ -15,14 +15,14 @@ class ProjectCard extends React.Component {
     buildPicture() {
         const links = [];
         if(this.github !== null) {
-            links.push(<a href={this.github}><i className={classNames('fa', 'fa-github')} aria-hidden="true"></i></a>)
+            links.push(<a href={this.github}><i className={classNames('fa', 'fa-github')} aria-hidden="true"></i></a>);
         }
         if(this.website !== null) {
-            links.push(<a href={this.website}><i className={classNames('fa', 'fa-globe')} aria-hidden="true"></i></a>)
+            links.push(<a href={this.website}><i className={classNames('fa', 'fa-globe')} aria-hidden="true"></i></a>);
         }
         return (
             <div className={classNames(styles.item)}>
-                <img src={this.image} alt="">
+                <img src={this.image} alt="" />
                 <div className={classNames(styles.info)}>
                     {links}
                 </div>
@@ -35,7 +35,7 @@ class ProjectCard extends React.Component {
             <div className={classNames(styles.item, styles.noPic, styles.item1)}>
                 <h3>{this.name}</h3>
                 <p>{this.description}</p>
-                <div className={classNames(styls.btns)}>
+                <div className={classNames(styles.btns)}>
                     <div className={classNames(styles.button)}>Github</div>
                     <div className={classNames(styles.button)}>Behance</div>
                 </div>
@@ -51,3 +51,4 @@ class ProjectCard extends React.Component {
         );
     }
 }
+export default ProjectCard;

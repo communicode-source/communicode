@@ -22,7 +22,7 @@ class ReviewCard extends React.Component {
             iStar++;
         }
         if(this.stars % 1 !== 0) {
-            starNode.push(<i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>)
+            starNode.push(<i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>);
         }
         while(iStar < 5) {
             starNode.push(<i className={classNames('fa', 'fa-star-o')} aria-hidden="true"></i>);
@@ -33,11 +33,11 @@ class ReviewCard extends React.Component {
 
     render() {
         return (
-            <div className={classNames('review')}>
-                <img src={this.profileImage} className={classNames('icon')} />
-                <div classNames={classNames('right')}>
+            <div className={classNames(styles.review)}>
+                <img src={this.profileImage} className={classNames(styles.icon)} />
+                <div classNames={classNames(styles.right)}>
                     <h3>{this.personName}, <i>{this.projectName}</i></h3>
-                    <div className={classNames('stars')}>
+                    <div className={classNames(styles.stars)}>
                         {this.getStarBuild.call(this)}
                     </div>
                     <p>{this.reviewText}</p>

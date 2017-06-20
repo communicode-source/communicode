@@ -18,6 +18,9 @@ class About extends React.Component {
     buildOnline() {
         const node = [];
         for(let i in this.socials) {
+            if(typeof this.socials[i] === 'String') {
+                continue;
+            }
             node.push(<a href={this.socials[i]}>{i}</a>);
         }
         return node;
@@ -29,7 +32,7 @@ class About extends React.Component {
     }
 
     buildInterests() {
-        const node = this.interests.map(item => <p className=classNames(styles.button)>{item}</p>);
+        const node = this.interests.map(item => <p className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 

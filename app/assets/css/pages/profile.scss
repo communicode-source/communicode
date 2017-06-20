@@ -153,9 +153,9 @@ a:hover {
         }
     }
     .noPic {
-        padding-left: 30px !IMPORTANT;
-        padding-right: 30px !IMPORTANT;
-        text-align: left !IMPORTANT;
+        padding-left: 30px;
+        padding-right: 30px;
+        text-align: left;
         .btns {
             margin-top: -7px;
         }
@@ -244,8 +244,8 @@ a:hover {
         -webkit-column-count: 2;
         column-count: 2;
         .noPic {
-            padding-left: 15px !IMPORTANT;
-            padding-right: 15px !IMPORTANT;
+            padding-left: 15px;
+            padding-right: 15px;
         }
     }
 }
