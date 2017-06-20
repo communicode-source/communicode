@@ -27,7 +27,7 @@ const NotFound = () =>
             <br/>
             <br/>
             <div className="row">
-                <center><Link to="/" className={primaryBtnClassnames}><span className="fa fa-arrow-left"> Back to Safety</span></Link></center>
+                <center><Link to="/" className={primaryBtnClassnames}><span className="fa fa-arrow-left"/> Back to Safety</Link></center>
             </div>
         </div>
     </div>;
