@@ -14,7 +14,7 @@ const Footer = () =>
                 <img id="icon" src={require('../../assets/images/logo/CLight.svg')} />
             </div>
 
-            <div className="col-xs-12 col-sm-6 hidden-xs">
+            <div className="col-xs-12 col-sm-4 col-md-6 hidden-xs">
                 <h6 className="copyright">©2017 Communicode LLC</h6>
             </div>
 

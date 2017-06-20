@@ -6,10 +6,13 @@ import Title from 'react-title-component';
 import main from '../assets/css/main.scss';
 
 const App = ({children}) =>
-    <div id={main['app-container']}>
+    <div className={main['app-container']}>
         <Title render="Communicode"/>
         <Header />
-        <div id={main['content-main']}>{children}</div>
+        <div id={main['content-main']}>
+            {children}
+            <div className={main.push}/>
+        </div>
         <Footer />
     </div>;
 
