@@ -52,14 +52,14 @@ class About extends React.Component {
                 <div className={classNames(styles.item)}>
                     <h3>{this.fname}&#39;s Skills</h3>
                     <hr />
-                    <div className={classNames(styles.btn)}>
+                    <div className={classNames(styles.btns)}>
                         {this.buildSkills.call(this)}
                     </div>
                 </div>
                 <div className={classNames(styles.item)}>
                     <h3>{this.fname}&#39;s Interests</h3>
                     <hr />
-                    <div className={classNames(styles.btn)}>
+                    <div className={classNames(styles.btns)}>
                         {this.buildInterests.call(this)}
                     </div>
                 </div>
