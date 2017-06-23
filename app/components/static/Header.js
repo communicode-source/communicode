@@ -63,11 +63,11 @@ export default class Header extends React.Component {
                                     </ReactGA.OutboundLink>
                                 </li>
                                 <li>
-                                    <NativeListener onClick={() => {
-                                        this.handleModalClick();
+                                    <NativeListener onClick={(e) => {
+                                        this.handleModalClick(e);
                                         ReactGA.modalview('/about/subscribe');
                                     }}>
-                                        <Link className={styles.a} data-toggle="modal" data-target="#notify" to="#">Stay in the Loop</Link>
+                                        <Link className={styles.a} data-toggle="modal" data-target="#notify" to="">Stay in the Loop</Link>
                                     </NativeListener>
                                 </li>
                             </ul>
