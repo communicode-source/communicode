@@ -4,7 +4,7 @@
   "description": "A boilerplate for playing around with react, redux and react-router with the help of webpack.",
   "main": "server.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm install && npm run start:prod || npm run start:dev",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:dev": "node server.dev.js",
     "start:prod": "node server.bundle.js",
     "build": "npm run build:client && npm run build:server",
