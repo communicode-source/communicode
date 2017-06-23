@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 import ReactGA from 'react-ga';
 
-const headerNavClassnames = classNames(styles.nav);
+const headerNavClassnames = classNames(styles.nav, 'col-md-12');
 const navLogoClassnames = classNames('pull-left logo', styles.a);
 
 const headerNavCollapseClassnames = classNames('collapse', 'navbar-collapse', styles['collapse-container']);

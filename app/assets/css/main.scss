@@ -19,6 +19,11 @@ body {
   background: $white;
   padding: 0 !important; // Hack to prevent body from shifting when modal opens
   height: 100%;
+  overflow-x: hidden;
+}
+
+.modal-open {
+  overflow: auto;
 }
 
 .app-container {
