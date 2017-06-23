@@ -41,10 +41,6 @@ class LoginModal extends React.Component {
             error
         } = this.props;
 
-        if(this.props.shouldShowModal || this.props.shouldShowModalAuth) {
-            this.showModal = true;
-        }
-
         this.showModal = this.props.shouldShowModal || this.props.shouldShowModalAuth ? true : false;
 
         return (

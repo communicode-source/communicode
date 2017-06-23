@@ -105,3 +105,17 @@ export function logoutUser() {
         type: types.LOGOUT_USER
     };
 }
+
+export function overlayNameModal(shouldShowModal) {
+    return {
+        type: types.OVERLAY_NAME_MODAL,
+        data: shouldShowModal
+    };
+}
+
+export function updateName(user) {
+    return {
+        type: types.UPDATE_NAME_CLICK,
+        data: user
+    };
+}

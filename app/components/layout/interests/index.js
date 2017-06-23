@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import interestsCss from './../../../assets/css/pages/interests.scss';
 import classNames from 'classnames';
 import InterestCard from './InterestCard';
-import NameModal from './../../modals/NameModal';
+import NameModal from './../../../containers/NameModalContainer';
 /*
   If ComponentDidMount fires,
     check if there is a name in the db

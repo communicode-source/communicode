@@ -144,10 +144,22 @@ const user = (state = {
                 isAuthenticated: false,
                 error: action.error.message
             });
+        case types.UPDATE_NAME_SUCCESS:
+            return {
+                ...state,
+                profile: action.data.msg
+            };
+        case types.UPDATE_NAME_FAILED:
+            return Object.assign({}, state, {
+                isFetching: false,
+                isAuthenticated: true,
+                error: action.error.message
+            });
         case types.LOGOUT_USER:
             return {
                 isFetching: false,
                 isAuthenticated: false,
+                provider: 'local'
             };
         default:
             return state;
@@ -155,25 +167,23 @@ const user = (state = {
 };
 
 const overlay = (state = {
-    shouldShowLoginModal: false
+    shouldShowLoginModal: false,
+    shouldShowNameModal: true
 }, action) => {
     switch (action.type) {
         case types.OVERLAY_LOGIN_MODAL:
             return Object.assign({}, state, {
                 shouldShowLoginModal: action.data
             });
-        case types.LOCAL_LOGIN_SUCCESS:
+        case types.OVERLAY_NAME_MODAL:
             return Object.assign({}, state, {
-                shouldShowLoginModal: false
+                shouldShowNameModal: action.data
             });
-        case types.GOOGLE_LOGIN_SUCCESS:
-            return Object.assign({}, state, {
-                shouldShowLoginModal: false
-            });
-        case types.FACEBOOK_LOGIN_SUCCESS:
-            return Object.assign({}, state, {
-                shouldShowLoginModal: false
-            });
+        case types.UPDATE_NAME_SUCCESS:
+            return {
+                ...state,
+                shouldShowNameModal: false
+            };
         case types.LOGOUT_USER:
             return Object.assign({}, state, {
                 shouldShowLoginModal: false

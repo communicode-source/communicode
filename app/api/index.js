@@ -88,6 +88,30 @@ export async function decodeJWT(isAuthenticated) {
     }
 }
 
+export async function updateName(data) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify(data)
+        };
+
+        const response = await fetch(API_URL + '/user/update/name/' + data.user.profile._id, options);
+        const responseData = await response.json();
+
+        if(responseData === 100) {
+            throw new Error('Error updating name.');
+        }
+
+        createLocalStorageToken(responseData.msg);
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);
 }
