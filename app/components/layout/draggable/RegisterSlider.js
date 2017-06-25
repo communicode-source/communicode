@@ -1,8 +1,17 @@
 import React, { PropTypes } from 'react';
 // import { connect } from 'react-redux';
-import * as classes from '../../../assets/classes/LoginModal';
+import Slider from 'rc-slider';
 
-const handleRegister = (user, methods) => {
+const handleRegister = (sliderValue, user, methods) => {
+    let accountType;
+    if(sliderValue > 30) {
+        accountType = 0;
+    }
+
+    if(sliderValue > 80) {
+        accountType = 1;
+    }
+
     if(user.provider === 'local') {
         const email = user.email;
         const password = user.password;
@@ -10,13 +19,13 @@ const handleRegister = (user, methods) => {
 
         if(!email || !password) return;
 
-        methods.onRegisterLocal({ email, password, provider });
+        methods.onRegisterLocal({ email, password, provider, accountType });
     }
     else if(user.provider === 'google') {
         const accessToken = user.accessToken;
         const tokenId = user.tokenId;
         const provider = user.provider;
-        methods.onRegisterGoogle({access_token: accessToken, token_id: tokenId, provider: provider, accountType: 0});
+        methods.onRegisterGoogle({access_token: accessToken, token_id: tokenId, provider: provider, accountType});
     }
      else if(user.provider === 'facebook') {
          const accessToken = user.accessToken;
@@ -24,15 +33,27 @@ const handleRegister = (user, methods) => {
          const name = user.name;
          const email = user.email;
          const userid = user.userid;
-         methods.onRegisterFacebook({token_id: accessToken, name, email, userid, provider, accountType: 0});
+         methods.onRegisterFacebook({token_id: accessToken, name, email, userid, provider, accountType});
      }
 };
 
 const RegisterSlider = ({ user, methods }) => {
     return (
-        <div id={classes.HANDLE} onClick={() => handleRegister({...user}, {...methods})}>
-            <i className={classes.HANDLE_ARROWS} aria-hidden="true"></i>
-        </div>
+        <Slider
+          defaultValue={50}
+          trackStyle={{ backgroundColor: '#333', height: 40, borderRadius: 50 }}
+          handleStyle={{
+              borderColor: '#333',
+              height: 50,
+              width: 50,
+              marginLeft: -25,
+              marginTop: -5,
+              backgroundColor: '#fff',
+              marks: {number: 'hi'}
+          }}
+          railStyle={{ backgroundColor: '#ffb42e', height: 40, borderRadius: 50 }}
+          onAfterChange={(val) => { handleRegister(val, {...user}, {...methods}); }}
+        />
     );
 };
 

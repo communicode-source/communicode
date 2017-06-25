@@ -4,9 +4,6 @@ import * as rules from '../../../rules';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 
-// import { DragSource, DropTarget } from 'react-dnd';
-// import { findDOMNode } from 'react-dom';
-
 import RegisterSlider from '../draggable/RegisterSlider';
 
 const handleUpdateProvider = (provider, response, onUpdateProvider) => {
@@ -92,15 +89,18 @@ const RegisterForm = ( props ) => {
                     <h6><i className={classes.ARROW_LEFT} aria-hidden="true"></i>Developer</h6>
                     <h6 className={classes.NONPROFIT_SLIDE}>Non-profit<i className={classes.ARROW_RIGHT} aria-hidden="true"></i></h6>
                 </div>
-                <div id={classes.HANDLER}>
-                    <RegisterSlider user={user} methods={{onRegisterLocal, onRegisterFacebook, onRegisterGoogle}} />
-                    <div id={classes.LEFT_SIDE}></div>
-                </div>
+                <RegisterSlider user={user} methods={{onRegisterLocal, onRegisterFacebook, onRegisterGoogle}} />
             </div>
         </div>
     );
 };
 
+/*
+<div id={classes.HANDLER}>
+    <RegisterSlider user={user} methods={{onRegisterLocal, onRegisterFacebook, onRegisterGoogle}} />
+    <div id={classes.LEFT_SIDE}></div>
+</div>
+*/
 // data.accessToken = response.accessToken; data.user = {name: response.name, email: response.email, userid: response.userID}; data.provider = 'facebook';
 
 RegisterForm.propTypes = {
