@@ -213,7 +213,7 @@ function* watchRegisterGoogleSuccess() {
 }
 
 function* watchUpdateName() {
-    yield* takeEvery(types.UPDATE_NAME_CLICK, updateFirstAndLastName);
+    yield* takeEvery(types.UPDATE_NAME_CLICK, redirectRegisteredUser);
 }
 
 export default function* rootSaga() {
