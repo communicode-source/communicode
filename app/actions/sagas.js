@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { put, call } from 'redux-saga/effects';
 
-import { registerUser, decodeJWT, loginUser, updateName } from '../api';
+import { registerUser, decodeJWT, loginUser, updateName, searchUser } from '../api';
 import * as types from './types';
 
 import { browserHistory } from 'react-router';
@@ -172,6 +172,34 @@ export function* updateFirstAndLastName(action) {
     }
 }
 
+export function* getSearch(input) {
+    if (input.data.length < 3) {
+        yield put({
+            type: types.SEARCH_INPUT_FAILED,
+            error: 'Type more letters'
+        });
+    }
+    else {
+        try {
+            const newInput = input.data.replace(/ +/, '_');
+            const search = yield call(searchUser, newInput);
+
+            yield* handleServerResponse(
+                search,
+                types.SEARCH_INPUT_SUCCESS,
+                types.SEARCH_INPUT_FAILED,
+                'Sorry, couldn\'t find the user'
+	    );
+        }
+        catch(e) {
+            yield put({
+                type: types.SEARCH_INPUT_FAILED,
+                error: e
+            });
+        }
+    }
+}
+
 function* watchRegisterNewUser() {
     yield* takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
 }
@@ -216,6 +244,10 @@ function* watchUpdateName() {
     yield* takeEvery(types.UPDATE_NAME_CLICK, redirectRegisteredUser);
 }
 
+function* watchSearchChange() {
+    yield* takeEvery(types.SEARCH_INPUT_CHANGE, getSearch);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -228,6 +260,7 @@ export default function* rootSaga() {
         watchGoogleLoginUser(),
         watchFacebookLoginUser(),
         watchGetLoggedInUser(),
-        watchUpdateName()
+        watchUpdateName(),
+        watchSearchChange()
     ];
 }

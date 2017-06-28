@@ -193,12 +193,24 @@ const overlay = (state = {
     }
 };
 
+const search = (state = [], action) => {
+    switch(action.type) {
+        case types.SEARCH_INPUT_SUCCESS:
+            return action.data;
+        case types.SEARCH_INPUT_FAILED:
+            return action.error.message;
+        default:
+            return state;
+    }
+};
+
 const rootReducer = combineReducers({
     user,
     routing,
     interests,
     redirect,
-    overlay
+    overlay,
+    search
 });
 
 export default rootReducer;
