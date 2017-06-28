@@ -85,9 +85,10 @@ const runServer = () => {
             res.redirect(redirect.pathname + redirect.search);
         }
         else if(props) {
-            let statusCode = 200;
-            if(props.routes[1].path === '*') {
-                statusCode = 404;
+            console.log(JSON.stringify(props));
+            if(props.routes[1].notFound) {
+                res.status(404).sendFile('404.html', {root: '.'});
+                return;
             }
             const appHtml = renderToString(<RouterContext {...props}/>);
             const title = flushTitle();
@@ -103,10 +104,10 @@ const runServer = () => {
             catch(err) {
                 res.status(500).send(err.message);
             }
-            res.status(statusCode).send(data);
+            res.status(200).send(data);
         }
         else {
-            res.status(404).send('Page not found!');
+            res.status(404).sendFile('404.html', {root: '.'});
         }
     });
 

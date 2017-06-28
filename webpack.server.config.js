@@ -41,9 +41,9 @@ module.exports = {
                 from: 'app.yaml'
             }
         ]),
-        new ExtractTextPlugin('/dev/null'),
+        new ExtractTextPlugin('assets/[name]-[hash].min.css'),
         new StaticSiteGeneratorPlugin({
-            paths: sitemap.staticPaths,
+            paths: sitemap.staticPaths.concat('/404.html'),
         }),
         new SitemapPlugin(sitemap.baseURL, sitemap.publicPaths, {
             skipGzip: true

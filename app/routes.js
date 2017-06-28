@@ -13,7 +13,7 @@ export const routes = (
         <Route path="/about" component={About}/>
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
-        <Route path="*" component={NotFoundPage}/>
+        <Route path="*" component={NotFoundPage} notFound />
     </Route>
 );
 
