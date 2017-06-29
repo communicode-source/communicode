@@ -85,7 +85,6 @@ const runServer = () => {
             res.redirect(redirect.pathname + redirect.search);
         }
         else if(props) {
-            console.log(JSON.stringify(props));
             if(props.routes[1].notFound) {
                 res.status(404).sendFile('404.html', {root: '.'});
                 return;
