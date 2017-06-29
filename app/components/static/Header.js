@@ -58,9 +58,9 @@ export default class Header extends React.Component {
 
                             <ul className="nav navbar-nav navbar-right right">
                                 <li>
-                                    <ReactGA.OutboundLink to="https://blog.communicode.co" eventLabel="Blog" target="_blank">
+                                    <Link to="https://blog.communicode.co" target="_blank">
                                         Visit our Blog
-                                    </ReactGA.OutboundLink>
+                                    </Link>
                                 </li>
                                 <li>
                                     <NativeListener onClick={(e) => {
