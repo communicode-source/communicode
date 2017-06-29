@@ -20,7 +20,7 @@ class SearchList extends React.Component {
     renderListFalse(userData) {
         if (userData.accounttype === false) {
             return (
-                <Result key={userData._id} fname={userData.fname} lname={userData.lname} email={userData.email} url={userData.url}/>
+                <Result key={userData._id} fname={userData.organizationname} lname={''} email={userData.email} url={userData.url}/>
             );
         }
         return null;
