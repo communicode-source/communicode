@@ -4,9 +4,6 @@ import { put, call } from 'redux-saga/effects';
 import { registerUser, decodeJWT, loginUser, updateName } from '../api';
 import * as types from './types';
 
-import { browserHistory } from 'react-router';
-
-
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
     if(data) {
         yield put(Object.assign({}, { type: success, data}, additional));
@@ -149,10 +146,6 @@ export function* getLoggedInUser(action) {
     }
 }
 
-export function* redirectRegisteredUser() {
-    browserHistory.push('/interests');
-}
-
 export function* updateFirstAndLastName(action) {
     try {
         const user = yield call(updateName, action.data);
@@ -200,20 +193,8 @@ function* watchGetLoggedInUser() {
     yield* takeEvery(types.GET_LOGGED_IN_LOCAL_STORAGE, getLoggedInUser);
 }
 
-function* watchRegisterLocalSuccess() {
-    yield* takeEvery(types.ADD_LOCAL_USER_SUCCESS, redirectRegisteredUser);
-}
-
-function* watchRegisterFacebookSuccess() {
-    yield* takeEvery(types.ADD_FACEBOOK_USER_SUCCESS, redirectRegisteredUser);
-}
-
-function* watchRegisterGoogleSuccess() {
-    yield* takeEvery(types.ADD_GOOGLE_USER_SUCCESS, redirectRegisteredUser);
-}
-
 function* watchUpdateName() {
-    yield* takeEvery(types.UPDATE_NAME_CLICK, redirectRegisteredUser);
+    yield* takeEvery(types.UPDATE_NAME_CLICK, updateFirstAndLastName);
 }
 
 export default function* rootSaga() {
@@ -221,9 +202,6 @@ export default function* rootSaga() {
         watchRegisterNewUser(),
         watchRegisterGoogleUser(),
         watchRegisterFacebookUser(),
-        watchRegisterLocalSuccess(),
-        watchRegisterGoogleSuccess(),
-        watchRegisterFacebookSuccess(),
         watchLocalLoginUser(),
         watchGoogleLoginUser(),
         watchFacebookLoginUser(),

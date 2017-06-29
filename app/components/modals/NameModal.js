@@ -51,7 +51,7 @@ class NameModal extends React.Component {
                         <p className={classes.NAME_PARAGRAPH}>
                             Before you <b>#CodeSomeGood</b>, we'll need your name:
                         </p>
-                        <form>
+                        <form onSubmit={(e) => this.handleUpdateName(e, data, user)}>
                             <div className={classes.INPUT_FIELD}>
                                 <div className={classes.INPUT_LABEL}>
                                     <h6 className={classes.INPUT_LABEL_NAME}>First Name</h6>
@@ -69,7 +69,7 @@ class NameModal extends React.Component {
                                     ref={ node => {data.lname = node;}} />
                             </div>
                             <div className="login-submit-button">
-                                <button onClick={(e) => this.handleUpdateName(e, data, user)} className={classes.SUBMIT_BUTTON}>Keep Rollin</button>
+                                <button type="submit" className={classes.SUBMIT_BUTTON}>Keep Rollin</button>
                             </div>
                         </form>
                     </div>
