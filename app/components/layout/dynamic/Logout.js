@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react';
-import { Link, browserHistory } from 'react-router';
+import { Link } from 'react-router';
 
 const handleLogout = (logout) => {
     localStorage.removeItem('id_token');
-    browserHistory.replace('/');
     logout();
 };
 

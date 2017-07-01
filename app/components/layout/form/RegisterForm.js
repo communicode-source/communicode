@@ -60,7 +60,6 @@ const RegisterForm = ( props ) => {
                     <div className={classes.INPUT_FIELD}>
                         <div className={classes.INPUT_LABEL}>
                             <h6 className={classes.INPUT_LABEL_NAME}>Email</h6>
-                            <h6 className={classes.INPUT_LABEL_ERROR}>{error.message}</h6>
                         </div>
                         <input type="email" placeholder="Email"
                           value={user.email || ''} ref={node => {email = node;}} onChange={() => onValidateEmail(email.value) } />
@@ -102,6 +101,7 @@ const RegisterForm = ( props ) => {
 </div>
 */
 // data.accessToken = response.accessToken; data.user = {name: response.name, email: response.email, userid: response.userID}; data.provider = 'facebook';
+// <h6 className={classes.INPUT_LABEL_ERROR}>{error.message}</h6>
 
 RegisterForm.propTypes = {
     onValidateEmail: PropTypes.func,
