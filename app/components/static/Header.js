@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import CLogoLight from '../../assets/images/logo/CLight.svg';
 import styles from '../../assets/css/static/header.scss';
-import NotifyModal from '../modals/NotifyModal.js';
+import RegisterModal from '../../containers/RegisterContainer.js';
+import LoginModal from '../../containers/LoginContainer.js';
+import Logout from '../../containers/LogoutContainer.js';
+import NavbarGreeting from '../layout/dynamic/NavbarGreeting.js';
 import NativeListener from 'react-native-listener';
 import classNames from 'classnames';
 
-import ReactGA from 'react-ga';
-
-const headerNavClassnames = classNames(styles.nav, 'col-md-12');
+const headerNavClassnames = classNames(styles.nav);
 const navLogoClassnames = classNames('pull-left logo', styles.a);
 
 const headerNavCollapseClassnames = classNames('collapse', 'navbar-collapse', styles['collapse-container']);
 const headerButtonCollapseClassnames  = classNames('icon-bar', styles['collapse-button']);
+const dropdownClassnames = classNames(styles.a, 'dropdown-toggle');
 
+class Header extends React.Component {
 
-export default class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
 
     handleModalClick(e) {
         e.preventDefault();
     }
 
     render() {
+        const { isAuthenticated, user, shouldShowLoginModal, showLoginModal } = this.props;
+
         return (
             <div>
                 <nav className={headerNavClassnames}>
@@ -56,28 +64,53 @@ export default class Header extends React.Component {
                                 </li>
                             </ul>
 
-                            <ul className="nav navbar-nav navbar-right right">
-                                <li>
-                                    <Link to="https://blog.communicode.co" target="_blank">
-                                        Visit our Blog
-                                    </Link>
-                                </li>
-                                <li>
-                                    <NativeListener onClick={(e) => {
-                                        this.handleModalClick(e);
-                                        ReactGA.modalview('/about/subscribe');
-                                    }}>
-                                        <Link className={styles.a} data-toggle="modal" data-target="#notify" to="">Stay in the Loop</Link>
-                                    </NativeListener>
-                                </li>
-                            </ul>
+                            {!isAuthenticated &&
+                                <ul className="nav navbar-nav navbar-right right">
+                                    <li>
+                                        <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                            <Link className={styles.a} data-toggle="modal" data-target="#register" to="#">Register</Link>
+                                        </NativeListener>
+                                    </li>
+                                    <li>
+                                        <NativeListener onClick={this.handleModalClick.bind(this)}>
+                                            <Link className={styles.a} onClick={ () => { showLoginModal(true); } } to="#">Login</Link>
+                                        </NativeListener>
+                                    </li>
+                                </ul>
+                            }
+
+                            {isAuthenticated &&
+                                <ul className="nav navbar-nav navbar-right right">
+                                    <li className="dropdown">
+                                        <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                            <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
+                                        </Link>
+                                        <ul className="dropdown-menu">
+                                            <Logout />
+                                        </ul>
+                                    </li>
+                                </ul>
+                            }
                         </div>
                     </div>
                 </nav>
-                <NotifyModal />
+
+                {!isAuthenticated &&
+                    <div>
+                        <RegisterModal />
+                        <LoginModal shouldShowModal={shouldShowLoginModal} />
+                    </div>
+                }
             </div>
         );
     }
+};
+
+Header.propTypes = {
+    isAuthenticated: PropTypes.bool,
+    shouldShowLoginModal: PropTypes.bool,
+    showLoginModal: PropTypes.func,
+    user: PropTypes.object
 };
 
 /*
@@ -88,3 +121,5 @@ export default class Header extends React.Component {
 
  You're welcome future trevor.
  */
+
+export default Header;
