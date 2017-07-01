@@ -25,10 +25,16 @@ export async function registerUser(user) {
         else if(responseData === 102) {
             throw new Error('Problem creating user.');
         }
+        else if(!responseData.msg) {
+            throw new Error('Problem fetching JWT');
+        }
 
         // Save the JWT into local storage
         createLocalStorageToken(responseData.msg);
-        return responseData;
+
+        const profile = decodeJWT(true);
+
+        return profile;
     }
     catch(e) {
         throw e;
@@ -103,9 +109,15 @@ export async function updateName(data) {
         if(responseData === 100) {
             throw new Error('Error updating name.');
         }
+        else if(!responseData.msg) {
+            throw new Error('Error updating name.');
+        }
 
         createLocalStorageToken(responseData.msg);
-        return responseData;
+
+        const profile = decodeJWT(true);
+
+        return profile;
     }
     catch(e) {
         throw e;

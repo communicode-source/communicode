@@ -27,7 +27,7 @@ const user = (state = {
             });
         case types.ADD_LOCAL_USER_SUCCESS:
             return Object.assign({}, state, {
-                data: action.data,
+                profile: action.data.msg,
                 isFetching: false,
                 isAuthenticated: true,
                 error: ''
@@ -40,7 +40,7 @@ const user = (state = {
             });
         case types.ADD_GOOGLE_USER_SUCCESS:
             return Object.assign({}, state, {
-                data: action.data,
+                profile: action.data,
                 isFetching: false,
                 isAuthenticated: true,
                 error: ''
@@ -53,7 +53,7 @@ const user = (state = {
             });
         case types.ADD_FACEBOOK_USER_SUCCESS:
             return Object.assign({}, state, {
-                data: action.data,
+                profile: action.data,
                 isFetching: false,
                 isAuthenticated: true,
                 error: ''

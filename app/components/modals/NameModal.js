@@ -25,7 +25,6 @@ class NameModal extends React.Component {
 
     handleUpdateName(e, data, user) {
         e.preventDefault();
-        console.log(data);
         this.props.onUpdateName({fname: data.fname.value, lname: data.lname.value, user});
     }
 
