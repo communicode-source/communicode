@@ -8,9 +8,7 @@ var StatsPlugin = require('stats-webpack-plugin');
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var ImageminPlugin = require('imagemin-webpack-plugin').default;
 var ImageminMozjpeg = require('imagemin-mozjpeg');
-var SitemapPlugin = require('sitemap-webpack-plugin');
-var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-var sitemap = require('./app/sitemap');
+
 
 module.exports = {
     // The entry file. All your app roots fromn here.
@@ -33,19 +31,14 @@ module.exports = {
         // change name because the hash part changes. We want hash name changes to bust cache
         // on client browsers.
         new HtmlWebpackPlugin({
-            template: 'html-loader!app/index.ejs.html',
+            template: '!!html-loader!app/index.ejs.html',
             inject: 'body',
             filename: 'index.ejs.html',
         }),
-        new HtmlWebpackPlugin({
-            template: 'app/index.tpl.html',
-            inject: 'body',
-            filename: 'index.html',
-        }),
         new FaviconsWebpackPlugin({
             logo: './app/assets/images/logo/C.png',
-            prefix: 'assets/',
-            persistentCache: true,
+            prefix: 'assets/[hash]-',
+            persistentCache: false,
             inject: true,
             background: '#f2f2f2',
             title: 'Communicode',
@@ -61,9 +54,6 @@ module.exports = {
                 yandex: false,
                 windows: true
             }
-        }),
-        new SitemapPlugin(sitemap.baseURL, sitemap.publicPaths, {
-            skipGzip: true
         }),
         // extracts the css from the js files and puts them on a separate .css file. this is for
         // performance and is used in prod environments. Styles load faster on their own .css
@@ -97,7 +87,7 @@ module.exports = {
             svgo: {},
             plugins: [
                 ImageminMozjpeg({
-                    quality: 90,
+                    quality: 60,
                     progressive: true
                 })
             ]

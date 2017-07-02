@@ -22,7 +22,6 @@ footer .copyright {
 footer {
   background-color: $black;
   padding-top: 50px;
-  height: inherit;
   /* Seems necessary for overlap. Adjust to breakpoints or remove */
   left: 0;
   right: 0;
@@ -32,7 +31,7 @@ footer {
 }
 
 .wrap {
-  padding-bottom: 50px;
+  padding-bottom: 0px;
 }
 
 footer img {
@@ -64,8 +63,4 @@ footer a:hover {
 
 footer h6 {
   color: $white;
-}
-
-.socialLink {
-  font-size: 60px !important;
 }

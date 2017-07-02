@@ -13,7 +13,7 @@ const logPageView = () => {
 
 const pageUpdate = () => {
     window.scrollTo(0, 0);
-    if(process.env.NODE_ENV === 'production') {
+    if(process.env.NODE_ENV === 'production' && window.location.hostname === 'communicode.co') {
         logPageView();
     }
 };

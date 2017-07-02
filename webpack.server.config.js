@@ -6,6 +6,7 @@ var webpack = require('webpack');
 var CopyFilesPlugin = require('copy-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var SitemapPlugin = require('sitemap-webpack-plugin');
 var sitemap = require('./app/sitemap');
 
 module.exports = {
@@ -40,9 +41,12 @@ module.exports = {
                 from: 'app.yaml'
             }
         ]),
-        new ExtractTextPlugin('/dev/null'),
+        new ExtractTextPlugin('assets/[name]-[hash].min.css'),
         new StaticSiteGeneratorPlugin({
-            paths: sitemap.staticPaths,
+            paths: sitemap.staticPaths.concat('/404.html'),
+        }),
+        new SitemapPlugin(sitemap.baseURL, sitemap.publicPaths, {
+            skipGzip: true
         }),
         // handles uglifying js
         new webpack.optimize.UglifyJsPlugin({
