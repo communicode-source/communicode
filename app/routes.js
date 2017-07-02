@@ -1,28 +1,20 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './containers/AppContainer';
-
-import Auth from './containers/AuthContainer';
-import About from './components/pages/About';
-import Interests from './components/pages/Interests';
-import Home from './components/pages/Home';
-import Profile from './components/pages/Profile';
-import Developers from './components/pages/Developer';
-import Nonprofits from './components/pages/Nonprofit';
-import NotFoundPage from './components/pages/NotFound';
+import { AppContainer, AuthContainer } from 'containers';
+import { AboutPage, InterestsPage, HomePage, ProfilePage, DevelopersPage, NonprofitsPage, NotFoundPage } from 'components';
 // import ProjectFeed from './containers/ProjectFeedContainer';
 
 export const routes = (
-    <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={App}>
-        <IndexRoute component={Home}/>
-        <Route path="/home" component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/developers" component={Developers} />
-        <Route path="/nonprofits" component={Nonprofits} />
-        <Route path="/profile" component={Profile} />
-        <Route component={Auth}>
-            <Route path="/interests" component={Interests} />
-            <Route path="/feed" component={Developers} />
+    <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={AppContainer}>
+        <IndexRoute component={HomePage}/>
+        <Route path="/home" component={HomePage}/>
+        <Route path="/about" component={AboutPage}/>
+        <Route path="/developers" component={DevelopersPage} />
+        <Route path="/nonprofits" component={NonprofitsPage} />
+        <Route path="/profile" component={ProfilePage} />
+        <Route component={AuthContainer}>
+            <Route path="/interests" component={InterestsPage} />
+            <Route path="/feed" component={DevelopersPage} />
         </Route>
         <Route path="*" component={NotFoundPage} notFound />
     </Route>

@@ -101,7 +101,12 @@ module.exports = {
         failOnWarning: false,
         failOnError: true,
     },
-
+    resolve: {
+        root: [
+            path.resolve('./app'),
+            path.resolve('./node_modules')
+        ]
+    },
     module: {
         // Runs before loaders
         preLoaders: [
@@ -121,7 +126,7 @@ module.exports = {
             loader: 'json',
         }, {
             test: /\.scss$/,
-            // we extract the styles into their own .css file instead of having
+            // we extract the notFound into their own .css file instead of having
             // them inside the js.
             loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'),
             //loader: 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'

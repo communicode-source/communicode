@@ -35,6 +35,12 @@ module.exports = {
         failOnWarning: false,
         failOnError: false,
     },
+    resolve: {
+        root: [
+            path.resolve('./app'),
+            path.resolve('./node_modules')
+        ]
+    },
     module: {
         preLoaders: [
             {

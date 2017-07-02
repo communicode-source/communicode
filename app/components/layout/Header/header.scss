@@ -1,0 +1,137 @@
+@import '../../../assets/css/colors';
+
+/* ===========================
+   NAVBAR
+============================== */
+nav {
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $black;
+  /*
+    background-image: url(../images/logo/CLight.svg);
+        background-size: auto 25px;
+        background-position: center center;
+        background-repeat: no-repeat;
+    */
+  /*box-shadow: 0px 0px 15px 5px #9A9A9A;*/
+  /*box-shadow: 0px 0px 8px 5px #9A9A9A;*/
+  color: #e4e3e1;
+  z-index: 100;
+  display: block;
+}
+
+nav .left {
+  list-style-type: none;
+  padding: 0;
+  float: left;
+  display: table-row;
+  margin-left: 1.5em;
+}
+
+nav .right {
+  float: right !important;
+  margin-right: -15px;
+}
+
+nav a {
+  color: #e4e3e1;
+  font-weight: normal;
+  font-size: 12px;
+  margin-left: 20px;
+  -webkit-transition: background .25s;
+  -moz-transition: background .25s;
+  transition: background .25s;
+}
+
+nav a:visited {
+  background: $grey !important;
+  color: $white !important;
+}
+
+nav a:hover {
+  background: $grey !important;
+  color: $white !important;
+}
+
+nav a:active {
+  background: $grey !important;
+  color: $white !important;
+}
+
+.logo {
+  margin: 7px;
+}
+
+nav img {
+  height: 35px;
+  width: auto;
+}
+
+nav .logo {
+  padding: 0;
+}
+
+#MenuController {
+  height: 25px;
+  width: auto;
+  background: none;
+  border: none;
+  margin-top: 14px;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+  background-color: #222222;
+  color: white;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: #222222;
+  color: white;
+}
+
+a:hover {
+  color: white;
+}
+
+.dropdown > ul > li > a:hover {
+  background-color: #e4e3e1;
+}
+
+.dropdown > ul > li a > i {
+  margin-left: -12px;
+  margin-top: 2px;
+  color: #FFB42E;
+  font-size: 18px;
+}
+
+.dropdown > ul > li > a > img {
+  margin-left: 5px;
+}
+
+.notif-image {
+  height: 40px;
+  border-radius: 50%;
+}
+
+span.notif {
+  margin-left: 10px;
+}
+
+span.notif-name {
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .collapse-container {
+    background: #333;
+    margin-top: 49px;
+  }
+}
+
+.collapse-button {
+  background: #f2f2f2;
+}

@@ -1,3 +1,5 @@
+/* eslint no-console: 0 */ // Since the purpose of this file is logging, disable the warning. Also consider switching
+
 const logger = store => next => action => {
     console.group(action.type);
     console.info('dispatching', action);

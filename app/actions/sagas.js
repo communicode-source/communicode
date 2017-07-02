@@ -78,7 +78,7 @@ export function* loginLocalUser(action) {
             user,
             types.LOCAL_LOGIN_SUCCESS,
             types.LOCAL_LOGIN_FAILED,
-            'Sorry, Login Went wrong.'
+            'Sorry, LoginModal Went wrong.'
         );
     }
     catch(e) {
@@ -97,7 +97,7 @@ export function* loginGoogleUser(action) {
             user,
             types.GOOGLE_LOGIN_SUCCESS,
             types.GOOGLE_LOGIN_FAILED,
-            'Sorry, Login Went wrong.'
+            'Sorry, LoginModal Went wrong.'
         );
     }
     catch(e) {
@@ -116,7 +116,7 @@ export function* loginFacebookUser(action) {
             user,
             types.FACEBOOK_LOGIN_SUCCESS,
             types.FACEBOOK_LOGIN_FAILED,
-            'Sorry, Login Went wrong.'
+            'Sorry, LoginModal Went wrong.'
         );
     }
     catch(e) {

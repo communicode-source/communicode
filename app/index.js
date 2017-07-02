@@ -4,8 +4,9 @@ import { render } from 'react-dom';
 import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
+
 import configureStore from './store/configureStore';
-import Root from './containers/Root';
+import { RootContainer } from 'containers';
 
 const store = configureStore({
     interests: [
@@ -17,14 +18,14 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 render(
     <AppContainer>
-        <Root store={store} history={history}/>
+        <RootContainer store={store} history={history}/>
     </AppContainer>,
     document.getElementById('root'),
 );
 
 if(process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./containers/Root', () => {
-        const NewRoot = require('./containers/Root').default;
+    module.hot.accept('./containers/Root/Root', () => {
+        const NewRoot = require('containers').RootContainer;
         render(
             <AppContainer>
                 <NewRoot store={store} history={history}/>

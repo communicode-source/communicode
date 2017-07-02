@@ -72,7 +72,7 @@ module.exports = {
             loader: 'json',
         }, {
             test: /\.scss$/,
-            // we extract the styles into their own .css file instead of having
+            // we extract the notFound into their own .css file instead of having
             // them inside the js.
             loader: ExtractTextPlugin.extract('css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'),
             //loader: 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass'
