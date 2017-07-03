@@ -1,66 +1,63 @@
-@import '../../../assets/css/colors';
+@import '~theme/colors';
+@import '~theme/vars';
 
-@media (max-width: 767px) {
-  #sidebar {
-    right: 0;
-    transform: translateY(-100%);
-  }
-  footer {
-    padding: 25px;
-    height: 200px;
-  }
-  footer ul {
-    padding: 0;
-  }
-}
-
-footer .copyright {
-  color: #bebdbb;
-  text-align: center;
-}
-
-footer {
+.footer {
   background-color: $black;
   padding-top: 50px;
   /* Seems necessary for overlap. Adjust to breakpoints or remove */
   left: 0;
   right: 0;
   bottom: 0;
+  height: $footer-height !important;
   /*z-index: -100;
     position: fixed;*/
-}
 
-.wrap {
-  padding-bottom: 0;
-}
+  @media (max-width: 767px) {
+    padding: 25px;
+    height: 200px;
 
-footer img {
-  width: 100px;
-}
+    ul {
+      padding: 0;
+    }
+  }
 
-footer #icon {
-  width: 75%;
-  max-width: 75px;
-}
+  .copyright {
+    color: #bebdbb;
+    text-align: center;
+  }
 
-footer ul {
-  list-style-type: none !important;
-}
+  img {
+    width: 100px;
+  }
 
-footer ul li {
-  margin-bottom: 20px;
-}
+  #icon {
+    width: 75%;
+    max-width: 75px;
+  }
 
-footer a {
-  color: $white;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-}
+  .wrap {
+    padding-bottom: 0;
+  }
 
-footer a:hover {
-  color: $yellow;
-}
+  ul {
+    list-style-type: none !important;
 
-footer h6 {
-  color: $white;
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
+  a {
+    color: $white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+
+    :hover {
+      color: $yellow;
+    }
+  }
+
+  h6 {
+    color: $white;
+  }
 }

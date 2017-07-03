@@ -1,5 +1,5 @@
-@import '../../../assets/css/colors';
-@import '../../../assets/css/fonts';
+@import '~theme/colors';
+@import '~theme/fonts';
 
 .modal-content {
   background: $white;
@@ -11,7 +11,7 @@
 }
 
 .footer {
-  border-top: 0px !important;
+  border-top: 0 !important;
 }
 
 .modal-body-text {

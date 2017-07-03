@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
+// STOP BEING LAZY!!
 import * as classes from '../LoginModal/classes';
-import * as rules from '../../../rules/index';
+import * as rules from 'rules';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 

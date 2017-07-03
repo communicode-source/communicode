@@ -1,4 +1,7 @@
 @import '../../../assets/css/pages/var';
+
+// NEVER do this!! css modules only work on classes and ids!!!
+/*
 a,
 p {
     color: $black;
@@ -7,6 +10,8 @@ p {
 a:hover {
     color: $yellow;
 }
+
+*/
 #header {
     width: 100vw;
     text-align: center;

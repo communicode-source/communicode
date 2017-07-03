@@ -1,5 +1,5 @@
-@import '../../../assets/css/colors';
-@import '../../../assets/css/fonts';
+@import '~theme/colors';
+@import '~theme/fonts';
 
 
 .hero {
@@ -41,11 +41,6 @@
   line-height: 1;
   margin-bottom: 40px;
   font-weight: 400;
-}
-
-.divider {
-  background: #333;
-  height: 50px;
 }
 
 .fill {
@@ -105,7 +100,7 @@
 }
 
 .unified-section {
-  background: $light-grey-background;
+  background: $light-grey;
   padding: 80px 10%;
 }
 

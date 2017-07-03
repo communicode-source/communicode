@@ -32,35 +32,29 @@ class Header extends React.Component {
 
         return (
             <div>
-                <nav className={headerNavClassnames}>
+                <nav className="navbar navbar-default">
                     <div className="container">
-
-                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
-                            <span className={headerButtonCollapseClassnames}/>
-                            <span className={headerButtonCollapseClassnames}/>
-                            <span className={headerButtonCollapseClassnames}/>
-                        </button>
-
-                        <ul className={styles.left}>
-                            <li className="no-hover">
-                                <i className={navLogoClassnames}>
-                                    <img className={styles.logo} src={LogoLight}/>
-                                </i>
-                            </li>
-                        </ul>
-                        <div className={headerNavCollapseClassnames} id="mainNav">
+                        <div className="navbar-header">
+                            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
+                                <span className={headerButtonCollapseClassnames}/>
+                                <span className={headerButtonCollapseClassnames}/>
+                                <span className={headerButtonCollapseClassnames}/>
+                            </button>
+                            <a className="navbar-brand"><img alt="Communicode" src={LogoLight}/></a>
+                        </div>
+                        <div className="collapse navbar-collapse" id="mainNav">
                             <ul className="nav navbar-nav navbar-left">
                                 <li className="no-hover">
-                                    <Link className={styles.a} to="/">Home</Link>
+                                    <Link to="/">Home</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link className={styles.a} to="/about">About Us</Link>
+                                    <Link to="/about">About Us</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link className={styles.a} to="/developers">For Volunteers</Link>
+                                    <Link to="/developers">For Volunteers</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link className={styles.a} to="/nonprofits">For Nonprofits</Link>
+                                    <Link to="/nonprofits">For Nonprofits</Link>
                                 </li>
                             </ul>
 
@@ -81,11 +75,11 @@ class Header extends React.Component {
 
                             {isAuthenticated &&
                                 <ul className="nav navbar-nav navbar-right right">
-                                    <li className="dropdown">
+                                    <li className={classNames('dropdown', styles.dropdown)}>
                                         <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                             <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
                                         </Link>
-                                        <ul className="dropdown-menu">
+                                        <ul className={classNames('dropdown-menu', styles['dropdown-menu'])}>
                                             <LogoutContainer />
                                         </ul>
                                     </li>

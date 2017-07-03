@@ -4,11 +4,10 @@ import classNames from 'classnames';
 import { FacebookSocialButton, TwitterSocialButton, InstagramSocialButton } from 'components';
 import { LogoLight } from 'assets';
 
-import main from '../../../assets/css/main.scss';
 import styles from './footer.scss';
 
 const Footer = () =>
-    <footer className={main.footer}>
+    <footer className={styles.footer}>
         <div className={classNames('container', styles.wrap)}><div className="row">
 
             <div className="col-xs-4 col-sm-2">

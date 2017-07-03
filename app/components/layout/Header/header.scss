@@ -1,8 +1,7 @@
-@import '../../../assets/css/colors';
+@import '~theme/colors';
 
-/* ===========================
-   NAVBAR
-============================== */
+// Fix all universal shit and come back here
+
 nav {
   height: 50px;
   position: fixed;
@@ -22,83 +21,69 @@ nav {
   color: #e4e3e1;
   z-index: 100;
   display: block;
+
+  .left {
+    list-style-type: none;
+    padding: 0;
+    float: left;
+    display: table-row;
+    margin-left: 1.5em;
+  }
+
+  .right {
+    float: right !important;
+    margin-right: -15px;
+  }
+
+  > li > a {
+    color: #e4e3e1;
+    font-weight: normal;
+    font-size: 12px;
+    margin-left: 20px;
+    -webkit-transition: background .25s;
+    -moz-transition: background .25s;
+    transition: background .25s;
+
+    :visited {
+      background: $grey !important;
+      color: $white !important;
+    }
+
+    :hover {
+      background: $grey !important;
+      color: $white !important;
+    }
+
+    :active {
+      background: $grey !important;
+      color: $white !important;
+    }
+  }
+
+  .logo {
+    margin: 7px;
+    padding: 0;
+  }
+
+  img {
+    height: 35px;
+    width: auto;
+  }
+
+  .open > a, .open > a:hover, .open > a:focus {
+    background-color: #222222;
+    color: white;
+  }
+
+  > li > a:hover, .nav > li > a:focus {
+    background-color: #222222;
+    color: white;
+  }
 }
 
-nav .left {
-  list-style-type: none;
-  padding: 0;
-  float: left;
-  display: table-row;
-  margin-left: 1.5em;
-}
-
-nav .right {
-  float: right !important;
-  margin-right: -15px;
-}
-
-nav a {
-  color: #e4e3e1;
-  font-weight: normal;
-  font-size: 12px;
-  margin-left: 20px;
-  -webkit-transition: background .25s;
-  -moz-transition: background .25s;
-  transition: background .25s;
-}
-
-nav a:visited {
-  background: $grey !important;
-  color: $white !important;
-}
-
-nav a:hover {
-  background: $grey !important;
-  color: $white !important;
-}
-
-nav a:active {
-  background: $grey !important;
-  color: $white !important;
-}
-
-.logo {
-  margin: 7px;
-}
-
-nav img {
-  height: 35px;
-  width: auto;
-}
-
-nav .logo {
-  padding: 0;
-}
-
-#MenuController {
-  height: 25px;
-  width: auto;
-  background: none;
-  border: none;
-  margin-top: 14px;
-}
-
-.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-  background-color: #222222;
-  color: white;
-}
-
-.nav > li > a:hover, .nav > li > a:focus {
-  background-color: #222222;
-  color: white;
-}
-
-a:hover {
-  color: white;
-}
-
+// Put this in a bootstrap theme override file...
 .dropdown > ul > li > a:hover {
-  background-color: #e4e3e1;
+  background-color: $black;
 }
 
 .dropdown > ul > li a > i {
@@ -110,6 +95,14 @@ a:hover {
 
 .dropdown > ul > li > a > img {
   margin-left: 5px;
+}
+
+.dropdown-menu {
+  background-color: $black;
+
+  > ul > li > a {
+    color: $white;
+  }
 }
 
 .notif-image {

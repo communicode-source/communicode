@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import { LoginContainer } from 'containers';
+import { LoginModalContainer } from 'containers';
 
 class Auth extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Auth extends React.Component {
     render() {
         let modal;
         if(!this.props.isAuthenticated) {
-            modal = (<LoginContainer shouldShowModalAuth="true" />);
+            modal = (<LoginModalContainer shouldShowModalAuth="true" />);
         }
         return (
             <div>

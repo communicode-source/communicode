@@ -1,0 +1,31 @@
+@import 'mixins/buttons';
+
+.btn {
+  margin: 2.5px;
+  border: 3px solid transparent;
+  @include transition(background-color .25s, border-color .25s);
+
+  &.active, &:active {
+    @include box-shadow(none);
+  }
+}
+
+// Create our dark button variant
+.btn-dark {
+  @include button-variant($btn-dark-color, $btn-dark-bg);
+}
+
+.btn-social-icon {
+  padding: $padding-base-vertical;
+  &:hover {
+    color: white;
+  }
+}
+
+// Fix existing button variants because we want good borders
+.btn-default {
+  @include button-variant($btn-default-color, $btn-default-bg);
+}
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg);
+}

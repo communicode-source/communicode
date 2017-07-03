@@ -1,0 +1,13 @@
+
+// Properly size the navbar logo
+.navbar .navbar-brand {
+  padding-top: $navbar-logo-padding;
+}
+.navbar-brand > img {
+  height: $navbar-height - $navbar-logo-padding * 2;
+}
+
+.navbar-nav > li > a {
+  @include transition(background-color .25s);
+  margin-right: $navbar-item-spacing;
+}

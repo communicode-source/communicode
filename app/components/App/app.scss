@@ -1,0 +1,17 @@
+@import '~theme/colors';
+@import '~theme/vars';
+
+#app-container {
+  height: 100%
+}
+
+#content-main {
+  //padding-top: $navbar-height; // to offset the 50px height of the navbar
+  min-height: 100%;
+  margin-bottom: -$footer-height;
+  background-color: $black;
+}
+
+.push {
+  height: $footer-height !important;
+}

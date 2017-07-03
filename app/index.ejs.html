@@ -15,7 +15,6 @@
          STYLESHEETS
     ============================== -->
     <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
 
     <!-- WEB FONTS -->
@@ -37,19 +36,5 @@
         <%- app.html %>
     </div>
 </body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-    $(function(){
-        var navMain = $(".navbar-collapse"); // avoid dependency on #id
-        // "a:not([data-toggle])" - to avoid issues caused
-        // when you have dropdown inside navbar
-        navMain.on("click", "a:not([data-toggle])", null, function () {
-            navMain.collapse('hide');
-        });
-    });
-
-</script>
 
 </html>

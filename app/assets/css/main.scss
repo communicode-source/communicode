@@ -25,21 +25,6 @@ body {
   overflow: auto;
 }
 
-.app-container {
-  height: 100%
-}
-
-#content-main {
-  padding-top: 50px; // to offset the 50px height of the navbar
-  min-height: 100%;
-  margin-bottom: -180px;
-  background-color: $black;
-}
-
-footer, .push {
-  height: 180px !important;
-}
-
 /*---------------------------------------
    Typography
 -----------------------------------------*/

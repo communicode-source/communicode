@@ -4,29 +4,30 @@ import classNames from 'classnames';
 
 import common from '../../../assets/css/pages/common.scss';
 import main from '../../../assets/css/main.scss';
+import styles from './subscribe.scss';
 
 const Subscribe = () =>
     <div className="row">
-        <div className={classNames('col-md-12', common['create-account'])}>
+        <div className={classNames('col-md-12', styles.subscribe)}>
             <center>
                 <div>
                     <form onSubmit={() => ReactGA.event({category: 'User', action: 'Subscribed to the mailing list'})} action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
-                        <div className={main.text}>
+                        <div>
                             <h2>Convinced?</h2>
                             <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
-                            <div className={classNames('input-group', common['input-container'])}>
-                                <span className={classNames('input-group-addon', common['email-addon'])} id="basic-addon1">
+                            <div className={classNames('input-group', styles.input)}>
+                                <span className={classNames('input-group-addon', styles['email-addon'])} id="basic-addon1">
                                     <i className="fa fa-envelope-o" aria-hidden="true"/>
                                 </span>
                                 <div>
-                                    <input type="email" className={classNames('form-control', common.input, 'email')} name="EMAIL" placeholder="Email Address" required />
+                                    <input type="email" className="form-control email" name="EMAIL" placeholder="Email Address" required />
                                 </div>
                                 <div style={{position: 'absolute', 'left': '-5000px'}} aria-hidden="true"><input type="text" name="b_bbb63083dbb4eed5b711d098c_9119f49dfd" tabIndex="-1" value="" /></div>
-                                <span className={classNames('input-group-btn', common['mail-submit'])}>
-                                    <button className={classNames('btn', main['primary-btn'], common.hiddenMobile)} type="submit">
+                                <span className="input-group-btn">
+                                    <button className={classNames('btn', 'btn-primary', 'hidden-xs', styles['submit-button'])} type="submit">
                                         Help Us Change the World <i className="fa fa-arrow-right" aria-hidden="true"/>
                                     </button>
-                                    <button id="mc-embedded-subscribe" className={classNames('btn', main['primary-btn'], common.hiddenDesktop)} type="submit">
+                                    <button id="mc-embedded-subscribe" className={classNames('btn', 'btn-primary', 'visible-xs-block', styles['submit-button'])} type="submit">
                                         <i className="fa fa-arrow-right" aria-hidden="true"/>
                                     </button>
                                 </span>

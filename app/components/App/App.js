@@ -3,7 +3,7 @@ import Title from 'react-title-component';
 
 import { Header, Footer } from 'components';
 
-import main from '../../assets/css/main.scss';
+import styles from './app.scss';
 
 class App extends React.Component {
     constructor(props) {
@@ -28,12 +28,12 @@ class App extends React.Component {
         } = this.props;
 
         return (
-            <div id={main['app-container']}>
+            <div id={styles['app-container']}>
                 <Title render="Communicode"/>
                 <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} />
-                <div id={main['content-main']}>
+                <div id={styles['content-main']}>
                     {children}
-                    <div className={main.push}/>
+                    <div className={styles.push}/>
                 </div>
                 <Footer />
             </div>
