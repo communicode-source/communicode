@@ -4,8 +4,7 @@ import classNames from 'classnames';
 import NativeListener from 'react-native-listener';
 
 import { LogoLight } from 'assets';
-import { RegisterModal, LoginModal } from 'components';
-import { LogoutContainer } from 'containers';
+import { LoginModalContainer, RegisterModalContainer, LogoutContainer } from 'containers';
 
 import styles from './header.scss';
 import NavbarGreeting from './NavbarGreeting.js';
@@ -98,8 +97,8 @@ class Header extends React.Component {
 
                 {!isAuthenticated &&
                     <div>
-                        <RegisterModal />
-                        <LoginModal shouldShowModal={shouldShowLoginModal} />
+                        <RegisterModalContainer />
+                        <LoginModalContainer shouldShowModal={shouldShowLoginModal} />
                     </div>
                 }
             </div>

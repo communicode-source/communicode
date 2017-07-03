@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import { AppContainer, AuthContainer } from 'containers';
+import { AuthContainer } from 'containers';
 import { AboutPage, InterestsPage, HomePage, ProfilePage, DevelopersPage, NonprofitsPage, NotFoundPage } from 'components';
 // import ProjectFeed from './containers/ProjectFeedContainer';
+
+// For some reason when I use the import from containers, this is null...
+import AppContainer from './containers/App/App';
 
 export const routes = (
     <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={AppContainer}>
