@@ -21,6 +21,7 @@ class Header extends React.Component {
     render() {
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal } = this.props;
         // This is so the navbar will automatically collapse when a link is clicked on mobile
+        // This breaks pulling up modals...
         const linkProps = {
             'data-toggle': 'collapse',
             'data-target': '.navbar-collapse.in'
@@ -57,12 +58,12 @@ class Header extends React.Component {
                                 <ul className="nav navbar-nav navbar-right right">
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link data-toggle="modal" data-target="#register" to="#" {...linkProps}>Register</Link>
+                                            <Link data-toggle="modal" data-target="#register" to="#">Register</Link>
                                         </NativeListener>
                                     </li>
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link onClick={ () => { showLoginModal(true); } } to="#" {...linkProps}>Login</Link>
+                                            <Link onClick={ () => { showLoginModal(true); } } to="#">Login</Link>
                                         </NativeListener>
                                     </li>
                                 </ul>
