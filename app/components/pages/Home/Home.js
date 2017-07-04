@@ -77,17 +77,17 @@ export default class Home extends React.Component {
                             </div>
                             <div className="row hidden-lg hidden-md">
                                 <div className="col-md-4 col-xs-12">
-                                    <a className="btn btn-block btn-facebook" href="https://facebook.com/communicode.co">
+                                    <a className="btn btn-block btn-social btn-facebook" href="https://facebook.com/communicode.co">
                                         <span className="fa fa-facebook"/>&nbsp;&nbsp;Follow us on Facebook
                                     </a>
                                 </div>
                                 <div className="col-md-4 col-xs-12">
-                                    <a className="btn btn-block btn-instagram" href="https://instagram.com/communicode.co">
+                                    <a className="btn btn-block btn-social btn-instagram" href="https://instagram.com/communicode.co">
                                         <span className="fa fa-instagram"/>&nbsp;&nbsp;Follow us on Instagram
                                     </a>
                                 </div>
                                 <div className="col-md-4 col-xs-12">
-                                    <a className="btn btn-block btn-twitter" href="https://twitter.com/communicodeLLC">
+                                    <a className="btn btn-block btn-social btn-twitter" href="https://twitter.com/communicodeLLC">
                                         <span className="fa fa-twitter"/>&nbsp;&nbsp;Follow us on Twitter
                                     </a>
                                 </div>

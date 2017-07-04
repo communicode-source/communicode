@@ -20,7 +20,11 @@ class Header extends React.Component {
 
     render() {
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal } = this.props;
-
+        // This is so the navbar will automatically collapse when a link is clicked on mobile
+        const linkProps = {
+            'data-toggle': 'collapse',
+            'data-target': '.navbar-collapse.in'
+        };
         return (
             <div>
                 <nav className="navbar navbar-default">
@@ -36,16 +40,16 @@ class Header extends React.Component {
                         <div className="collapse navbar-collapse" id="mainNav">
                             <ul className="nav navbar-nav navbar-left">
                                 <li className="no-hover">
-                                    <Link to="/">Home</Link>
+                                    <Link to="/" {...linkProps}>Home</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link to="/about">About Us</Link>
+                                    <Link to="/about" {...linkProps}>About Us</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link to="/developers">For Volunteers</Link>
+                                    <Link to="/developers" {...linkProps}>For Volunteers</Link>
                                 </li>
                                 <li className="no-hover">
-                                    <Link to="/nonprofits">For Nonprofits</Link>
+                                    <Link to="/nonprofits" {...linkProps}>For Nonprofits</Link>
                                 </li>
                             </ul>
 
@@ -53,12 +57,12 @@ class Header extends React.Component {
                                 <ul className="nav navbar-nav navbar-right right">
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link data-toggle="modal" data-target="#register" to="#">Register</Link>
+                                            <Link data-toggle="modal" data-target="#register" to="#" {...linkProps}>Register</Link>
                                         </NativeListener>
                                     </li>
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link onClick={ () => { showLoginModal(true); } } to="#">Login</Link>
+                                            <Link onClick={ () => { showLoginModal(true); } } to="#" {...linkProps}>Login</Link>
                                         </NativeListener>
                                     </li>
                                 </ul>
