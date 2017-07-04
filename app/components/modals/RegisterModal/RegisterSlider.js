@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 // import { connect } from 'react-redux';
 import Slider from 'rc-slider';
+// To override the default loader, which uses css modules
+import 'style!css!rc-slider/assets/index.css';
 
 const handleRegister = (sliderValue, user, methods) => {
     let accountType;

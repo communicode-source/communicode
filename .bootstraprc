@@ -10,7 +10,7 @@ styleLoaders:
 
 extractStyles: false
 preBootstrapCustomizations: ./app/theme/bootstrap/customizations.scss
-bootstrapCustomizations: ./app/theme/bootstrap/overrides.scss
+# bootstrapCustomizations: ./app/theme/bootstrap/overrides.scss
 appStyles: ./app/theme/bootstrap/extension.scss
 
 ### Bootstrap styles

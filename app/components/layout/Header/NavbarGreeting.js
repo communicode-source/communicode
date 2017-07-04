@@ -14,7 +14,7 @@ const NavbarGreeting = ({ isAuthenticated, user }) => {
 
     return (
         <div>
-            {greeting} <i className="fa fa-caret-down"></i>
+            {greeting} <i className="fa fa-caret-down"/>
         </div>
     );
 };

@@ -1,20 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import classNames from 'classnames';
 import NativeListener from 'react-native-listener';
 
 import { LogoLight } from 'assets';
 import { LoginModalContainer, RegisterModalContainer, LogoutContainer } from 'containers';
 
-import styles from './header.scss';
 import NavbarGreeting from './NavbarGreeting.js';
-
-const headerNavClassnames = classNames(styles.nav);
-const navLogoClassnames = classNames('pull-left logo', styles.a);
-
-const headerNavCollapseClassnames = classNames('collapse', 'navbar-collapse', styles['collapse-container']);
-const headerButtonCollapseClassnames  = classNames('icon-bar', styles['collapse-button']);
-const dropdownClassnames = classNames(styles.a, 'dropdown-toggle');
 
 class Header extends React.Component {
 
@@ -36,9 +27,9 @@ class Header extends React.Component {
                     <div className="container">
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
-                                <span className={headerButtonCollapseClassnames}/>
-                                <span className={headerButtonCollapseClassnames}/>
-                                <span className={headerButtonCollapseClassnames}/>
+                                <span className="icon-bar"/>
+                                <span className="icon-bar"/>
+                                <span className="icon-bar"/>
                             </button>
                             <a className="navbar-brand"><img alt="Communicode" src={LogoLight}/></a>
                         </div>
@@ -62,12 +53,12 @@ class Header extends React.Component {
                                 <ul className="nav navbar-nav navbar-right right">
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link className={styles.a} data-toggle="modal" data-target="#register" to="#">Register</Link>
+                                            <Link data-toggle="modal" data-target="#register" to="#">Register</Link>
                                         </NativeListener>
                                     </li>
                                     <li>
                                         <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link className={styles.a} onClick={ () => { showLoginModal(true); } } to="#">Login</Link>
+                                            <Link onClick={ () => { showLoginModal(true); } } to="#">Login</Link>
                                         </NativeListener>
                                     </li>
                                 </ul>
@@ -75,11 +66,11 @@ class Header extends React.Component {
 
                             {isAuthenticated &&
                                 <ul className="nav navbar-nav navbar-right right">
-                                    <li className={classNames('dropdown', styles.dropdown)}>
-                                        <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <li className="dropdown">
+                                        <Link className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                             <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
                                         </Link>
-                                        <ul className={classNames('dropdown-menu', styles['dropdown-menu'])}>
+                                        <ul className="dropdown-menu">
                                             <LogoutContainer />
                                         </ul>
                                     </li>

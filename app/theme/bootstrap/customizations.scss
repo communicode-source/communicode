@@ -3,7 +3,10 @@
 @import '../vars';
 
 @import 'theme/colors';
-@import 'theme/components.scss';
-@import 'theme/buttons';
 @import 'theme/font';
+
+@import 'theme/components';
+@import 'theme/buttons';
+@import 'theme/forms';
+@import 'theme/dropdowns';
 @import 'theme/navbar';

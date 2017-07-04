@@ -2,8 +2,6 @@ import React from 'react';
 import ReactGA from 'react-ga';
 import classNames from 'classnames';
 
-import common from '../../../assets/css/pages/common.scss';
-import main from '../../../assets/css/main.scss';
 import styles from './subscribe.scss';
 
 const Subscribe = () =>

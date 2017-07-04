@@ -1,0 +1,29 @@
+
+input[type="text"], input[type="email"], input[type="password"] { // Others might be applicable
+  &.form-control {
+    border: none;
+    border-bottom: 1.5px solid #e6e6e6;
+    border-radius: 0;
+    padding: 10px;
+    height: 50px;
+    box-shadow: none;
+    color: $black;
+    &:hover {
+      border-bottom-color: #bebdbb;
+    }
+    &:focus {
+      border-bottom-color: $yellow;
+    }
+  }
+}
+
+form > legend {
+  text-align: center;
+  margin: 20px auto;
+  color: $black;
+}
+
+form > .form-group > label {
+  font-weight: normal;
+  font-size: medium;
+}

@@ -9,5 +9,12 @@
 
 .navbar-nav > li > a {
   @include transition(background-color .25s);
-  margin-right: $navbar-item-spacing;
+  @media (min-width: 768px) {
+    margin-right: $navbar-item-spacing;
+  }
+}
+
+// To fix the transparent
+.navbar-default .navbar-collapse {
+  background-color: $black;
 }

@@ -3,17 +3,12 @@ import { Link } from 'react-router';
 import Title from 'react-title-component';
 import classNames from 'classnames';
 
-import main from '../../../assets/css/main.scss';
 import { Divider, SubscribeForm, FacebookSocialButton, TwitterSocialButton, InstagramSocialButton } from 'components';
 
 import home from './home.scss';
 
-
-const primaryBtnClassnames = classNames(main['primary-btn'], main.btn, home.a);
-const darkBtnClassnames = classNames(main['dark-btn'], main['no-transition'], main.btn, home.a);
 const devInfoPanelClassnames = classNames('col-md-6', home.developers, home['info-panel']);
 const nonprofitInfoPanelClassnames = classNames('col-md-6', home.nonprofits, home['info-panel']);
-const infoTextButtonClassnames = classNames(main['primary-btn'], main['btn-small'], main.dark, main['no-transition']);
 
 
 export default class Home extends React.Component {

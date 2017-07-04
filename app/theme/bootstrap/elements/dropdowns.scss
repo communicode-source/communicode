@@ -1,0 +1,7 @@
+.dropdown-menu {
+  & > li > a {
+    padding: 5px 20px;
+    @include transition(background-color .25s);
+  }
+  padding: 0;
+}
