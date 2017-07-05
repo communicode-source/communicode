@@ -7,63 +7,59 @@ import { Divider, SubscribeForm, FacebookSocialButton, TwitterSocialButton, Inst
 
 import home from './home.scss';
 
-const devInfoPanelClassnames = classNames('col-md-6', home.developers, home['info-panel']);
-const nonprofitInfoPanelClassnames = classNames('col-md-6', home.nonprofits, home['info-panel']);
-
-
 export default class Home extends React.Component {
 
     render() {
         return (
             <div>
                 <Title render={parentTitle => `${parentTitle}`}/>
-                <div className={classNames(home['container-fluid'], home.hero)}>
-                    <center>
-                        <div className={home['hero-text']}>
+                <div className="container-fluid hero" id={home.hero}>
+                    <div className="row">
+                        <div className="hero-text">
                             <h1>Let's Create Together.</h1>
                             <h3>Help change the world through the power of technology</h3>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="hero-links">
                             <Link to="/developers" className="btn btn-primary">Volunteers</Link>
                             <Link to="/nonprofits" className="btn btn-dark">Nonprofits</Link>
                         </div>
-                    </center>
+                    </div>
                 </div>
                 <div className="container-fluid">
                     <Divider />
                     <div className="row">
-                        <div className={devInfoPanelClassnames}>
-                            <div className={home['info-text']}>
+                        <div className="col-md-6" id={home['info-developers']}>
+                            <div>
                                 <h2>Volunteers</h2>
                                 <hr />
-                                <p>
+                                <div>
                                     Communicode matches designers and programmers to causes they care about to help usher nonprofits into the 21<sup>st</sup>
                                     &nbsp; century
-                                </p>
-                                <center>
-                                    <Link to="/developers" className="btn btn-primary btn-sm">Learn More</Link>
-                                </center>
+                                </div>
+                                <Link to="/developers" className="btn btn-primary btn-sm">Learn More</Link>
                             </div>
                         </div>
-                        <div className={nonprofitInfoPanelClassnames}>
-                            <div className={home['info-text']}>
+                        <div className="col-md-6" id={home['info-nonprofits']}>
+                            <div>
                                 <h2>Nonprofits</h2>
                                 <hr />
-                                <p>Communicode helps propel your nonprofit into the digital age by matching you with volunteers who share your same passion</p>
-                                <center>
-                                    <Link to="/nonprofits" className="btn btn-primary btn-sm">Learn More</Link>
-                                </center>
+                                <div>Communicode helps propel your nonprofit into the digital age by matching you with volunteers who share your same passion</div>
+                                <Link to="/nonprofits" className="btn btn-primary btn-sm">Learn More</Link>
                             </div>
                         </div>
                     </div>
-                    <div className={classNames('row', home['unified-section'])}>
-                        <div className="col-md-12 col-sm-12 col-lg-6 hidden-sm hidden-xs">
-                            <img width="100%" src={require('../../../assets/images/homepage/TripleBrowsersLogo.png')}/>
+                    <div className="row" id={home.revolution}>
+                        <div className="col-md-12 col-lg-6 hidden-sm hidden-xs">
+                            <img width="100%" src={require('./TripleBrowsersLogo.png')}/>
                         </div>
-                        <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
+                        <div className="col-md-12 col-lg-6">
                             <h2>We're Creating a Revolution</h2>
-                            <p>
+                            <div>
                                 Let's make an impact together. Communicode matches developers and designers with nonprofits to help carry out any design, branding, or technology needs.
                                 Follow us for more information and updates.
-                            </p>
+                            </div>
                             <div className="row hidden-sm hidden-xs">
                                 <div className="col-md-4 col-xs-12">
                                     <FacebookSocialButton/>
@@ -94,31 +90,31 @@ export default class Home extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className={classNames('row', home.features)}>
-                        <div id={home['portfolio-panel']} className={classNames('col-md-4', home['info-panel'])}>
+                    <div className="row">
+                        <div className="col-md-4" id={home['portfolio-panel']}>
                             <h3>Expand Your Portfolio</h3>
                             <hr />
-                            <p>
+                            <div>
                                 Need a few more projects to create a portfolio? Communicode
                                 gives you the opportunity to expand your portfolio, entirely free.
-                            </p>
+                            </div>
                         </div>
-                        <div id={home['work-panel']} className={classNames('col-md-4', home['info-panel'])}>
+                        <div className="col-md-4" id={home['work-panel']}>
                             <h3>Work on What You Love</h3>
                             <hr />
-                            <p>
+                            <div>
                                 Communicode allows you to work on causes you are interested in.
                                 You give us your interests, we give you matches. Its that simple.
-                            </p>
+                            </div>
                         </div>
-                        <div id={home['help-panel']} className={classNames('col-md-4', home['info-panel'])}>
+                        <div className="col-md-4" id={home['help-panel']}>
                             <h3>Get the Help You Deserve</h3>
                             <hr />
-                            <p>
+                            <div>
                                 Nonprofits need to be up to date with technology.
                                 Communicode matches you with people who care about
                                 what you have to offer.
-                            </p>
+                            </div>
                         </div>
                     </div>
                 </div>
