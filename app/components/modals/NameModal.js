@@ -19,13 +19,14 @@ class NameModal extends React.Component {
     }
 
     close() {
-        this.props.onOverlayNameModal(false);
         this.forceUpdate();
     }
 
     handleUpdateName(e, data, user) {
         e.preventDefault();
-        this.props.onUpdateName({fname: data.fname.value, lname: data.lname.value, user});
+        if(data.fname.value !== '' && data.lname.value !== '') {
+            this.props.onUpdateName({fname: data.fname.value, lname: data.lname.value, user});
+        }
     }
 
     render() {
@@ -39,10 +40,12 @@ class NameModal extends React.Component {
             error
         } = this.props;
 
-        this.showModal = this.props.shouldShowModal ? true : false;
+        if(!this.shouldShowModal) {
+            this.close();
+        }
 
         return (
-            <Modal show={this.showModal}>
+            <Modal show={this.shouldShowModal}>
                 <Modal.Header>
                     <Modal.Title>Hello Random Citizen!</Modal.Title>
                 </Modal.Header>

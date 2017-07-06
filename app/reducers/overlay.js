@@ -13,11 +13,13 @@ const overlay = (state = {
             return Object.assign({}, state, {
                 shouldShowNameModal: action.data
             });
+
         case types.UPDATE_NAME_SUCCESS:
             return {
                 ...state,
                 shouldShowNameModal: false
             };
+
         case types.LOGOUT_USER:
             return Object.assign({}, state, {
                 shouldShowLoginModal: false
