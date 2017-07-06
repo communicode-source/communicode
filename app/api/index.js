@@ -124,6 +124,100 @@ export async function updateName(data) {
     }
 }
 
+export async function returnAPIEmailForRecovery(email) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({email: email})
+        };
+        const response = await fetch(API_URL + '/recover/generate', options);
+
+        const responseData = await response.json();
+        console.log('Response: ', responseData);
+        if(responseData === '600') {
+            throw new Error('Invalid email');
+        }
+        else if(responseData === '605') {
+            throw new Error('You have already requested a password change!');
+        }
+        else if(responseData.err !== false) {
+            throw new Error('Server error, try again later');
+        }
+        else if(!responseData.hash) {
+            throw new Error('There was a problem!');
+        }
+
+        return {err: false, hash: responseData.hash};
+    }
+    catch(e) {
+        return {err: true, error: e.message};
+    }
+}
+
+export async function returnAPIHashForRecovery(url, user) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({urlHash: url, hash: user})
+        };
+        const response = await fetch(API_URL + '/recover/verify', options);
+
+        const responseData = await response.json();
+        if(responseData === '601') {
+            throw new Error('Recheck your emailed code!');
+        }
+        else if(responseData.err !== false) {
+            throw new Error('Server error, try again later');
+        }
+        else if(!responseData.msg) {
+            throw new Error('There was a problem!');
+        }
+
+        return {err: false, jwt: responseData.msg};
+    }
+    catch(e) {
+        return {err: true, error: e.message};
+    }
+}
+
+export async function returnPasswordToAPIForRecovery(jwt, password) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({jwt, password})
+        };
+        const response = await fetch(API_URL + '/recover/change', options);
+
+        const responseData = await response.json();
+        if(responseData === '610') {
+            throw new Error('You are not authorized to do that');
+        }
+        else if(responseData === '611') {
+            throw new Error('You\'ve already changed your password!');
+        }
+        else if(responseData === '612') {
+            throw new Error('No account with that email');
+        }
+        else if(responseData.err !== false) {
+            throw new Error('Server error, try again later');
+        }
+        else if(!responseData.msg || responseData.msg !== 'Success') {
+            throw new Error('There was a problem!');
+        }
+
+        return {err: false, msg: 'Successfully updated your password!'};
+    }
+    catch(e) {
+        return {err: true, error: e.message};
+    }
+}
+
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);
 }

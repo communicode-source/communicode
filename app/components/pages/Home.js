@@ -3,6 +3,10 @@ import { Link } from 'react-router';
 import SubscribeComponent from '../layout/SubscribeComponent';
 import Title from 'react-title-component';
 
+import FacebookSocialButton from '../layout/FacebookSocialButton';
+import TwitterSocialButton from '../layout/TwitterSocialButton';
+import InstagramSocialButton from '../layout/InstagramSocialButton';
+
 import classNames from 'classnames';
 import home from '../../assets/css/pages/home.scss';
 import main from '../../assets/css/main.scss';
@@ -60,7 +64,7 @@ const Home = () =>
             </div>
             <div className={classNames('row', home['unified-section'])}>
                 <div className="col-md-12 col-sm-12 col-lg-6 hidden-sm hidden-xs">
-                    <img width="100%" src={require('../../assets/images/homepage/TripleBrowsers.png')}/>
+                    <img width="100%" src={require('../../assets/images/homepage/TripleBrowsersLogo.png')}/>
                 </div>
                 <div className={classNames('col-lg-6', 'col-md-12', home['unified-section'], 'col-sm-12')}>
                     <h2>We're Creating a Revolution</h2>
@@ -70,19 +74,13 @@ const Home = () =>
                     </p>
                     <div className="row hidden-sm hidden-xs">
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-facebook" href="https://facebook.com/communicode.co">
-                                <span className="fa fa-facebook"/>
-                            </a>
+                            <FacebookSocialButton/>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-instagram" href="https://instagram.com/communicode.co">
-                                <span className="fa fa-instagram"/>
-                            </a>
+                            <InstagramSocialButton/>
                         </div>
                         <div className="col-md-4 col-xs-12">
-                            <a className="btn btn-social-icon btn-twitter" href="https://twitter.com/communicodeLLC">
-                                <span className="fa fa-twitter"/>
-                            </a>
+                            <TwitterSocialButton/>
                         </div>
                     </div>
                     <div className="row hidden-lg hidden-md">

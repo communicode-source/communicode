@@ -7,6 +7,7 @@ import About from './components/pages/About';
 import Interests from './components/pages/Interests';
 import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
+import PasswordRecovery from './components/pages/PasswordRecovery';
 import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
 import NotFoundPage from './components/pages/NotFound';
@@ -20,11 +21,12 @@ export const routes = (
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
         <Route path="/profile" component={Profile} />
+        <Route path="/forgot" component={PasswordRecovery} />
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
         </Route>
-        <Route path="*" component={NotFoundPage}/>
+        <Route path="*" component={NotFoundPage} notFound />
     </Route>
 );
 

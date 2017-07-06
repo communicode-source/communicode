@@ -31,7 +31,10 @@ class App extends React.Component {
             <div id={main['app-container']}>
                 <Title render="Communicode"/>
                 <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} />
-                <div id={main['content-main']}>{children}</div>
+                <div id={main['content-main']}>
+                    {children}
+                    <div className={main.push}/>
+                </div>
                 <Footer />
             </div>
         );

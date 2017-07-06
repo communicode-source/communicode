@@ -122,7 +122,7 @@ hr {
 
 .about2 {
   padding: 0 !important;
-  margin-bottom: 20px;
+  background: #ddd;
 }
 
 .about-text h3 {
@@ -207,7 +207,7 @@ hr {
 }
 
 #info-background-1 {
-  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1485856407642-7f9ba0268b51?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('../../images/backgrounds/developer/background1.jpg') no-repeat center center;
   height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -216,7 +216,7 @@ hr {
 }
 
 #info-background-2 {
-  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1482745637430-91c0bbcea3e1?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('../../images/backgrounds/developer/background2.jpg') no-repeat center center;
   height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -225,7 +225,7 @@ hr {
 }
 
 #info-background-nonprofit-1 {
-  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('../../images/backgrounds/nonprofit/background1.jpg') no-repeat center center;
   height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -234,7 +234,7 @@ hr {
 }
 
 #info-background-nonprofit-2 {
-  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('https://images.unsplash.com/photo-1483808161634-29aa1b0e585e?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=&bg=') no-repeat center center;
+  background: linear-gradient(rgba(50, 50, 50, 0.3), rgba(50, 50, 50, 0.3)), url('../../images/backgrounds/nonprofit/background2.jpg') no-repeat center center;
   height: 400px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -511,6 +511,7 @@ legend {
 
 .create-account {
   padding: 30px;
+  background-color: $light-grey-background;
 }
 
 .hiddenDesktop {

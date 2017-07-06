@@ -1,8 +1,9 @@
 @import '../colors';
 @import '../fonts';
 
+
 .hero {
-  background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url(https://images.unsplash.com/photo-1416339442236-8ceb164046f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=0c68baec38ad565c4503c6635682d1c7) no-repeat center center;
+  background: linear-gradient(rgba(51, 51, 51, 1.5), rgba(51, 51, 51, 0.6)), url('../../images/backgrounds/home/header.jpg') no-repeat center center;
   height: 500px;
   width: 100%;
   -webkit-background-size: cover;
@@ -89,14 +90,16 @@
 /* DEV AND NONPROFT MAIN PRICS */
 
 .developers {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(https://images.unsplash.com/photo-1484417894907-623942c8ee29?dpr=1&auto=format&fit=crop&w=1500&h=844&q=80&cs=tinysrgb&crop=&bg=);
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/developers.jpg');
   background-size: cover;
   background-position-x: center;
-  border-right: 2px solid #F2F2F2; //Only display this if the whole row is present
+  @media (min-width: 991px) {
+    border-right: 2px solid #F2F2F2; //Only display this if the whole row is present
+  }
 }
 
 .nonprofits {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(https://images.unsplash.com/photo-1469398718052-b9d13df0d7c9?dpr=1&auto=format&fit=crop&w=1500&h=999&q=80&cs=tinysrgb&crop=&bg=);
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/nonprofits.jpg');
   background-size: cover;
   background-position-x: center;
 }
@@ -142,19 +145,19 @@
 }
 
 #portfolio-panel {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=&bg=);
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/portfolio.jpg');
   background-size: cover;
   background-position-x: center;
 }
 
 #work-panel {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(https://images.unsplash.com/photo-1455849318743-b2233052fcff?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop=&bg=);
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/work.jpg');
   background-size: cover;
   background-position: center bottom;
 }
 
 #help-panel {
-  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url(https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?dpr=1&auto=format&fit=crop&w=1500&h=1125&q=80&cs=tinysrgb&crop=&bg=);
+  background: linear-gradient(rgba(51, 51, 51, 0.8), rgba(51, 51, 51, 0.8)), url('../../images/backgrounds/home/help.jpg');
   background-size: cover;
   background-position-x: center;
 }

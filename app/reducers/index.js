@@ -5,6 +5,7 @@ import user from './user';
 import interests from './interests';
 import overlay from './overlay';
 import redirect from './redirect';
+import passwordRecovery from './passwordRecovery';
 import routing from './routing';
 
 
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     routing,
     interests,
     redirect,
-    overlay
+    overlay,
+    passwordRecovery
 });
 
 export default rootReducer;

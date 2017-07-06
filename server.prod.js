@@ -38,8 +38,19 @@ const runServer = () => {
     const app = Express();
 
     app.use(compression());
+    app.use((req, res, next) => {
+        const host = req.get('Host');
+        // We like the domain without www more so let's use it!
+        if(host.startsWith('www.')) {
+            return res.redirect(301, 'https://communicode.co/' + req.originalUrl);
+        }
+        return next();
+    });
     app.use('/', httpsRedirect());
-    app.use('/assets', Express.static('assets'));
+    app.use('/assets', Express.static('assets', {
+        // We can set such a high expiration date because assets have filename hashes
+        maxAge: '1y'
+    }));
 
     const paths = flattenRoutes(createRoutes(routes));
 
@@ -58,6 +69,10 @@ const runServer = () => {
             app.use(routePath, Express.static(routePath.substr(1)));
         }
     });
+    // Workaround for 404 error
+    app.get('/fonts/*', (req, res) => {
+        return res.redirect(301, 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0' + req.originalUrl);
+    });
     app.get('/sitemap.xml', (req, res) => {
         res.sendFile('sitemap.xml', {root: '.'});
     });
@@ -74,9 +89,9 @@ const runServer = () => {
             res.redirect(redirect.pathname + redirect.search);
         }
         else if(props) {
-            let statusCode = 200;
-            if(props.routes[1].path === '*') {
-                statusCode = 404;
+            if(props.routes[1].notFound) {
+                res.status(404).sendFile('404.html', {root: '.'});
+                return;
             }
             const appHtml = renderToString(<Provider store={store}><RouterContext {...props}/></Provider>);
             const title = flushTitle();
@@ -92,10 +107,10 @@ const runServer = () => {
             catch(err) {
                 res.status(500).send(err.message);
             }
-            res.status(statusCode).send(data);
+            res.status(200).send(data);
         }
         else {
-            res.status(404).send('Page not found!');
+            res.status(404).sendFile('404.html', {root: '.'});
         }
     });
 
