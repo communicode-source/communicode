@@ -7,12 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
 
-const store = configureStore({
-    interests: [
-    ],
-    isAuthenticated: false
-});
-
+const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(

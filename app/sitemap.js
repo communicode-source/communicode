@@ -25,11 +25,6 @@ const sitemap = [
         changeFreq: 'daily',
         public: true,
         static: true
-    },
-    {
-        path: '/feed',
-        public: false,
-        static: false
     }
 ];
 

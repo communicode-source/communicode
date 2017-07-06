@@ -3,9 +3,6 @@ import { renderToString } from 'react-dom/server';
 import routes from './app/routes.js';
 
 import { match, createRoutes, RouterContext } from 'react-router';
-import { Provider } from 'react-redux';
-import rootReducer from './app/reducers';
-import { createStore } from 'redux';
 import { flushTitle } from 'react-title-component';
 import ejs from 'ejs';
 import Express from 'express';
@@ -17,7 +14,6 @@ import critical from 'critical';
 
 const matchPath = Promise.promisify(match, {multiArgs: true});
 const renderFile = Promise.promisify(ejs.renderFile);
-const store = createStore(rootReducer);
 
 const runServer = () => {
     const flattenRoutes = (routes, base, paths) => {
@@ -93,7 +89,7 @@ const runServer = () => {
                 res.status(404).sendFile('404.html', {root: '.'});
                 return;
             }
-            const appHtml = renderToString(<Provider store={store}><RouterContext {...props}/></Provider>);
+            const appHtml = renderToString(<RouterContext {...props}/>);
             const title = flushTitle();
             let data;
             try {
@@ -135,7 +131,7 @@ const render = async (locals) => {
         if(props.routes[1].path === '*') {
             // 404 error
         }
-        const appHtml = renderToString(<Provider store={store}><RouterContext {...props}/></Provider>);
+        const appHtml = renderToString(<RouterContext {...props} />);
         const appTitle = flushTitle();
         const data = await renderFile(path.join(__dirname + 'dist/index.ejs.html'), {
             app: {

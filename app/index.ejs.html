@@ -25,17 +25,16 @@
         .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
             font-weight: 300 !important;
         }
+        #root {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
-    <!--
-        Make sure to embed this using webpack! This is just a workaround...
-    -->
-    <link rel="stylesheet" href="../node_modules/rc-slider/assets/index.css">
 </head>
 
-<body class="view-login">
-    <div id="root">
-        <%- app.html %>
-    </div>
+<body id="root" class="view-login">
+<%- app.html %>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
