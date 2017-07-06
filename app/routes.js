@@ -21,7 +21,7 @@ export const routes = (
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
         <Route path="/profile" component={Profile} />
-        <Route path="/recover" component={PasswordRecovery} />
+        <Route path="/forgot" component={PasswordRecovery} />
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
