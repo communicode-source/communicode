@@ -124,6 +124,22 @@ export async function updateName(data) {
     }
 }
 
+export async function searchUser(name) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'GET'
+        };
+
+        const response = await fetch(API_URL + '/search/' + name, options);
+
+        return response.json();
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);
 }

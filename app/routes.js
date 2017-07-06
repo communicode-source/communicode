@@ -9,6 +9,7 @@ import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
 import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
+import Search from './components/pages/Search';
 import NotFoundPage from './components/pages/NotFound';
 // import ProjectFeed from './containers/ProjectFeedContainer';
 
@@ -20,6 +21,7 @@ export const routes = (
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
         <Route path="/profile" component={Profile} />
+        <Route path="/search" component={Search} />
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
