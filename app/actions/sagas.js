@@ -1,7 +1,7 @@
-import { takeEvery } from 'redux-saga';
-import { put, call } from 'redux-saga/effects';
+import { takeEvery, takeLatest } from 'redux-saga';
+import { put, call, select } from 'redux-saga/effects';
 
-import { registerUser, decodeJWT, loginUser, updateName } from '../api';
+import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, returnAPIHashForRecovery, returnPasswordToAPIForRecovery } from '../api';
 import * as types from './types';
 
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
@@ -154,12 +154,70 @@ export function* updateFirstAndLastName(action) {
             user,
             types.UPDATE_NAME_SUCCESS,
             types.UPDATE_NAME_FAILED,
-            'Sorry, could not update your name.s'
+            'Sorry, could not update your name.'
         );
     }
     catch(e) {
         yield put({
             type: types.UPDATE_NAME_FAILED,
+            error: e
+        });
+    }
+}
+export const getRecoveryData = (state) => state.passwordRecovery;
+
+export function* sendEmailAndGetHash() {
+    try {
+        const data = yield select(getRecoveryData);
+        const response = yield call(returnAPIEmailForRecovery, data.email);
+        yield* handleServerResponse(
+            (response.err === true) ? undefined : response.hash,
+            types.RECOVERY_EMAIL_SUCCESS,
+            types.RECOVERY_EMAIL_FAILURE,
+            response.error
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.RECOVERY_EMAIL_FAILURE,
+            error: e
+        });
+    }
+}
+
+export function* sendHashesAndGetToken() {
+    try {
+        const data = yield select(getRecoveryData);
+        const response = yield call(returnAPIHashForRecovery, data.url, data.hash);
+        yield* handleServerResponse(
+            (response.err === true) ? undefined : response.jwt,
+            types.SUBMITTED_HASHES_FOR_RECOVERED_PASSWORD_SUCCESS,
+            types.SUBMITTED_HASHES_FOR_RECOVERED_PASSWORD_FAILED,
+            response.error
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.RECOVERY_EMAIL_FAILURE,
+            error: e
+        });
+    }
+}
+
+export function* sendPasswordForUpdateRecovery() {
+    try {
+        const data = yield select(getRecoveryData);
+        const response = yield call(returnPasswordToAPIForRecovery, data.jwt, data.password);
+        yield* handleServerResponse(
+            (response.err === true) ? undefined : response.msg,
+            types.RECOVERY_PASSWORD_SUCCESS,
+            types.RECOVERY_PASSWORD_FAILED,
+            response.error
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.RECOVERY_EMAIL_FAILURE,
             error: e
         });
     }
@@ -196,6 +254,15 @@ function* watchGetLoggedInUser() {
 function* watchUpdateName() {
     yield* takeEvery(types.UPDATE_NAME_CLICK, updateFirstAndLastName);
 }
+function* watchRecoverEmailSubmition() {
+    yield* takeLatest(types.SUBMIT_RECOVERY_EMAIL, sendEmailAndGetHash);
+}
+function* watchRecoverHashSubmition() {
+    yield* takeLatest(types.SUBMIT_HASHES_FOR_JWT, sendHashesAndGetToken);
+}
+function* watchRecoverPasswordSubmition() {
+    yield* takeLatest(types.SUBMIT_NEW_PASSWORD, sendPasswordForUpdateRecovery);
+}
 
 export default function* rootSaga() {
     yield [
@@ -206,6 +273,9 @@ export default function* rootSaga() {
         watchGoogleLoginUser(),
         watchFacebookLoginUser(),
         watchGetLoggedInUser(),
-        watchUpdateName()
+        watchUpdateName(),
+        watchRecoverEmailSubmition(),
+        watchRecoverHashSubmition(),
+        watchRecoverPasswordSubmition()
     ];
 }
