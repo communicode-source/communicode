@@ -1,7 +1,7 @@
 import { takeEvery, takeLatest } from 'redux-saga';
 import { put, call, select } from 'redux-saga/effects';
 
-import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, returnAPIHashForRecovery, returnPasswordToAPIForRecovery } from '../api';
+import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery } from '../api';
 import * as types from './types';
 
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
@@ -223,6 +223,34 @@ export function* sendPasswordForUpdateRecovery() {
     }
 }
 
+export function* getSearch(input) {
+    if (input.data.length < 3) {
+        yield put({
+            type: types.SEARCH_INPUT_FAILED,
+            error: 'Type more letters'
+        });
+    }
+    else {
+        try {
+            const newInput = input.data.replace(/ +/, '_');
+            const search = yield call(searchUser, newInput);
+
+            yield* handleServerResponse(
+                search,
+                types.SEARCH_INPUT_SUCCESS,
+                types.SEARCH_INPUT_FAILED,
+                'Sorry, couldn\'t find the user'
+	    );
+        }
+        catch(e) {
+            yield put({
+                type: types.SEARCH_INPUT_FAILED,
+                error: e
+            });
+        }
+    }
+}
+
 function* watchRegisterNewUser() {
     yield* takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
 }
@@ -264,6 +292,10 @@ function* watchRecoverPasswordSubmition() {
     yield* takeLatest(types.SUBMIT_NEW_PASSWORD, sendPasswordForUpdateRecovery);
 }
 
+function* watchSearchChange() {
+    yield* takeEvery(types.SEARCH_INPUT_CHANGE, getSearch);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -276,6 +308,7 @@ export default function* rootSaga() {
         watchUpdateName(),
         watchRecoverEmailSubmition(),
         watchRecoverHashSubmition(),
-        watchRecoverPasswordSubmition()
+        watchRecoverPasswordSubmition(),
+        watchSearchChange()
     ];
 }
