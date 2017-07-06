@@ -16,7 +16,7 @@ function routing(state = initialState, action) {
         return { ...state, locationBeforeTransitions: location };
     }
 
-    if(action.type === types.ADD_LOCAL_USER_SUCCESS) {
+    if(action.type === types.ADD_LOCAL_USER_SUCCESS || action.type === types.ADD_GOOGLE_USER_SUCCESS || action.type === types.ADD_FACEBOOK_USER_SUCCESS) {
         let location = state.locationBeforeTransitions;
         const pathname = '/interests';
         location = { ...location, pathname, action: 'PUSH' };

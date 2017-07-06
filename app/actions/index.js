@@ -158,3 +158,10 @@ export function onNewPasswordRecoverySubmit() {
         type: types.SUBMIT_NEW_PASSWORD,
     };
 }
+
+export function searchChange(input) {
+    return {
+        type: types.SEARCH_INPUT_CHANGE,
+        data: input
+    };
+}
