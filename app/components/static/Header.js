@@ -27,8 +27,12 @@ class Header extends React.Component {
         e.preventDefault();
     }
 
+    handleRModalClick(e) {
+        e.preventDefault();
+    }
+
     render() {
-        const { isAuthenticated, user, shouldShowLoginModal, showLoginModal } = this.props;
+        const { isAuthenticated, user, shouldShowLoginModal, showLoginModal, shouldShowRegisterModal, toggleRegisterModal } = this.props;
 
         return (
             <div>
@@ -67,8 +71,8 @@ class Header extends React.Component {
                             {!isAuthenticated &&
                                 <ul className="nav navbar-nav navbar-right right">
                                     <li>
-                                        <NativeListener onClick={this.handleModalClick.bind(this)}>
-                                            <Link className={styles.a} data-toggle="modal" data-target="#register" to="#">Register</Link>
+                                        <NativeListener onClick={this.handleRModalClick.bind(this)}>
+                                            <Link className={styles.a} onClick={() => toggleRegisterModal()} data-toggle="modal" data-target="#register" to="#">Register</Link>
                                         </NativeListener>
                                     </li>
                                     <li>
@@ -97,7 +101,7 @@ class Header extends React.Component {
 
                 {!isAuthenticated &&
                     <div>
-                        <RegisterModal />
+                        <RegisterModal show={shouldShowRegisterModal} toggleRegisterModal={toggleRegisterModal}/>
                         <LoginModal shouldShowModal={shouldShowLoginModal} />
                     </div>
                 }
@@ -110,6 +114,8 @@ Header.propTypes = {
     isAuthenticated: PropTypes.bool,
     shouldShowLoginModal: PropTypes.bool,
     showLoginModal: PropTypes.func,
+    shouldShowRegisterModal: PropTypes.bool,
+    toggleRegisterModal: PropTypes.bool,
     user: PropTypes.object
 };
 

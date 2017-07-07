@@ -86,6 +86,12 @@ export function overlayLoginModal(shouldShowModal) {
     };
 }
 
+export function toggleRegisterBox() {
+    return {
+        type: types.OVERLAY_REGISTER_MODAL
+    };
+}
+
 export function getLoggedInUser(isAuthenticated) {
     return {
         type: types.GET_LOGGED_IN_LOCAL_STORAGE,

@@ -24,13 +24,15 @@ class App extends React.Component {
             isAuthenticated,
             user,
             shouldShowLoginModal,
-            showLoginModal
+            showLoginModal,
+            shouldShowRegisterModal,
+            toggleRegisterModal
         } = this.props;
 
         return (
             <div id={main['app-container']}>
                 <Title render="Communicode"/>
-                <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} />
+                <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} toggleRegisterModal={toggleRegisterModal} shouldShowRegisterModal={shouldShowRegisterModal}/>
                 <div id={main['content-main']}>
                     {children}
                     <div className={main.push}/>
@@ -47,7 +49,9 @@ App.propTypes = {
     onGetLoggedInUser: PropTypes.func,
     user: PropTypes.object,
     showLoginModal: PropTypes.func,
-    shouldShowLoginModal: PropTypes.bool
+    shouldShowLoginModal: PropTypes.bool,
+    shouldShowRegisterModal: PropTypes.bool,
+    toggleRegisterModal: PropTypes.bool,
 };
 
 export default App;

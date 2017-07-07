@@ -2,6 +2,7 @@ import * as types from '../actions/types';
 
 const overlay = (state = {
     shouldShowLoginModal: false,
+    shouldShowRegisterModal: false,
     shouldShowNameModal: true
 }, action) => {
     switch (action.type) {
@@ -24,6 +25,8 @@ const overlay = (state = {
             return Object.assign({}, state, {
                 shouldShowLoginModal: false
             });
+        case types.OVERLAY_REGISTER_MODAL:
+            return {...state, shouldShowRegisterModal: state.shouldShowRegisterModal === false};
         default:
             return state;
     }

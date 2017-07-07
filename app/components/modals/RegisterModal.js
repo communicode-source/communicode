@@ -6,17 +6,17 @@ class RegisterModal extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
-        this.state = {show: true};
     }
 
     close() {
-        this.setState({show: false});
+        this.props.toggleRegisterModal();
     }
 
     render() {
+        console.log('Register');
         return (
-            <Modal backdrop={false} show={this.state.show} onHide={this.close.bind(this)}>
-                <Modal.Header closebutton>
+            <Modal backdrop={false} show={this.props.show} onHide={this.close.bind(this)}>
+                <Modal.Header closeButton>
                     <Modal.Title>Register for Communicode</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -68,6 +68,8 @@ RegisterModal.propTypes = {
     onRegisterGoogle: PropTypes.func,
     onUpdateProvider: PropTypes.func,
     user: PropTypes.object,
+    show: PropTypes.bool,
+    toggleRegisterModal: PropTypes.func,
     error: PropTypes.string
 };
 
