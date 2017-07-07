@@ -146,9 +146,12 @@ export function* getLoggedInUser(action) {
     }
 }
 
+const getStateUserData = (state) => state.user;
+
 export function* updateFirstAndLastName(action) {
     try {
-        const user = yield call(updateName, action.data);
+        const state = yield select(getStateUserData);
+        const user = yield call(updateName, {fname: state.fname, lname: state.lname, user: state});
 
         yield* handleServerResponse(
             user,
@@ -164,7 +167,7 @@ export function* updateFirstAndLastName(action) {
         });
     }
 }
-export const getRecoveryData = (state) => state.passwordRecovery;
+const getRecoveryData = (state) => state.passwordRecovery;
 
 export function* sendEmailAndGetHash() {
     try {

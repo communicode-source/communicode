@@ -113,10 +113,23 @@ export function overlayNameModal(shouldShowModal) {
     };
 }
 
-export function updateName(user) {
+export function updateName() {
     return {
-        type: types.UPDATE_NAME_CLICK,
-        data: user
+        type: types.UPDATE_NAME_CLICK
+    };
+}
+
+export function updateLname(lname) {
+    return {
+        type: types.UPDATE_USER_LNAME,
+        lname
+    };
+}
+
+export function updateFname(fname) {
+    return {
+        type: types.UPDATE_USER_FNAME,
+        fname
     };
 }
 

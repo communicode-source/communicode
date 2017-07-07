@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
-import { updateName, overlayNameModal } from '../actions';
-import NameModal from '../components/modals/NameModal';
+import { updateName, updateLname, updateFname } from '../actions';
+import NameModal from '../components/modals/InterestNameModal';
 
 const mapStateToProps = (state) => {
     return {
-        user: state.user,
-        error: state.user.error,
-        shouldShowModal: state.overlay.shouldShowNameModal
+        fname: state.user.fname,
+        lname: state.user.lname,
+        showModal: state.user.showModal,
+        error: state.user.error
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onUpdateName: (user) => dispatch(updateName(user)),
-        onOverlayNameModal: (shouldShowModal) => dispatch(overlayNameModal(shouldShowModal))
+        onNameSubmit: () => dispatch(updateName()),
+        onFnameEnter: (fname) => dispatch(updateFname(fname)),
+        onLnameEnter: (lname) => dispatch(updateLname(lname))
     };
 };
 
