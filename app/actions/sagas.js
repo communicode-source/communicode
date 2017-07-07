@@ -148,7 +148,7 @@ export function* getLoggedInUser(action) {
 
 const getStateUserData = (state) => state.user;
 
-export function* updateFirstAndLastName(action) {
+export function* updateFirstAndLastName() {
     try {
         const state = yield select(getStateUserData);
         const user = yield call(updateName, {fname: state.fname, lname: state.lname, user: state});
