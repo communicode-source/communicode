@@ -4,7 +4,10 @@ const user = (state = {
     isFetching: false,
     isAuthenticated: localStorage.getItem('id_token') ? true : false,
     provider: 'local',
-    error: ''
+    error: '',
+    fname: '',
+    lname: '',
+    showModal: false
 }, action) => {
     switch(action.type) {
         case types.VALIDATE_EMAIL:
@@ -30,7 +33,8 @@ const user = (state = {
                 profile: action.data.msg,
                 isFetching: false,
                 isAuthenticated: true,
-                error: ''
+                error: '',
+                showModal: (action.data.msg.fname !== null && action.data.msg.lname !== null) ? false : true
             });
         case types.ADD_LOCAL_USER_FAILED:
             return Object.assign({}, state, {
@@ -43,7 +47,8 @@ const user = (state = {
                 profile: action.data,
                 isFetching: false,
                 isAuthenticated: true,
-                error: ''
+                error: '',
+                showModal: (action.data.fname !== null && action.data.lname !== null) ? false : true
             });
         case types.ADD_GOOGLE_USER_FAILED:
             return Object.assign({}, state, {
@@ -56,7 +61,8 @@ const user = (state = {
                 profile: action.data,
                 isFetching: false,
                 isAuthenticated: true,
-                error: ''
+                error: '',
+                showModal: (action.data.fname !== null && action.data.lname !== null) ? false : true
             });
         case types.ADD_FACEBOOK_USER_FAILED:
             return Object.assign({}, state, {
@@ -118,13 +124,15 @@ const user = (state = {
         case types.UPDATE_NAME_SUCCESS:
             return {
                 ...state,
-                profile: action.data.msg
+                profile: action.data.msg,
+                showModal: false
             };
         case types.UPDATE_NAME_FAILED:
             return Object.assign({}, state, {
                 isFetching: false,
                 isAuthenticated: true,
-                error: action.error.message
+                error: action.error.message,
+                showModal: true
             });
         case types.LOGOUT_USER:
             return {
@@ -132,6 +140,10 @@ const user = (state = {
                 isAuthenticated: false,
                 provider: 'local'
             };
+        case types.UPDATE_USER_FNAME:
+            return {...state, fname: action.fname};
+        case types.UPDATE_USER_LNAME:
+            return {...state, lname: action.lname};
         default:
             return state;
     }

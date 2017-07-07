@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import interestsCss from './../../../assets/css/pages/interests.scss';
 import classNames from 'classnames';
 import InterestCard from './InterestCard';
-import NameModal from './../../../containers/NameModalContainer';
+import NameModal from './../../modals/InterestNameModal';
 /*
   If ComponentDidMount fires,
     check if there is a name in the db
@@ -12,15 +12,26 @@ import NameModal from './../../../containers/NameModalContainer';
         Choose interests
 */
 class MainInterests extends React.Component {
-    constructor({interests, stateInterests = [], onClickInterest}) {
+    constructor({interests, stateInterests = [], onClickInterest, fname, lname, showModal, error, onNameSubmit, onFnameEnter, onLnameEnter}) {
         super();
         this.interests = interests;
         this.stateInterests = stateInterests;
         this.onClickInterest = onClickInterest;
+        this.showModal = showModal;
+        this.fname = fname;
+        this.lname = lname;
+        this.error = error;
+        this.onNameSubmit = onNameSubmit;
+        this.onFnameEnter = onFnameEnter;
+        this.onLnameEnter = onLnameEnter;
     };
 
     componentWillUpdate(props) {
         this.stateInterests = props.stateInterests;
+        this.showModal = props.showModal;
+        this.fname = props.fanme;
+        this.lname = props.lname;
+        this.error = props.error;
         return;
     };
 
@@ -41,7 +52,15 @@ class MainInterests extends React.Component {
         });
         return (
             <div>
-                <NameModal/>
+                <NameModal
+                    fname={this.fname}
+                    lname={this.lname}
+                    error={this.error}
+                    showModal={this.showModal}
+                    onNameSubmit={this.onNameSubmit}
+                    onFnameEnter={this.onFnameEnter}
+                    onLnameEnter={this.onLnameEnter}
+                />
                 <div className={classNames(interestsCss['interests-main'], 'container-fluid')}>
                 {interestsBoxes}
                 </div>
@@ -55,6 +74,12 @@ MainInterests.propTypes = {
     stateInterests: PropTypes.array,
     interests: PropTypes.array,
     onClickInterest: PropTypes.func,
+    fname: PropTypes.string,
+    lname: PropTypes.string,
+    error: PropTypes.string,
+    onNameSubmit: PropTypes.func,
+    onFnameEnter: PropTypes.func,
+    onLnameEnter: PropTypes.func
 };
 
 export default MainInterests;
