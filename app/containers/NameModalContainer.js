@@ -3,7 +3,6 @@ import { updateName, updateLname, updateFname, updateOrgname } from './../action
 import NameModal from '../components/modals/InterestNameModal';
 
 const mapStateToProps = (state) => {
-    console.log(state.user.profile.accountType);
     return {
         fname: state.user.fname,
         lname: state.user.lname,

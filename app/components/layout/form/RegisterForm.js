@@ -10,6 +10,7 @@ const handleUpdateProvider = (provider, response, onUpdateProvider) => {
     onUpdateProvider(provider, response);
 };
 
+// Note for the future: This currently does not display errors.
 const RegisterForm = ( props ) => {
     const {
       onValidateEmail,
@@ -18,8 +19,7 @@ const RegisterForm = ( props ) => {
       onRegisterFacebook,
       onRegisterGoogle,
       onUpdateProvider,
-      user,
-      error
+      user
     } = props;
 
     let email;
