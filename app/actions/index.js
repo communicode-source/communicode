@@ -139,6 +139,13 @@ export function updateFname(fname) {
     };
 }
 
+export function updateOrgname(orgname) {
+    return {
+        type: types.UPDATE_ORGANIZATION_NAME,
+        orgname
+    };
+}
+
 export function onEmailRecoveryEnter(text) {
     return {
         type: types.ENTERING_IN_RECOVERY_EMAIL,

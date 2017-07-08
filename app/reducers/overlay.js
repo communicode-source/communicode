@@ -23,7 +23,8 @@ const overlay = (state = {
 
         case types.LOGOUT_USER:
             return Object.assign({}, state, {
-                shouldShowLoginModal: false
+                shouldShowLoginModal: false,
+                shouldShowRegisterModal: false
             });
         case types.OVERLAY_REGISTER_MODAL:
             return {...state, shouldShowRegisterModal: state.shouldShowRegisterModal === false};

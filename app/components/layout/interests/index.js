@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import interestsCss from './../../../assets/css/pages/interests.scss';
 import classNames from 'classnames';
 import InterestCard from './InterestCard';
-import NameModal from './../../modals/InterestNameModal';
+import NameModal from './../../../containers/NameModalContainer';
 /*
   If ComponentDidMount fires,
     check if there is a name in the db
@@ -52,15 +52,7 @@ class MainInterests extends React.Component {
         });
         return (
             <div>
-                <NameModal
-                    fname={this.fname}
-                    lname={this.lname}
-                    error={this.error}
-                    showModal={this.showModal}
-                    onNameSubmit={this.onNameSubmit}
-                    onFnameEnter={this.onFnameEnter}
-                    onLnameEnter={this.onLnameEnter}
-                />
+                <NameModal />
                 <div className={classNames(interestsCss['interests-main'], 'container-fluid')}>
                 {interestsBoxes}
                 </div>

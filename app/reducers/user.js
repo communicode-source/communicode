@@ -7,7 +7,9 @@ const user = (state = {
     error: '',
     fname: '',
     lname: '',
-    showModal: false
+    orgname: '',
+    showModal: false,
+    profile: {}
 }, action) => {
     switch(action.type) {
         case types.VALIDATE_EMAIL:
@@ -144,6 +146,8 @@ const user = (state = {
             return {...state, fname: action.fname};
         case types.UPDATE_USER_LNAME:
             return {...state, lname: action.lname};
+        case types.UPDATE_ORGANIZATION_NAME:
+            return {...state, orgname: action.orgname};
         default:
             return state;
     }
