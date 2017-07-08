@@ -5,25 +5,15 @@ import styles from './../../../assets/css/pages/profile.scss';
 
 
 class About extends React.Component {
-    constructor({fname, lname, biography, socials, skills, interests}) {
+    constructor({fname, lname, biography, skills, location, job, interests}) {
         super();
         this.fname = fname;
         this.lname = lname;
         this.biography = biography;
-        this.socials = socials;
         this.skills = skills;
         this.interests = interests;
-    }
-
-    buildOnline() {
-        const node = [];
-        for(let i in this.socials) {
-            if(typeof this.socials[i] === 'String') {
-                continue;
-            }
-            node.push(<a href={this.socials[i]}>{i}</a>);
-        }
-        return node;
+        this.location = location;
+        this.job = job;
     }
 
     buildSkills() {
@@ -43,11 +33,10 @@ class About extends React.Component {
                     <h3>About {this.fname} {this.lname}</h3>
                     <hr />
                     <p>{this.biography}</p>
-                </div>
-                <div className={classNames(styles.item)}>
-                    <h3>{this.fname} Online</h3>
-                    <hr />
-                    {this.buildOnline.call(this)}
+                    <div className={classNames(styles.moreinfo)}>
+                        <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.location}</p>
+                        <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.job}</p>
+                    </div>
                 </div>
                 <div className={classNames(styles.item)}>
                     <h3>{this.fname}&#39;s Skills</h3>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import About from './About';
@@ -12,7 +13,7 @@ class Profile extends React.Component {
         this.lname = 'Crupi';
         this.location = 'Westfield, IN';
         this.follows = '20';
-        this.job = 'My job is to force push over peoples work';
+        this.job = 'Communicode';
         this.followers = '35';
         this.biography = 'I love to take what code people have written and just write over it. My friend totally isnt still salty about it';
         this.socials = {
@@ -71,8 +72,9 @@ class Profile extends React.Component {
                       fname={this.fname}
                       lname={this.lname}
                       biography={this.biography}
-                      socials={this.socials}
                       skills={this.skills}
+                      location={this.location}
+                      job={this.job}
                       interests={this.interests}
                   />
             );
@@ -100,12 +102,15 @@ class Profile extends React.Component {
                         <h1>Person Name</h1>
                         <div id={classNames(styles.follow)}>Follow</div>
                         <div id={classNames(styles.left)}>
-                            <p>{this.location}</p>
-                            <p>Follows {this.follows}</p>
+                            <p><b>{this.follows}</b> <br /> Follows</p>
                         </div>
                         <div id={classNames(styles.right)}>
-                            <p>{this.job}</p>
-                            <p>{this.followers} Followers</p>
+                            <p><b>{this.followers}</b> <br /> Followers</p>
+                        </div>
+                        <div id={classNames(styles.socials)}>
+                            <Link to="https://facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i></Link>
+                            <Link to="https://twitter.com/"><i className="fa fa-twitter" aria-hidden="true"></i></Link>
+                            <Link to="https://github.com/"><i className="fa fa-github" aria-hidden="true"></i></Link>
                         </div>
                     </div>
                 </div>

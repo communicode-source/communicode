@@ -34,15 +34,25 @@ a:hover {
             margin-left: 20px;
             p {
                 margin-bottom: 0px;
+                font-size: 14px;
             }
         }
         #left {
             text-align: right;
             padding-right: 10px;
+            margin-bottom: 15px;
         }
         #right {
             text-align: left;
             padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        #socials {
+          margin-top: 20px;
+          i {
+            padding: 0px 10px;
+            font-size: 24px;
+          }
         }
     }
 }
@@ -74,6 +84,14 @@ a:hover {
         border: 2px solid $yellow;
         margin: 0;
         margin-bottom: 11px;
+    }
+    .moreinfo {
+      p {
+        font-size: 12px;
+        float: left;
+        padding-right: 30px;
+        padding-top: 20px;
+      }
     }
 }
 .btns {
