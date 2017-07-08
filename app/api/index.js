@@ -135,7 +135,6 @@ export async function returnAPIEmailForRecovery(email) {
         const response = await fetch(API_URL + '/recover/generate', options);
 
         const responseData = await response.json();
-        console.log('Response: ', responseData);
         if(responseData === '600') {
             throw new Error('Invalid email');
         }

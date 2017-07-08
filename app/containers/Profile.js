@@ -3,13 +3,13 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        profile: null
+        profile: state.profile
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        default: event => null
+        default: () => dispatch(null)
     };
 };
 

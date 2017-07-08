@@ -10,3 +10,5 @@ const search = (state = [], action) => {
             return state;
     }
 };
+
+export default search;
