@@ -1,5 +1,6 @@
 import MainInterests from './../components/layout/interests';
-import { checkInterestsBox, updateName, updateFname, updateLname } from './../actions';
+import { checkInterestsBox } from './../actions/funcs/interests';
+import { updateName, updateFname, updateLname } from './../actions/funcs/user';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {

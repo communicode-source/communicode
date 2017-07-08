@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { searchChange } from '../actions';
+import { searchChange } from './../actions/funcs/search';
 
 class SearchBar extends React.Component {
     constructor(props) {

@@ -2,7 +2,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Project from '../components/layout/dynamic/Project.js';
-import { getProjectFeed } from '../actions';
+// import { getProjectFeed } from '../actions';
+
+const getProjectFeed = () => {
+    console.log('You have forgotten our change in structure for our actions. Please import this action from the proper file');
+    console.log('BTW This is on line 9 of the containers/ProjectFeedContainer.js file');
+}
 
 const projects = [
     { id: 1, title: 'New Project Title', description: 'New project description' }

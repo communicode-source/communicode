@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { validateEmail, sendSubscription } from '../actions';
+import { validateEmail, sendSubscription } from './../actions/funcs/user';
 import classNames from 'classnames';
 import common from '../assets/css/pages/common.scss';
 import main from '../assets/css/main.scss';

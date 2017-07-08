@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { validateEmail, validatePassword, updateRegisterProvider, registerLocalUser, registerGoogleUser, registerFacebookUser } from '../actions';
+import { validateEmail, validatePassword, updateRegisterProvider, registerLocalUser, registerGoogleUser, registerFacebookUser } from './../actions/funcs/user';
 import RegisterModal from '../components/modals/RegisterModal';
 
 const mapStateToProps = (state) => {

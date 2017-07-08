@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { loginLocalUser, loginGoogleUser, loginFacebookUser, overlayLoginModal } from '../actions';
+import { loginLocalUser, loginGoogleUser, loginFacebookUser } from './../actions/funcs/user';
+import { overlayLoginModal } from './../actions/funcs/overlay';
 import LoginModal from '../components/modals/LoginModal';
 
 const mapStateToProps = (state) => {

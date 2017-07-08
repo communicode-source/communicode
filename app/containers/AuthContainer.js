@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setRedirectUrl } from '../actions';
+import { setRedirectUrl } from './../actions/funcs/redirect';
 import Auth from '../components/Auth';
 
 const mapStateToProps = (state, ownProps) => {

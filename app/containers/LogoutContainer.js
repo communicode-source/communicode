@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions';
+import { logoutUser } from './../actions/funcs/user';
 import Logout from '../components/layout/dynamic/Logout';
 
 const mapStateToProps = (state) => {

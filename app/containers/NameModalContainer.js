@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { updateName, updateLname, updateFname, updateOrgname } from '../actions';
+import { updateName, updateLname, updateFname, updateOrgname } from './../actions/funcs/user';
 import NameModal from '../components/modals/InterestNameModal';
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,6 @@
 import MainRecoveryPage from './../components/layout/PasswordRecovery';
 import {connect} from 'react-redux';
-import { onEmailRecoveryEnter, onEmailRecoverySubmit, onHashRecoveryEnter, onHashRecoverySubmit, onNewPasswordRecoveryEnter, onNewPasswordRecoverySubmit } from './../actions';
+import { onEmailRecoveryEnter, onEmailRecoverySubmit, onHashRecoveryEnter, onHashRecoverySubmit, onNewPasswordRecoveryEnter, onNewPasswordRecoverySubmit } from './../actions/funcs/passwordRecovery';
 
 const mapStateToProps = (state) => {
     return {
