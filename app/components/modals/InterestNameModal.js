@@ -6,7 +6,6 @@ import * as classes from '../../assets/classes/NameModal';
 
 class NameModal extends React.Component {
     constructor(props) {
-        console.log('construct', props);
         super(props);
         this.props = props;
     }

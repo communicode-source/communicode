@@ -4,12 +4,14 @@ import Slider from 'rc-slider';
 
 const handleRegister = (sliderValue, user, methods) => {
     let accountType;
-    if(sliderValue > 30) {
+    if(sliderValue < 40) {
         accountType = 0;
     }
-
-    if(sliderValue > 80) {
+    else if(sliderValue > 60) {
         accountType = 1;
+    }
+    else {
+        return;
     }
 
     if(user.provider === 'local') {

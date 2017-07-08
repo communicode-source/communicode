@@ -13,7 +13,6 @@ class RegisterModal extends React.Component {
     }
 
     render() {
-        console.log('Register');
         return (
             <Modal backdrop={false} show={this.props.show} onHide={this.close.bind(this)}>
                 <Modal.Header closeButton>
