@@ -9,6 +9,7 @@ import passwordRecovery from './passwordRecovery';
 import routing from './routing';
 import search from './search';
 import isAuthenticated from './isAuthenticated';
+import newProject from './newProject';
 
 const rootReducer = combineReducers({
     user,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
     overlay,
     passwordRecovery,
     isAuthenticated,
+    newProject,
     search
 });
 

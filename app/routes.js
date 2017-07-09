@@ -12,6 +12,7 @@ import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
 import Search from './components/pages/Search';
 import NotFoundPage from './components/pages/NotFound';
+import newProjectStepOne from './components/pages/newProjectStepOne';
 // import ProjectFeed from './containers/ProjectFeedContainer';
 
 export const routes = (
@@ -24,6 +25,7 @@ export const routes = (
         <Route path="/profile" component={Profile} />
         <Route path="/forgot" component={PasswordRecovery} />
         <Route path="/search" component={Search} />
+        <Route path="/newproject/one" component={newProjectStepOne} />
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
