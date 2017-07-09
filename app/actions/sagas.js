@@ -1,5 +1,4 @@
 import { takeEvery, takeLatest, put, call, select } from 'redux-saga/effects';
-
 import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery } from '../api';
 import * as types from './types';
 
@@ -254,48 +253,48 @@ export function* getSearch(input) {
 }
 
 function* watchRegisterNewUser() {
-    yield* takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
+    yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
 }
 
 function* watchRegisterGoogleUser() {
-    yield* takeEvery(types.GOOGLE_REGISTER_CLICK, registerGoogleUser);
+    yield takeEvery(types.GOOGLE_REGISTER_CLICK, registerGoogleUser);
 }
 
 function* watchRegisterFacebookUser() {
-    yield* takeEvery(types.FACEBOOK_REGISTER_CLICK, registerFacebookUser);
+    yield takeEvery(types.FACEBOOK_REGISTER_CLICK, registerFacebookUser);
 }
 
 function* watchLocalLoginUser() {
-    yield* takeEvery(types.LOCAL_LOGIN_CLICK, loginLocalUser);
+    yield takeEvery(types.LOCAL_LOGIN_CLICK, loginLocalUser);
 }
 
 function* watchGoogleLoginUser() {
-    yield* takeEvery(types.GOOGLE_LOGIN_CLICK, loginGoogleUser);
+    yield takeEvery(types.GOOGLE_LOGIN_CLICK, loginGoogleUser);
 }
 
 function* watchFacebookLoginUser() {
-    yield* takeEvery(types.FACEBOOK_LOGIN_CLICK, loginFacebookUser);
+    yield takeEvery(types.FACEBOOK_LOGIN_CLICK, loginFacebookUser);
 }
 
 function* watchGetLoggedInUser() {
-    yield* takeEvery(types.GET_LOGGED_IN_LOCAL_STORAGE, getLoggedInUser);
+    yield takeEvery(types.GET_LOGGED_IN_LOCAL_STORAGE, getLoggedInUser);
 }
 
 function* watchUpdateName() {
-    yield* takeEvery(types.UPDATE_NAME_CLICK, updateFirstAndLastName);
+    yield takeEvery(types.UPDATE_NAME_CLICK, updateFirstAndLastName);
 }
 function* watchRecoverEmailSubmition() {
-    yield* takeLatest(types.SUBMIT_RECOVERY_EMAIL, sendEmailAndGetHash);
+    yield takeLatest(types.SUBMIT_RECOVERY_EMAIL, sendEmailAndGetHash);
 }
 function* watchRecoverHashSubmition() {
-    yield* takeLatest(types.SUBMIT_HASHES_FOR_JWT, sendHashesAndGetToken);
+    yield takeLatest(types.SUBMIT_HASHES_FOR_JWT, sendHashesAndGetToken);
 }
 function* watchRecoverPasswordSubmition() {
-    yield* takeLatest(types.SUBMIT_NEW_PASSWORD, sendPasswordForUpdateRecovery);
+    yield takeLatest(types.SUBMIT_NEW_PASSWORD, sendPasswordForUpdateRecovery);
 }
 
 function* watchSearchChange() {
-    yield* takeEvery(types.SEARCH_INPUT_CHANGE, getSearch);
+    yield takeEvery(types.SEARCH_INPUT_CHANGE, getSearch);
 }
 
 export default function* rootSaga() {
