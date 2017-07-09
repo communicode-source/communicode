@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import About from './About';
@@ -108,9 +107,9 @@ class Profile extends React.Component {
                             <p><b>{this.followers}</b> <br /> Followers</p>
                         </div>
                         <div id={classNames(styles.socials)}>
-                            <Link to="https://facebook.com/"><i className="fa fa-facebook" aria-hidden="true"></i></Link>
-                            <Link to="https://twitter.com/"><i className="fa fa-twitter" aria-hidden="true"></i></Link>
-                            <Link to="https://github.com/"><i className="fa fa-github" aria-hidden="true"></i></Link>
+                            <a href="https://facebook.com/" target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="https://twitter.com/" target="_blank"><i className="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="https://github.com/" target="_blank"><i className="fa fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </div>

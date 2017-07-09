@@ -17,12 +17,12 @@ class About extends React.Component {
     }
 
     buildSkills() {
-        const node = this.skills.map(item => <p className={classNames(styles.button)}>{item}</p>);
+        const node = this.skills.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 
     buildInterests() {
-        const node = this.interests.map(item => <p className={classNames(styles.button)}>{item}</p>);
+        const node = this.interests.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 
