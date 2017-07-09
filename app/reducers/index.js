@@ -8,6 +8,7 @@ import redirect from './redirect';
 import passwordRecovery from './passwordRecovery';
 import routing from './routing';
 import search from './search';
+import isAuthenticated from './isAuthenticated';
 
 const rootReducer = combineReducers({
     user,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     redirect,
     overlay,
     passwordRecovery,
+    isAuthenticated,
     search
 });
 
