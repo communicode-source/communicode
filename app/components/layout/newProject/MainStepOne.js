@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import styles from './../../../assets/css/pages/createProject.scss';
 
 class newProject extends React.Component {
     constructor(props) {
@@ -16,15 +17,11 @@ class newProject extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className={classNames('col-sm-12', 'col-md-8', 'col-lg-8')}>
-                    {this.props.children[0]}
-                    <h1>Step 1: Start your project</h1>
-                    <h4>What are you looking for?</h4>
-                    {this.props.children[1]}
-                    {this.props.children[2]}
-                    <p>This would be a button to move on to the next step</p>
-                </div>
+            <div className={classNames(styles.mainContent)}>
+                <h1 className={classNames(styles.leftAlignedHeader)}>Step 1: Start your project</h1>
+                <h4>What are you looking for?</h4>
+                {this.props.children}
+                <p>This would be a button to move on to the next step</p>
             </div>
         );
     }
@@ -32,7 +29,7 @@ class newProject extends React.Component {
 
 newProject.propTypes = {
     location: PropTypes.number,
-    children: PropTypes.object,
+    children: PropTypes.array,
     moveToStepOne: PropTypes.func
 };
 
