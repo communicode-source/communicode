@@ -51,7 +51,7 @@ App.propTypes = {
     showLoginModal: PropTypes.func,
     shouldShowLoginModal: PropTypes.bool,
     shouldShowRegisterModal: PropTypes.bool,
-    toggleRegisterModal: PropTypes.bool,
+    toggleRegisterModal: PropTypes.func,
 };
 
 export default App;

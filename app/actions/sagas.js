@@ -1,5 +1,4 @@
-import { takeEvery, takeLatest } from 'redux-saga';
-import { put, call, select } from 'redux-saga/effects';
+import { takeEvery, takeLatest, put, call, select } from 'redux-saga/effects';
 
 import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery } from '../api';
 import * as types from './types';

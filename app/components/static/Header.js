@@ -115,7 +115,7 @@ Header.propTypes = {
     shouldShowLoginModal: PropTypes.bool,
     showLoginModal: PropTypes.func,
     shouldShowRegisterModal: PropTypes.bool,
-    toggleRegisterModal: PropTypes.bool,
+    toggleRegisterModal: PropTypes.func,
     user: PropTypes.object
 };
 
