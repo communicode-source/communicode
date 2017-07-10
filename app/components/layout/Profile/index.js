@@ -22,12 +22,16 @@ class Profile extends React.Component {
         };
         this.skills = ['Nothing', 'Jumping', 'Talking', 'Def not coding'];
         this.interests = ['Crying', 'Sleeping', 'Eating'];
-        this.projects = [
-            {image: 'https://source.unsplash.com/random', github: 'https://github.com/communicode-source/communicode', website: 'https://communicode.co', name: 'Communicode', description: 'A dating site for nonprofits and developers!'},
+        this.repositories = [
             {image: null, github: 'haha', website: 'hahahahhaha', name: 'Stupid', description: 'I wont spend long on this project'},
-            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
             {image: null, github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
             {image: null, github: 'another one', website: 'www.hacked.com', name: 'Hackerbot', description: 'Hacked'}
+        ];
+        this.projects = [
+            {image: 'https://source.unsplash.com/random', github: 'https://github.com/communicode-source/communicode', website: 'https://communicode.co', name: 'Communicode', description: 'A dating site for nonprofits and developers!'},
+            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
+            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
+            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
         ];
         this.reviews = [
             {
@@ -80,7 +84,7 @@ class Profile extends React.Component {
         }
         if(this.active === 'Portfolio') {
             return (
-                <Projects started="30" completed="0" projects={this.projects} />
+                <Projects started="30" completed="0" repos={this.repositories} projects={this.projects} />
             );
         }
         if(this.active === 'Reviews') {
@@ -98,13 +102,22 @@ class Profile extends React.Component {
                     <div id={classNames(styles.headerBg)}></div>
                     <img src="https://source.unsplash.com/random" className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
-                        <h1>Person Name</h1>
+                        <h1>{this.fname} {this.lname}</h1>
                         <div id={classNames(styles.follow)}>Follow</div>
-                        <div id={classNames(styles.left)}>
-                            <p><b>{this.follows}</b> <br /> Follows</p>
+                        <div className={classNames(styles.rating, styles.stars)}>
+                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                            <i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>
                         </div>
-                        <div id={classNames(styles.right)}>
-                            <p><b>{this.followers}</b> <br /> Followers</p>
+                        <div id={classNames(styles.followContainer)}>
+                            <div id={classNames(styles.left)}>
+                                <p><b>{this.follows}</b> <br /> Following</p>
+                            </div>
+                            <div id={classNames(styles.right)}>
+                                <p><b>{this.followers}</b> <br /> Followers</p>
+                            </div>
                         </div>
                         <div id={classNames(styles.socials)}>
                             <a href="https://facebook.com/" target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a>

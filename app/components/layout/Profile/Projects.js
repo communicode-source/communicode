@@ -2,11 +2,14 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import ProjectCard from './ProjectCard';
-class Project extends React.Component {
-    constructor({started, completed, projects}) {
+import ProjectNoImageCard from './ProjectNoImageCard';
+
+class Projects extends React.Component {
+    constructor({started, completed, repos, projects}) {
         super();
         this.started = started;
         this.completed = completed;
+        this.repos = repos;
         this.projects = projects;
     }
 
@@ -25,11 +28,14 @@ class Project extends React.Component {
                         <h5>Projects Completed</h5>
                     </div>
                 </div>
-                <div id={classNames(styles.pFlex)}>
+                <div className={classNames(styles.projectContainer, 'row')}>
+                    {this.repos.map(item => <ProjectNoImageCard github={item.github} website={item.website} description={item.description} name={item.name}/>)}
+                </div>
+                <div className="row" id={classNames(styles.pFlex)}>
                     {this.projects.map(item => <ProjectCard image={item.image} github={item.github} website={item.website} description={item.description} name={item.name}/>)}
                 </div>
             </div>
           );
     }
 }
-export default Project;
+export default Projects;

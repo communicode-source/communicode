@@ -12,7 +12,7 @@ class ProjectCard extends React.Component {
         this.website = website;
     }
 
-    buildPicture() {
+    build() {
         const links = [];
         if(this.github !== null) {
             links.push(<a href={this.github}><i className={classNames('fa', 'fa-github')} aria-hidden="true"></i></a>);
@@ -21,7 +21,7 @@ class ProjectCard extends React.Component {
             links.push(<a href={this.website}><i className={classNames('fa', 'fa-globe')} aria-hidden="true"></i></a>);
         }
         return (
-            <div className={classNames(styles.item)}>
+            <div>
                 <img src={this.image} alt="" />
                 <div className={classNames(styles.info)}>
                     {links}
@@ -30,23 +30,10 @@ class ProjectCard extends React.Component {
         );
     }
 
-    buildNoPicture() {
-        return (
-            <div className={classNames(styles.item, styles.noPic, styles.item1)}>
-                <h3>{this.name}</h3>
-                <p>{this.description}</p>
-                <div className={classNames(styles.btns)}>
-                    <div className={classNames(styles.button)}>Github</div>
-                    <div className={classNames(styles.button)}>Behance</div>
-                </div>
-            </div>
-        );
-    }
-
     render() {
         return (
-            <div id={classNames(styles.pFlex)}>
-                {(this.image !== null) ? this.buildPicture.call(this) : this.buildNoPicture.call(this)}
+            <div className={classNames(styles.item, styles.pic, 'col-md-3', 'col-sm-12')}>
+                {this.build.call(this)}
             </div>
         );
     }
