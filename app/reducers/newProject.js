@@ -7,8 +7,8 @@ const newProject = (state = {
     description: '',
     start: '',
     end: '',
-    interestArea: '',
-    possibleInterests: '',
+    interestArea: [],
+    possibleInterests: [],
     skills: [],
     skillsReady: false,
     coverImageURI: '',
@@ -36,8 +36,23 @@ const newProject = (state = {
             return {...state, start: action.start};
         case types.NEW_PROJECT_END_DATE_SELECT:
             return {...state, end: action.end};
+        case types.NEW_PROJECT_SELECT_TOPIC:
+            const selectedInterests = [...state.interestArea];
+            if(selectedInterests.indexOf(action.topic) === -1) {
+                selectedInterests.push(action.topic);
+            }
+            else {
+                selectedInterests.splice(selectedInterests.indexOf(action.topic), 1);
+            }
+            return {...state, interestArea: selectedInterests};
         case types.RECEIVED_AI_PREDICTED_SKILLS_FOR_NEW_PROJECT:
             return {...state, skills: action.skills, skillsReady: true};
+        case types.NEW_RPOJECT_REMOVE_SUGGESTED_SKILL:
+            const index = [...state.skills].indexOf(action.skill);
+            if(index === -1) {
+                return {...state};
+            }
+            return {...state, skills: [...state.skills].splice(index, 1)};
         case types.API_NOT_READY_FOR_PREDICTED_SKILLS_OF_PROJECT:
             return {...state, skillsReady: false};
         case types.STEP_ONE_API_RECIEVED_SUCCESS:
@@ -72,6 +87,8 @@ const newProject = (state = {
             comp.splice(indexOfFail, 4);
             comp.sort();
             return {...state, completed: comp};
+        case types.STEP_1_NEW_PROJECT_BUTTON_PRESS:
+            return {...state, location: 1};
         case types.STEP_2_NEW_PROJECT_BUTTON_PRESS:
             return {...state, location: 2};
         case types.STEP_3_NEW_PROJECT_BUTTON_PRESS:

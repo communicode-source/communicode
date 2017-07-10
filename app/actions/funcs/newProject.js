@@ -28,6 +28,13 @@ export function projectTypeSelection(select) {
     };
 }
 
+export function removeSkill(skill) {
+    return {
+        type: types.NEW_RPOJECT_REMOVE_SUGGESTED_SKILL,
+        skill
+    };
+}
+
 export function projectDescriptionEnter(description) {
     return {
         type: types.NEW_PROJECT_DESCRIPTION_ENTER,
@@ -46,6 +53,13 @@ export function selectEndDate(date) {
     return {
         type: types.NEW_PROJECT_END_DATE_SELECT,
         end: date
+    };
+}
+
+export function selectTopic(topic) {
+    return {
+        type: types.NEW_PROJECT_SELECT_TOPIC,
+        topic
     };
 }
 
@@ -70,6 +84,13 @@ export function moveToStepThree() {
 export function moveToStepFour() {
     return {
         type: types.STEP_4_NEW_PROJECT_BUTTON_PRESS
+    };
+}
+
+export function moveToNextStep(location) {
+    const type = types[`STEP_${location + 1}_NEW_PROJECT_BUTTON_PRESS`];
+    return {
+        type
     };
 }
 

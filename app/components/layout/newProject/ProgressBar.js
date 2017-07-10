@@ -33,14 +33,14 @@ class ProgressBar extends React.Component {
 
     render() {
         return (
-            <div id={classNames(styles.steps)}>
-                <a href="" className={classNames(styles.active)}>Start</a>
+            <div id={classNames(styles.steps, styles.page)}>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.active)}>Start</a>
                 <span> > </span>
-                <a href="" className={classNames(styles.inactive)}>Info</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>Info</a>
                 <span> > </span>
-                <a href="" className={classNames(styles.inactive)}>Details</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>Details</a>
                 <span> > </span>
-                <a href="" className={classNames(styles.inactive)}>Finish</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>Finish</a>
             </div>
         );
     }

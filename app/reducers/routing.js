@@ -42,7 +42,7 @@ function routing(state = initialState, action) {
     }
 
     if(action.type === types.STEP_4_NEW_PROJECT_BUTTON_PRESS) {
-        const pathname = '/newproject/three';
+        const pathname = '/newproject/four';
         const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
         return {...state, locationBeforeTransitions: location};
     }

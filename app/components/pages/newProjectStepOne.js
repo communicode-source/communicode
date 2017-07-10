@@ -3,6 +3,7 @@ import NewProjectStepOne from './../../containers/newProjectStepOneContainer';
 import NewProjectProgressBar from './../../containers/newProjectProgressBar';
 import NewProjectItemBar from './../../containers/newProjectItemBar';
 import NewProjectTrackSelector from './../../containers/newProjectTrackSelector';
+import NewProjectNextButton from './../../containers/newProjectNextButton';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/createProject.scss';
 
@@ -14,6 +15,7 @@ const StepOne = () => (
             <NewProjectStepOne>
                 <NewProjectItemBar />
                 <NewProjectTrackSelector />
+                <NewProjectNextButton />
             </NewProjectStepOne>
         </div>
         <div className={classNames('col-sm-12', 'col-md-2', 'col-lg-2')} />
