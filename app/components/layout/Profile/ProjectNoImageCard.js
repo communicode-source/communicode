@@ -15,19 +15,26 @@ class ProjectNoImageCard extends React.Component {
         return (
             <div className={classNames(styles.item, styles.noPic, styles.item1)}>
                 <h3>{this.name}</h3>
-                <p>{this.description}</p>
                 <div className={classNames(styles.btns)}>
                     <div className={classNames(styles.button)}>Github</div>
                     <div className={classNames(styles.button)}>Behance</div>
                 </div>
+                <p>{this.description}</p>
             </div>
         );
     }
 
     render() {
         return (
-            <div className={classNames(styles.item, 'col-md-12')}>
-                {this.build.call(this)}
+            <div className={classNames(styles.projectWrapper, 'row')}>
+                <div className={classNames('col-md-2')}>
+                    <div className={classNames(styles.projectType)}>
+                        <h1>&lt;\&gt;</h1>
+                    </div>
+                </div>
+                <div className={classNames('col-md-10', styles.item)}>
+                    {this.build.call(this)}
+                </div>
             </div>
         );
     }

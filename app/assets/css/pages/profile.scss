@@ -188,6 +188,15 @@ a:hover {
             margin-right: auto;
         }
     }
+    #createPortfolio button {
+      width: 100%;
+      max-width: 900px;
+      background: #ffb42e;
+      color: #333;
+      height: 50px;
+      border: 0px;
+      margin: 50px 0px;
+    }
     .projectContainer {
       max-width: 900px;
       margin: 0 auto;
@@ -204,16 +213,33 @@ a:hover {
             margin-top: 7px;
         }
     }
+    .projectWrapper {
+      padding: 20px 0px;
+    }
+    .projectType {
+      width: 40px;
+      border-radius: 50%;
+      background: #ffb42e;
+      width: 90px;
+      border-radius: 50%;
+      background: #ffb42e;
+      height: 90px;
+
+      // Won't be an h1 for long...
+      h1 {
+        padding-top: 23px;
+      }
+    }
     .pic {
       margin-top: 50px;
+      width: 100%;
+      display: inline-block;
     }
     .item {
         text-align: center;
         margin-left: -5px;
         padding-left: 10px;
         padding-right: 10px;
-        display: inline-block;
-        width: 100%;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;

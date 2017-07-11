@@ -1,5 +1,6 @@
 import Profile from './../components/layout/Profile';
 import {connect} from 'react-redux';
+import { overlayPortfolioCreateModal } from './../actions/funcs/overlay';
 
 const mapStateToProps = (state) => {
     return {
@@ -9,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        default: () => dispatch(null)
+        onTogglePortfolioModal: () => dispatch(overlayPortfolioCreateModal(true))
     };
 };
 

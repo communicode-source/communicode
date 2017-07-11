@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import About from './About';
 import Projects from './Projects';
 import Reviews from './Reviews';
+
 class Profile extends React.Component {
     constructor() {
         super();
@@ -23,7 +24,6 @@ class Profile extends React.Component {
         this.skills = ['Nothing', 'Jumping', 'Talking', 'Def not coding'];
         this.interests = ['Crying', 'Sleeping', 'Eating'];
         this.repositories = [
-            {image: null, github: 'haha', website: 'hahahahhaha', name: 'Stupid', description: 'I wont spend long on this project'},
             {image: null, github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
             {image: null, github: 'another one', website: 'www.hacked.com', name: 'Hackerbot', description: 'Hacked'}
         ];
@@ -84,7 +84,12 @@ class Profile extends React.Component {
         }
         if(this.active === 'Portfolio') {
             return (
-                <Projects started="30" completed="0" repos={this.repositories} projects={this.projects} />
+                <Projects
+                  started="30"
+                  completed="0"
+                  repos={this.repositories}
+                  projects={this.projects}
+                  overlayPortfolioCreateModal={this.props.onTogglePortfolioModal} />
             );
         }
         if(this.active === 'Reviews') {
@@ -137,5 +142,9 @@ class Profile extends React.Component {
         );
     }
 }
+
+Profile.propTypes = {
+    onTogglePortfolioModal: PropTypes.func
+};
 
 export default Profile;
