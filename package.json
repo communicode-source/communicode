@@ -51,7 +51,7 @@
     "react-hot-loader": "^3.0.0-beta.2",
     "react-native-listener": "^1.0.1",
     "react-redux": "^4.4.5",
-    "react-router": "^2.7.9",
+    "react-router": "^3.0.0",
     "react-router-bootstrap": "^0.24.2",
     "react-router-redux": "^4.0.4",
     "react-title-component": "^1.0.1",

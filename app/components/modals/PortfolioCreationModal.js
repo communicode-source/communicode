@@ -19,6 +19,12 @@ class PortfolioCreationModal extends React.Component {
         this.props.onTogglePortfolioModal(false);
     }
 
+    handleFormSubmit(event) {
+        // Prevent normal handling of submit button
+        event.preventDefault();
+        this.props.onCreateNewPortfolioProject();
+    }
+
     render() {
         const error = this.props.error !== null ? this.props.error : '';
         let projectName;
@@ -27,13 +33,13 @@ class PortfolioCreationModal extends React.Component {
             return (
                 <Rodal className={styles.modal} visible={this.props.overlay.shouldShowPortfolioCreateModal} onClose={this.hide.bind(this)}>
                     <div>Add a Project</div>
-                    <form>
+                    <form onSubmit={(e) => { this.handleFormSubmit(e); }}>
                         <div className={classes.INPUT_FIELD}>
                             <div className={classes.INPUT_LABEL}>
                                 <h6 className={classes.INPUT_LABEL_NAME}>Project Name</h6>
                                 <h6 className={classes.INPUT_LABEL_ERROR}>{error}</h6>
                             </div>
-                            <input type="text" placeholder="Project Name" required ref={node => {projectName = node;}} onChange={() => this.props.onValidateProjectName(projectName.value) } maxLength={`${rules.MAX_PASSWORD_LENGTH}`} />
+                            <input type="text" value={this.props.projectName} placeholder="Project Name" required ref={node => {projectName = node;}} onChange={() => this.props.onValidateProjectName(projectName.value) } maxLength={`${rules.MAX_PASSWORD_LENGTH}`} />
                         </div>
 
                         <div className="login-submit-button">
@@ -51,10 +57,12 @@ class PortfolioCreationModal extends React.Component {
 
 PortfolioCreationModal.propTypes = {
     overlay: PropTypes.object,
+    projectName: PropTypes.string,
     error: PropTypes.string,
     onPortfolioCreate: PropTypes.func,
     onTogglePortfolioModal: PropTypes.func,
-    onValidateProjectName: PropTypes.func
+    onValidateProjectName: PropTypes.func,
+    onCreateNewPortfolioProject: PropTypes.func
 };
 
 export default PortfolioCreationModal;

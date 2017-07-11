@@ -6,3 +6,9 @@ export function validateProjectName(name) {
         data: name
     };
 }
+
+export function createNewPortfolioProject() {
+    return {
+        type: types.CREATE_PORTFOLIO_PROJECT_CLICK
+    };
+}

@@ -224,6 +224,9 @@ export function* sendPasswordForUpdateRecovery() {
     }
 }
 
+export function* addNewPortfolioProject() {
+}
+
 export function* getSearch(input) {
     if (input.data.length < 3) {
         yield put({
@@ -297,6 +300,10 @@ function* watchSearchChange() {
     yield takeEvery(types.SEARCH_INPUT_CHANGE, getSearch);
 }
 
+function* watchCreateNewPortfolioProject() {
+    yield takeEvery(types.CREATE_PORTFOLIO_PROJECT_CLICK, addNewPortfolioProject);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -310,6 +317,7 @@ export default function* rootSaga() {
         watchRecoverEmailSubmition(),
         watchRecoverHashSubmition(),
         watchRecoverPasswordSubmition(),
-        watchSearchChange()
+        watchSearchChange(),
+        watchCreateNewPortfolioProject()
     ];
 }

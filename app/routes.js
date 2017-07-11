@@ -21,13 +21,13 @@ export const routes = (
         <Route path="/about" component={About}/>
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
-        <Route path="/profile" component={Profile} />
         <Route path="/forgot" component={PasswordRecovery} />
         <Route path="/search" component={Search} />
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
         </Route>
+        <Route path="/:index" component={Profile} />
         <Route path="*" component={NotFoundPage} notFound />
     </Route>
 );

@@ -87,7 +87,7 @@ class Header extends React.Component {
                                 <ul className="nav navbar-nav navbar-right right">
                                     <li className="dropdown">
                                         <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
+                                            <NavbarGreeting isAuthenticated={isAuthenticated} profile={user.profile} />
                                         </Link>
                                         <ul className="dropdown-menu">
                                             <Logout />

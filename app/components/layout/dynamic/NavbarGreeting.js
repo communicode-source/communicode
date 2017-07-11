@@ -1,14 +1,11 @@
 import React, { PropTypes } from 'react';
 
-const NavbarGreeting = ({ isAuthenticated, user }) => {
-    let greeting;
+const NavbarGreeting = ({ isAuthenticated, profile }) => {
+    let greeting = profile.email;
 
-    if(isAuthenticated && user.profile !== undefined) {
-        if(user.profile.fname === null) {
-            greeting = user.profile.email;
-        }
-        else {
-            greeting = user.profile.fname + ' ' + user.profile.lname;
+    if(isAuthenticated) {
+        if('fname' in profile && 'lname' in profile) {
+            greeting = profile.fname + ' ' + profile.lname;
         }
     }
 
@@ -21,7 +18,7 @@ const NavbarGreeting = ({ isAuthenticated, user }) => {
 
 NavbarGreeting.propTypes = {
     isAuthenticated: PropTypes.bool,
-    user: PropTypes.string,
+    profile: PropTypes.object,
 };
 
 export default NavbarGreeting;

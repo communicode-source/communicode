@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import PortfolioCreationModal from '../components/modals/PortfolioCreationModal';
 import { overlayPortfolioCreateModal } from './../actions/funcs/overlay';
-import { validateProjectName } from './../actions/funcs/projects';
+import { validateProjectName, createNewPortfolioProject } from './../actions/funcs/projects';
 
 
 const mapStateToProps = (state) => {
     return {
         overlay: state.overlay,
+        projectName: state.project.newProjectName,
         error: state.user.error
     };
 };
@@ -14,7 +15,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onTogglePortfolioModal: (shouldShowModal) => dispatch(overlayPortfolioCreateModal(shouldShowModal)),
-        onValidateProjectName: (name) => dispatch(validateProjectName(name))
+        onValidateProjectName: (name) => dispatch(validateProjectName(name)),
+        onCreateNewPortfolioProject: () => dispatch(createNewPortfolioProject())
     };
 };
 
