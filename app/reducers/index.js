@@ -8,6 +8,7 @@ import redirect from './redirect';
 import passwordRecovery from './passwordRecovery';
 import routing from './routing';
 import search from './search';
+import project from './project';
 import isAuthenticated from './isAuthenticated';
 
 const rootReducer = combineReducers({
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     overlay,
     passwordRecovery,
     isAuthenticated,
-    search
+    search,
+    project
 });
 
 export default rootReducer;

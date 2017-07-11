@@ -31,7 +31,9 @@ class Projects extends React.Component {
                     </div>
                 </div>
                 <div id={classNames(styles.createPortfolio)}>
-                    <button onClick={ () => { this.overlayPortfolioCreateModal(); } } className={classNames('btn', 'btn-primary')}>Add to Your Portfolio</button>
+                    <button onClick={ () => { this.overlayPortfolioCreateModal(); } } className={classNames('btn', 'btn-primary')}>
+                        Add a New Project <i className={classNames('fa', 'fa-plus')} aria-hidden="true"></i>
+                    </button>
                 </div>
                 <div className={classNames(styles.projectContainer)}>
                     {this.repos.map((item, index) => <ProjectNoImageCard key={index} github={item.github} website={item.website} description={item.description} name={item.name}/>)}
