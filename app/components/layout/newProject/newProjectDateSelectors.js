@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {DatePicker} from 'react-datepicker';
+
 
 class DatePickers extends React.Component {
     constructor(props) {
@@ -20,10 +20,8 @@ class DatePickers extends React.Component {
         return (
             <div>
                 <p>Pick dates to start and finish</p>
-                <DatePicker
-                />
-                <DatePicker
-                />
+                <input onChange={this.handleStartDateEnter.bind(this)} value={this.props.startDate} type="date" placeholder="Start date" />
+                <input onChange={this.handleEndDateEnter.bind(this)} value={this.props.endDate} type="date" placeholder="End data" />
             </div>
         );
     }
@@ -35,13 +33,5 @@ DatePickers.propTypes = {
     selectStartDate: PropTypes.func,
     selectEndDate: PropTypes.func
 };
-
-// placeholderText="End Date"
-// minDate={new Date().setDate(new Date().getDate() + 1)}
-// onChange={this.handleEndDateEnter.bind(this)}
-// todayButton="Today"
-// placeholderText="Start Date"
-// minDate={new Date()}
-// onChange={this.handleStartDateEnter.bind(this)}
 
 export default DatePickers;

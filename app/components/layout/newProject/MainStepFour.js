@@ -20,7 +20,6 @@ class newProject extends React.Component {
             <div className={classNames(styles.mainContent)}>
                 <h1 className={classNames(styles.leftAlignedHeader)}>Step 4: Finish your project</h1>
                 {this.props.children}
-                <p>This would be a button to move on to the next step</p>
             </div>
         );
     }

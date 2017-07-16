@@ -12,7 +12,6 @@ class nextButton extends React.Component {
     }
 
     getButtonText() {
-        console.log('text');
         switch(this.props.location) {
             case 1:
                 return 'Step 2';

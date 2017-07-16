@@ -12,10 +12,12 @@ class TopicSelector extends React.Component {
     }
 
     generateTopics() {
-        return this.props.topics.map((value, index) => {
+        const returnValue = this.props.topics.map((value, index) => {
             const selected = (this.props.selected.indexOf(value) !== -1) ? true : false;
-            return <p key={index}>{value} is{(!selected) ? ' not' : null} selected</p>;
-        }).push(<p>More</p>);
+            return (<p key={index}>{value} is{(!selected) ? ' not' : null} selected</p>);
+        });
+        returnValue.push(<p key={-1}>More...</p>);
+        return returnValue;
     }
 
     render() {

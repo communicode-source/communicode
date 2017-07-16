@@ -7,9 +7,9 @@ const newProject = (state = {
     description: '',
     start: '',
     end: '',
-    interestArea: [],
-    possibleInterests: [],
-    skills: [],
+    interestArea: ['Hi'],
+    possibleInterests: ['Hi', 'Bye', 'Lie'],
+    skills: ['Node', 'Express', 'Dying', 'lol', 'WAIT', 'i hate life', 'more like lyfe'],
     skillsReady: false,
     coverImageURI: '',
     track: '',
@@ -23,9 +23,9 @@ const newProject = (state = {
     let indexOfFail;
     switch(action.type) {
         case types.NEW_PROJECT_SELECT_ITEM:
-            return {...state, item: action.item, trackOrItem: 'item'};
+            return {...state, item: action.item, trackOrItem: (action.item === '') ? 'track' : 'item'};
         case types.NEW_PROJECT_SELECT_TRACK:
-            return {...state, track: action.track, trackOrItem: 'track'};
+            return {...state, track: action.track, trackOrItem: (action.track === '') ? 'item' : 'track'};
         case types.NEW_PROJECT_TITLE_ENTER:
             return {...state, title: action.title};
         case types.NEW_PROJECT_TYPE_SELECTION:
@@ -48,11 +48,13 @@ const newProject = (state = {
         case types.RECEIVED_AI_PREDICTED_SKILLS_FOR_NEW_PROJECT:
             return {...state, skills: action.skills, skillsReady: true};
         case types.NEW_RPOJECT_REMOVE_SUGGESTED_SKILL:
-            const index = [...state.skills].indexOf(action.skill);
-            if(index === -1) {
+            const index = state.skills.indexOf(action.skill);
+            if(index === -1 || state.skills.length <= 2) {
                 return {...state};
             }
-            return {...state, skills: [...state.skills].splice(index, 1)};
+            const arrays = [...state.skills];
+            arrays.splice(index, 1);
+            return {...state, skills: arrays};
         case types.API_NOT_READY_FOR_PREDICTED_SKILLS_OF_PROJECT:
             return {...state, skillsReady: false};
         case types.STEP_ONE_API_RECIEVED_SUCCESS:
