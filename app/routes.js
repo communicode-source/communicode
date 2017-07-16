@@ -27,7 +27,7 @@ export const routes = (
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
         </Route>
-        <Route path="/:index" component={Profile} />
+        <Route path="/:url" component={Profile} />
         <Route path="*" component={NotFoundPage} notFound />
     </Route>
 );

@@ -33,7 +33,6 @@ class Header extends React.Component {
 
     render() {
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal, shouldShowRegisterModal, toggleRegisterModal } = this.props;
-
         return (
             <div>
                 <nav className={headerNavClassnames}>
@@ -99,7 +98,7 @@ class Header extends React.Component {
                     </div>
                 </nav>
 
-                {!isAuthenticated &&
+                {isAuthenticated === false &&
                     <div>
                         <RegisterModal show={shouldShowRegisterModal} toggleRegisterModal={toggleRegisterModal}/>
                         <LoginModal shouldShowModal={shouldShowLoginModal} />

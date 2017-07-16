@@ -62,6 +62,12 @@ class Profile extends React.Component {
         this.main = this.buildCorrectPage.call(this);
     }
 
+    componentDidMount() {
+        this.props.onGetProfileForUser(
+            this.props.profile_url
+        );
+    }
+
     handleLinkClick(e) {
         this.active = e.target.innerHTML;
         this.main = this.buildCorrectPage.call(this);
@@ -144,7 +150,10 @@ class Profile extends React.Component {
 }
 
 Profile.propTypes = {
-    onTogglePortfolioModal: PropTypes.func
+    onTogglePortfolioModal: PropTypes.func,
+    onGetProfileForUser: PropTypes.func,
+    profile_url: PropTypes.string,
+    profile: PropTypes.object
 };
 
 export default Profile;

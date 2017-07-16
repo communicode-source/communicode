@@ -1,5 +1,5 @@
 import { takeEvery, takeLatest, put, call, select } from 'redux-saga/effects';
-import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery } from '../api';
+import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery, getProfile, updateInterests } from '../api';
 import * as types from './types';
 
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
@@ -224,6 +224,47 @@ export function* sendPasswordForUpdateRecovery() {
     }
 }
 
+export function* getUserProfile(action) {
+    try {
+        const user = yield call(getProfile, action.data);
+
+        yield* handleServerResponse(
+            user,
+            types.GET_USER_PROFILE_SUCCESS,
+            types.GET_USER_PROFILE_FAILED,
+            'Sorry, could not find profile'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.GET_USER_PROFILE_FAILED,
+            error: e
+        });
+    }
+}
+
+const getState = (state) => { return {interests: state.interests, user: state.user.profile}; };
+
+export function* updateUserInterests() {
+    try {
+        const data = yield select(getState);
+        const user = yield call(updateInterests, data);
+
+        yield* handleServerResponse(
+            user,
+            types.UPDATE_INTERESTS_SUCCESS,
+            types.UPDATE_INTERESTS_FAILED,
+            'Could not update interests'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.UPDATE_INTERESTS_FAILED,
+            error: e
+        });
+    }
+}
+
 export function* addNewPortfolioProject() {
 }
 
@@ -286,6 +327,11 @@ function* watchGetLoggedInUser() {
 function* watchUpdateName() {
     yield takeEvery(types.UPDATE_NAME_CLICK, updateFirstAndLastName);
 }
+
+function* watchUpdateInterests() {
+    yield takeEvery(types.UPDATE_INTERESTS_CLICK, updateUserInterests);
+}
+
 function* watchRecoverEmailSubmition() {
     yield takeLatest(types.SUBMIT_RECOVERY_EMAIL, sendEmailAndGetHash);
 }
@@ -298,6 +344,10 @@ function* watchRecoverPasswordSubmition() {
 
 function* watchSearchChange() {
     yield takeEvery(types.SEARCH_INPUT_CHANGE, getSearch);
+}
+
+function* watchFetchUserProfile() {
+    yield takeEvery(types.GET_USER_PROFILE_FETCH, getUserProfile);
 }
 
 function* watchCreateNewPortfolioProject() {
@@ -318,6 +368,8 @@ export default function* rootSaga() {
         watchRecoverHashSubmition(),
         watchRecoverPasswordSubmition(),
         watchSearchChange(),
-        watchCreateNewPortfolioProject()
+        watchFetchUserProfile(),
+        watchCreateNewPortfolioProject(),
+        watchUpdateInterests()
     ];
 }

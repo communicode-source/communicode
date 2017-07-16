@@ -21,7 +21,11 @@ const overlay = (state = {
                 ...state,
                 shouldShowNameModal: false
             };
-
+        case types.LOCAL_LOGIN_SUCCESS:
+            return {
+                ...state,
+                shouldShowLoginModal: false
+            };
         case types.LOGOUT_USER:
             return Object.assign({}, state, {
                 shouldShowLoginModal: false,

@@ -4,6 +4,7 @@ import * as types from '../actions/types';
 const initialState = { locationBeforeTransitions: null };
 
 function routing(state = initialState, action) {
+    console.log(action.type);
     // This LOCATION_CHANGE case is copied from react-router-redux's routerReducer
     if (action.type === LOCATION_CHANGE) {
         return { ...state, locationBeforeTransitions: action.payload };
@@ -15,6 +16,21 @@ function routing(state = initialState, action) {
         location = { ...location, pathname, action: 'PUSH' };
         return { ...state, locationBeforeTransitions: location };
     }
+
+    if(action.type === types.LOCAL_LOGIN_SUCCESS) {
+        let location = state.locationBeforeTransitions;
+        const pathname = '/';
+        location = { ...location, pathname, action: 'PUSH' };
+        return { ...state, locationBeforeTransitions: location };
+    }
+
+    if(action.type === types.UPDATE_INTERESTS_SUCCESS) {
+        let location = state.locationBeforeTransitions;
+        const pathname = '/' + action.data.msg.url;
+        location = { ...location, pathname, action: 'PUSH' };
+        return { ...state, locationBeforeTransitions: location };
+    }
+
 
     if(action.type === types.ADD_LOCAL_USER_SUCCESS || action.type === types.ADD_GOOGLE_USER_SUCCESS || action.type === types.ADD_FACEBOOK_USER_SUCCESS) {
         let location = state.locationBeforeTransitions;

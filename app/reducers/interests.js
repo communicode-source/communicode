@@ -1,6 +1,6 @@
 import * as types from '../actions/types';
 
-const interests = (state = '', action) => {
+const interests = (state = [], action) => {
     switch(action.type) {
         case types.CLICK_INTEREST_BOX:
             const newState = [...state];

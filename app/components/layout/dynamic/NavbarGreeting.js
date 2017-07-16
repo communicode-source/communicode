@@ -2,10 +2,12 @@ import React, { PropTypes } from 'react';
 
 const NavbarGreeting = ({ isAuthenticated, profile }) => {
     let greeting = profile.email;
-
-    if(isAuthenticated) {
-        if('fname' in profile && 'lname' in profile) {
+    if(isAuthenticated === true) {
+        if((profile.fname !== '' && profile.fname !== null && profile.fname !== undefined) && (profile.lname !== '' && profile.lname !== null && profile.lname !== undefined)) {
             greeting = profile.fname + ' ' + profile.lname;
+        }
+        else if(profile.organizationname !== null && profile.organizationname !== '' && profile.organizationname !== undefined) {
+            greeting = profile.organizationname;
         }
     }
 
