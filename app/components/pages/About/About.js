@@ -55,7 +55,7 @@ const About = () =>
                         machine learning software to match you with nonprofits and projects that most interest you. Help develop and design websites,
                         apps, logos, and anything else that will help launch nonprofits into the 21<sup>st</sup> century.
                     </p>
-                    <Link href="/developers" className="btn btn-primary">Developers</Link>
+                    <Link to="/developers" className="btn btn-primary">Developers</Link>
                 </div>
                 <div className="col-md-6">
                     <h2>Nonprofits</h2>
@@ -65,7 +65,7 @@ const About = () =>
                         information age it's almost impossible to make a deep impact on the world without the right technology. Communicode allows you to
                         post tech projects you need completed and matches you up with a developer who can do it.
                     </p>
-                    <Link href="/nonprofits" className="btn btn-dark">Nonprofits</Link>
+                    <Link to="/nonprofits" className="btn btn-dark">Nonprofits</Link>
                 </div>
             </div>
             <div id={about['code-some-good']} className="row">
@@ -76,83 +76,85 @@ const About = () =>
                     portfolio, build your community.
                 </p>
             </div>
-            <div className="row">
-                <div className="container-fluid" id={about.staff}>
-                    <div className={classNames('row', about['our-staff'])}>
-                        <h2>Our Staff</h2>
-                        <hr />
-                        <div id={about.staff}>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/trevor.png')}/>
-                                <h4>Trevor Crupi</h4>
-                                <hr />
-                                <p><i>Communicode CEO</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/cooper.png')}/>
-                                <h4>Cooper Campbell</h4>
-                                <hr />
-                                <p><i>Communicode CTO</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/sharon.png')}/>
-                                <h4>Sharon Hoffman</h4>
-                                <hr />
-                                <p><i>Communicode COO</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/cam.png')}/>
-                                <h4>Cam Todd</h4>
-                                <hr />
-                                <p><i>VP of Marketing</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/alicia.png')}/>
-                                <h4>Alicia Silhavy</h4>
-                                <hr />
-                                <p><i>Creative Director</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/christian.png')}/>
-                                <h4>Christian Espinoza</h4>
-                                <hr />
-                                <p><i>Mobile Engineer</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/sami.png')}/>
-                                <h4>Sami Fassnacht</h4>
-                                <hr />
-                                <p><i>Mobile Engineer</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/nick.png')}/>
-                                <h4>Nick von Bulow</h4>
-                                <hr />
-                                <p><i>System Administrator</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/charles.png')}/>
-                                <h4>Charles Engel</h4>
-                                <hr />
-                                <p><i>Developer</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/daniel.png')}/>
-                                <h4>Daniel Adelfinsky</h4>
-                                <hr />
-                                <p><i>Developer</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/nich.png')}/>
-                                <h4><Link to="/poetry">Nich Dullam</Link></h4>
-                                <hr />
-                                <p><i>Developer</i></p>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-3">
-                                <img src={require('../../../assets/images/team/xander.png')}/>
-                                <h4>Xander Weintraut</h4>
-                                <hr />
-                                <p><i>Developer</i></p>
+            <div className="row" id={about.staff}>
+                <div className="col-md-8 col-md-push-2">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <h2>Our Staff</h2>
+                            <hr />
+                            <div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/trevor.png')}/>
+                                    <h4>Trevor Crupi</h4>
+                                    <hr />
+                                    <p><i>Communicode CEO</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/cooper.png')}/>
+                                    <h4>Cooper Campbell</h4>
+                                    <hr />
+                                    <p><i>Communicode CTO</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/sharon.png')}/>
+                                    <h4>Sharon Hoffman</h4>
+                                    <hr />
+                                    <p><i>Communicode COO</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/cam.png')}/>
+                                    <h4>Cam Todd</h4>
+                                    <hr />
+                                    <p><i>VP of Marketing</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/alicia.png')}/>
+                                    <h4>Alicia Silhavy</h4>
+                                    <hr />
+                                    <p><i>Creative Director</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/christian.png')}/>
+                                    <h4>Christian Espinoza</h4>
+                                    <hr />
+                                    <p><i>Mobile Engineer</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/sami.png')}/>
+                                    <h4>Sami Fassnacht</h4>
+                                    <hr />
+                                    <p><i>Mobile Engineer</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/nick.png')}/>
+                                    <h4>Nick von Bulow</h4>
+                                    <hr />
+                                    <p><i>System Administrator</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/charles.png')}/>
+                                    <h4>Charles Engel</h4>
+                                    <hr />
+                                    <p><i>Developer</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/daniel.png')}/>
+                                    <h4>Daniel Adelfinsky</h4>
+                                    <hr />
+                                    <p><i>Developer</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/nich.png')}/>
+                                    <h4><Link to="/poetry">Nich Dullam</Link></h4>
+                                    <hr />
+                                    <p><i>Developer</i></p>
+                                </div>
+                                <div className="col-xs-6 col-sm-4 col-md-3">
+                                    <img src={require('../../../assets/images/team/xander.png')}/>
+                                    <h4>Xander Weintraut</h4>
+                                    <hr />
+                                    <p><i>Developer</i></p>
+                                </div>
                             </div>
                         </div>
                     </div>

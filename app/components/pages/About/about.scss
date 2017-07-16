@@ -48,7 +48,9 @@
 #staff {
   text-align: center;
   background-color: $light-grey;
-  > div {
+  > div > div > div > div > div {
+    //set height to prevent weird displays
+    height: 230px;
     text-align: center;
     margin-bottom: 20px;
     display: inline-block;
