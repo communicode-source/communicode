@@ -1,63 +1,7 @@
 @import '~theme/colors';
 @import '~theme/vars';
 
-.footer {
-  background-color: $black;
-  padding-top: 50px;
-  /* Seems necessary for overlap. Adjust to breakpoints or remove */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: $footer-height !important;
-  /*z-index: -100;
-    position: fixed;*/
 
-  @media (max-width: 767px) {
-    padding: 25px;
-    height: 200px;
-
-    ul {
-      padding: 0;
-    }
-  }
-
-  .copyright {
-    color: #bebdbb;
-    text-align: center;
-  }
-
-  img {
-    width: 100px;
-  }
-
-  #icon {
-    width: 75%;
-    max-width: 75px;
-  }
-
-  .wrap {
-    padding-bottom: 0;
-  }
-
-  ul {
-    list-style-type: none !important;
-
-    li {
-      margin-bottom: 20px;
-    }
-  }
-
-  a {
-    color: $white;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-
-    :hover {
-      color: $yellow;
-    }
-  }
-
-  h6 {
-    color: $white;
-  }
+#logo-footer {
+  padding: 20px;
 }

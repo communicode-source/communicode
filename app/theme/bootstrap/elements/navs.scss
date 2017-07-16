@@ -1,0 +1,8 @@
+
+.nav {
+  > li > a {
+    color: $nav-link-color;
+    background-color: $nav-link-bg;
+    @include transition(background-color .25s, color .25s);
+  }
+}

@@ -1,0 +1,14 @@
+
+.footer {
+  color: $footer-color;
+  background-color: $footer-bg;
+  padding: $footer-padding;
+  text-align: center;
+  .footer-brand {
+    padding-bottom: $padding-large-vertical;
+    max-height: 150px;
+    @media (max-width: 768px) {
+        max-height: 100px;
+    }
+  }
+}

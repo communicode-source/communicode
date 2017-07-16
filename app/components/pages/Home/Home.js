@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Title from 'react-title-component';
-import classNames from 'classnames';
 
-import { Divider, SubscribeForm, FacebookSocialButton, TwitterSocialButton, InstagramSocialButton } from 'components';
+import { Divider, SubscribeForm, SocialButton } from 'components';
 
 import home from './home.scss';
 
@@ -62,30 +61,24 @@ export default class Home extends React.Component {
                             </div>
                             <div className="row hidden-sm hidden-xs">
                                 <div className="col-md-4 col-xs-12">
-                                    <FacebookSocialButton/>
+                                    <SocialButton platform="facebook" link icon/>
                                 </div>
                                 <div className="col-md-4 col-xs-12">
-                                    <InstagramSocialButton/>
+                                    <SocialButton platform="instagram" link icon/>
                                 </div>
                                 <div className="col-md-4 col-xs-12">
-                                    <TwitterSocialButton/>
+                                    <SocialButton platform="twitter" link icon/>
                                 </div>
                             </div>
-                            <div className="row hidden-lg hidden-md">
+                            <div className="row hidden-xl hidden-lg hidden-md">
                                 <div className="col-md-4 col-xs-12">
-                                    <a className="btn btn-block btn-social btn-facebook" href="https://facebook.com/communicode.co">
-                                        <span className="fa fa-facebook"/>&nbsp;&nbsp;Follow us on Facebook
-                                    </a>
+                                    <SocialButton platform="facebook" link block>Follow us on Facebook</SocialButton>
                                 </div>
                                 <div className="col-md-4 col-xs-12">
-                                    <a className="btn btn-block btn-social btn-instagram" href="https://instagram.com/communicode.co">
-                                        <span className="fa fa-instagram"/>&nbsp;&nbsp;Follow us on Instagram
-                                    </a>
+                                    <SocialButton platform="instagram" link block>Follow us on Instagram</SocialButton>
                                 </div>
                                 <div className="col-md-4 col-xs-12">
-                                    <a className="btn btn-block btn-social btn-twitter" href="https://twitter.com/communicodeLLC">
-                                        <span className="fa fa-twitter"/>&nbsp;&nbsp;Follow us on Twitter
-                                    </a>
+                                    <SocialButton platform="twitter" link block>Follow us on Twittwr</SocialButton>
                                 </div>
                             </div>
                         </div>

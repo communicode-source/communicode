@@ -1,97 +1,13 @@
 @import 'colors';
 @import 'fonts';
 
-/** BACKGROUNDS **/
-/* --------------------------------------
-=========================================
-    GLOBAL STYLES
-=========================================
------------------------------------------*/
-html {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  /* height: 100%; */
-  /* Made Buttons Unclickable */
-  font-family: $font-stack;
-  background: $white;
-  padding: 0 !important; // Hack to prevent body from shifting when modal opens
-  height: 100%;
-}
-
 .modal-open {
   overflow: auto;
 }
 
-/*---------------------------------------
-   Typography
------------------------------------------*/
-/* HEADINGS */
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  text-align: center; }
-
-h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 32px;
-  text-align: center; }
-
-h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px; }
-
-h4 {
-  font-size: 18px; }
-
-h5 {
-  font-size: 16px; }
-
-h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: bold; }
-
-p {
-  font-size: 12px; }
-
-/*---------------------------------------
-   LINKS
------------------------------------------*/
-a {
-  color: #777777; }
-
-a:hover {
-  text-decoration: underline;
-  color: #777777; }
-
-a.darklink {
-  color: #333333; }
-
-a.darklink:hover {
-  text-decoration: none;
-  color: #000000; }
-
 /* Move stuff below Navbar */
 .content {
   margin-top: 50px; }
-
-/*---------------------------------------
-   FORMS
------------------------------------------*/
-form .title {
-  border-top: 1px solid #E6E6E6;
-  padding: 25px;
-  text-align: center; }
-
-form .title h6 {
-  line-height: 16px;
-  font-weight: normal;
-  color: #777;
-  margin-bottom: 0;
-  font-size: 13px; }
 
 #form-container {
   overflow: hidden;
@@ -112,66 +28,12 @@ form .title h6 {
 .step {
   margin-top: 15% !important; }
 
-form h1 {
-  font-size: 18px;
-  margin: 0; }
-
-input, select {
-  width: 100%;
-  border: none;
-  background-color: white;
-  height: 50px;
-  padding: 10px;
-  border-bottom: 1.5px solid #e6e6e6; }
-
-textarea {
-  resize: none;
-  height: 100px;
-  border: none;
-  padding: 15px;
-  border-bottom: 1px solid #e6e6e6; }
-
-input:focus, textarea:focus {
-  outline: 0;
-  border-bottom-color: #ffb42e; }
-
-input[type=checkbox] {
-  height: auto;
-  width: auto;
-  padding: 0; }
-
-form .reminders {
-  border-bottom: 3px solid #333333;
-  /*margin: 0;*/
-  padding: 10px;
-  background-color: #333333;
-  color: #e4e3e1;
-  border-top: none; }
-
-form .reminders h6 {
-  font-weight: normal;
-  margin: 0;
-  padding: 0; }
-
-form .red-alert {
-  background-color: #FA334F;
-  text-align: center; }
-
-form .green-alert {
-  background-color: darkseagreen;
-  text-align: center; }
-
 .has-error {
   display: block !important; }
 
 #icon-container {
   text-align: right;
   padding: 0; }
-
-label {
-  font-family: "montserrat", sans-serif;
-  font-size: 12px;
-  font-weight: bold; }
 
 .low-message {
   font-size: 13px;
@@ -198,20 +60,6 @@ label {
 #login-button:focus {
   border-color: #2980B9; }
 
-/*---------------------------------------
-   BUTTONS
------------------------------------------*/
-button, .btn {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  padding: 10px 20px;
-  margin: 2.5px;
-  border-radius: 4px;
-  -webkit-transition: all .2s ease-out;
-  -moz-transition: all .2s ease-out;
-  -o-transition: all .2s ease-out;
-  transition: all .2s ease-out; }
-
 .btn-small {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -228,10 +76,6 @@ button, .btn {
   -webkit-transition: none !important;
   -o-transition: none !important;
   transition: none !important; }
-
-button:focus {
-  outline: 0;
-  border: 3px solid #2980B9; }
 
 .primary-btn {
   border: 3px solid $yellow;
@@ -303,63 +147,6 @@ button:focus {
     ie. largest
     -------------------------------------------------
 ----------------------------------------------------------*/
-/*---------------------------------------------------------
-
-    NAVBAR/SIDEBAR
-
-----------------------------------------------------------*/
-/* ===========================
-   NAVBAR
-============================== */
-nav {
-  height: 50px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #333333;
-  /*
-    background-image: url(../images/Logo/CLight.svg);
-        background-size: auto 25px;
-        background-position: center center;
-        background-repeat: no-repeat;
-    */
-  /*box-shadow: 0px 0px 15px 5px #9A9A9A;*/
-  /*box-shadow: 0px 0px 8px 5px #9A9A9A;*/
-  color: #e4e3e1;
-  z-index: 100;
-  display: block;
-}
-
-nav .left {
-  list-style-type: none;
-  padding: 0;
-  float: left;
-  display: table-row;
-  margin-left: 1.5em; }
-
-nav .right {
-  float: right !important;
-  margin-right: -15px;
-}
-
-nav a {
-  color: #e4e3e1;
-  font-weight: normal;
-  font-size: 12px; }
-
-nav a i {
-  margin-left: 5px; }
-
-.logo {
-  margin-top: 7px; }
-
-nav img {
-  height: 35px;
-  width: auto; }
-
-nav .logo {
-  padding: 0; }
 
 #MenuController {
   height: 25px;
@@ -374,9 +161,6 @@ nav .logo {
 
 .nav > li > a:hover, .nav > li > a:focus {
   background-color: #222222;
-  color: white; }
-
-a:hover {
   color: white; }
 
 .dropdown > ul > li > a:hover {
@@ -394,12 +178,6 @@ a:hover {
 .notif-image {
   height: 40px;
   border-radius: 50%; }
-
-span.notif {
-  margin-left: 10px; }
-
-span.notif-name {
-  font-weight: 700; }
 
 /* ===========================
    SIDEBAR

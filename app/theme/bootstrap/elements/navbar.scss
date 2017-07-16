@@ -8,6 +8,7 @@
 }
 
 .navbar-nav > li > a {
+  font-size: $font-size-xsmall;
   @include transition(background-color .25s);
   @media (min-width: 768px) {
     margin-right: $navbar-item-spacing;
