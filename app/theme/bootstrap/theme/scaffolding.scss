@@ -1,6 +1,9 @@
 
 html {
   overflow-x: hidden;
+  // Fix iOS scrolling
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 $font-size-base: 14px;
