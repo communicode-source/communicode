@@ -22,11 +22,11 @@ footer .copyright {
 footer {
   background-color: $black;
   padding-top: 50px;
+  margin-top: 200px;
   /* Seems necessary for overlap. Adjust to breakpoints or remove */
   left: 0;
   right: 0;
   bottom: 0;
-  vertical-align: bottom;
   /*z-index: -100;
     position: fixed;*/
 }

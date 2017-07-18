@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './../../../assets/css/pages/createProject.scss';
 
 class TypeBox extends React.Component {
     constructor(props) {
@@ -17,8 +18,8 @@ class TypeBox extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>What type of project:</p>
+            <div className={styles.question}>
+                <h4>Pick a project type:</h4>
                 <input onChange={this.handleTypeEnter.bind(this)} value={this.props.type} placeholder="Pick a type"/>
             </div>
         );

@@ -20,27 +20,19 @@ class ProgressBar extends React.Component {
 
     handleLinkClick(e) {
         e.preventDefault();
-        console.log('running');
         this.mapNameToFunc[e.target.innerHTML]();
-    }
-
-    renderStart(place) {
-        if(this.map[this.props.location - 1] === place) {
-            return (<div onClick={this.handleLinkClick.bind(this)} className={classNames(styles.active)}>{place}</div>);
-        }
-        return (<div onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>{place}</div>);
     }
 
     render() {
         return (
-            <div id={classNames(styles.steps, styles.page)}>
-                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.active)}>Start</a>
+            <div id={classNames(styles.steps)}>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 1) ? styles.active : styles.inactive)}>Start</a>
                 <span> > </span>
-                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>Info</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 2) ? styles.active : styles.inactive)}>Info</a>
                 <span> > </span>
-                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>Details</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 3) ? styles.active : styles.inactive)}>Details</a>
                 <span> > </span>
-                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames(styles.inactive)}>Finish</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 4) ? styles.active : styles.inactive)}>Finish</a>
             </div>
         );
     }

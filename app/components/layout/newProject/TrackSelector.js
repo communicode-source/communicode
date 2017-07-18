@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './../../../assets/css/pages/createProject.scss';
 
 class TrackSelector extends React.Component {
     constructor(props) {
@@ -16,10 +17,9 @@ class TrackSelector extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>This is the track selector.</p>
-                <p>{(this.props.track !== '') ? `Currently is shows you have selected track: ${this.props.track}` : 'No track has been selected'}</p>
-                <select onChange={this.handleTrackSelect.bind(this)} name="tracks">
+            <div className={styles.question}>
+                <h4>Or select a track...</h4>
+                <select value={(this.props.track === '') ? 'Select...' : this.props.track} onChange={this.handleTrackSelect.bind(this)} name="tracks">
                     <option value={null}>Select...</option>
                     <option value="Mobile">Mobile</option>
                     <option value="Website">Website</option>

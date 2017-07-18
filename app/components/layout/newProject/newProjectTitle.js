@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './../../../assets/css/pages/createProject.scss';
 
 class TitleBox extends React.Component {
     constructor(props) {
@@ -17,8 +18,8 @@ class TitleBox extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>Give us a title:</p>
+            <div className={styles.question}>
+                <h4>Give it a title:</h4>
                 <input onChange={this.handleTitleEnter.bind(this)} value={this.props.title} placeholder="Project Title" />
             </div>
         );

@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import styles from './../../../assets/css/pages/createProject.scss';
 
 class newProject extends React.Component {
     constructor(props) {
@@ -17,9 +15,8 @@ class newProject extends React.Component {
 
     render() {
         return (
-            <div className={classNames(styles.mainContent)}>
-                <h1 className={classNames(styles.leftAlignedHeader)}>Step 1: Start your project</h1>
-                <h4>What are you looking for?</h4>
+            <div>
+                <h1>Step 1: Start your project</h1>
                 {this.props.children}
             </div>
         );

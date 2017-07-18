@@ -8,9 +8,8 @@ import classNames from 'classnames';
 import styles from './../../assets/css/pages/createProject.scss';
 
 const StepFour = () => (
-    <div className={classNames(styles.mainContent)}>
-        <div className={classNames('col-sm-12', 'col-md-2', 'col-lg-2')} />
-        <div className={classNames('col-sm-12', 'col-md-8', 'col-lg-8')} >
+    <div className={classNames(styles.page)}>
+        <div>
             <NewProjectProgressBar />
             <NewProjectStepFour>
                 <NewProjectTalentsBar />
@@ -18,7 +17,6 @@ const StepFour = () => (
                 <NewProjectNextButton />
             </NewProjectStepFour>
         </div>
-        <div className={classNames('col-sm-12', 'col-md-2', 'col-lg-2')} />
     </div>
 );
 

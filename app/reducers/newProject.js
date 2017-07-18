@@ -23,9 +23,9 @@ const newProject = (state = {
     let indexOfFail;
     switch(action.type) {
         case types.NEW_PROJECT_SELECT_ITEM:
-            return {...state, item: action.item, trackOrItem: (action.item === '') ? 'track' : 'item'};
+            return {...state, item: action.item, trackOrItem: (action.item === '') ? 'track' : 'item', track: (action.item === '') ? state.track : ''};
         case types.NEW_PROJECT_SELECT_TRACK:
-            return {...state, track: action.track, trackOrItem: (action.track === '') ? 'item' : 'track'};
+            return {...state, track: action.track, trackOrItem: (action.track === '') ? 'item' : 'track', item: (action.track === '') ? state.item : ''};
         case types.NEW_PROJECT_TITLE_ENTER:
             return {...state, title: action.title};
         case types.NEW_PROJECT_TYPE_SELECTION:

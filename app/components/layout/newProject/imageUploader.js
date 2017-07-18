@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import styles from './../../../assets/css/pages/createProject.scss';
 
 class ImageUpload extends React.Component {
     constructor() {
@@ -9,7 +9,6 @@ class ImageUpload extends React.Component {
 
     _handleSubmit(e) {
         e.preventDefault();
-        console.log('handle uploading-', this.state.file);
     }
 
     _handleImageChange(e) {
@@ -32,25 +31,30 @@ class ImageUpload extends React.Component {
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
         if (imagePreviewUrl) {
-            $imagePreview = (<img src={imagePreviewUrl} />);
+            $imagePreview = (<img className={styles.cover} src={imagePreviewUrl} />);
         }
         else {
-            $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
+            $imagePreview = (<div>Please select an Image for Preview</div>);
         }
 
         return (
-            <div className="previewComponent">
-                <form onSubmit={(e)=>this._handleSubmit(e)}>
-                    <input className="fileInput"
-                        type="file"
-                        onChange={(e)=>this._handleImageChange(e)} />
-                    <button className="submitButton"
-                        type="submit"
-                        onClick={(e)=>this._handleSubmit(e)}>Upload Image</button>
+            <div className={styles.question}>
+                <h4>Cover Photo:</h4>
+                <form onSubmit={this._handleSubmit.bind(this)}>
+                    <label className={styles.fileUploaderLabel} htmlFor="file">Choose a file
+                        <input
+                            id="file"
+                            name="file"
+                            type="file"
+                            onChange={(e)=>this._handleImageChange(e)}
+                            className={styles.fileUploadInput}
+                        />
+                    </label>
                 </form>
-                <div className="imgPreview">
+                <div>
                     {$imagePreview}
                 </div>
+                {imagePreviewUrl !== '' && <button onClick={this._handleSubmit.bind(this)}>Upload Image</button>}
             </div>
         );
     }
