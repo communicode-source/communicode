@@ -124,6 +124,53 @@ export async function updateName(data) {
     }
 }
 
+export async function updateInterests(data) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify(data)
+        };
+
+        const response = await fetch(API_URL + '/user/update/interests/' + data.user._id, options);
+        const responseData = await response.json();
+
+        if(responseData === 100) {
+            throw new Error('Error updating interests.');
+        }
+        else if(!responseData.msg) {
+            throw new Error('Error updating interests.');
+        }
+
+        createLocalStorageToken(responseData.msg);
+
+        const profile = decodeJWT(true);
+
+        return profile;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function getProfile(url) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'GET'
+        };
+
+        const response = await fetch(API_URL + '/user/profile/' + url, options);
+
+        return await response.json();
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+
 export async function returnAPIEmailForRecovery(email) {
     try {
         const options = {

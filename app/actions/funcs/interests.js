@@ -6,3 +6,10 @@ export function checkInterestsBox(title) {
         title
     };
 }
+
+export function submitInterest(data) {
+    return {
+        type: types.UPDATE_INTERESTS_CLICK,
+        data
+    };
+}

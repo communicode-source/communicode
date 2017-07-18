@@ -8,6 +8,8 @@ import redirect from './redirect';
 import passwordRecovery from './passwordRecovery';
 import routing from './routing';
 import search from './search';
+import project from './project';
+import profile from './profile';
 import isAuthenticated from './isAuthenticated';
 import newProject from './newProject';
 
@@ -20,7 +22,9 @@ const rootReducer = combineReducers({
     passwordRecovery,
     isAuthenticated,
     newProject,
-    search
+    search,
+    project,
+    profile
 });
 
 export default rootReducer;

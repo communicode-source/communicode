@@ -10,6 +10,10 @@ class LoginModal extends React.Component {
         this.close = this.close.bind(this);
     }
 
+    componentWillReceiveProps(props) {
+        this.props = props;
+    }
+
     close() {
         this.props.onOverlayLoginModal(false);
         this.forceUpdate();
@@ -22,7 +26,6 @@ class LoginModal extends React.Component {
             onLoginGoogle,
             error
         } = this.props;
-
         this.showModal = this.props.shouldShowModal || this.props.shouldShowModalAuth ? true : false;
 
         return (

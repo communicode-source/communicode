@@ -32,7 +32,9 @@ class Header extends React.Component {
     }
 
     render() {
+        let url;
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal, shouldShowRegisterModal, toggleRegisterModal } = this.props;
+        url = '/' + this.props.user.profile.url;
 
         return (
             <div>
@@ -87,9 +89,10 @@ class Header extends React.Component {
                                 <ul className="nav navbar-nav navbar-right right">
                                     <li className="dropdown">
                                         <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <NavbarGreeting isAuthenticated={isAuthenticated} user={user} />
+                                            <NavbarGreeting isAuthenticated={isAuthenticated} profile={user.profile} />
                                         </Link>
                                         <ul className="dropdown-menu">
+                                            <Link to={url}>My Profile</Link>
                                             <Logout />
                                         </ul>
                                     </li>
@@ -99,7 +102,7 @@ class Header extends React.Component {
                     </div>
                 </nav>
 
-                {!isAuthenticated &&
+                {isAuthenticated === false &&
                     <div>
                         <RegisterModal show={shouldShowRegisterModal} toggleRegisterModal={toggleRegisterModal}/>
                         <LoginModal shouldShowModal={shouldShowLoginModal} />

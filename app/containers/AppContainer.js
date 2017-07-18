@@ -5,7 +5,7 @@ import App from '../components/App';
 
 const mapStateToProps = (state) => {
     return {
-        isAuthenticated: state.user.isAuthenticated,
+        isAuthenticated: state.isAuthenticated,
         user: state.user,
         shouldShowLoginModal: state.overlay.shouldShowLoginModal,
         shouldShowRegisterModal: state.overlay.shouldShowRegisterModal

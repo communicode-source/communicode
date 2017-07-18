@@ -3,24 +3,21 @@ import interestsCss from './../../../assets/css/pages/interests.scss';
 import classNames from 'classnames';
 import InterestCard from './InterestCard';
 import NameModal from './../../../containers/NameModalContainer';
-/*
-  If ComponentDidMount fires,
-    check if there is a name in the db
-      if there is not a name
-        Open a modal window that says "please enter your name ...."
-      else
-        Choose interests
-*/
+import { Row, Col} from 'react-bootstrap';
+
 class MainInterests extends React.Component {
-    constructor({interests, stateInterests = [], onClickInterest, fname, lname, showModal, error, onNameSubmit, onFnameEnter, onLnameEnter}) {
+    constructor({interests, stateInterests = [], onClickInterest, user, onSubmitInterest, fname, lname, showModal, showButton, error, onNameSubmit, onFnameEnter, onLnameEnter}) {
         super();
         this.interests = interests;
         this.stateInterests = stateInterests;
         this.onClickInterest = onClickInterest;
+        this.user = user;
+        this.onSubmitInterest = onSubmitInterest;
         this.showModal = showModal;
         this.fname = fname;
         this.lname = lname;
         this.error = error;
+        this.showButton = showButton;
         this.onNameSubmit = onNameSubmit;
         this.onFnameEnter = onFnameEnter;
         this.onLnameEnter = onLnameEnter;
@@ -35,37 +32,47 @@ class MainInterests extends React.Component {
         return;
     };
 
-    render() {
-        const interestsBoxes = this.interests.map((json, index) => {
-            const nextIndex = index + 1;
-            const nextJson = (this.interests[nextIndex]) ? this.interests[nextIndex] : {};
-            const nextCard = (!this.interests[nextIndex]) ? <div className={classNames(interestsCss.hold)}></div> : <InterestCard key={nextIndex} stateInterests={this.stateInterests} json={nextJson} index={nextIndex} onClickInterest={this.onClickInterest} />;
-            if(index % 2 === 0) {
-                return (
-                    <div key={index} className={classNames('row', interestsCss['interest-row'])}>
-                        <InterestCard key={index} stateInterests={this.stateInterests} json={json} index={index} onClickInterest={this.onClickInterest} />
-                        {nextCard}
-                    </div>);
-            }
+    handleSubmit() {
+        this.onSubmitInterest({user: this.user, interests: [...this.stateInterests]});
+    }
 
-            return null;
+    render() {
+        let button;
+        if(this.stateInterests.length > 0) {
+            button = <button onClick={() => { this.handleSubmit(); }} className={classNames(interestsCss.interestsSubmitButton)}>Let's do this! <i className={classNames('fa', 'fa-arrow-right')} aria-hidden="true"></i></button>;
+        }
+
+        const interestsBoxes = this.interests.map((json, index) => {
+            return (
+                <Col sm={12} md={4} key={index} className={classNames(interestsCss.interest)}>
+                    <InterestCard key={index} stateInterests={this.stateInterests} json={json} index={index} onClickInterest={this.onClickInterest} />
+                </Col>
+            );
         });
         return (
             <div>
                 <NameModal />
-                <div className={classNames(interestsCss['interests-main'], 'container-fluid')}>
-                {interestsBoxes}
-                </div>
+                <Row className={classNames(interestsCss['interests-main'])}>
+                    {interestsBoxes}
+                </Row>
+                {button}
             </div>
         );
     };
 }
 
+/*
+<div className={classNames(interestsCss['interests-main'], 'container-fluid')}>
+    {interestsBoxes}
+</div>
+*/
 
 MainInterests.propTypes = {
     stateInterests: PropTypes.array,
     interests: PropTypes.array,
     onClickInterest: PropTypes.func,
+    user: PropTypes.object,
+    onSubmitInterest: PropTypes.func,
     fname: PropTypes.string,
     lname: PropTypes.string,
     error: PropTypes.string,
