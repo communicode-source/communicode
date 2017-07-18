@@ -32,7 +32,10 @@ class Header extends React.Component {
     }
 
     render() {
+        let url;
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal, shouldShowRegisterModal, toggleRegisterModal } = this.props;
+        url = '/' + this.props.user.profile.url;
+
         return (
             <div>
                 <nav className={headerNavClassnames}>
@@ -89,6 +92,7 @@ class Header extends React.Component {
                                             <NavbarGreeting isAuthenticated={isAuthenticated} profile={user.profile} />
                                         </Link>
                                         <ul className="dropdown-menu">
+                                            <Link to={url}>My Profile</Link>
                                             <Logout />
                                         </ul>
                                     </li>

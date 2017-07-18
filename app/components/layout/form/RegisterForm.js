@@ -24,6 +24,7 @@ const RegisterForm = ( props ) => {
 
     let email;
     let password;
+    user.provider = 'local';
 
     return (
 

@@ -7,6 +7,7 @@ import About from './components/pages/About';
 import Interests from './components/pages/Interests';
 import Home from './components/pages/Home';
 import Profile from './components/pages/Profile';
+import Settings from './components/pages/Settings';
 import PasswordRecovery from './components/pages/PasswordRecovery';
 import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
@@ -26,6 +27,7 @@ export const routes = (
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
+            <Route path="/me/settings" component={Settings} />
         </Route>
         <Route path="/:url" component={Profile} />
         <Route path="*" component={NotFoundPage} notFound />
