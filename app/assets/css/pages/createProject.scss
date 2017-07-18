@@ -17,7 +17,6 @@
         border: 1px solid $yellow;
     }
     input, textarea {
-        background-color: $light-gray;
         border-width: 2px;
     }
     h1 {
@@ -90,7 +89,7 @@
             .off {
                 color: $grey;
                 .icon {
-                    background-color: white;
+                    background-color: $light-gray;
                     i {
                         color: $black;
                     }
