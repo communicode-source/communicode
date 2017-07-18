@@ -13,6 +13,10 @@ import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
 import Search from './components/pages/Search';
 import NotFoundPage from './components/pages/NotFound';
+import newProjectStepOne from './components/pages/newProjectStepOne';
+import newProjectStepTwo from './components/pages/newProjectStepTwo';
+import newProjectStepThree from './components/pages/newProjectStepThree';
+import newProjectStepFour from './components/pages/newProjectStepFour';
 // import ProjectFeed from './containers/ProjectFeedContainer';
 
 export const routes = (
@@ -24,6 +28,10 @@ export const routes = (
         <Route path="/nonprofits" component={Nonprofits} />
         <Route path="/forgot" component={PasswordRecovery} />
         <Route path="/search" component={Search} />
+        <Route path="/newproject/one" component={newProjectStepOne} />
+        <Route path="/newproject/two" component={newProjectStepTwo} />
+        <Route path="/newproject/three" component={newProjectStepThree} />
+        <Route path="/newproject/four" component={newProjectStepFour} />
         <Route component={Auth}>
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />

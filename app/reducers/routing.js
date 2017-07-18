@@ -38,6 +38,30 @@ function routing(state = initialState, action) {
         return { ...state, locationBeforeTransitions: location };
     }
 
+    if(action.type === types.STEP_1_NEW_PROJECT_BUTTON_PRESS) {
+        const pathname = '/newproject/one';
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
+    if(action.type === types.STEP_2_NEW_PROJECT_BUTTON_PRESS) {
+        const pathname = '/newproject/two';
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
+    if(action.type === types.STEP_3_NEW_PROJECT_BUTTON_PRESS) {
+        const pathname = '/newproject/three';
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
+    if(action.type === types.STEP_4_NEW_PROJECT_BUTTON_PRESS) {
+        const pathname = '/newproject/four';
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
     return state;
 }
 

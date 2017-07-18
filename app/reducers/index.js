@@ -11,6 +11,7 @@ import search from './search';
 import project from './project';
 import profile from './profile';
 import isAuthenticated from './isAuthenticated';
+import newProject from './newProject';
 
 const rootReducer = combineReducers({
     user,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     overlay,
     passwordRecovery,
     isAuthenticated,
+    newProject,
     search,
     project,
     profile
