@@ -14,14 +14,13 @@ const handleRegister = (sliderValue, user, methods) => {
         return;
     }
 
-    if(user.provider === 'local') {
+    if(user.provider === 'local' || !user.provider) {
         const email = user.email;
         const password = user.password;
-        const provider = user.provider;
 
         if(!email || !password) return;
 
-        methods.onRegisterLocal({ email, password, provider, accountType });
+        methods.onRegisterLocal({ email, password, provider: 'local', accountType });
     }
     else if(user.provider === 'google') {
         const accessToken = user.accessToken;
