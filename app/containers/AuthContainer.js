@@ -4,7 +4,7 @@ import Auth from '../components/Auth';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        isAuthenticated: state.user.isAuthenticated,
+        isAuthenticated: state.isAuthenticated,
         currentURL: ownProps.location.pathname
     };
 };

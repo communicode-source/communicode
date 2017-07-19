@@ -5,10 +5,18 @@ import styles from './../../../assets/css/pages/profile.scss';
 
 
 class About extends React.Component {
-    constructor({fname, lname, biography, skills, location, job, interests}) {
+    constructor({fname, biography, skills, location, job, interests}) {
         super();
         this.fname = fname;
-        this.lname = lname;
+        this.biography = biography;
+        this.skills = skills;
+        this.interests = interests;
+        this.location = location;
+        this.job = job;
+    }
+
+    componentWillReceiveProps({fname, biography, skills, location, job, interests}) {
+        this.fname = fname;
         this.biography = biography;
         this.skills = skills;
         this.interests = interests;
@@ -17,39 +25,63 @@ class About extends React.Component {
     }
 
     buildSkills() {
-        const node = this.skills.map(item => <p className={classNames(styles.button)}>{item}</p>);
+        const node = this.skills.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 
     buildInterests() {
-        const node = this.interests.map(item => <p className={classNames(styles.button)}>{item}</p>);
+        const node = this.interests.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 
     render() {
+        let interests = (<p key="loading" className={classNames(styles.button)}>Loading...</p>);
+        let skills;
+        let aboutBlock = (
+            <div>
+                <p>{this.biography}</p>
+                <div className={classNames(styles.moreinfo)}>
+                    <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.location}</p>
+                    <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.job}</p>
+                </div>
+            </div>
+        );
+
+        if(this.interests) {
+            interests = this.buildInterests.call(this);
+        }
+
+        if(this.skills) {
+            skills = this.buildSkills.call(this);
+
+            if(this.skills.length < 1) {
+                skills = (<p className={styles.notexist}>{this.fname} does not have any skills yet.</p>);
+            }
+        }
+
+        if(!this.biography && !this.location && !this.job) {
+            aboutBlock = (<p>{this.fname} has not updated this section.</p>);
+        }
+
         return (
             <div id={classNames(styles.about)}>
                 <div className={classNames(styles.item)}>
-                    <h3>About {this.fname} {this.lname}</h3>
+                    <h3>About</h3>
                     <hr />
-                    <p>{this.biography}</p>
-                    <div className={classNames(styles.moreinfo)}>
-                        <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.location}</p>
-                        <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.job}</p>
+                    {aboutBlock}
+                </div>
+                <div className={classNames(styles.item)}>
+                    <h3>Skills</h3>
+                    <hr />
+                    <div className={classNames(styles.btns)}>
+                        {skills}
                     </div>
                 </div>
                 <div className={classNames(styles.item)}>
-                    <h3>{this.fname}&#39;s Skills</h3>
+                    <h3>Interests</h3>
                     <hr />
                     <div className={classNames(styles.btns)}>
-                        {this.buildSkills.call(this)}
-                    </div>
-                </div>
-                <div className={classNames(styles.item)}>
-                    <h3>{this.fname}&#39;s Interests</h3>
-                    <hr />
-                    <div className={classNames(styles.btns)}>
-                        {this.buildInterests.call(this)}
+                        {interests}
                     </div>
                 </div>
             </div>
@@ -57,4 +89,6 @@ class About extends React.Component {
     }
 
 }
+
+
 export default About;

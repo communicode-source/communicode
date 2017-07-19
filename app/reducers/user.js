@@ -148,6 +148,11 @@ const user = (state = {
             return {...state, lname: action.lname};
         case types.UPDATE_ORGANIZATION_NAME:
             return {...state, orgname: action.orgname};
+        case types.UPDATE_INTERESTS_SUCCESS:
+            return {
+                ...state,
+                profile: action.data.msg
+            };
         default:
             return state;
     }

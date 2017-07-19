@@ -1,15 +1,19 @@
 import Profile from './../components/layout/Profile';
 import {connect} from 'react-redux';
+import { overlayPortfolioCreateModal } from './../actions/funcs/overlay';
+import { getProfileForUser } from './../actions/funcs/user';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
     return {
-        profile: state.profile
+        profile: state.profile,
+        profile_url: props.params.url
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        default: () => dispatch(null)
+        onTogglePortfolioModal: () => dispatch(overlayPortfolioCreateModal(true)),
+        onGetProfileForUser: (url) => dispatch(getProfileForUser(url))
     };
 };
 

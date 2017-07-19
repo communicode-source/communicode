@@ -115,6 +115,13 @@ export function loginFacebookUser(user) {
     };
 }
 
+export function getProfileForUser(url) {
+    return {
+        type: types.GET_USER_PROFILE_FETCH,
+        data: url
+    };
+}
+
 export function sendSubscription(event, email) {
     event.preventDefault();
     return {

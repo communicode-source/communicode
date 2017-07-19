@@ -1,4 +1,15 @@
 @import 'var.scss';
+
+body {
+  background: #fff;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 a,
 p {
     color: $black;
@@ -19,9 +30,10 @@ a:hover {
         // margin-top: 20px;
     }
     img {
-        width: 75px;
-        border-radius: 50%;
-        margin-top: -35px;
+      width: 125px;
+      height: 125px;
+      margin-top: -65px;
+      border-radius: 50%;
     }
     #info {
         text-align: center;
@@ -46,6 +58,16 @@ a:hover {
             text-align: left;
             padding-left: 10px;
             margin-bottom: 15px;
+        }
+        #followContainer {
+          margin: 0 auto;
+          max-width: 300px;
+          padding-right: 30px;
+        }
+        .stars {
+          color: #ffb42e;
+          margin: 15px auto 20px auto;
+          font-size: 20px;
         }
         #socials {
           margin-top: 20px;
@@ -93,6 +115,9 @@ a:hover {
         padding-top: 20px;
       }
     }
+}
+.notexist {
+  margin-left: 10px;
 }
 .btns {
     display: flex;
@@ -150,6 +175,8 @@ a:hover {
     -moz-column-gap: 1.5em;
     -webkit-column-gap: 1.5em;
     column-gap: 1.5em;
+    column-count: 3;
+    padding: 0px 0px 150px 0px;
 }
 #portfolio {
     margin-left: auto;
@@ -169,10 +196,24 @@ a:hover {
             margin-right: auto;
         }
     }
+    #createPortfolio button {
+      width: 250px;
+      max-width: 900px;
+      background: #ffb42e;
+      color: #333;
+      height: 50px;
+      border: 0px;
+      margin: 50px 0px;
+    }
+    .projectContainer {
+      max-width: 900px;
+      margin: 0 auto;
+    }
     .noPic {
         padding-left: 30px;
         padding-right: 30px;
-        text-align: left;
+        text-align: left !important;
+        margin: 10px 0px !important;
         .btns {
             margin-top: -7px;
         }
@@ -180,15 +221,33 @@ a:hover {
             margin-top: 7px;
         }
     }
+    .projectWrapper {
+      padding: 20px 0px;
+    }
+    .projectType {
+      width: 40px;
+      border-radius: 50%;
+      background: #ffb42e;
+      width: 90px;
+      border-radius: 50%;
+      background: #ffb42e;
+      height: 90px;
+
+      // Won't be an h1 for long...
+      h1 {
+        padding-top: 23px;
+      }
+    }
+    .pic {
+      margin-top: 50px;
+      width: 100%;
+      display: inline-block;
+    }
     .item {
         text-align: center;
         margin-left: -5px;
-        width: 270px;
         padding-left: 10px;
         padding-right: 10px;
-        margin-bottom: 50px;
-        display: inline-block;
-        width: 100%;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;

@@ -9,7 +9,7 @@ class Auth extends React.Component {
 
     componentDidMount() {
         // Attempt to Fetch local user if user is authenticated and profile is undefined
-        if(!this.props.isAuthenticated) {
+        if(this.props.isAuthenticated === true) {
             this.props.setRedirectUrl(this.props.currentURL);
         }
     }
@@ -17,7 +17,7 @@ class Auth extends React.Component {
     render() {
         let modal;
         if(!this.props.isAuthenticated) {
-            modal = (<LoginModal shouldShowModalAuth="true" />);
+            modal = (<LoginModal shouldShowModalAuth />);
         }
         return (
             <div>
