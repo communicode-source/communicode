@@ -21,15 +21,16 @@ const user = (state = {
                 password: action.data
             });
         case types.UPDATE_PROVIDER:
-            return Object.assign({}, state, {
-                provider: action.data,
+            return {
+                ...state,
+                provider: action.provider,
                 accessToken: action.response.accessToken || '',
                 tokenId: action.response.tokenId || '',
                 name: action.response.name || action.response.profileObj.name || '',
                 email: action.response.email || action.response.profileObj.email || '',
                 imageUrl: action.imageUrl || '',
                 userid: action.response.userID || ''
-            });
+            };
         case types.ADD_LOCAL_USER_SUCCESS:
             return Object.assign({}, state, {
                 profile: action.data.msg,
@@ -46,7 +47,7 @@ const user = (state = {
             });
         case types.ADD_GOOGLE_USER_SUCCESS:
             return Object.assign({}, state, {
-                profile: action.data,
+                profile: action.data.msg,
                 isFetching: false,
                 isAuthenticated: true,
                 error: '',
@@ -60,7 +61,7 @@ const user = (state = {
             });
         case types.ADD_FACEBOOK_USER_SUCCESS:
             return Object.assign({}, state, {
-                profile: action.data,
+                profile: action.data.msg,
                 isFetching: false,
                 isAuthenticated: true,
                 error: '',

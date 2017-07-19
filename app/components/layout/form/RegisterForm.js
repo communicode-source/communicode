@@ -24,7 +24,7 @@ const RegisterForm = ( props ) => {
 
     let email;
     let password;
-    user.provider = 'local';
+    // user.provider = 'local';
 
     return (
 
@@ -56,7 +56,7 @@ const RegisterForm = ( props ) => {
                 </div>
             </div>
 
-            {user.provider === 'local' &&
+            {user.provider === 'local' || !user.provider &&
                 <form>
                     <div className={classes.INPUT_FIELD}>
                         <div className={classes.INPUT_LABEL}>
@@ -77,7 +77,14 @@ const RegisterForm = ( props ) => {
                 </form>
             }
 
-            {user.provider !== 'local' &&
+            {user.provider === 'google' &&
+                <div>
+                    <h3>Hello, {user.name}</h3>
+                    <img src={user.imageUrl} />
+                </div>
+            }
+
+            {user.provider === 'facebook' &&
                 <div>
                     <h3>Hello, {user.name}</h3>
                     <img src={user.imageUrl} />

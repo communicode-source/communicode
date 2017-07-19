@@ -26,7 +26,7 @@ export function updateRegisterProvider(provider, response) {
 
     return {
         type: types.UPDATE_PROVIDER,
-        data: provider,
+        provider: provider,
         response: response,
         imageUrl: imageUrl
     };
