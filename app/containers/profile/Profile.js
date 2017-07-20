@@ -1,7 +1,7 @@
-import Profile from './../components/layout/Profile';
+import Profile from './../../components/layout/Profile';
 import {connect} from 'react-redux';
-import { overlayPortfolioCreateModal } from './../actions/funcs/overlay';
-import { getProfileForUser } from './../actions/funcs/user';
+import { overlayPortfolioCreateModal } from './../../actions/funcs/overlay';
+import { getProfileForUser } from './../../actions/funcs/user';
 
 const mapStateToProps = (state, props) => {
     return {

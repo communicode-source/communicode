@@ -1,6 +1,6 @@
 import * as types from '../actions/types';
 
-const project = (state = {}, action) => {
+const profile = (state = {}, action) => {
     switch (action.type) {
         case types.GET_USER_PROFILE_FETCH:
             return {
@@ -18,4 +18,4 @@ const project = (state = {}, action) => {
     }
 };
 
-export default project;
+export default profile;

@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
-import About from './About';
-import Projects from './Projects';
-import Reviews from './Reviews';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -19,44 +16,6 @@ class Profile extends React.Component {
             Github: 'https://lolwearentusinggithub.com',
             Facebook: 'https://deleted.com'
         };
-        this.skills = ['Nothing', 'Jumping', 'Talking', 'Def not coding'];
-        this.interests = ['Crying', 'Sleeping', 'Eating'];
-        this.repositories = [
-            {image: null, github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
-            {image: null, github: 'another one', website: 'www.hacked.com', name: 'Hackerbot', description: 'Hacked'}
-        ];
-        this.projects = [
-            {image: 'https://source.unsplash.com/random', github: 'https://github.com/communicode-source/communicode', website: 'https://communicode.co', name: 'Communicode', description: 'A dating site for nonprofits and developers!'},
-            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
-            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
-            {image: 'https://source.unsplash.com/random', github: null, website: 'www.google.com', name: 'Google', description: 'My favorite website <3'},
-        ];
-        this.reviews = [
-            {
-                profileImage: 'https://source.unsplash.com/random',
-                personName: 'Cooper Campbell',
-                projectName: 'Communicode | Profile Page',
-                stars: 1,
-                reviewText: 'He kept overriding my work!',
-                recommendation: 'NO!'
-            },
-            {
-                profileImage: 'https://source.unsplash.com/random',
-                personName: 'Nich Dullan',
-                projectName: 'Shapiro',
-                stars: 3.5,
-                reviewText: 'He kept trying to change the language and was really bossy.',
-                recommendation: 'Yes'
-            },
-            {
-                profileImage: 'https://source.unsplash.com/random',
-                personName: 'Curt Whitesell',
-                projectName: 'Business',
-                stars: 2.5,
-                reviewText: 'He kept spending all my money',
-                recommendation: 'No'
-            }
-        ];
     }
 
     componentDidMount() {
@@ -88,28 +47,15 @@ class Profile extends React.Component {
         }
 
         if(this.active === 'About') {
-            main = (<About
-                fname={this.props.profile.fname}
-                biography={this.props.profile.biography}
-                skills={this.props.profile.skills}
-                location={this.props.profile.location}
-                job={this.props.profile.job}
-                interests={this.props.profile.interests}
-            />);
+            main = this.props.children[0];
         }
 
         if(this.active === 'Portfolio') {
-            main = (<Projects
-              started="30"
-              completed="0"
-              repos={this.repositories}
-              projects={this.projects}
-              overlayPortfolioCreateModal={this.props.onTogglePortfolioModal}
-            />);
+            main = this.props.children[1];
         }
 
         if(this.active === 'Reviews') {
-            main = <Reviews reviews={this.reviews} />;
+            main = this.props.children[2];
         }
 
         if(this.props.profile.social) {
@@ -162,7 +108,11 @@ Profile.propTypes = {
     onTogglePortfolioModal: PropTypes.func,
     onGetProfileForUser: PropTypes.func,
     profile_url: PropTypes.string,
-    profile: PropTypes.object
+    profile: PropTypes.object,
+    repositories: PropTypes.array,
+    projects: PropTypes.array,
+    reviews: PropTypes.array,
+    children: PropTypes.array
 };
 
 export default Profile;

@@ -7,18 +7,6 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
-        this.active = 'About';
-        this.location = 'Westfield, IN';
-        this.follows = '20';
-        this.job = 'Communicode';
-        this.followers = '35';
-        this.socials = {
-            Twitter: 'https://lalalala.com',
-            Github: 'https://lolwearentusinggithub.com',
-            Facebook: 'https://deleted.com'
-        };
-        this.skills = ['Nothing', 'Jumping', 'Talking', 'Def not coding'];
-        this.interests = ['Crying', 'Sleeping', 'Eating'];
     }
 
     componentWillReceiveProps(props) {

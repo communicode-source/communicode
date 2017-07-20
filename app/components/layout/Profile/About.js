@@ -1,36 +1,28 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-
+// {fname, biography, skills, location, job, interests}
 class About extends React.Component {
-    constructor({fname, biography, skills, location, job, interests}) {
-        super();
-        this.fname = fname;
-        this.biography = biography;
-        this.skills = skills;
-        this.interests = interests;
-        this.location = location;
-        this.job = job;
-    }
-
-    componentWillReceiveProps({fname, biography, skills, location, job, interests}) {
-        this.fname = fname;
-        this.biography = biography;
-        this.skills = skills;
-        this.interests = interests;
-        this.location = location;
-        this.job = job;
+    constructor(props) {
+        super(props);
+        this.props = props;
     }
 
     buildSkills() {
-        const node = this.skills.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
+        if(!this.props.skills || !this.props.skills.map) {
+            return null;
+        }
+        const node = this.props.skills.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 
     buildInterests() {
-        const node = this.interests.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
+        if(!this.props.interests || !this.props.interests.map) {
+            return null;
+        }
+        const node = this.props.interests[0].split(',').map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 
@@ -39,28 +31,28 @@ class About extends React.Component {
         let skills;
         let aboutBlock = (
             <div>
-                <p>{this.biography}</p>
+                <p>{this.props.biography || `${this.props.fname || 'Mr. Mysterious'} has not updated their bio yet.`}</p>
                 <div className={classNames(styles.moreinfo)}>
-                    <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.location}</p>
-                    <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.job}</p>
+                    <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.props.location || `${this.props.fname || 'Mr. Mysterious'} has not updated this, that or they or in hiding...`}</p>
+                    <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.props.job || `${this.props.fname || 'Mr. Mysterious'} has no job, or is working undercover`}</p>
                 </div>
             </div>
         );
 
-        if(this.interests) {
+        if(this.props.interests) {
             interests = this.buildInterests.call(this);
         }
 
-        if(this.skills) {
+        if(this.props.skills) {
             skills = this.buildSkills.call(this);
 
-            if(this.skills.length < 1) {
-                skills = (<p className={styles.notexist}>{this.fname} does not have any skills yet.</p>);
+            if(this.props.skills.length < 1) {
+                skills = (<p className={styles.notexist}>{this.props.fname || 'Mr. Mysterious'} does not have any skills yet.</p>);
             }
         }
 
-        if(!this.biography && !this.location && !this.job) {
-            aboutBlock = (<p>{this.fname} has not updated this section.</p>);
+        if(!this.props.biography && !this.props.location && !this.props.job) {
+            aboutBlock = (<p>{this.props.fname} has not updated this section.</p>);
         }
 
         return (
@@ -68,20 +60,21 @@ class About extends React.Component {
                 <div className={classNames(styles.item)}>
                     <h3>About</h3>
                     <hr />
-                    {aboutBlock}
+                    {aboutBlock || null}
+                    <br />
                 </div>
                 <div className={classNames(styles.item)}>
                     <h3>Skills</h3>
                     <hr />
                     <div className={classNames(styles.btns)}>
-                        {skills}
+                        {skills || null}
                     </div>
                 </div>
                 <div className={classNames(styles.item)}>
                     <h3>Interests</h3>
                     <hr />
                     <div className={classNames(styles.btns)}>
-                        {interests}
+                        {interests || null}
                     </div>
                 </div>
             </div>
@@ -89,6 +82,15 @@ class About extends React.Component {
     }
 
 }
+
+About.propTypes = {
+    skills: PropTypes.array,
+    interests: PropTypes.array,
+    biography: PropTypes.string,
+    location: PropTypes.string,
+    job: PropTypes.string,
+    fname: PropTypes.string,
+};
 
 
 export default About;

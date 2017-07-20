@@ -5,7 +5,7 @@ import styles from './../../../assets/css/pages/settings.scss';
 import { Form, FormGroup, Col, FormControl, Button, ControlLabel } from 'react-bootstrap';
 
 class About extends React.Component {
-    constructor({fname, biography, skills, location, job, interests}) {
+    constructor({fname, biography, skills = [], location, job, interests}) {
         super();
         this.fname = fname;
         this.biography = biography;
@@ -15,7 +15,7 @@ class About extends React.Component {
         this.job = job;
     }
 
-    componentWillReceiveProps({fname, biography, skills, location, job, interests}) {
+    componentWillReceiveProps({fname, biography, skills = [], location, job, interests}) {
         this.fname = fname;
         this.biography = biography;
         this.skills = skills;
