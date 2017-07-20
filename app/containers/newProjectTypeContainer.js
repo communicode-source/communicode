@@ -4,13 +4,14 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
+        project: state.newProject,
         type: state.newProject.type
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onTypeEnter: (title) => dispatch(projectTypeSelection(title))
+        selectProjectType: (type) => dispatch(projectTypeSelection(type))
     };
 };
 

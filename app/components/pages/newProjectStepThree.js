@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import styles from './../../assets/css/pages/createProject.scss';
 
 const StepThree = () => (
-    <div className={classNames(styles.page)}>
+    <div className={classNames('container', styles.page)}>
         <div>
             <NewProjectProgressBar />
             <NewProjectStepThree>

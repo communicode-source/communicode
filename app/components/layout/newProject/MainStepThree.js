@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Row, Col } from 'react-bootstrap';
 
 class newProject extends React.Component {
     constructor(props) {
@@ -16,7 +17,11 @@ class newProject extends React.Component {
     render() {
         return (
             <div>
-                <h1>Step 3: Give us the details</h1>
+                <Row>
+                    <Col xs={12} sm={12} md={12} lg={12}>
+                        <h1>Step 3: Give us the details</h1>
+                    </Col>
+                </Row>
                 {this.props.children}
             </div>
         );

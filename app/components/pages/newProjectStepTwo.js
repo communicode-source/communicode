@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import styles from './../../assets/css/pages/createProject.scss';
 
 const StepTwo = () => (
-    <div className={classNames(styles.page)}>
+    <div className={classNames('container', styles.page)}>
         <div>
             <NewProjectProgressBar />
             <NewProjectStepTwo>

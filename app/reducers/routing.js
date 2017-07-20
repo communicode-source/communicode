@@ -39,25 +39,25 @@ function routing(state = initialState, action) {
     }
 
     if(action.type === types.STEP_1_NEW_PROJECT_BUTTON_PRESS) {
-        const pathname = '/newproject/one';
+        const pathname = '/project/step/1';
         const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
         return {...state, locationBeforeTransitions: location};
     }
 
     if(action.type === types.STEP_2_NEW_PROJECT_BUTTON_PRESS) {
-        const pathname = '/newproject/two';
+        const pathname = '/project/step/2';
         const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
         return {...state, locationBeforeTransitions: location};
     }
 
     if(action.type === types.STEP_3_NEW_PROJECT_BUTTON_PRESS) {
-        const pathname = '/newproject/three';
+        const pathname = '/project/step/3';
         const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
         return {...state, locationBeforeTransitions: location};
     }
 
     if(action.type === types.STEP_4_NEW_PROJECT_BUTTON_PRESS) {
-        const pathname = '/newproject/four';
+        const pathname = '/project/step/4';
         const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
         return {...state, locationBeforeTransitions: location};
     }

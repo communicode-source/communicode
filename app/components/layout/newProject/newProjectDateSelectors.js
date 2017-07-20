@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './../../../assets/css/pages/createProject.scss';
 import classNames from 'classnames';
+import { Row, Col } from 'react-bootstrap';
 
 class DatePickers extends React.Component {
     constructor(props) {
@@ -19,16 +20,16 @@ class DatePickers extends React.Component {
 
     render() {
         return (
-            <div className={classNames(styles.question, styles.calendar)}>
-                <div className={styles.date}>
+            <Row className={classNames(styles.question, styles.calendar)}>
+                <Col xs={12} sm={12} md={6} lg={6} className={classNames(styles.date)}>
                     <h4>Start date:</h4>
                     <input onChange={this.handleStartDateEnter.bind(this)} value={this.props.startDate} type="date" placeholder="Start date" />
-                </div>
-                <div className={styles.date}>
+                </Col>
+                <Col xs={12} sm={12} md={6} lg={6} className={classNames(styles.date)}>
                     <h4>End date:</h4>
-                    <input onChange={this.handleEndDateEnter.bind(this)} value={this.props.endDate} type="date" placeholder="End data" />
-                </div>
-            </div>
+                    <input onChange={this.handleEndDateEnter.bind(this)} value={this.props.endDate} type="date" placeholder="End date" />
+                </Col>
+            </Row>
         );
     }
 }

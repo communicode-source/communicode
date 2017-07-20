@@ -29,15 +29,16 @@ export const routes = (
         <Route path="/forgot" component={PasswordRecovery} />
         <Route path="/search" component={Search} />
         <Route component={Auth}>
-            <Route path="/newproject/one" component={newProjectStepOne} />
-            <Route path="/newproject/two" component={newProjectStepTwo} />
-            <Route path="/newproject/three" component={newProjectStepThree} />
-            <Route path="/newproject/four" component={newProjectStepFour} />
+            <Route path="/project/step/1" component={newProjectStepOne} />
+            <Route path="/project/step/2" component={newProjectStepTwo} />
+            <Route path="/project/step/3" component={newProjectStepThree} />
+            <Route path="/project/step/4" component={newProjectStepFour} />
             <Route path="/interests" component={Interests} />
             <Route path="/feed" component={Developers} />
             <Route path="/me/settings" component={Settings} />
         </Route>
         <Route path="/:url" component={Profile} />
+        <Route path="/404" component={NotFoundPage} notFound />
         <Route path="*" component={NotFoundPage} notFound />
     </Route>
 );

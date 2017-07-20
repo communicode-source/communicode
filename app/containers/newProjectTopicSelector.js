@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 const mapStateToProps = (state) => {
     return {
         selected: state.newProject.interestArea,
-        topics: state.newProject.possibleInterests
+        topics: state.newProject.possibleInterests,
+        userInterests: state.user.profile.interests
     };
 };
 
