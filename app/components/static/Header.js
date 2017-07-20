@@ -34,7 +34,7 @@ class Header extends React.Component {
     render() {
         let url;
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal, shouldShowRegisterModal, toggleRegisterModal } = this.props;
-        url = '/' + this.props.user.profile.url;
+        if(isAuthenticated) { url = '/' + this.props.user.profile.url; }
 
         return (
             <div>
