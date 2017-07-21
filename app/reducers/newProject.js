@@ -7,7 +7,7 @@ const newProject = (state = {
     description: '',
     start: '',
     end: '',
-    interestArea: ['Hi'],
+    interestArea: [],
     skills: ['HTML', 'CSS', 'JavaScript', 'Backend', 'Database'],
     skillsReady: false,
     coverImageURI: '',
@@ -56,8 +56,8 @@ const newProject = (state = {
             return {...state, skills: arrays};
         case types.API_NOT_READY_FOR_PREDICTED_SKILLS_OF_PROJECT:
             return {...state, skillsReady: false};
-        case types.STEP_ONE_API_RECIEVED_SUCCESS:
-            return {...state, projectID: action.id, completed: [...state.completed, 1]};
+        case types.STEP_ONE_API_RECEIVED_SUCCESS:
+            return {...state, projectID: action.data, completed: [...state.completed, 1]};
         case types.STEP_TWO_API_RECEIVED_SUCCESS:
             return {...state, completed: [...state.completed, 2]};
         case types.STEP_THREE_API_RECIEVED_SUCCESS:

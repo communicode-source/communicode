@@ -14,6 +14,7 @@ const Website = ({ selectProjectType, type }) => (
         <option value="Splash Page">Splash Page</option>
         <option value="Single Page Static Website">Single Page Static Website</option>
         <option value="Multiple Page Static Website">Multiple Page Static Website</option>
+        <option value="Website with a Blog">Website with a Blog</option>
         <option value="Website with Multiple Content Sources">Website with Multiple Content Sources</option>
         <option value="E-Commerce Website">E-Commerce Website</option>
         <option value="User Account Website">User Account Website</option>

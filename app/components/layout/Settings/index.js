@@ -31,17 +31,6 @@ class Profile extends React.Component {
             name = '';
         }
 
-        if(this.active === 'About') {
-            main = (<About
-                fname={this.props.user.fname}
-                biography={this.props.user.biography}
-                skills={this.props.user.skills}
-                location={this.props.user.location}
-                job={this.props.user.job}
-                interests={this.props.user.interests}
-            />);
-        }
-
         if(this.props.user.social) {
             socialBar = (<div id={classNames(styles.socials)}>
                 <a href={this.props.user.social.facebook} target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a>
@@ -61,7 +50,14 @@ class Profile extends React.Component {
                         {socialBar}
                     </div>
                 </div>
-                {main}
+                <About
+                    fname={this.props.user.fname}
+                    biography={this.props.user.biography}
+                    skills={this.props.user.skills}
+                    location={this.props.user.location}
+                    job={this.props.user.job}
+                    interests={this.props.user.interests}
+                />
             </div>
         );
     }

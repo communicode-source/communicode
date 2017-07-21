@@ -22,7 +22,7 @@ class About extends React.Component {
         if(!this.props.interests || !this.props.interests.map) {
             return null;
         }
-        const node = this.props.interests[0].split(',').map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
+        const node = this.props.interests.map((item, index) => <p key={index} className={classNames(styles.button)}>{item}</p>);
         return node;
     }
 

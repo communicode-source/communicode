@@ -14,7 +14,7 @@ class RegisterModal extends React.Component {
 
     render() {
         return (
-            <Modal backdrop={false} show={this.props.show} onHide={this.close.bind(this)}>
+            <Modal show={this.props.show} onHide={this.close.bind(this)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Register for Communicode</Modal.Title>
                 </Modal.Header>

@@ -280,6 +280,62 @@ export async function searchUser(name) {
     }
 }
 
+export async function updateProjectStepOne(project) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify(project)
+        };
+
+        const response = await fetch(API_URL + '/projects', options);
+        const responseData = await response.json();
+
+        if(responseData === 100) {
+            throw new Error('Error Creating a New Project');
+        }
+        else if(!responseData.msg) {
+            throw new Error('Error Creating a New Project');
+        }
+
+        createLocalStorageToken(responseData.msg);
+
+        return responseData._id;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function updateProject(project) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify(project)
+        };
+
+        const response = await fetch(API_URL + '/projects/update/' + project.id, options);
+        const responseData = await response.json();
+
+        if(responseData === 100) {
+            throw new Error('Error Creating a New Project');
+        }
+        else if(!responseData.msg) {
+            throw new Error('Error Creating a New Project');
+        }
+
+        createLocalStorageToken(responseData.msg);
+
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);
 }

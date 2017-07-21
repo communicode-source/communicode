@@ -22,7 +22,7 @@ class nextButton extends React.Component {
             case 3:
                 return 'Step 4';
             case 4:
-                return 'Let\'s Go!';
+                return 'Review and Create';
             default:
                 break;
         };
