@@ -12,6 +12,7 @@ import project from './project';
 import profile from './profile';
 import isAuthenticated from './isAuthenticated';
 import newProject from './newProject';
+import settings from './settings';
 
 const rootReducer = combineReducers({
     user,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
     newProject,
     search,
     project,
+    settings,
     profile
 });
 
