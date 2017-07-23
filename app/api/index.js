@@ -5,7 +5,6 @@ const jsonHeaders = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 };
-const tokenID = getLocalStorage('id_token');
 
 export async function registerUser(user) {
     try {
@@ -18,7 +17,6 @@ export async function registerUser(user) {
         const response = await fetch(API_URL + '/verify/create', options);
 
         const responseData = await response.json();
-
 
         if(responseData === 100) {
             throw new Error('User already exists!');
@@ -48,7 +46,7 @@ export async function loginUser(data) {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({...data, token: tokenID})
+            body: JSON.stringify(data)
         };
         const response = await fetch(API_URL + '/verify/login', options);
 
@@ -84,7 +82,6 @@ export async function decodeJWT(isAuthenticated) {
         const options = {
             mode: 'cors',
             method: 'GET',
-            body: JSON.stringify({token: tokenID})
         };
 
         const response = await fetch(API_URL + '/jwt/decode/' + jwt, options);
@@ -102,7 +99,7 @@ export async function updateName(data) {
             mode: 'cors',
             method: 'PUT',
             headers: jsonHeaders,
-            body: JSON.stringify({...data, token: tokenID})
+            body: JSON.stringify({...data, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/user/update/name/' + data.user.profile._id, options);
@@ -132,7 +129,7 @@ export async function updateInterests(data) {
             mode: 'cors',
             method: 'PUT',
             headers: jsonHeaders,
-            body: JSON.stringify({...data, token: tokenID})
+            body: JSON.stringify({...data, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/user/update/interests/' + data.user._id, options);
@@ -160,8 +157,7 @@ export async function getProfile(url) {
     try {
         const options = {
             mode: 'cors',
-            method: 'GET',
-            body: JSON.stringify({token: tokenID})
+            method: 'GET'
         };
 
         const response = await fetch(API_URL + '/user/profile/' + url, options);
@@ -180,7 +176,7 @@ export async function returnAPIEmailForRecovery(email) {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({email: email, token: tokenID})
+            body: JSON.stringify({email: email})
         };
         const response = await fetch(API_URL + '/recover/generate', options);
 
@@ -211,7 +207,7 @@ export async function returnAPIHashForRecovery(url, user) {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({urlHash: url, hash: user, token: tokenID})
+            body: JSON.stringify({urlHash: url, hash: user})
         };
         const response = await fetch(API_URL + '/recover/verify', options);
 
@@ -239,7 +235,7 @@ export async function returnPasswordToAPIForRecovery(jwt, password) {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({jwt, password, token: tokenID})
+            body: JSON.stringify({jwt, password})
         };
         const response = await fetch(API_URL + '/recover/change', options);
 
@@ -271,8 +267,7 @@ export async function searchUser(name) {
     try {
         const options = {
             mode: 'cors',
-            method: 'GET',
-            body: JSON.stringify({token: tokenID})
+            method: 'GET'
         };
 
         const response = await fetch(API_URL + '/search/' + name, options);
@@ -290,7 +285,7 @@ export async function updateProjectStepOne(project) {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify(project)
+            body: JSON.stringify({...project, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/projects', options);
@@ -318,7 +313,7 @@ export async function updateProject(project) {
             mode: 'cors',
             method: 'PUT',
             headers: jsonHeaders,
-            body: JSON.stringify(project)
+            body: JSON.stringify({...project, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/projects/update/' + project.id, options);

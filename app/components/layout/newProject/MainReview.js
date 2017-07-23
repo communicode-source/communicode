@@ -25,7 +25,7 @@ class newProject extends React.Component {
 
 newProject.propTypes = {
     location: PropTypes.number,
-    children: PropTypes.array,
+    children: PropTypes.object,
     finishNewProject: PropTypes.func
 };
 

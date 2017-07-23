@@ -11,7 +11,6 @@ class Skills extends React.Component {
     }
 
     buildSkills() {
-        console.log(this.props.skills);
         if(!this.props.skills || !this.props.skills.map) {
             return null;
         }
