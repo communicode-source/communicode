@@ -29,8 +29,8 @@ class LoginModal extends React.Component {
         this.showModal = this.props.shouldShowModal || this.props.shouldShowModalAuth ? true : false;
 
         return (
-            <Modal backdrop={false} show={this.showModal} onHide={this.close}>
-                <Modal.Header>
+            <Modal show={this.showModal} onHide={this.close}>
+                <Modal.Header closeButton>
                     <Modal.Title>Login to Communicode</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

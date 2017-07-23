@@ -1,5 +1,5 @@
 import ProgressBar from './../components/layout/newProject/ProgressBar';
-import { moveToStepOne, moveToStepTwo, moveToStepThree, moveToStepFour } from './../actions/funcs/newProject';
+import { moveToStepOne, moveToStepTwo, moveToStepThree, moveToStepFour, moveToStepFive } from './../actions/funcs/newProject';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -14,7 +14,8 @@ const mapDispatchToProps = (dispatch) => {
         moveToStepOne: () => dispatch(moveToStepOne()),
         moveToStepTwo: () => dispatch(moveToStepTwo()),
         moveToStepThree: () => dispatch(moveToStepThree()),
-        moveToStepFour: () => dispatch(moveToStepFour())
+        moveToStepFour: () => dispatch(moveToStepFour()),
+        moveToStepFive: () => dispatch(moveToStepFive())
     };
 };
 

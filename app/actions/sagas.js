@@ -1,5 +1,6 @@
 import { takeEvery, takeLatest, put, call, select } from 'redux-saga/effects';
 import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery, getProfile, updateInterests } from '../api';
+import { updateProjectStepOne, updateProject } from '../api';
 import * as types from './types';
 
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
@@ -285,7 +286,7 @@ export function* getSearch(input) {
                 types.SEARCH_INPUT_SUCCESS,
                 types.SEARCH_INPUT_FAILED,
                 'Sorry, couldn\'t find the user'
-	    );
+	          );
         }
         catch(e) {
             yield put({
@@ -295,6 +296,109 @@ export function* getSearch(input) {
         }
     }
 }
+
+const getStateProjectData = (state) => state.newProject;
+
+export function* createNewProjectStep1() {
+    try {
+        const state = yield select(getStateUserData);
+        const stateProject = yield select(getStateProjectData);
+        const project = yield call(updateProjectStepOne, {_id: state.profile._id, item: stateProject.item, user: state.profile});
+
+        yield* handleServerResponse(
+            project,
+            types.STEP_ONE_API_RECEIVED_SUCCESS,
+            types.STEP_ONE_API_RECEIVED_FAILED,
+            'Issue creating project'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.STEP_ONE_API_RECEIVED_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* createNewProjectStep2() {
+    try {
+        const state = yield select(getStateProjectData);
+        const project = yield call(updateProject, {
+            id: state.projectID,
+            project: {
+                title: state.title,
+                type: state.type,
+                description: state.description
+            }
+        });
+
+        yield* handleServerResponse(
+            project,
+            types.STEP_TWO_API_RECEIVED_SUCCESS,
+            types.STEP_TWO_API_RECEIVED_FAILED,
+            'Issue creating project'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.STEP_TWO_API_RECEIVED_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* createNewProjectStep3() {
+    try {
+        const state = yield select(getStateProjectData);
+        const project = yield call(updateProject, {
+            id: state.projectID,
+            project: {
+                startTime: state.start,
+                endTime: state.end,
+                interests: state.interestArea
+            }
+        });
+
+        yield* handleServerResponse(
+            project,
+            types.STEP_THREE_API_RECEIVED_SUCCESS,
+            types.STEP_THREE_API_RECEIVED_FAILED,
+            'Issue creating project'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.STEP_THREE_API_RECEIVED_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* createNewProjectStep4() {
+    try {
+        const state = yield select(getStateProjectData);
+        const project = yield call(updateProject, {
+            id: state.projectID,
+            project: {
+                skills: state.skills
+            }
+        });
+
+        yield* handleServerResponse(
+            project,
+            types.STEP_FOUR_API_RECEIVED_SUCCESS,
+            types.STEP_FOUR_API_RECEIVED_FAILED,
+            'Issue creating project'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.STEP_FOUR_API_RECEIVED_FAILED,
+            error: e
+        });
+    }
+}
+
 
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
@@ -354,6 +458,22 @@ function* watchCreateNewPortfolioProject() {
     yield takeEvery(types.CREATE_PORTFOLIO_PROJECT_CLICK, addNewPortfolioProject);
 }
 
+function* watchCreateNewProjectStep1() {
+    yield takeEvery(types.STEP_2_NEW_PROJECT_BUTTON_PRESS, createNewProjectStep1);
+}
+
+function* watchCreateNewProjectStep2() {
+    yield takeEvery(types.STEP_3_NEW_PROJECT_BUTTON_PRESS, createNewProjectStep2);
+}
+
+function* watchCreateNewProjectStep3() {
+    yield takeEvery(types.STEP_4_NEW_PROJECT_BUTTON_PRESS, createNewProjectStep3);
+}
+
+function* watchCreateNewProjectStep4() {
+    yield takeEvery(types.FINISH_PROJECT_BUTTON_PRESS, createNewProjectStep4);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -370,6 +490,10 @@ export default function* rootSaga() {
         watchSearchChange(),
         watchFetchUserProfile(),
         watchCreateNewPortfolioProject(),
-        watchUpdateInterests()
+        watchUpdateInterests(),
+        watchCreateNewProjectStep1(),
+        watchCreateNewProjectStep2(),
+        watchCreateNewProjectStep3(),
+        watchCreateNewProjectStep4()
     ];
 }

@@ -33,8 +33,17 @@ class Header extends React.Component {
 
     render() {
         let url;
+        let mainNavContent;
         const { isAuthenticated, user, shouldShowLoginModal, showLoginModal, shouldShowRegisterModal, toggleRegisterModal } = this.props;
         if(isAuthenticated) { url = '/' + this.props.user.profile.url; }
+
+        if(isAuthenticated && this.props.user.profile.accountType) {
+            mainNavContent = (
+                <li className="dropdown">
+                    <Link className={styles.a} to="/project/step/1">Start a Project</Link>
+                </li>
+            );
+        }
 
         return (
             <div>
@@ -87,6 +96,7 @@ class Header extends React.Component {
 
                             {isAuthenticated &&
                                 <ul className="nav navbar-nav navbar-right right">
+                                    {mainNavContent}
                                     <li className="dropdown">
                                         <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                             <NavbarGreeting isAuthenticated={isAuthenticated} profile={user.profile} />

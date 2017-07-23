@@ -55,8 +55,8 @@ const RegisterForm = ( props ) => {
                 </div>
             </div>
 
-            {user.provider === 'local' || !user.provider &&
-                <form>
+            {(user.provider === 'local' || !user.provider) &&
+                (<form>
                     <div className={classes.INPUT_FIELD}>
                         <div className={classes.INPUT_LABEL}>
                             <h6 className={classes.INPUT_LABEL_NAME}>Email</h6>
@@ -73,7 +73,7 @@ const RegisterForm = ( props ) => {
                           value={user.password || ''} ref={node => {password = node;}} onChange={() => onValidatePassword(password.value) }
                           maxLength={`${rules.MAX_PASSWORD_LENGTH}`} />
                     </div>
-                </form>
+                </form>)
             }
 
             {user.provider === 'google' &&
