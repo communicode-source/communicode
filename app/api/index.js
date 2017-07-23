@@ -5,6 +5,7 @@ const jsonHeaders = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 };
+const tokenID = getLocalStorage('id_token');
 
 export async function registerUser(user) {
     try {
