@@ -1,6 +1,6 @@
 import Education from './../../components/layout/Settings/Education';
 import {connect} from 'react-redux';
-import {updateEducation} from './../..//actions/funcs/settings';
+import {updateEducation} from './../../actions/funcs/settings';
 
 const mapStateToProps = (state) => {
     return {education: state.settings.education};

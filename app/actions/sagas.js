@@ -1,7 +1,26 @@
 import { takeEvery, takeLatest, put, call, select } from 'redux-saga/effects';
-import { registerUser, decodeJWT, loginUser, updateName, returnAPIEmailForRecovery, searchUser, returnAPIHashForRecovery, returnPasswordToAPIForRecovery, getProfile, updateInterests } from '../api';
-import { updateProjectStepOne, updateProject } from '../api';
+import { registerUser,
+    decodeJWT,
+    loginUser,
+    updateName,
+    returnAPIEmailForRecovery,
+    searchUser,
+    returnAPIHashForRecovery,
+    returnPasswordToAPIForRecovery,
+    getProfile,
+    updateInterests } from '../api';
+import { updateProjectStepOne,
+    updateProject,
+    updateUserSettings,
+    updateUserSettingsSocials,
+    updateUserSettingsSkills } from '../api';
 import * as types from './types';
+
+const getStateProjectData = (state) => state.newProject;
+const getStateUserData = (state) => state.user;
+const getRecoveryData = (state) => state.passwordRecovery;
+const getState = (state) => { return {interests: state.interests, user: state.user.profile}; };
+const getUserSettings = (state) => state.settings;
 
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
     if(data) {
@@ -128,7 +147,7 @@ export function* loginFacebookUser(action) {
 
 export function* getLoggedInUser(action) {
     try {
-        const user = yield call(decodeJWT, action.data);
+        const user = yield call(decodeJWT, (action.data || localStorage.getItem('id_token')));
 
         yield* handleServerResponse(
             user,
@@ -145,7 +164,6 @@ export function* getLoggedInUser(action) {
     }
 }
 
-const getStateUserData = (state) => state.user;
 
 export function* updateFirstAndLastName() {
     try {
@@ -166,7 +184,6 @@ export function* updateFirstAndLastName() {
         });
     }
 }
-const getRecoveryData = (state) => state.passwordRecovery;
 
 export function* sendEmailAndGetHash() {
     try {
@@ -244,7 +261,6 @@ export function* getUserProfile(action) {
     }
 }
 
-const getState = (state) => { return {interests: state.interests, user: state.user.profile}; };
 
 export function* updateUserInterests() {
     try {
@@ -296,8 +312,6 @@ export function* getSearch(input) {
         }
     }
 }
-
-const getStateProjectData = (state) => state.newProject;
 
 export function* createNewProjectStep1() {
     try {
@@ -399,6 +413,83 @@ export function* createNewProjectStep4() {
     }
 }
 
+export function* updateUserAboutMeSettings() {
+    try {
+        const state = yield select(getUserSettings);
+        const user = yield call(updateUserSettings, {
+            settings: state,
+        });
+        localStorage.setItem('id_token', user.msg);
+        yield* handleServerResponse(
+            user,
+            types.SUCCESS_IN_UPDATING_SETTINGS,
+            types.FAILED_AT_UPDATING_SETTINGS,
+            'Failed, sorry'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.UPDATING_SETTINGS_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* updateUserAboutMeSettingsLinks() {
+    try {
+        const state = yield select(getUserSettings);
+        const user = yield call(updateUserSettingsSocials, {
+            settings: state,
+        });
+        localStorage.setItem('id_token', user.msg);
+        yield* handleServerResponse(
+            user,
+            types.SUCCESS_IN_UPDATING_SETTINGS,
+            types.FAILED_AT_UPDATING_SETTINGS,
+            'Failed, sorry'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.UPDATING_SETTINGS_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* updateUserAboutMeSettingsSkills() {
+    try {
+        const state = yield select(getUserSettings);
+        const user = yield call(updateUserSettingsSkills, {
+            settings: state,
+        });
+        localStorage.setItem('id_token', user.msg);
+        yield* handleServerResponse(
+            user,
+            types.SUCCESS_IN_UPDATING_SETTINGS,
+            types.FAILED_AT_UPDATING_SETTINGS,
+            'Failed, sorry'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.UPDATING_SETTINGS_FAILED,
+            error: e
+        });
+    }
+}
+
+export function* loadUserSettingsToSettings() {
+    const user = yield select(getStateUserData);
+    yield put({type: types.UPDATE_USER_SETTINGS_TO_MATCH_PROFILE, data: {...user.profile}});
+};
+
+export function* loadUserIntoInterests() {
+    const user = yield select(getStateUserData);
+
+    yield put({type: types.UPDATE_INTERESTS_TO_MATCH_PROFILE, interests: [...user.profile.interests]});
+};
+
 
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
@@ -434,6 +525,7 @@ function* watchUpdateName() {
 
 function* watchUpdateInterests() {
     yield takeEvery(types.UPDATE_INTERESTS_CLICK, updateUserInterests);
+    yield takeLatest(types.INITIAL_INTERESTS_LOAD, loadUserIntoInterests);
 }
 
 function* watchRecoverEmailSubmition() {
@@ -474,6 +566,23 @@ function* watchCreateNewProjectStep4() {
     yield takeEvery(types.FINISH_PROJECT_BUTTON_PRESS, createNewProjectStep4);
 }
 
+function* watchForUpdatingUserSettings() {
+    yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_ABOUT_ME_CLICK, updateUserAboutMeSettings);
+    yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_SOCIALS_CLICK, updateUserAboutMeSettingsLinks);
+    yield takeLatest(types.LOAD_SKILLS_INTO_DB, updateUserAboutMeSettingsSkills);
+    yield takeLatest(types.LOADING_USER_INFO_INTO_THE_SETTINGS, loadUserSettingsToSettings);
+    // yield takeLatest();
+    // yield takeLatest();
+    // yield takeLatest();
+}
+
+function* watchForTypesThatChangeTheUser() {
+    yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, getLoggedInUser);
+    // yield takeLatest();
+    // yield takeLatest();
+    // yield takeLatest();
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -494,6 +603,8 @@ export default function* rootSaga() {
         watchCreateNewProjectStep1(),
         watchCreateNewProjectStep2(),
         watchCreateNewProjectStep3(),
-        watchCreateNewProjectStep4()
+        watchCreateNewProjectStep4(),
+        watchForUpdatingUserSettings(),
+        watchForTypesThatChangeTheUser()
     ];
 }

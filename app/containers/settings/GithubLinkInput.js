@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return {
         socialText: 'Github',
         socialClass: 'fa-github',
+        default: 'https://www.github.com/',
         linkValue: state.settings.github
     };
 };

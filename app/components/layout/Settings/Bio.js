@@ -26,7 +26,7 @@ class Bio extends React.Component {
                         id={styles.biographyInput}
                         componentClass="textarea"
                         placeholder="Explain yourself..."
-                        value={this.props.biography}
+                        value={this.props.biography || ''}
                         onChange={this.handleBioChange.bind(this)}
                     />
                 </Col>

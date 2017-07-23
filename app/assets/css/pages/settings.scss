@@ -18,6 +18,16 @@ p {
 a:hover {
     color: $yellow;
 }
+.removable {
+    cursor: pointer;
+}
+.removable:hover::after {
+    content: ' X';
+    border-left: solid;
+    border-left-width: 1px;
+    border-left-color: white;
+    margin-left: 4px;
+}
 #header {
     width: 100vw;
     text-align: center;

@@ -1,19 +1,19 @@
 import SocialLinkForm from './../../components/layout/Settings/SocialLinkForm';
 import {connect} from 'react-redux';
-import {updateTwitter} from './../..//actions/funcs/settings';
+import {updateLname} from './../..//actions/funcs/settings';
 
 const mapStateToProps = (state) => {
     return {
-        socialText: 'Twitter',
-        socialClass: 'fa-twitter',
-        default: 'https://twitter.com/',
-        linkValue: state.settings.twitter
+        socialText: 'Last Name',
+        socialClass: 'fa-cog',
+        linkValue: state.settings.lname,
+        noUrl: true
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        socialEnterFunc: (twitter) => dispatch(updateTwitter(twitter))
+        socialEnterFunc: (name) => dispatch(updateLname(name))
     };
 };
 

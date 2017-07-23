@@ -29,7 +29,7 @@ export function updateOccupation(job) {
     };
 };
 
-export function updateEdcuation(education) {
+export function updateEducation(education) {
     return {
         type: types.TYPING_IN_SETTINGS_EDUCATION,
         education
@@ -73,5 +73,40 @@ export function aboutClick() {
 export function socialsClick() {
     return {
         type: types.TYPING_IN_SETTINGS_UPDATE_SOCIALS_CLICK
+    };
+};
+
+export function updateFname(fname) {
+    return {
+        type: types.TYPING_IN_NEW_FNAME_SETTINGS,
+        fname
+    };
+};
+
+export function updateLname(lname) {
+    return {
+        type: types.TYPING_IN_NEW_LNAME_SETTINGS,
+        lname
+    };
+};
+
+
+export function loadUserIntoSettings() {
+    return {
+        type: types.LOADING_USER_INFO_INTO_THE_SETTINGS,
+    };
+};
+
+export function changeSkill(skill) {
+    return {
+        type: types.SETTINGS_SKILL_CHANGE,
+        skill
+    };
+};
+
+export function saveSkill(skill) {
+    return {
+        type: types.LOAD_SKILLS_INTO_DB,
+        skill
     };
 };

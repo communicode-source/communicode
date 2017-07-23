@@ -26,10 +26,10 @@ class Location extends React.Component {
                     Location &nbsp; <i className={classNames('fa', 'fa-location-arrow')} aria-hidden="true"></i>
                 </Col>
                 <Col sm={6}>
-                    <FormControl type="text" placeholder="City" value={this.props.city} onChange={this.handleCityChange.bind(this)}/>
+                    <FormControl type="text" placeholder="City" value={this.props.city || ''} onChange={this.handleCityChange.bind(this)}/>
                 </Col>
                 <Col sm={3}>
-                    <FormControl type="text" placeholder="Country" value={this.props.country} onChange={this.handleCountryChange.bind(this)}/>
+                    <FormControl type="text" placeholder="Country" value={this.props.country || ''} onChange={this.handleCountryChange.bind(this)}/>
                 </Col>
             </FormGroup>
         );

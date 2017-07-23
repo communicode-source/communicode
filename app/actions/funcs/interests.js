@@ -7,6 +7,12 @@ export function checkInterestsBox(title) {
     };
 }
 
+export function loadInit() {
+    return {
+        type: types.INITIAL_INTERESTS_LOAD
+    };
+};
+
 export function submitInterest(data) {
     return {
         type: types.UPDATE_INTERESTS_CLICK,

@@ -5,6 +5,7 @@ import {updateFacebook} from './../..//actions/funcs/settings';
 const mapStateToProps = (state) => {
     return {
         socialText: 'Facebook',
+        default: 'https://www.facebook.com/',
         socialClass: 'fa-facebook',
         linkValue: state.settings.facebook
     };

@@ -15,6 +15,12 @@ class SocialLinkInput extends React.Component {
         this.props.socialEnterFunc(e.target.value);
     }
 
+    handleFormClick() {
+        if(this.props.linkValue === '' && this.props.default) {
+            this.props.socialEnterFunc(this.props.default);
+        }
+    }
+
     render() {
         return (
             <FormGroup className={styles.formGroup}>
@@ -23,8 +29,9 @@ class SocialLinkInput extends React.Component {
                 </Col>
                 <Col sm={9}>
                     <FormControl
+                        onClick={this.handleFormClick.bind(this)}
                         type="text"
-                        placeholder={`${this.props.socialText} URL`}
+                        placeholder={(this.props.noUrl === true) ? this.props.socialText : `${this.props.socialText} URL`}
                         value={this.props.linkValue}
                         onChange={this.handleFormChange.bind(this)}
                     />
@@ -39,7 +46,9 @@ SocialLinkInput.propTypes = {
     socialText: PropTypes.string,
     socialClass: PropTypes.string,
     linkValue: PropTypes.string,
-    socialEnterFunc: PropTypes.func
+    socialEnterFunc: PropTypes.func,
+    default: PropTypes.string,
+    noUrl: PropTypes.bool,
 };
 
 

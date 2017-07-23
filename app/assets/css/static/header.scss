@@ -101,6 +101,10 @@ a:hover {
   background-color: #e4e3e1;
 }
 
+.dropdown {
+  background-color: $black;
+}
+
 .dropdown > ul > li a > i {
   margin-left: -12px;
   margin-top: 2px;

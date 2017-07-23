@@ -8,6 +8,10 @@ class Profile extends React.Component {
         this.props = props;
     }
 
+    componentWillMount() {
+        this.props.startLoadIntoSettings();
+    }
+
 
     render() {
         let name = this.props.organizationname;
@@ -31,7 +35,8 @@ class Profile extends React.Component {
 Profile.propTypes = {
     organizationname: PropTypes.string,
     fname: PropTypes.string,
-    lname: PropTypes.string
+    lname: PropTypes.string,
+    startLoadIntoSettings: PropTypes.func
 };
 
 export default Profile;

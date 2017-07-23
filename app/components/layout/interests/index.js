@@ -23,6 +23,10 @@ class MainInterests extends React.Component {
         this.onLnameEnter = onLnameEnter;
     };
 
+    componentWillMount() {
+        this.props.loadInit();
+    }
+
     componentWillUpdate(props) {
         this.stateInterests = props.stateInterests;
         this.showModal = props.showModal;
@@ -78,7 +82,8 @@ MainInterests.propTypes = {
     error: PropTypes.string,
     onNameSubmit: PropTypes.func,
     onFnameEnter: PropTypes.func,
-    onLnameEnter: PropTypes.func
+    onLnameEnter: PropTypes.func,
+    loadInit: PropTypes.func
 };
 
 export default MainInterests;

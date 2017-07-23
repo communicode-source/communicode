@@ -1,5 +1,5 @@
 import MainInterests from './../components/layout/interests';
-import { checkInterestsBox, submitInterest } from './../actions/funcs/interests';
+import { checkInterestsBox, submitInterest, loadInit } from './../actions/funcs/interests';
 import { updateName, updateFname, updateLname } from './../actions/funcs/user';
 import {connect} from 'react-redux';
 
@@ -60,7 +60,8 @@ const mapDispatchToProps = (dispatch) => {
         onSubmitInterest: (data) => dispatch(submitInterest(data)),
         onNameSubmit: () => dispatch(updateName()),
         onFnameEnter: (fname) => dispatch(updateFname(fname)),
-        onLnameEnter: (lname) => dispatch(updateLname(lname))
+        onLnameEnter: (lname) => dispatch(updateLname(lname)),
+        loadInit: () => dispatch(loadInit())
     };
 };
 

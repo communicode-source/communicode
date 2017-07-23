@@ -10,7 +10,8 @@ class SaveButton extends React.Component {
         this.props = props;
     }
 
-    handleSaveButtonClick() {
+    handleSaveButtonClick(e) {
+        e.preventDefault();
         this.props.onClickFunction();
     }
 

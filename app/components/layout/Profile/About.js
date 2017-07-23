@@ -33,7 +33,7 @@ class About extends React.Component {
             <div>
                 <p>{this.props.biography || `${this.props.fname || 'Mr. Mysterious'} has not updated their bio yet.`}</p>
                 <div className={classNames(styles.moreinfo)}>
-                    <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {this.props.location || `${this.props.fname || 'Mr. Mysterious'} has not updated this, that or they or in hiding...`}</p>
+                    <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {(this.props.location && this.props.location.map && this.props.location[0]) ? this.props.location[0] + ', ' + this.props.location[1] : `${this.props.fname || 'Mr. Mysterious'} has not updated this, that or they or in hiding...`}</p>
                     <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.props.job || `${this.props.fname || 'Mr. Mysterious'} has no job, or is working undercover`}</p>
                 </div>
             </div>
@@ -87,7 +87,7 @@ About.propTypes = {
     skills: PropTypes.array,
     interests: PropTypes.array,
     biography: PropTypes.string,
-    location: PropTypes.string,
+    location: PropTypes.array,
     job: PropTypes.string,
     fname: PropTypes.string,
 };

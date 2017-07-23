@@ -22,7 +22,7 @@ class Education extends React.Component {
                     Education &nbsp; <i className={classNames('fa', 'fa-graduation-cap')} aria-hidden="true"></i>
                 </Col>
                 <Col sm={9}>
-                    <FormControl type="text" placeholder="Your Education" value={this.props.education} onChange={this.handleEducationChange.bind(this)}/>
+                    <FormControl type="text" placeholder="Your Education" value={this.props.education || ''} onChange={this.handleEducationChange.bind(this)}/>
                 </Col>
             </FormGroup>
         );

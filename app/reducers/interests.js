@@ -11,6 +11,9 @@ const interests = (state = [], action) => {
             }
             newState.splice(index, 1);
             return newState;
+        case types.UPDATE_INTERESTS_TO_MATCH_PROFILE:
+            const already = [...action.interests];
+            return already;
         default:
             return state;
     }

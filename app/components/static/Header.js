@@ -101,9 +101,10 @@ class Header extends React.Component {
                                         <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                             <NavbarGreeting isAuthenticated={isAuthenticated} profile={user.profile} />
                                         </Link>
-                                        <ul className="dropdown-menu">
-                                            <Link to={url}>My Profile</Link>
-                                            <Logout />
+                                        <ul className={classNames('dropdown-menu', styles.dropdown)}>
+                                            <li><Link to={url}>My Profile</Link></li>
+                                            <li><Link to="/me/settings">Settings / Edit Profile</Link></li>
+                                            <li><Logout /></li>
                                         </ul>
                                     </li>
                                 </ul>

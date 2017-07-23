@@ -335,6 +335,65 @@ export async function updateProject(project) {
     }
 }
 
+export async function updateUserSettings(settings) {
+    try {
+        const sending = {...settings};
+        sending.settings.skills = null;
+        sending.settings.interests = null;
+        sending.settings.socials = null;
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({...sending, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/user/update', options);
+        const responseData = await response.json();
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function updateUserSettingsSocials(settings) {
+    try {
+        const sending = {...settings};
+        const socials = {facebook: sending.settings.facebook, github: sending.settings.github, linkedin: sending.settings.linkedin, twitter: sending.settings.twitter};
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({settings: {socials}, token: localStorage.getItem('id_token')})
+        };
+        const response = await fetch(API_URL + '/user/update', options);
+        const responseData = await response.json();
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function updateUserSettingsSkills(settings) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({settings: {skills: settings.settings.skills}, token: localStorage.getItem('id_token')})
+        };
+        const response = await fetch(API_URL + '/user/update', options);
+        const responseData = await response.json();
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);
 }

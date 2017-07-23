@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return {
         socialText: 'LinkedIn',
         socialClass: 'fa-linkedin',
+        default: 'https://www.linkedin.com/in/',
         linkValue: state.settings.linkedin
     };
 };

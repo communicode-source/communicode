@@ -22,7 +22,7 @@ class Occupation extends React.Component {
                     Occupation &nbsp; <i className={classNames('fa', 'fa-map-marker')} aria-hidden="true"></i>
                 </Col>
                 <Col sm={9}>
-                    <FormControl type="text" placeholder="Your Occupation" value={this.props.occupation} onChange={this.handleJobChange.bind(this)}/>
+                    <FormControl type="text" placeholder="Your Occupation" value={this.props.occupation || ''} onChange={this.handleJobChange.bind(this)}/>
                 </Col>
             </FormGroup>
         );

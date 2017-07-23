@@ -1,4 +1,5 @@
 import Header from './../../components/layout/Settings/Header';
+import {loadUserIntoSettings} from './../..//actions/funcs/settings';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -9,4 +10,10 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        startLoadIntoSettings: () => dispatch(loadUserIntoSettings()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
