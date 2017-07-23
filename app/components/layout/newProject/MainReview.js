@@ -8,15 +8,15 @@ class newProject extends React.Component {
     }
 
     componentWillMount() {
-        if(this.props.location !== 5) {
-            this.props.moveToStepFour();
+        if(this.props.location !== 4) {
+            this.props.finishNewProject();
         }
     }
 
     render() {
         return (
             <div>
-                <h1>Review Your Project</h1>
+                <h1>Review and Create</h1>
                 {this.props.children}
             </div>
         );
@@ -26,7 +26,7 @@ class newProject extends React.Component {
 newProject.propTypes = {
     location: PropTypes.number,
     children: PropTypes.array,
-    moveToStepFour: PropTypes.func
+    finishNewProject: PropTypes.func
 };
 
 export default newProject;

@@ -87,6 +87,12 @@ export function moveToStepFour() {
     };
 }
 
+export function moveToStepFive() {
+    return {
+        type: types.STEP_5_NEW_PROJECT_BUTTON_PRESS
+    };
+}
+
 export function moveToNextStep(location) {
     const type = types[`STEP_${location + 1}_NEW_PROJECT_BUTTON_PRESS`];
     return {
