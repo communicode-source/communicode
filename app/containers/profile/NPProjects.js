@@ -1,6 +1,6 @@
 import Projects from './../../components/layout/Profile/NPProjects';
 import {connect} from 'react-redux';
-import { getNonProfitProjects, updateProjectToBeComplete } from './../../actions/funcs/user';
+import { getNonProfitProjects, updateProjectToBeComplete, deleteProjectNP } from './../../actions/funcs/user';
 
 const mapStateToProps = (state) => {
     return {
@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getNonProfitProjects: () => dispatch(getNonProfitProjects()),
-        checkProjectOff: (id) => dispatch(updateProjectToBeComplete(id))
+        checkProjectOff: (id) => dispatch(updateProjectToBeComplete(id)),
+        deleteProject: (id) => dispatch(deleteProjectNP(id))
     };
 };
 

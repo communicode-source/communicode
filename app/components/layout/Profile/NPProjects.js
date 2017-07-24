@@ -16,7 +16,10 @@ class NPProject extends React.Component {
 
     handleCompletedProjectClick(id) {
         this.props.checkProjectOff(id);
-        this.props.getNonProfitProjects();
+    }
+
+    handleDeleteProjectClick(id) {
+        this.props.deleteProject(id);
     }
 
     displaySkills(skills) {
@@ -60,7 +63,7 @@ class NPProject extends React.Component {
                                         }
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4}>
-                                        <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Delete Project</p>
+                                        <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4} />
                                 </Row>
@@ -86,7 +89,8 @@ NPProject.propTypes = {
     account: PropTypes.bool,
     id: PropTypes.string,
     getNonProfitProjects: PropTypes.func,
-    checkProjectOff: PropTypes.func
+    checkProjectOff: PropTypes.func,
+    deleteProject: PropTypes.func
 };
 
 export default NPProject;

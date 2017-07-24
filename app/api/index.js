@@ -442,6 +442,27 @@ export async function updateProjectToBeComplete(id) {
     }
 }
 
+export async function updateProjectToBeDeleted(id) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({id: id, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/deleteNP', options);
+        const responseData = response.json();
+        if(responseData.err === true) {
+            throw new Error('Something went wrong');
+        }
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
 export async function createCharge(data) {
     try {
         const options = {
