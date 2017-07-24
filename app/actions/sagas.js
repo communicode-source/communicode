@@ -530,7 +530,12 @@ export function* getNPProjects() {
 export function* updateProjectById(action) {
     try {
         const update = yield call(updateProjectToBeComplete, action.id);
-        console.log(update);
+        yield* handleServerResponse(
+            update,
+            types.SUCCESS_MARKED_PROJECT_COMPLETE,
+            types.FAILED_MARK_PROJECT_COMPLETE,
+            'Failed, sorry!'
+        );
     }
     catch(e) {
         yield put({
@@ -606,6 +611,7 @@ function* watchFetchUserProfile() {
     yield takeEvery(types.GET_USER_PROFILE_FETCH, getUserProfile);
     yield takeLatest(types.START_PROFILE_NP_PROJECTS_LOAD, getNPProjects);
     yield takeLatest(types.CHECK_OFF_PROFILE_PROJECT, updateProjectById);
+    yield takeEvery(types.SUCCESS_MARKED_PROJECT_COMPLETE, getNPProjects);
 }
 
 function* watchCreateNewPortfolioProject() {

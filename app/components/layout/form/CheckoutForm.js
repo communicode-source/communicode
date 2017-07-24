@@ -23,7 +23,7 @@ class CheckoutForm extends React.Component {
             this.props.finishProject(token);
         }
         catch(err) {
-            console.log(err);
+            throw err;
         }
         // However, this line of code will do the same thing:
         // this.props.stripe.createToken({type: 'card', name: 'Jenny Rosen'});

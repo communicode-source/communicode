@@ -16,6 +16,7 @@ class NPProject extends React.Component {
 
     handleCompletedProjectClick(id) {
         this.props.checkProjectOff(id);
+        this.props.getNonProfitProjects();
     }
 
     displaySkills(skills) {
