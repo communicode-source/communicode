@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './../../../assets/css/pages/createProject.scss';
 
 import Website from './types/website';
+import Mobile from './types/mobile';
 
 class TypeBox extends React.Component {
     constructor(props) {
@@ -26,6 +27,10 @@ class TypeBox extends React.Component {
 
         if(this.props.project.item === 'Website') {
             select = <Website selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Mobile') {
+            select = <Mobile selectProjectType={this.props.selectProjectType} type={this.props.type} />;
         }
 
         return (

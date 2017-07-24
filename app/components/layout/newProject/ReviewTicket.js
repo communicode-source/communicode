@@ -57,7 +57,7 @@ class ReviewTicket extends React.Component {
                                     <li className={styles.addBottomBorder}>Services Fee <span>(what is this?)</span>: <span className={styles.price}>${this.calculateServiceFee()}</span></li>
                                     <li>Total: <span className={styles.price}>${this.props.project.priceWithService}</span></li>
                                 </ul>
-                                <CheckoutForm />
+                                <CheckoutForm finishProject={this.props.finishProject} />
                             </div>
                         }
                     </Col>
@@ -68,7 +68,8 @@ class ReviewTicket extends React.Component {
 }
 
 ReviewTicket.propTypes = {
-    project: PropTypes.object
+    project: PropTypes.object,
+    finishProject: PropTypes.func
 };
 
 export default ReviewTicket;

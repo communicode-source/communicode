@@ -149,6 +149,15 @@ a:hover {
     margin-top: 15px;
     cursor: pointer;
 }
+
+#follow:hover {
+  color: #333 !important;
+}
+
+a.editProfile:hover {
+  color: #333 !important;
+}
+
 #about,
 #reviews,
 #linkNav {
@@ -362,4 +371,67 @@ a:hover {
     h3 {
         margin-top: 0;
     }
+}
+
+.projectsContainer {
+  max-width: 600px;
+  padding: 50px 20px;
+
+  .projectType {
+    font-size: 36px;
+    background: #ffb42e;
+    text-align: center;
+    border-radius: 50%;
+    max-width: 75px;
+    height: 75px;
+    margin-top: 15px;
+
+    i {
+      padding-top: 18px;
+    }
+  }
+
+  .skillsWrapper {
+    display: inline-flex;
+    margin: 5px 0px 15px 0px;
+
+    .talents {
+      font-size: 12px;
+      background: #333;
+      color: #fff;
+      border-radius: 3px;
+      padding: 5px 10px;
+      margin-right: 7px;
+    }
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .newProjectRow {
+    margin-bottom: 50px;
+  }
+
+  .needsCompletion {
+    background: #ffb42e;
+    color: #333;
+    font-size: 12px;
+    max-width: 120px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0px;
+  }
+
+  .completion {
+    background: #ffb42e;
+    color: #333;
+    font-size: 12px;
+    max-width: 110px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0px;
+  }
 }

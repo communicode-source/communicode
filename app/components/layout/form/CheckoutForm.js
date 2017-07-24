@@ -7,14 +7,19 @@ import styles from './../../../assets/css/pages/createProject.scss';
 import CardSection from './CardSection';
 
 class CheckoutForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
     handleSubmit = (ev) => {
         // We don't want to let default form submission happen here, which would refresh the page.
         ev.preventDefault();
 
         // Within the context of `Elements`, this call to createToken knows which Element to
         // tokenize, since there's only one in this group.
-        this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
-            console.log('Received Stripe token:', token);
+        this.props.stripe.createToken().then(({token}) => {
+            this.props.finishProject(token);
         });
 
         // However, this line of code will do the same thing:
@@ -32,7 +37,8 @@ class CheckoutForm extends React.Component {
 }
 
 CheckoutForm.propTypes = {
-    stripe: PropTypes.object
+    stripe: PropTypes.object,
+    finishProject: PropTypes.func
 };
 
 export default injectStripe(CheckoutForm);

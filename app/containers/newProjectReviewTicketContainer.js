@@ -1,4 +1,5 @@
 import ReviewTicket from './../components/layout/newProject/ReviewTicket';
+import { finishReviewNewProject } from './../actions/funcs/newProject';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -7,4 +8,10 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(ReviewTicket);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        finishProject: (token) => dispatch(finishReviewNewProject(token))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewTicket);

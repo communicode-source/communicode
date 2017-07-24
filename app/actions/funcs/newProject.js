@@ -105,3 +105,10 @@ export function finishNewProject() {
         type: types.FINISH_PROJECT_BUTTON_PRESS
     };
 }
+
+export function finishReviewNewProject(token) {
+    return {
+        type: types.FINISH_REVIEW_PROJECT_BUTTON_PRESS,
+        data: token
+    };
+}

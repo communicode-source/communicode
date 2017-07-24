@@ -4,5 +4,7 @@ export default {
     WebsiteWithABlog: 75,
     WebsiteWithMultipleContentSources: 250,
     UserAccountWebsite: 500,
-    ECommerceWebsite: 2000
+    ECommerceWebsite: 2000,
+    StaticIOSApplication: 150,
+    StaticAndroidApplication: 150
 };

@@ -442,6 +442,26 @@ export async function updateProjectToBeComplete(id) {
     }
 }
 
+export async function createCharge(data) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({id: data.id, stripeToken: data.token, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/charge', options);
+        const responseData = response.json();
+        if(responseData.err === true) {
+            throw new Error('Something went wrong');
+        }
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
 
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);

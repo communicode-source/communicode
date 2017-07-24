@@ -15,7 +15,8 @@ import { updateProjectStepOne,
     updateUserSettingsSocials,
     updateUserSettingsSkills,
     getNonProfitProjects,
-    updateProjectToBeComplete} from '../api';
+    updateProjectToBeComplete,
+    createCharge} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -416,6 +417,29 @@ export function* createNewProjectStep4() {
     }
 }
 
+export function* finishCreateProject(action) {
+    try {
+        const state = yield select(getStateUserData);
+        const charge = yield call(createCharge, {
+            id: state.profile._id,
+            token: action.data
+        });
+
+        yield* handleServerResponse(
+            charge,
+            types.FINISH_REVIEW_PROJECT_SUCCESS,
+            types.FINISH_REVIEW_PROJECT_FAILED,
+            'Issue creating project'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.FINISH_REVIEW_PROJECT_FAILED,
+            error: e
+        });
+    }
+}
+
 export function* updateUserAboutMeSettings() {
     try {
         const state = yield select(getUserSettings);
@@ -601,6 +625,11 @@ function* watchCreateNewProjectStep4() {
     yield takeEvery(types.FINISH_PROJECT_BUTTON_PRESS, createNewProjectStep4);
 }
 
+function* watchFinishProjectCreation() {
+    yield takeEvery(types.FINISH_REVIEW_PROJECT_BUTTON_PRESS, finishCreateProject);
+}
+
+
 function* watchForUpdatingUserSettings() {
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_ABOUT_ME_CLICK, updateUserAboutMeSettings);
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_SOCIALS_CLICK, updateUserAboutMeSettingsLinks);
@@ -633,6 +662,7 @@ export default function* rootSaga() {
         watchCreateNewProjectStep2(),
         watchCreateNewProjectStep3(),
         watchCreateNewProjectStep4(),
+        watchFinishProjectCreation(),
         watchForUpdatingUserSettings(),
         watchForTypesThatChangeTheUser()
     ];

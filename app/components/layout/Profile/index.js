@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
+
 class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -77,15 +78,24 @@ class Profile extends React.Component {
                     <img src="https://source.unsplash.com/random" className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
-                        {this.props.userID !== this.props.profile._id && <div id={classNames(styles.follow)}>Follow</div>}
-                        {this.props.userID === this.props.profile._id && <Link to="/me/settings" id={classNames(styles.follow)}>Settings</Link>}
-                        <div className={classNames(styles.rating, styles.stars)}>
-                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                            <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                            <i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>
-                        </div>
+                        {this.props.userID !== this.props.profile._id &&
+                            <div id={classNames(styles.follow)}>Follow</div>
+                        }
+
+                        {this.props.userID === this.props.profile._id &&
+                            <Link className={styles.editProfile} to="/me/settings">
+                                <div id={classNames(styles.follow)}>Edit Profile</div>
+                            </Link>
+                        }
+                        {!this.props.profile.accountType &&
+                            <div className={classNames(styles.rating, styles.stars)}>
+                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+                                <i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>
+                            </div>
+                        }
                         <div id={classNames(styles.followContainer)}>
                             <div id={classNames(styles.left)}>
                                 <p><b>{this.follows}</b> <br /> Following</p>
