@@ -1,4 +1,5 @@
 import * as types from './../actions/types';
+import prices from '../components/layout/newProject/types/prices';
 
 const newProject = (state = {
     projectID: '',
@@ -11,6 +12,8 @@ const newProject = (state = {
     skills: ['HTML', 'CSS', 'JavaScript', 'Backend', 'Database'],
     skillsReady: false,
     coverImageURI: '',
+    price: 'volunteer',
+    priceWithService: 'volunteer',
     track: '',
     item: '',
     completed: [],
@@ -28,7 +31,7 @@ const newProject = (state = {
         case types.NEW_PROJECT_TITLE_ENTER:
             return {...state, title: action.title};
         case types.NEW_PROJECT_TYPE_SELECTION:
-            return {...state, type: action.select};
+            return {...state, type: action.select, price: prices[action.select], priceWithService: (prices[action.select] / 0.901).toFixed(2) };
         case types.NEW_PROJECT_DESCRIPTION_ENTER:
             return {...state, description: action.description};
         case types.NEW_PROJECT_START_DATE_SELECT:

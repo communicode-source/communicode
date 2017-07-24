@@ -255,6 +255,56 @@
             }
         }
     }
+
+    .leftSide {
+      padding-right: 20px;
+    }
+
+    .ticketList {
+      margin: 20px 0px;
+    }
+
+    .ticketList li {
+      margin: 30px 0px;
+      font-size: 16px;
+    }
+
+    .ticketList li .propsValue {
+      margin-top: 10px;
+      font-size: 16px;
+      font-style: italic;
+      max-width: 90%;
+    }
+
+    .billingList {
+      list-style-type: none;
+      margin: 30px 0px;
+    }
+
+    .billingList li {
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+    }
+
+    .addBottomBorder {
+      margin-bottom: 10px !important;
+      padding-bottom: 3px !important;
+      border-bottom: 1px solid #333;
+    }
+
+    .price {
+      float: right;
+      font-weight: bold;
+    }
+
+    .createProjectWrapper label {
+      display: block !important;
+    }
+
+    .confirm {
+      width: 100%;
+      padding: 15px !important;
+    }
 }
 // I have no idea why these are only responding with kill me
 @media screen and (min-width: 700px) {
