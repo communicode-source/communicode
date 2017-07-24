@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Header from '../components/static/Header';
 import Footer from '../components/static/Footer';
 import Title from 'react-title-component';
+import {StripeProvider} from 'react-stripe-elements';
 
 import main from '../assets/css/main.scss';
 
@@ -30,15 +31,17 @@ class App extends React.Component {
         } = this.props;
 
         return (
-            <div id={main['app-container']}>
-                <Title render="Communicode"/>
-                <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} toggleRegisterModal={toggleRegisterModal} shouldShowRegisterModal={shouldShowRegisterModal}/>
-                <div id={main['content-main']}>
-                    {children}
-                    <div className={main.push}/>
+            <StripeProvider apiKey="pk_test_HuXUJt3V9v8V7h8x60qwAeKc">
+                <div id={main['app-container']}>
+                    <Title render="Communicode"/>
+                    <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} toggleRegisterModal={toggleRegisterModal} shouldShowRegisterModal={shouldShowRegisterModal}/>
+                    <div id={main['content-main']}>
+                        {children}
+                        <div className={main.push}/>
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-            </div>
+            </StripeProvider>
         );
     }
 }

@@ -11,13 +11,12 @@ function handleTypeSelect(e, selectProjectType) {
 const Website = ({ selectProjectType, type }) => (
     <select value={(type === '') ? 'Select a Type' : type} onChange={(e) => { handleTypeSelect(e, selectProjectType); }} name="type">
         <option value={null}>Select a Type...</option>
-        <option value="Splash Page">Splash Page</option>
-        <option value="Single Page Static Website">Single Page Static Website</option>
-        <option value="Multiple Page Static Website">Multiple Page Static Website</option>
-        <option value="Website with a Blog">Website with a Blog</option>
-        <option value="Website with Multiple Content Sources">Website with Multiple Content Sources</option>
-        <option value="E-Commerce Website">E-Commerce Website</option>
-        <option value="User Account Website">User Account Website</option>
+        <option value="SplashPage">Splash Page (Volunteer)</option>
+        <option value="MultiplePageStaticWebsite">Multiple Page Static Website ($50)</option>
+        <option value="WebsiteWithABlog">Website with a Blog ($75)</option>
+        <option value="WebsiteWithMultipleContentSources">Website with Multiple Content Sources ($250)</option>
+        <option value="UserAccountWebsite">User Account Website ($500)</option>
+        <option value="ECommerceWebsite">E-Commerce Website ($2,000)</option>
     </select>
 );
 
