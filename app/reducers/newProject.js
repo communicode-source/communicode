@@ -103,6 +103,27 @@ const newProject = (state = {
             return {...state, location: 5};
         case types.FINISH_PROJECT_BUTTON_PRESS:
             return {...state};
+        case types.FINISH_REVIEW_PROJECT_SUCCESS:
+            return {
+                projectID: '',
+                title: '',
+                type: '',
+                description: '',
+                start: '',
+                end: '',
+                interestArea: [],
+                skills: ['HTML', 'CSS', 'JavaScript', 'Backend', 'Database'],
+                skillsReady: false,
+                coverImageURI: '',
+                price: 'volunteer',
+                priceWithService: 'volunteer',
+                track: '',
+                item: '',
+                completed: [],
+                trackOrItem: 'item',
+                location: 1,
+                errmsgs: []
+            };
         default:
             return state;
     }
