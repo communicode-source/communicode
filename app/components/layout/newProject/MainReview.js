@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Elements } from 'react-stripe-elements';
 
 class newProject extends React.Component {
     constructor(props) {
@@ -16,12 +15,10 @@ class newProject extends React.Component {
 
     render() {
         return (
-            <Elements>
-                <div>
-                    <h1>Review and Create</h1>
-                    {this.props.children}
-                </div>
-            </Elements>
+            <div>
+                <h1>Review and Create</h1>
+                {this.props.children}
+            </div>
         );
     }
 }

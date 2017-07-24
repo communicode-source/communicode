@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './../../../assets/css/pages/createProject.scss';
 import { Row, Col } from 'react-bootstrap';
-import CheckoutForm from '../form/CheckoutForm';
+import ProjectCheckout from '../form/ProjectCheckout';
 
 class ReviewTicket extends React.Component {
     constructor(props) {
@@ -57,7 +57,7 @@ class ReviewTicket extends React.Component {
                                     <li className={styles.addBottomBorder}>Services Fee <span>(what is this?)</span>: <span className={styles.price}>${this.calculateServiceFee()}</span></li>
                                     <li>Total: <span className={styles.price}>${this.props.project.priceWithService}</span></li>
                                 </ul>
-                                <CheckoutForm finishProject={this.props.finishProject} />
+                                <ProjectCheckout finishProject={this.props.finishProject} price={this.props.project.priceWithService} />
                             </div>
                         }
                     </Col>

@@ -420,9 +420,12 @@ export function* createNewProjectStep4() {
 export function* finishCreateProject(action) {
     try {
         const state = yield select(getStateUserData);
+        const project = yield select(getStateProjectData);
         const charge = yield call(createCharge, {
             id: state.profile._id,
-            token: action.data
+            token: action.data,
+            email: state.profile.email,
+            price: project.priceWithService
         });
 
         yield* handleServerResponse(

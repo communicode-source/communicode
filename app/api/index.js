@@ -448,7 +448,7 @@ export async function createCharge(data) {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({id: data.id, stripeToken: data.token, token: localStorage.getItem('id_token')})
+            body: JSON.stringify({id: data.id, stripeToken: data.token, email: data.email, price: data.price, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/projects/charge', options);

@@ -31,7 +31,7 @@ class App extends React.Component {
         } = this.props;
 
         return (
-            <StripeProvider apiKey="pk_test_HuXUJt3V9v8V7h8x60qwAeKc">
+            <StripeProvider apiKey="pk_test_KHkaXlde5Ci5F4KGhLgAEW1r">
                 <div id={main['app-container']}>
                     <Title render="Communicode"/>
                     <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} toggleRegisterModal={toggleRegisterModal} shouldShowRegisterModal={shouldShowRegisterModal}/>
