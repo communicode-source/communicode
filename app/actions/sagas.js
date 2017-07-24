@@ -13,7 +13,9 @@ import { updateProjectStepOne,
     updateProject,
     updateUserSettings,
     updateUserSettingsSocials,
-    updateUserSettingsSkills } from '../api';
+    updateUserSettingsSkills,
+    getNonProfitProjects,
+    updateProjectToBeComplete} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -21,6 +23,7 @@ const getStateUserData = (state) => state.user;
 const getRecoveryData = (state) => state.passwordRecovery;
 const getState = (state) => { return {interests: state.interests, user: state.user.profile}; };
 const getUserSettings = (state) => state.settings;
+const getProfileState = (state) => state.profile;
 
 function* handleServerResponse(data, success, failed, errorMsg, additional = {}) {
     if(data) {
@@ -479,6 +482,36 @@ export function* updateUserAboutMeSettingsSkills() {
     }
 }
 
+export function* getNPProjects() {
+    try {
+        const state = yield select(getProfileState);
+        const projects = yield call(getNonProfitProjects, state._id);
+        yield* handleServerResponse(
+            projects,
+            types.ATTACH_PROFILE_PROJECTS,
+            'FAILED',
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: 'FAILED'
+        });
+    }
+}
+
+export function* updateProjectById(action) {
+    try {
+        const update = yield call(updateProjectToBeComplete, action.id);
+        console.log(update);
+    }
+    catch(e) {
+        yield put({
+            type: 'Failed'
+        });
+    }
+}
+
 export function* loadUserSettingsToSettings() {
     const user = yield select(getStateUserData);
     yield put({type: types.UPDATE_USER_SETTINGS_TO_MATCH_PROFILE, data: {...user.profile}});
@@ -544,6 +577,8 @@ function* watchSearchChange() {
 
 function* watchFetchUserProfile() {
     yield takeEvery(types.GET_USER_PROFILE_FETCH, getUserProfile);
+    yield takeLatest(types.START_PROFILE_NP_PROJECTS_LOAD, getNPProjects);
+    yield takeLatest(types.CHECK_OFF_PROFILE_PROJECT, updateProjectById);
 }
 
 function* watchCreateNewPortfolioProject() {
@@ -571,16 +606,10 @@ function* watchForUpdatingUserSettings() {
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_SOCIALS_CLICK, updateUserAboutMeSettingsLinks);
     yield takeLatest(types.LOAD_SKILLS_INTO_DB, updateUserAboutMeSettingsSkills);
     yield takeLatest(types.LOADING_USER_INFO_INTO_THE_SETTINGS, loadUserSettingsToSettings);
-    // yield takeLatest();
-    // yield takeLatest();
-    // yield takeLatest();
 }
 
 function* watchForTypesThatChangeTheUser() {
     yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, getLoggedInUser);
-    // yield takeLatest();
-    // yield takeLatest();
-    // yield takeLatest();
 }
 
 export default function* rootSaga() {

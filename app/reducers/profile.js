@@ -13,6 +13,8 @@ const profile = (state = {}, action) => {
                 ...action.data,
                 isFetching: false
             };
+        case types.ATTACH_PROFILE_PROJECTS:
+            return {...state, projects: action.data};
         default:
             return state;
     }

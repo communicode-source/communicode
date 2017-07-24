@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
         socialText: 'Last Name',
         socialClass: 'fa-cog',
         linkValue: state.settings.lname,
-        noUrl: true
+        noUrl: true,
+        show: (state.user.profile.accountType === false)
     };
 };
 

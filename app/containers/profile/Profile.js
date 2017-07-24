@@ -6,7 +6,8 @@ import { getProfileForUser } from './../../actions/funcs/user';
 const mapStateToProps = (state, props) => {
     return {
         profile: state.profile,
-        profile_url: props.params.url
+        profile_url: props.params.url,
+        userID: state.user.profile._id
     };
 };
 

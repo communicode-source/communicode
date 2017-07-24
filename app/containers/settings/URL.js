@@ -1,20 +1,20 @@
 import SocialLinkForm from './../../components/layout/Settings/SocialLinkForm';
 import {connect} from 'react-redux';
-import {updateFname} from './../..//actions/funcs/settings';
+import {updateUrl} from './../..//actions/funcs/settings';
 
 const mapStateToProps = (state) => {
     return {
-        socialText: 'First Name',
+        socialText: 'URL',
         socialClass: 'fa-cog',
-        linkValue: state.settings.fname,
+        linkValue: state.settings.url,
         noUrl: true,
-        show: (state.user.profile.accountType === false)
+        show: true
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        socialEnterFunc: (name) => dispatch(updateFname(name))
+        socialEnterFunc: (url) => dispatch(updateUrl(url))
     };
 };
 

@@ -15,6 +15,7 @@ class Skills extends React.Component {
 
     handleRemoveSkill(e) {
         this.props.changeSkill(e.target.innerHTML);
+        this.props.saveSkill();
     }
 
     buildSkills() {
@@ -33,6 +34,7 @@ class Skills extends React.Component {
         e.preventDefault();
         this.props.changeSkill(this.state.value);
         this.setState({value: ''});
+        this.props.saveSkill();
     }
 
     render() {
@@ -65,7 +67,8 @@ class Skills extends React.Component {
 
 Skills.propTypes = {
     skills: PropTypes.array,
-    changeSkill: PropTypes.func
+    changeSkill: PropTypes.func,
+    saveSkill: PropTypes.func
 };
 
 

@@ -110,3 +110,19 @@ export function saveSkill(skill) {
         skill
     };
 };
+
+
+export function updateOrgname(name) {
+    return {
+        type: types.TYPING_IN_SETTINGS_ORGNAME,
+        name
+    };
+};
+
+
+export function updateUrl(url) {
+    return {
+        type: types.TYPING_IN_SETTINGS_URL,
+        url
+    };
+};

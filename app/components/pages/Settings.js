@@ -5,7 +5,6 @@ import Location from './../../containers/settings/Location';
 import Occupation from './../../containers/settings/Occupation';
 import Education from './../../containers/settings/Education';
 import AboutButton from './../../containers/settings/AboutButton';
-import SkillsButton from './../../containers/settings/SkillsButton';
 import SocialMediaButton from './../../containers/settings/SocialMediaButton';
 import FacebookLinkInput from './../../containers/settings/FacebookLinkInput';
 import TwitterLinkInput from './../../containers/settings/TwitterLinkInput';
@@ -13,6 +12,8 @@ import LinkedinLinkInput from './../../containers/settings/LinkedinLinkInput';
 import GithubLinkInput from './../../containers/settings/GithubLinkInput';
 import FirstName from './../../containers/settings/FirstName';
 import LastName from './../../containers/settings/LastName';
+import Orgname from './../../containers/settings/Orgname';
+import URL from './../../containers/settings/URL';
 import Skills from './../../containers/settings/Skills';
 import Interests from './../../containers/settings/Interests';
 import styles from './../../assets/css/pages/settings.scss';
@@ -35,6 +36,8 @@ class SettingsPage extends React.Component {
                         <Form horizontal>
                             <FirstName />
                             <LastName />
+                            <Orgname />
+                            <URL />
                             <Biography />
                             <Location />
                             <Occupation />
@@ -57,7 +60,6 @@ class SettingsPage extends React.Component {
                         <h3>Skills</h3>
                         <hr />
                         <Skills />
-                        <SkillsButton />
                     </div>
                     <div className={styles.item}>
                         <h3>Interests</h3>

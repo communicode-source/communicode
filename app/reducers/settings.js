@@ -16,7 +16,10 @@ const settings = (state = {
     skills: [],
     interests: [],
     fname: '',
-    lname: ''
+    lname: '',
+    organizationname: '',
+    url: '',
+    errors: [],
 }, action) => {
     switch(action.type) {
         case types.TYPING_IN_SETTINGS_BIOGRAPHY:
@@ -64,6 +67,10 @@ const settings = (state = {
                 skills.splice(index, 1);
             }
             return {...state, skills};
+        case types.TYPING_IN_SETTINGS_ORGNAME:
+            return {...state, organizationname: action.name};
+        case types.TYPING_IN_SETTINGS_URL:
+            return {...state, url: action.url};
         default:
             return state;
     }

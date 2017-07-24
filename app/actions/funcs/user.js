@@ -129,3 +129,16 @@ export function sendSubscription(event, email) {
         email
     };
 }
+
+export function getNonProfitProjects() {
+    return {
+        type: types.START_PROFILE_NP_PROJECTS_LOAD
+    };
+};
+
+export function updateProjectToBeComplete(id) {
+    return {
+        type: types.CHECK_OFF_PROFILE_PROJECT,
+        id
+    };
+};

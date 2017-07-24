@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
-
+import {Link} from 'react-router';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
@@ -51,11 +51,15 @@ class Profile extends React.Component {
         }
 
         if(this.active === 'Portfolio') {
-            main = this.props.children[1];
+            main = null;
         }
 
         if(this.active === 'Reviews') {
             main = this.props.children[2];
+        }
+
+        if(this.active === 'Projects') {
+            main = this.props.children[3];
         }
 
         if(this.props.profile.social) {
@@ -73,7 +77,8 @@ class Profile extends React.Component {
                     <img src="https://source.unsplash.com/random" className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
-                        <div id={classNames(styles.follow)}>Follow</div>
+                        {this.props.userID !== this.props.profile._id && <div id={classNames(styles.follow)}>Follow</div>}
+                        {this.props.userID === this.props.profile._id && <Link to="/me/settings" id={classNames(styles.follow)}>Settings</Link>}
                         <div className={classNames(styles.rating, styles.stars)}>
                             <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
                             <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
@@ -94,8 +99,8 @@ class Profile extends React.Component {
                 </div>
                 <div id={classNames(styles.linkNav)}>
                     <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'About') ? styles.active : styles.inactive)} id={classNames(styles.abtLnk)}>About</h5>
-                    <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Portfolio') ? styles.active : styles.inactive)} id={classNames(styles.prtLnk)}>Portfolio</h5>
-                    <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Reviews') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Reviews</h5>
+                    {this.props.profile.accountType === false && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Reviews') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Reviews</h5>}
+                    {this.props.profile.accountType === true && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Projects') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Projects</h5>}
                 </div>
                 {main}
             </div>
@@ -112,7 +117,8 @@ Profile.propTypes = {
     repositories: PropTypes.array,
     projects: PropTypes.array,
     reviews: PropTypes.array,
-    children: PropTypes.array
+    children: PropTypes.array,
+    userID: PropTypes.string
 };
 
 export default Profile;
