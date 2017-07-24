@@ -31,7 +31,7 @@ const newProject = (state = {
         case types.NEW_PROJECT_TITLE_ENTER:
             return {...state, title: action.title};
         case types.NEW_PROJECT_TYPE_SELECTION:
-            return {...state, type: action.select, price: prices[action.select], priceWithService: (prices[action.select] / 0.901).toFixed(2) };
+            return {...state, type: action.select, price: (prices[action.select]), priceWithService: (prices[action.select] / 0.901).toFixed(2) };
         case types.NEW_PROJECT_DESCRIPTION_ENTER:
             return {...state, description: action.description};
         case types.NEW_PROJECT_START_DATE_SELECT:

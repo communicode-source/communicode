@@ -452,11 +452,17 @@ export async function createCharge(data) {
         };
 
         const response = await fetch(API_URL + '/projects/charge', options);
-        const responseData = response.json();
+        const responseData = await response.json();
         if(responseData.err === true) {
             throw new Error('Something went wrong');
         }
-        return responseData;
+
+        // Save the JWT into local storage
+        createLocalStorageToken(responseData.msg);
+
+        const profile = decodeJWT(true);
+
+        return profile;
     }
     catch(e) {
         throw e;

@@ -68,6 +68,12 @@ function routing(state = initialState, action) {
         return {...state, locationBeforeTransitions: location};
     }
 
+    if(action.type === types.FINISH_REVIEW_PROJECT_SUCCESS) {
+        const pathname = '/' + action.data.msg.url;
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
     return state;
 }
 
