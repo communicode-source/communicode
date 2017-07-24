@@ -16,7 +16,8 @@ import { updateProjectStepOne,
     updateUserSettingsSkills,
     getNonProfitProjects,
     updateProjectToBeComplete,
-    createCharge} from '../api';
+    createCharge,
+    updateProjectToBeDeleted} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -544,6 +545,23 @@ export function* updateProjectById(action) {
     }
 }
 
+export function* deleteProjectForNP(action) {
+    try {
+        const update = yield call(updateProjectToBeDeleted, action.id);
+        yield* handleServerResponse(
+            update,
+            types.SUCCESSFULLY_DELETED_NP_FROM_PROJECT,
+            types.FAILED_TO_DELETE_NP_FROM_PROJECT,
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: 'Failed'
+        });
+    }
+}
+
 export function* loadUserSettingsToSettings() {
     const user = yield select(getStateUserData);
     yield put({type: types.UPDATE_USER_SETTINGS_TO_MATCH_PROFILE, data: {...user.profile}});
@@ -612,6 +630,8 @@ function* watchFetchUserProfile() {
     yield takeLatest(types.START_PROFILE_NP_PROJECTS_LOAD, getNPProjects);
     yield takeLatest(types.CHECK_OFF_PROFILE_PROJECT, updateProjectById);
     yield takeEvery(types.SUCCESS_MARKED_PROJECT_COMPLETE, getNPProjects);
+    yield takeEvery(types.SUCCESSFULLY_DELETED_NP_FROM_PROJECT, getNPProjects);
+    yield takeEvery(types.BUTTON_CLICK_TO_DELETE_PROJECT, deleteProjectForNP);
 }
 
 function* watchCreateNewPortfolioProject() {

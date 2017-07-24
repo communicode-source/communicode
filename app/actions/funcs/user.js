@@ -142,3 +142,10 @@ export function updateProjectToBeComplete(id) {
         id
     };
 };
+
+export function deleteProjectNP(id) {
+    return {
+        type: types.BUTTON_CLICK_TO_DELETE_PROJECT,
+        id
+    };
+};
