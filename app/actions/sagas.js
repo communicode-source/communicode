@@ -254,13 +254,13 @@ export function* getUserProfile(action) {
         yield* handleServerResponse(
             user,
             types.GET_USER_PROFILE_SUCCESS,
-            types.GET_USER_PROFILE_FAILED,
+            types.GET_USER_PROFILE_FAILURE,
             'Sorry, could not find profile'
         );
     }
     catch(e) {
         yield put({
-            type: types.GET_USER_PROFILE_FAILED,
+            type: types.GET_USER_PROFILE_FAILURE,
             error: e
         });
     }

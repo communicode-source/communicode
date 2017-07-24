@@ -157,12 +157,16 @@ export async function getProfile(url) {
     try {
         const options = {
             mode: 'cors',
+            headers: jsonHeaders,
             method: 'GET'
         };
 
         const response = await fetch(API_URL + '/user/profile/' + url, options);
-
-        return await response.json();
+        const responseData = await response.json();
+        const response2 = await fetch(API_URL + '/connection/stats/' + responseData._id, options);
+        const responseData2 = await response2.json();
+        const returnValue = {...responseData, ...responseData2.msg};
+        return returnValue;
     }
     catch(e) {
         throw e;

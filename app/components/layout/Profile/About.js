@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import PropTypes from 'prop-types';
 
-// {fname, biography, skills, location, job, interests}
+
 class About extends React.Component {
     constructor(props) {
         super(props);
