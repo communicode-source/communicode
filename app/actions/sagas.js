@@ -18,7 +18,8 @@ import { updateProjectStepOne,
     updateProjectToBeComplete,
     createCharge,
     updateProjectToBeDeleted,
-    createOrDestroyConnection} from '../api';
+    createOrDestroyConnection,
+    updateAvatarPhoto} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -593,7 +594,20 @@ export function * addNotification(action) {
 }
 
 export function* uploadUserAvatarImage(file) {
-    console.log(file);
+    try {
+        const update = yield call(updateAvatarPhoto, file);
+        yield* handleServerResponse(
+            update,
+            types.AVATAR_UPLOAD_SUCCESS,
+            types.AVATAR_UPLOAD_FAILED,
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.AVATAR_UPLOAD_FAILED
+        });
+    }
 }
 
 export function* loadUserSettingsToSettings() {
