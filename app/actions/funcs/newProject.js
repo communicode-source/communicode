@@ -112,3 +112,9 @@ export function finishReviewNewProject(token) {
         data: token
     };
 }
+
+export function finishReviewVolunteerProject() {
+    return {
+        type: types.FINISH_REVIEW_VOLUNTEER_BUTTON_PRESS
+    };
+}

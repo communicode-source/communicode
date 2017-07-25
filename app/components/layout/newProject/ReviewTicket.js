@@ -60,6 +60,12 @@ class ReviewTicket extends React.Component {
                                 <ProjectCheckout finishProject={this.props.finishProject} price={this.props.project.priceWithService} />
                             </div>
                         }
+                        {this.props.project.price === 'volunteer' &&
+                            <div className={styles.createProjectWrapper}>
+                                <p>None! This is a volunteer project. Press confirm to move on:</p>
+                                <button onClick={() => { this.props.onConfirmProject(); }} className={styles.confirm}>Confirm Project</button>
+                            </div>
+                        }
                     </Col>
                 </Row>
             </div>
@@ -69,7 +75,8 @@ class ReviewTicket extends React.Component {
 
 ReviewTicket.propTypes = {
     project: PropTypes.object,
-    finishProject: PropTypes.func
+    finishProject: PropTypes.func,
+    onConfirmProject: PropTypes.func
 };
 
 export default ReviewTicket;

@@ -27,6 +27,7 @@ class ProjectFeed extends React.Component {
     render() {
         let projects;
         if(this.props.projects) {
+            console.log(this.props.projects);
             projects = this.props.projects.map((value, key) => {
                 return (
                     <Row className={styles.newProjectRow} key={key}>

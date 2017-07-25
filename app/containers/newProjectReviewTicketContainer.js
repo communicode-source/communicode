@@ -1,5 +1,5 @@
 import ReviewTicket from './../components/layout/newProject/ReviewTicket';
-import { finishReviewNewProject } from './../actions/funcs/newProject';
+import { finishReviewNewProject, finishReviewVolunteerProject } from './../actions/funcs/newProject';
 import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        finishProject: (token) => dispatch(finishReviewNewProject(token))
+        finishProject: (token) => dispatch(finishReviewNewProject(token)),
+        onConfirmProject: () => dispatch(finishReviewVolunteerProject())
     };
 };
 
