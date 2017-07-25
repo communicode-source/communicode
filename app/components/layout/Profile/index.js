@@ -18,11 +18,20 @@ class Profile extends React.Component {
 
     componentWillReceiveProps(props) {
         this.props = props;
+        if(this.props.profile_url !== this.props.profile.url && this.props.profile.isFetching === false) {
+            this.props.onGetProfileForUser(
+                this.props.profile_url
+            );
+        }
     }
 
     handleLinkClick(e) {
         this.active = e.target.innerHTML;
         this.forceUpdate();
+    }
+
+    handleFollowClick() {
+        this.props.toggleFollowingClick(this.props.profile._id);
     }
 
     render() {
@@ -70,10 +79,9 @@ class Profile extends React.Component {
                     <img src="https://source.unsplash.com/random" className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
-                        {(this.props.userID !== this.props.profile._id && this.props.following === false && this.props.userID) &&
-                            <div id={classNames(styles.follow)}>Follow</div>
+                        {(this.props.userID !== this.props.profile._id && this.props.userID) &&
+                            <div onClick={this.handleFollowClick.bind(this)} id={classNames(styles.follow)}>{(this.props.profile.isFollow === false) ? 'Follow' : 'Unfollow'}</div>
                         }
-
                         {this.props.userID === this.props.profile._id &&
                             <Link className={styles.editProfile} to="/me/settings">
                                 <div id={classNames(styles.follow)}>Edit Profile</div>
@@ -121,7 +129,7 @@ Profile.propTypes = {
     reviews: PropTypes.array,
     children: PropTypes.array,
     userID: PropTypes.string,
-    following: PropTypes.bool
+    toggleFollowingClick: PropTypes.func
 };
 
 export default Profile;

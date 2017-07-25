@@ -17,7 +17,8 @@ import { updateProjectStepOne,
     getNonProfitProjects,
     updateProjectToBeComplete,
     createCharge,
-    updateProjectToBeDeleted} from '../api';
+    updateProjectToBeDeleted,
+    createOrDestroyConnection} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -563,21 +564,26 @@ export function* deleteProjectForNP(action) {
     }
 }
 
-export function* uploadUserAvatarImage(action) {
+
+export function* addOrRemoveFollower(action) {
     try {
-        const update = yield call(updateProjectToBeDeleted, action.file);
+        const update = yield call(createOrDestroyConnection, action.id);
         yield* handleServerResponse(
             update,
-            types.AVATAR_UPLOAD_SUCCESS,
-            types.AVATAR_UPLOAD_FAILED,
+            types.SUCCEEDED_TO_CHANGE_FOLLOWING_STATUS,
+            types.FAILED_TO_CHANGE_FOLLOWING_STATUS,
             'Failed, sorry!'
         );
     }
     catch(e) {
         yield put({
-            type: 'Failed'
+            type: types.FAILED_TO_CHANGE_FOLLOWING_STATUS
         });
     }
+}
+
+export function* uploadUserAvatarImage(file) {
+    console.log(file);
 }
 
 export function* loadUserSettingsToSettings() {
@@ -650,6 +656,7 @@ function* watchFetchUserProfile() {
     yield takeEvery(types.SUCCESS_MARKED_PROJECT_COMPLETE, getNPProjects);
     yield takeEvery(types.SUCCESSFULLY_DELETED_NP_FROM_PROJECT, getNPProjects);
     yield takeEvery(types.BUTTON_CLICK_TO_DELETE_PROJECT, deleteProjectForNP);
+    yield takeEvery(types.BUTTON_CLICK_TO_CHANGE_FOLLOWING_STATUS, addOrRemoveFollower);
 }
 
 function* watchCreateNewPortfolioProject() {
