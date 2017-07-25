@@ -12,7 +12,7 @@ class AvatarPhoto extends React.Component {
     }
 
     render() {
-        let url = 'https://source.unsplash.com/random';
+        let url = 'url(https://source.unsplash.com/random)';
         if(this.props.user.profile.image.avatar) {
             url = `url(https://storage.googleapis.com/user-profile-avatars/${this.props.user.profile.image.avatar})`;
         }

@@ -37,6 +37,7 @@ class Profile extends React.Component {
     render() {
         let name = this.props.profile.organizationname;
         let avatarUrl = 'https://source.unsplash.com/random';
+        let coverUrl = 'url(https://source.unsplash.com/random)';
         let socialBar = (<div></div>);
         let main;
 
@@ -64,8 +65,14 @@ class Profile extends React.Component {
             main = this.props.children[3];
         }
 
-        if(this.props.profile.image.avatar) {
-            avatarUrl = 'https://storage.googleapis.com/user-profile-avatars/' + this.props.profile.image.avatar;
+        if(this.props.profile.image !== undefined) {
+            if(this.props.profile.image.avatar) {
+                avatarUrl = 'https://storage.googleapis.com/user-profile-avatars/' + this.props.profile.image.avatar;
+            }
+
+            if(this.props.profile.image.cover) {
+                coverUrl = `url(https://storage.googleapis.com/user-profile-cover/${this.props.profile.image.cover})`;
+            }
         }
 
         if(this.props.profile.socials) {
@@ -80,7 +87,7 @@ class Profile extends React.Component {
         return (
             <div>
                 <div id={classNames(styles.header)}>
-                    <div id={classNames(styles.headerBg)}></div>
+                    <div style={{background: coverUrl}} id={classNames(styles.headerBg)}></div>
                     <img src={avatarUrl} className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
