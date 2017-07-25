@@ -12,25 +12,19 @@ const Developer = () =>
 
     <div>
         <Title render={parentTitle => `Developers | ${parentTitle}`}/>
-        <div className={classNames('container-fluid', common.hero, dev.hero)}>
-            <center>
-                <div className={common['hero-text']}>
-                    <h1>For Volunteers</h1>
-                    <h3>Develop your portfolio and change the world.</h3>
-                </div>
-            </center>
+        <div className="container-fluid hero" id={dev.hero}>
+            <div className="hero-text">
+                <h1>For Volunteers</h1>
+                <h3>Develop your portfolio and change the world</h3>
+            </div>
         </div>
-        <div className={classNames('container-fluid', common.about2)}>
+        <div className="container-fluid">
             <Divider />
-            <div className="container">
-                <div className="row">
-                    <div className={classNames('col-md-12', common.mission)}>
-                        <center>
-                            <h1>Let's Code Some Good.</h1>
-                            <hr />
-                            <h3>As developers and designers, we love passion-driven people like you. We’re here to help you find your next big project, build your skills, build your portfolio, and build your community.</h3>
-                        </center>
-                    </div>
+            <div className="row" id={dev['code-some-good']}>
+                <div className="col-md-12">
+                    <h1>Let's Code Some Good.</h1>
+                    <hr />
+                    <h4>As developers and designers, we love passion-driven people like you. We’re here to help you find your next big project, build your skills, build your portfolio, and build your community.</h4>
                 </div>
             </div>
             <div id={common['more-info-good']} className="row">

@@ -1,12 +1,16 @@
-@import '../../../assets/css/colors';
-@import '../../../assets/css/fonts';
+@import '~theme/colors';
+@import '~theme/fonts';
 
-.hero {
+#hero {
   background: linear-gradient(rgba(51, 51, 51, 1.6), rgba(51, 51, 51, 0.6)), url('./header.jpg') no-repeat center center fixed;
-  height: 500px;
-  width: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
+}
+
+#code-some-good {
+  background-color: $light-grey;
+  text-align: center;
+  padding: 50px;
+  > div > h4 {
+    font-style: italic;
+  }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 // import { AuthContainer } from 'containers';
 // import { AboutPage, InterestsPage, HomePage, ProfilePage, DevelopersPage, NonprofitsPage, NotFoundPage } from 'components';
-import { HomePage, AboutPage } from 'components';
+import { HomePage, AboutPage, DevelopersPage } from 'components';
 // import ProjectFeed from './containers/ProjectFeedContainer';
 
 // For some reason when I use the import from containers, this is null...
@@ -13,8 +13,8 @@ export const routes = (
         <IndexRoute component={HomePage}/>
         <Route path="/home" component={HomePage}/>
         <Route path="/about" component={AboutPage}/>
-        { /*
         <Route path="/developers" component={DevelopersPage} />
+        { /*
         <Route path="/nonprofits" component={NonprofitsPage} />
         <Route path="/profile" component={ProfilePage} />
         <Route component={AuthContainer}>
