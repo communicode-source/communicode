@@ -25,9 +25,12 @@ class ProjectFeed extends React.Component {
         });
     }
 
-    match(e, userId, nonprofitId, projectId) {
+    match(projectId, e) {
         e.preventDefault();
-        // this.props.sendMatchRequest();
+        const js = {
+            id: projectId
+        };
+        this.props.makeMatch(js);
     }
 
     render() {
@@ -59,7 +62,7 @@ class ProjectFeed extends React.Component {
                                             <p className={styles.description}>{value.description}</p>
                                         </Col>
                                         <Col xs={12} sm={4} md={4} lg={4}>
-                                            <a onClick={(e) => { this.match(e, this.props.user.profile._id, value.nonprofitId._id, value._id); }} className={styles.match}>Match Me <i className={classNames('fa', 'fa-heart-o')} aria-hidden="true"></i></a>
+                                            <a onClick={this.match.bind(this, value._id)} className={styles.match}>Match Me <i className={classNames('fa', 'fa-heart-o')} aria-hidden="true"></i></a>
                                         </Col>
                                         <Col xs={12} sm={4} md={4} lg={4} />
                                     </Row>
@@ -85,6 +88,7 @@ ProjectFeed.propTypes = {
     projects: PropTypes.array,
     feed: PropTypes.object,
     matches: PropTypes.object,
+    makeMatch: PropTypes.func
 };
 
 export default ProjectFeed;

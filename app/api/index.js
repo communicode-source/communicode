@@ -303,6 +303,9 @@ export async function updateProjectStepOne(project) {
         else if(!responseData.msg) {
             throw new Error('Error Creating a New Project');
         }
+        else if(responseData.err === true) {
+            throw new Error('Server error');
+        }
 
         createLocalStorageToken(responseData.msg);
 
@@ -330,6 +333,9 @@ export async function updateProject(project) {
         }
         else if(!responseData.msg) {
             throw new Error('Error Creating a New Project');
+        }
+        else if(responseData.err === true) {
+            throw new Error('Server error');
         }
 
         createLocalStorageToken(responseData.msg);
@@ -607,6 +613,28 @@ export async function getFeedForUser(id) {
 
         if(responseData.msg) {
             createLocalStorageToken(responseData.msg);
+        }
+
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function makeDevMatchAPI(id) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({id: id, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/matchdev', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error(responseData.msg);
         }
 
         return responseData;

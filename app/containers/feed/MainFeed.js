@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getUserFeed } from './../../actions/funcs/feed';
+import { getUserFeed, makeMatch } from './../../actions/funcs/feed';
 import ProjectFeed from '../../components/pages/ProjectFeed';
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onFeedLoad: (user) => dispatch(getUserFeed(user))
+        onFeedLoad: (user) => dispatch(getUserFeed(user)),
+        makeMatch: (object) => dispatch(makeMatch(object))
     };
 };
 

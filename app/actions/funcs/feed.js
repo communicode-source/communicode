@@ -5,3 +5,10 @@ export function getUserFeed() {
         type: types.REQUEST_FEED,
     };
 }
+
+export function makeMatch({id}) {
+    return {
+        type: types.MAKE_MATCH,
+        id
+    };
+};

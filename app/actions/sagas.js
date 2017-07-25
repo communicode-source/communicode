@@ -21,7 +21,8 @@ import { updateProjectStepOne,
     createOrDestroyConnection,
     updateAvatarPhoto,
     updateCoverPhoto,
-    getFeedForUser} from '../api';
+    getFeedForUser,
+    makeDevMatchAPI} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -660,6 +661,16 @@ export function* getUserFeed() {
     }
 }
 
+export function* makeDevMatch(action) {
+    const id = action.id;
+    try {
+        yield call(makeDevMatchAPI, id);
+    }
+    catch(e) {
+        console.log(e);
+    }
+}
+
 
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
@@ -766,6 +777,7 @@ function* watchForNotifs() {
 
 function* watchFeed() {
     yield takeLatest(types.REQUEST_FEED, getUserFeed);
+    yield takeLatest(types.MAKE_MATCH, makeDevMatch);
 }
 
 export default function* rootSaga() {
