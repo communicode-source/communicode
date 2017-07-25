@@ -149,3 +149,11 @@ export function deleteProjectNP(id) {
         id
     };
 };
+
+
+export function toggleFollowingClick(id) {
+    return {
+        type: types.BUTTON_CLICK_TO_CHANGE_FOLLOWING_STATUS,
+        id
+    };
+};

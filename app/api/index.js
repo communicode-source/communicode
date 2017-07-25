@@ -163,6 +163,8 @@ export async function getProfile(url) {
 
         const response = await fetch(API_URL + '/user/profile/' + url, options);
         const responseData = await response.json();
+        options.method = 'POST';
+        options.body = JSON.stringify({token: localStorage.getItem('id_token')});
         const response2 = await fetch(API_URL + '/connection/stats/' + responseData._id, options);
         const responseData2 = await response2.json();
         const returnValue = {...responseData, ...responseData2.msg};
@@ -488,6 +490,27 @@ export async function createCharge(data) {
         const profile = decodeJWT(true);
 
         return profile;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function createOrDestroyConnection(id) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({object: id, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/connection/create', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('Something went wrong');
+        }
+        return responseData.msg;
     }
     catch(e) {
         throw e;
