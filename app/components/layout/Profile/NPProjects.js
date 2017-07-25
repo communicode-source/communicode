@@ -63,7 +63,9 @@ class NPProject extends React.Component {
                                         }
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4}>
-                                        <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
+                                        {(this.props.id === value.nonprofitId && value.isActive === false) &&
+                                            <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
+                                        }
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4} />
                                 </Row>
