@@ -50,7 +50,7 @@ const LoginForm = ( props ) => {
                     <GoogleLogin
                       clientId="42299952850-v2ofgh81ngrahtp8djhh1rf6j65cqgj3.apps.googleusercontent.com"
                       buttonText="Login"
-                      onSuccess={response => { data.accessToken = response.accessToken; data.provider = 'google'; data.tokenId = response.tokenId; }}
+                      onSuccess={response => { data.accessToken = response.accessToken; data.provider = 'google'; data.tokenId = response.tokenId; handleLogin(data, methods);}}
                       onFailure={response => { return response; }}
                       className="btn btn-block btn-google"
                     >
@@ -63,7 +63,7 @@ const LoginForm = ( props ) => {
                     <FacebookLogin
                       appId="164246817399322"
                       fields="name,email,picture"
-                      callback={response => { data.accessToken = response.accessToken; data.user = {name: response.name, email: response.email, userid: response.userID}; data.provider = 'facebook'; }}
+                      callback={response => { data.accessToken = response.accessToken; data.user = {name: response.name, email: response.email, userid: response.userID}; data.provider = 'facebook'; handleLogin(data, methods);}}
                       cssClass="btn btn-block btn-facebook"
                       icon="fa fa-facebook"
                       textButton="&nbsp;&nbsp;Login with Facebook"
