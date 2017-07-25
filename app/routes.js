@@ -18,7 +18,7 @@ import newProjectStepTwo from './components/pages/newProjectStepTwo';
 import newProjectStepThree from './components/pages/newProjectStepThree';
 import newProjectStepFour from './components/pages/newProjectStepFour';
 import newProjectReview from './components/pages/newProjectReview';
-// import ProjectFeed from './containers/ProjectFeedContainer';
+import ProjectFeed from './containers/feed/MainFeed';
 
 export const routes = (
     <Route onUpdate={() => window.scrollTo(0, 0)} path="/" component={App}>
@@ -36,7 +36,7 @@ export const routes = (
             <Route path="/project/step/4" component={newProjectStepFour} />
             <Route path="/project/review" component={newProjectReview} />
             <Route path="/interests" component={Interests} />
-            <Route path="/feed" component={Developers} />
+            <Route path="/me/feed" component={ProjectFeed} />
             <Route path="/me/settings" component={Settings} />
         </Route>
         <Route path="/:url" component={Profile} />

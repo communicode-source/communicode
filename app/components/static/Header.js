@@ -45,6 +45,14 @@ class Header extends React.Component {
             );
         }
 
+        if(isAuthenticated && !this.props.user.profile.accountType) {
+            mainNavContent = (
+                <li className="dropdown">
+                    <Link className={styles.a} to="/me/feed">My Project Feed</Link>
+                </li>
+            );
+        }
+
         return (
             <div>
                 <nav className={headerNavClassnames}>

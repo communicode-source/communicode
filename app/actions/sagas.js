@@ -20,7 +20,8 @@ import { updateProjectStepOne,
     updateProjectToBeDeleted,
     createOrDestroyConnection,
     updateAvatarPhoto,
-    updateCoverPhoto} from '../api';
+    updateCoverPhoto,
+    getFeedForUser} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -641,6 +642,24 @@ export function* loadUserIntoInterests() {
     yield put({type: types.UPDATE_INTERESTS_TO_MATCH_PROFILE, interests: [...user.profile.interests]});
 };
 
+export function* getUserFeed() {
+    try {
+        const state = yield select(getStateUserData);
+        const feed = yield call(getFeedForUser, state.profile._id);
+        yield* handleServerResponse(
+            feed,
+            types.GET_FEED_SUCCESS,
+            types.GET_FEED_FAILURE,
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.GET_FEED_FAILURE
+        });
+    }
+}
+
 
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
@@ -745,6 +764,10 @@ function* watchForNotifs() {
     yield takeLatest(types.UPDATING_SETTINGS_FAILED, addNotification);
 }
 
+function* watchFeed() {
+    yield takeLatest(types.REQUEST_FEED, getUserFeed);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -769,6 +792,7 @@ export default function* rootSaga() {
         watchFinishProjectCreation(),
         watchForUpdatingUserSettings(),
         watchForTypesThatChangeTheUser(),
-        watchForNotifs()
+        watchForNotifs(),
+        watchFeed()
     ];
 }

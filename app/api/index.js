@@ -590,6 +590,32 @@ export async function createOrDestroyConnection(id) {
     }
 }
 
+export async function getFeedForUser(id) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({object: id, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/all', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('Error Getting Feed.');
+        }
+
+        if(responseData.msg) {
+            createLocalStorageToken(responseData.msg);
+        }
+
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);
 }
