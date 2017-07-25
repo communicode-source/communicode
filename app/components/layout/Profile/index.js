@@ -36,8 +36,8 @@ class Profile extends React.Component {
 
     render() {
         let name = this.props.profile.organizationname;
-        let avatarUrl = 'https://source.unsplash.com/random';
-        let coverUrl = 'url(https://source.unsplash.com/random)';
+        let avatarUrl = require('../../../assets/images/profile/avatar.jpg');
+        let coverUrl = `url(${require('../../../assets/images/profile/cover.jpg')})`;
         let socialBar = (<div></div>);
         let main;
 
