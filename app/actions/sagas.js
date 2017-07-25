@@ -463,7 +463,8 @@ export function* updateUserAboutMeSettings() {
     catch(e) {
         yield put({
             type: types.UPDATING_SETTINGS_FAILED,
-            error: e
+            error: e,
+            notif: {classtype: 'error', msg: 'Failed to update About Section :(', time: 6}
         });
     }
 }
@@ -485,7 +486,8 @@ export function* updateUserAboutMeSettingsLinks() {
     catch(e) {
         yield put({
             type: types.UPDATING_SETTINGS_FAILED,
-            error: e
+            error: e,
+            notif: {classtype: 'error', msg: 'Failed to update Social links :(', time: 6}
         });
     }
 }
@@ -507,7 +509,8 @@ export function* updateUserAboutMeSettingsSkills() {
     catch(e) {
         yield put({
             type: types.UPDATING_SETTINGS_FAILED,
-            error: e
+            error: e,
+            notif: {classtype: 'error', msg: 'Failed to update skills :(', time: 2}
         });
     }
 }
@@ -580,6 +583,13 @@ export function* addOrRemoveFollower(action) {
             type: types.FAILED_TO_CHANGE_FOLLOWING_STATUS
         });
     }
+}
+
+export function * addNotification(action) {
+    yield put({
+        type: types.ADD_NOTIF_TO_QUEUE,
+        message: action.notif || action.data.notif
+    });
 }
 
 export function* uploadUserAvatarImage(file) {
@@ -695,6 +705,11 @@ function* watchForTypesThatChangeTheUser() {
     yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, getLoggedInUser);
 }
 
+function* watchForNotifs() {
+    yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, addNotification);
+    yield takeLatest(types.UPDATING_SETTINGS_FAILED, addNotification);
+}
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -718,6 +733,7 @@ export default function* rootSaga() {
         watchCreateNewProjectStep4(),
         watchFinishProjectCreation(),
         watchForUpdatingUserSettings(),
-        watchForTypesThatChangeTheUser()
+        watchForTypesThatChangeTheUser(),
+        watchForNotifs()
     ];
 }

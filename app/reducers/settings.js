@@ -59,6 +59,9 @@ const settings = (state = {
             }
             return {...state, ...dataToSend};
         case types.SETTINGS_SKILL_CHANGE:
+            if(state.skills === null) {
+                return {...state, skills: [action.skill]};
+            }
             const index = state.skills.indexOf(action.skill);
             const skills = [...state.skills];
             if(index === -1) {

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import Header from '../components/static/Header';
 import Footer from '../components/static/Footer';
+import Notifier from '../containers/Notifier';
 import Title from 'react-title-component';
 import {StripeProvider} from 'react-stripe-elements';
 
@@ -36,6 +37,7 @@ class App extends React.Component {
                     <Title render="Communicode"/>
                     <Header user={user} isAuthenticated={isAuthenticated} shouldShowLoginModal={shouldShowLoginModal} showLoginModal={showLoginModal} toggleRegisterModal={toggleRegisterModal} shouldShowRegisterModal={shouldShowRegisterModal}/>
                     <div id={main['content-main']}>
+                        <Notifier />
                         {children}
                         <div className={main.push}/>
                     </div>

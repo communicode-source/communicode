@@ -1,0 +1,49 @@
+@import '../colors';
+div.notification {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 100vw;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 3px;
+    z-index: 99;
+    div {
+        color: white;
+        min-height: 30px;
+        padding: 4px;
+        border-radius: inherit;
+    }
+    div span.smallInfo {
+        font-size: 10px;
+    }
+    div.error {
+        background-color: rgba(175, 38, 0, 1);
+    }
+    div.error:hover {
+        background-color: rgba(175, 38, 0, .3);
+    }
+    div.success {
+        background-color: rgba(0, 99, 24, 1);
+    }
+    div.success:hover {
+        background-color: rgba(0, 99, 24, .3);
+    }
+    div.info {
+        background-color: rgba(255, 180, 46, 1);
+        color: $black;
+    }
+    div.info:hover {
+        background-color: rgba(255, 180, 46, .3);
+        color: black;
+    }
+    i {
+        position: absolute;
+        right: 30px;
+    }
+    div i {
+        margin-top: 3px;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+}

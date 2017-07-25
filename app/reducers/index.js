@@ -13,6 +13,7 @@ import profile from './profile';
 import isAuthenticated from './isAuthenticated';
 import newProject from './newProject';
 import settings from './settings';
+import notifier from './notifier';
 
 const rootReducer = combineReducers({
     user,
@@ -26,7 +27,8 @@ const rootReducer = combineReducers({
     search,
     project,
     settings,
-    profile
+    profile,
+    notifier
 });
 
 export default rootReducer;

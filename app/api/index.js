@@ -364,6 +364,7 @@ export async function updateUserSettings(settings) {
         if(responseData.err === true) {
             throw new Error('Something went wrong');
         }
+        responseData.notif = {msg: 'Successfully updated About portion of settings!', time: 5, classtype: 'info'};
         return responseData;
     }
     catch(e) {
@@ -386,6 +387,7 @@ export async function updateUserSettingsSocials(settings) {
         if(responseData.err === true) {
             throw new Error('Something went wrong');
         }
+        responseData.notif = {msg: 'Successfully updated your social links!', time: 5, classtype: 'info'};
         return responseData;
     }
     catch(e) {
@@ -406,6 +408,7 @@ export async function updateUserSettingsSkills(settings) {
         if(responseData.err === true) {
             throw new Error('Something went wrong');
         }
+        responseData.notif = {msg: 'Successfully updated a skill!', time: 1, classtype: 'info'};
         return responseData;
     }
     catch(e) {
