@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/profile.scss';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 class ProjectFeed extends React.Component {
     constructor(props) {
@@ -24,30 +25,41 @@ class ProjectFeed extends React.Component {
         });
     }
 
+    match(e, userId, nonprofitId, projectId) {
+        e.preventDefault();
+        // this.props.sendMatchRequest();
+    }
+
     render() {
         let projects;
         if(this.props.projects) {
-            console.log(this.props.projects);
             projects = this.props.projects.map((value, key) => {
+                const nonprofiturl = '/' + value.nonprofitId.url;
                 return (
                     <Row className={styles.newProjectRow} key={key}>
                         <Col xs={12} sm={12} md={12} lg={12}>
                             <Row>
-                                <Col xs={12} sm={12} md={3} lg={3}>
+                                <Col xs={12} sm={12} md={2} lg={2}>
                                     <div className={styles.projectType}>
                                         <i className={classNames('fa', 'fa-code')} aria-hidden="true"></i>
                                     </div>
                                 </Col>
-                                <Col xs={12} sm={12} md={9} lg={9}>
+                                <Col xs={12} sm={12} md={10} lg={10}>
                                     <Row>
                                         <Col xs={12} sm={12} md={12} lg={12}>
                                             <h3>{value.title}</h3>
+                                        </Col>
+                                        <Col xs={12} sm={12} md={12} lg={12}>
+                                            <p>Posted By: <Link to={nonprofiturl}>{value.nonprofitId.organizationname}</Link></p>
                                         </Col>
                                         <Col xs={12} sm={12} md={12} lg={12} className={styles.skillsWrapper}>
                                             {this.displaySkills(value.skills)}
                                         </Col>
                                         <Col xs={12} sm={12} md={12} lg={12}>
                                             <p className={styles.description}>{value.description}</p>
+                                        </Col>
+                                        <Col xs={12} sm={4} md={4} lg={4}>
+                                            <a onClick={(e) => { this.match(e, this.props.user.profile._id, value.nonprofitId._id, value._id); }} className={styles.match}>Match Me <i className={classNames('fa', 'fa-heart-o')} aria-hidden="true"></i></a>
                                         </Col>
                                         <Col xs={12} sm={4} md={4} lg={4} />
                                     </Row>
@@ -59,7 +71,7 @@ class ProjectFeed extends React.Component {
             });
         }
         return (
-            <div className={classNames(styles.projectsContainer, 'container')}>
+            <div id={styles.feed} className={classNames(styles.projectsContainer, 'container')}>
                 {projects}
             </div>
         );
@@ -71,7 +83,8 @@ ProjectFeed.propTypes = {
     onFeedLoad: PropTypes.func,
     user: PropTypes.object,
     projects: PropTypes.array,
-    feed: PropTypes.object
+    feed: PropTypes.object,
+    matches: PropTypes.object,
 };
 
 export default ProjectFeed;

@@ -407,6 +407,7 @@ a.editProfile:hover {
 
   .description {
     font-size: 14px;
+    margin-bottom: 20px;
   }
 
   .newProjectRow {
@@ -434,4 +435,14 @@ a.editProfile:hover {
     cursor: pointer;
     margin: 10px 0px;
   }
+
+  .match {
+    border: 1px solid #333;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+}
+
+#feed {
+  max-width: 800px;
 }
