@@ -593,9 +593,10 @@ export function * addNotification(action) {
     });
 }
 
-export function* uploadUserAvatarImage(file) {
+export function* uploadUserAvatarImage(action) {
     try {
-        const update = yield call(updateAvatarPhoto, file);
+        const state = yield select(getStateUserData);
+        const update = yield call(updateAvatarPhoto, {file: action.file, id: state.profile._id});
         yield* handleServerResponse(
             update,
             types.AVATAR_UPLOAD_SUCCESS,

@@ -1,10 +1,7 @@
 import * as types from './../actions/types';
 
 const notifier = (state = {
-    messages: [
-        {msg: 'Testing an error notif, remove me from the notifier reducer', time: 5, classtype: 'error'},
-        {msg: 'Testing an informative notif, that persists until you click the X', time: 0, classtype: 'info'},
-    ]
+    messages: []
 }, action) => {
     const current = [...state.messages];
     switch(action.type) {

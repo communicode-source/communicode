@@ -6,11 +6,6 @@ const jsonHeaders = {
     'Content-Type': 'application/json'
 };
 
-const imageHeaders = {
-    'Accept': 'application/json, application/xml, text/play, text/html, *.*',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-};
-
 export async function registerUser(user) {
     try {
         const options = {
@@ -477,21 +472,35 @@ export async function updateProjectToBeDeleted(id) {
     }
 }
 
-export async function updateAvatarPhoto(file) {
+export async function updateAvatarPhoto(data) {
     try {
+        const formData = new FormData();
+        formData.append('avatar', data.file);
+        formData.append('token', localStorage.getItem('id_token'));
+        formData.append('id', data.id);
+        const headers = {
+            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+        };
         const options = {
             mode: 'cors',
             method: 'POST',
-            headers: imageHeaders,
-            body: JSON.stringify(file)
+            headers: headers,
+            body: formData
         };
 
         const response = await fetch(API_URL + '/user/avatar/upload', options);
-        const responseData = response.json();
+
+        const responseData = await response.json();
         if(responseData.err === true) {
             throw new Error('Something went wrong');
         }
-        return responseData;
+
+        // Save the JWT into local storage
+        createLocalStorageToken(responseData.msg);
+
+        const profile = decodeJWT(true);
+
+        return profile;
     }
     catch(e) {
         throw e;

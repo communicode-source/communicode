@@ -28,12 +28,16 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
+            "global.GENTLY": false,
         }),
     ],
     eslint: {
         configFile: '.eslintrc',
         failOnWarning: false,
         failOnError: false,
+    },
+    node: {
+        __dirname: true,
     },
     module: {
         preLoaders: [

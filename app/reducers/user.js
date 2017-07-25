@@ -154,6 +154,12 @@ const user = (state = {
                 ...state,
                 profile: action.data.msg
             };
+        case types.AVATAR_UPLOAD_SUCCESS:
+            return {
+                ...state,
+                image: action.data.msg.image,
+                profile: action.data.msg
+            };
         default:
             return state;
     }

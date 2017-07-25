@@ -36,6 +36,7 @@ class Profile extends React.Component {
 
     render() {
         let name = this.props.profile.organizationname;
+        let avatarUrl = 'https://source.unsplash.com/random';
         let socialBar = (<div></div>);
         let main;
 
@@ -63,6 +64,10 @@ class Profile extends React.Component {
             main = this.props.children[3];
         }
 
+        if(this.props.profile.image.avatar) {
+            avatarUrl = 'https://storage.googleapis.com/user-profile-avatars/' + this.props.profile.image.avatar;
+        }
+
         if(this.props.profile.socials) {
             socialBar = (<div id={classNames(styles.socials)}>
                 <a href={this.props.profile.socials.facebook} target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i></a>
@@ -76,7 +81,7 @@ class Profile extends React.Component {
             <div>
                 <div id={classNames(styles.header)}>
                     <div id={classNames(styles.headerBg)}></div>
-                    <img src="https://source.unsplash.com/random" className={classNames(styles.profilePic)} />
+                    <img src={avatarUrl} className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
                         {(this.props.userID !== this.props.profile._id && this.props.userID) &&
