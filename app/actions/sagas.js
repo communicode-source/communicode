@@ -665,9 +665,16 @@ export function* makeDevMatch(action) {
     const id = action.id;
     try {
         yield call(makeDevMatchAPI, id);
+        yield put({
+            type: types.MAKE_MATCH_SUCCESS,
+            notif: {msg: 'Made request to work on this project!', time: 3, classtype: 'info'}
+        });
     }
     catch(e) {
-        console.log(e);
+        yield put({
+            type: types.MAKE_MATCH_FAILED,
+            notif: {msg: 'Failed, maybe someone beat you to it, try again later!', time: 3, classtype: 'error'}
+        });
     }
 }
 
@@ -773,6 +780,8 @@ function* watchForTypesThatChangeTheUser() {
 function* watchForNotifs() {
     yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, addNotification);
     yield takeLatest(types.UPDATING_SETTINGS_FAILED, addNotification);
+    yield takeLatest(types.MAKE_MATCH_FAILED, addNotification);
+    yield takeLatest(types.MAKE_MATCH_SUCCESS, addNotification);
 }
 
 function* watchFeed() {
