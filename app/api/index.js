@@ -507,6 +507,40 @@ export async function updateAvatarPhoto(data) {
     }
 }
 
+export async function updateCoverPhoto(data) {
+    try {
+        const formData = new FormData();
+        formData.append('cover', data.file);
+        formData.append('token', localStorage.getItem('id_token'));
+        formData.append('id', data.id);
+        const headers = {
+            'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+        };
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: headers,
+            body: formData
+        };
+
+        const response = await fetch(API_URL + '/user/cover/upload', options);
+
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('Something went wrong');
+        }
+
+        // Save the JWT into local storage
+        createLocalStorageToken(responseData.msg);
+
+        const profile = decodeJWT(true);
+
+        return profile;
+    }
+    catch(e) {
+        throw e;
+    }
+}
 
 export async function createCharge(data) {
     try {

@@ -1,22 +1,21 @@
 import { connect } from 'react-redux';
-import { uploadProfileImage } from './../../actions/funcs/settings';
-import ProfilePictureUpload from '../../components/layout/Settings/ProfilePictureUpload';
+import { overlayCoverUpload } from './../../actions/funcs/overlay';
+import CoverPhoto from './../../components/layout/Settings/CoverPhoto';
 
 const mapStateToProps = (state) => {
     return {
         user: state.user,
-        settings: state.settings,
         error: state.user.error,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClickProfileUpload: (file) => dispatch(uploadProfileImage(file))
+        onOverlayCoverImage: (shouldShowModal) => dispatch(overlayCoverUpload(shouldShowModal))
     };
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ProfilePictureUpload);
+)(CoverPhoto);

@@ -19,7 +19,8 @@ import { updateProjectStepOne,
     createCharge,
     updateProjectToBeDeleted,
     createOrDestroyConnection,
-    updateAvatarPhoto} from '../api';
+    updateAvatarPhoto,
+    updateCoverPhoto} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -611,6 +612,24 @@ export function* uploadUserAvatarImage(action) {
     }
 }
 
+export function* uploadUserCoverImage(action) {
+    try {
+        const state = yield select(getStateUserData);
+        const update = yield call(updateCoverPhoto, {file: action.file, id: state.profile._id});
+        yield* handleServerResponse(
+            update,
+            types.COVER_UPLOAD_SUCCESS,
+            types.COVER_UPLOAD_FAILED,
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.COVER_UPLOAD_FAILED
+        });
+    }
+}
+
 export function* loadUserSettingsToSettings() {
     const user = yield select(getStateUserData);
     yield put({type: types.UPDATE_USER_SETTINGS_TO_MATCH_PROFILE, data: {...user.profile}});
@@ -714,6 +733,7 @@ function* watchForUpdatingUserSettings() {
     yield takeLatest(types.LOAD_SKILLS_INTO_DB, updateUserAboutMeSettingsSkills);
     yield takeLatest(types.LOADING_USER_INFO_INTO_THE_SETTINGS, loadUserSettingsToSettings);
     yield takeLatest(types.UPLOAD_AVATAR_IMAGE, uploadUserAvatarImage);
+    yield takeLatest(types.UPLOAD_COVER_IMAGE, uploadUserCoverImage);
 }
 
 function* watchForTypesThatChangeTheUser() {

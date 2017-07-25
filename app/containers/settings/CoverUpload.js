@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { uploadProfileImage } from './../../actions/funcs/settings';
-import ProfilePictureUpload from '../../components/layout/Settings/ProfilePictureUpload';
+import { uploadCoverImage } from './../../actions/funcs/settings';
+import CoverPhotoUpload from '../../components/layout/Settings/CoverPhotoUpload';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,11 +12,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onClickProfileUpload: (file) => dispatch(uploadProfileImage(file))
+        onClickCoverUpload: (file) => dispatch(uploadCoverImage(file))
     };
 };
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ProfilePictureUpload);
+)(CoverPhotoUpload);

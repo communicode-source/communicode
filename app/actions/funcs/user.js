@@ -150,13 +150,6 @@ export function deleteProjectNP(id) {
     };
 };
 
-export function uploadProfileImage(file) {
-    return {
-        type: types.UPLOAD_AVATAR_IMAGE,
-        file
-    };
-}
-
 export function toggleFollowingClick(id) {
     return {
         type: types.BUTTON_CLICK_TO_CHANGE_FOLLOWING_STATUS,

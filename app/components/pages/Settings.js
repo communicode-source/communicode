@@ -17,6 +17,7 @@ import URL from './../../containers/settings/URL';
 import Skills from './../../containers/settings/Skills';
 import Interests from './../../containers/settings/Interests';
 import AvatarPhoto from './../../containers/settings/AvatarPhoto';
+import CoverPhoto from './../../containers/settings/CoverPhoto';
 // import ProfilePictureUpload from './../../containers/settings/ProfilePictureUploadContainer';
 import styles from './../../assets/css/pages/settings.scss';
 import classNames from 'classnames';
@@ -27,7 +28,7 @@ class SettingsPage extends React.Component {
         return (
             <div>
                 <div id={classNames(styles.header)}>
-                    <div id={classNames(styles.headerBg)} />
+                    <CoverPhoto />
                     <AvatarPhoto />
                     <Header />
                 </div>

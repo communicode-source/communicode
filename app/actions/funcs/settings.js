@@ -126,3 +126,17 @@ export function updateUrl(url) {
         url
     };
 };
+
+export function uploadProfileImage(file) {
+    return {
+        type: types.UPLOAD_AVATAR_IMAGE,
+        file
+    };
+}
+
+export function uploadCoverImage(file) {
+    return {
+        type: types.UPLOAD_COVER_IMAGE,
+        file
+    };
+}

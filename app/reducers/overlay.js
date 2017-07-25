@@ -4,7 +4,8 @@ const overlay = (state = {
     shouldShowLoginModal: false,
     shouldShowRegisterModal: false,
     shouldShowNameModal: true,
-    shouldShowPortfolioCreateModal: false
+    shouldShowPortfolioCreateModal: false,
+    shouldShowCoverImageModal: false
 }, action) => {
     switch (action.type) {
         case types.OVERLAY_LOGIN_MODAL:
@@ -40,6 +41,21 @@ const overlay = (state = {
             return {
                 ...state,
                 shouldShowAvatarImageModal: action.data
+            };
+        case types.AVATAR_UPLOAD_SUCCESS:
+            return {
+                ...state,
+                shouldShowAvatarImageModal: false
+            };
+        case types.OVERLAY_COVER_IMAGE_MODAL:
+            return {
+                ...state,
+                shouldShowCoverImageModal: action.data
+            };
+        case types.COVER_UPLOAD_SUCCESS:
+            return {
+                ...state,
+                shouldShowCoverImageModal: false
             };
         case types.OVERLAY_REGISTER_MODAL:
             return {...state, shouldShowRegisterModal: state.shouldShowRegisterModal === false};

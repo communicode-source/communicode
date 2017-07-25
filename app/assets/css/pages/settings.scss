@@ -32,11 +32,13 @@ a:hover {
     width: 100vw;
     text-align: center;
     #headerBg {
-        background: url("https://source.unsplash.com/random") center center fixed;
-        background-size: cover;
+        background-attachment: fixed !important;
+        background-position: center center !important;
+        background-size: cover !important;
         //background-color: red;
         height: 150px;
         width: 100%;
+        cursor: pointer;
         // margin-top: 20px;
     }
 
@@ -48,6 +50,7 @@ a:hover {
       margin-top: -65px;
       background-size: cover !important;
       border-radius: 50%;
+      cursor: pointer;
     }
 
     #info {
