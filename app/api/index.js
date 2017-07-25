@@ -7,8 +7,8 @@ const jsonHeaders = {
 };
 
 const imageHeaders = {
-    'Accept': 'application/json',
-    'Content-Type': 'multipart/form-data',
+    'Accept': 'application/json, application/xml, text/play, text/html, *.*',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
 };
 
 export async function registerUser(user) {
@@ -474,13 +474,13 @@ export async function updateProjectToBeDeleted(id) {
     }
 }
 
-export async function updateAvatarPhoto(id, file) {
+export async function updateAvatarPhoto(file) {
     try {
         const options = {
             mode: 'cors',
-            method: 'PUT',
+            method: 'POST',
             headers: imageHeaders,
-            body: file
+            body: JSON.stringify(file)
         };
 
         const response = await fetch(API_URL + '/user/avatar/upload', options);
