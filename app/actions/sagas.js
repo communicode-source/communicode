@@ -563,6 +563,23 @@ export function* deleteProjectForNP(action) {
     }
 }
 
+export function* uploadUserAvatarImage(action) {
+    try {
+        const update = yield call(updateProjectToBeDeleted, action.file);
+        yield* handleServerResponse(
+            update,
+            types.AVATAR_UPLOAD_SUCCESS,
+            types.AVATAR_UPLOAD_FAILED,
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: 'Failed'
+        });
+    }
+}
+
 export function* loadUserSettingsToSettings() {
     const user = yield select(getStateUserData);
     yield put({type: types.UPDATE_USER_SETTINGS_TO_MATCH_PROFILE, data: {...user.profile}});
@@ -659,12 +676,12 @@ function* watchFinishProjectCreation() {
     yield takeEvery(types.FINISH_REVIEW_PROJECT_BUTTON_PRESS, finishCreateProject);
 }
 
-
 function* watchForUpdatingUserSettings() {
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_ABOUT_ME_CLICK, updateUserAboutMeSettings);
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_SOCIALS_CLICK, updateUserAboutMeSettingsLinks);
     yield takeLatest(types.LOAD_SKILLS_INTO_DB, updateUserAboutMeSettingsSkills);
     yield takeLatest(types.LOADING_USER_INFO_INTO_THE_SETTINGS, loadUserSettingsToSettings);
+    yield takeLatest(types.UPLOAD_AVATAR_IMAGE, uploadUserAvatarImage);
 }
 
 function* watchForTypesThatChangeTheUser() {

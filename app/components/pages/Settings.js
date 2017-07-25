@@ -16,6 +16,8 @@ import Orgname from './../../containers/settings/Orgname';
 import URL from './../../containers/settings/URL';
 import Skills from './../../containers/settings/Skills';
 import Interests from './../../containers/settings/Interests';
+import AvatarPhoto from './../../containers/settings/AvatarPhoto';
+// import ProfilePictureUpload from './../../containers/settings/ProfilePictureUploadContainer';
 import styles from './../../assets/css/pages/settings.scss';
 import classNames from 'classnames';
 import {Form} from 'react-bootstrap';
@@ -26,7 +28,7 @@ class SettingsPage extends React.Component {
             <div>
                 <div id={classNames(styles.header)}>
                     <div id={classNames(styles.headerBg)} />
-                    <div style={{background: 'url(https://source.unsplash.com/random)'}} className={classNames(styles.avatarContainer, styles.red)} />
+                    <AvatarPhoto />
                     <Header />
                 </div>
                 <div id={styles.about}>

@@ -6,6 +6,11 @@ const jsonHeaders = {
     'Content-Type': 'application/json'
 };
 
+const imageHeaders = {
+    'Accept': 'application/json',
+    'Content-Type': 'multipart/form-data',
+};
+
 export async function registerUser(user) {
     try {
         const options = {
@@ -466,6 +471,28 @@ export async function updateProjectToBeDeleted(id) {
         throw e;
     }
 }
+
+export async function updateAvatarPhoto(id, file) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: imageHeaders,
+            body: file
+        };
+
+        const response = await fetch(API_URL + '/user/avatar/upload', options);
+        const responseData = response.json();
+        if(responseData.err === true) {
+            throw new Error('Something went wrong');
+        }
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
 
 export async function createCharge(data) {
     try {

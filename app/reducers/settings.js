@@ -19,6 +19,7 @@ const settings = (state = {
     lname: '',
     organizationname: '',
     url: '',
+    file: '',
     errors: [],
 }, action) => {
     switch(action.type) {

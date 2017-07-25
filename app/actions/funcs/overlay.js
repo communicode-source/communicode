@@ -39,3 +39,17 @@ export function overlayPortfolioCreateModal(shouldShowModal) {
         data: shouldShowModal
     };
 }
+
+export function overlayAvatarUpload(shouldShowModal) {
+    return {
+        type: types.OVERLAY_AVATAR_IMAGE_MODAL,
+        data: shouldShowModal
+    };
+}
+
+export function overlayCoverUpload(shouldShowModal) {
+    return {
+        type: types.OVERLAY_COVER_IMAGE_MODAL,
+        data: shouldShowModal
+    };
+}

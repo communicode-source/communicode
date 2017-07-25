@@ -149,3 +149,10 @@ export function deleteProjectNP(id) {
         id
     };
 };
+
+export function uploadProfileImage(file) {
+    return {
+        type: types.UPLOAD_AVATAR_IMAGE,
+        file
+    };
+}

@@ -36,6 +36,11 @@ const overlay = (state = {
                 ...state,
                 shouldShowPortfolioCreateModal: action.data
             };
+        case types.OVERLAY_AVATAR_IMAGE_MODAL:
+            return {
+                ...state,
+                shouldShowAvatarImageModal: action.data
+            };
         case types.OVERLAY_REGISTER_MODAL:
             return {...state, shouldShowRegisterModal: state.shouldShowRegisterModal === false};
         default:
