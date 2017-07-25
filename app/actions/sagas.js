@@ -22,7 +22,8 @@ import { updateProjectStepOne,
     updateAvatarPhoto,
     updateCoverPhoto,
     getFeedForUser,
-    makeDevMatchAPI} from '../api';
+    makeDevMatchAPI,
+    getCompleteProject} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -678,6 +679,24 @@ export function* makeDevMatch(action) {
     }
 }
 
+export function* getProject(action) {
+    const id = action.id;
+    try {
+        const state = yield select(getStateUserData);
+        const feed = yield call(getCompleteProject, {id: state.profile._id, projectId: id});
+        yield* handleServerResponse(
+            feed,
+            types.REQUEST_COMPLETED_PROJECT_SUCCESS,
+            types.REQUEST_COMPLETED_PROJECT_FAILED,
+            'Failed, sorry!'
+        );
+    }
+    catch(e) {
+        yield put({
+            type: types.REQUEST_COMPLETED_PROJECT_FAILED
+        });
+    }
+}
 
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
@@ -789,6 +808,11 @@ function* watchFeed() {
     yield takeLatest(types.MAKE_MATCH, makeDevMatch);
 }
 
+function* watchComplete() {
+    yield takeLatest(types.REQUEST_COMPLETED_PROJECT, getProject);
+}
+
+
 export default function* rootSaga() {
     yield [
         watchRegisterNewUser(),
@@ -814,6 +838,7 @@ export default function* rootSaga() {
         watchForUpdatingUserSettings(),
         watchForTypesThatChangeTheUser(),
         watchForNotifs(),
-        watchFeed()
+        watchFeed(),
+        watchComplete()
     ];
 }

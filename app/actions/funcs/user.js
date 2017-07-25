@@ -156,3 +156,10 @@ export function toggleFollowingClick(id) {
         id
     };
 };
+
+export function getCompletedProjects(id) {
+    return {
+        type: types.REQUEST_COMPLETED_PROJECT,
+        id
+    };
+};
