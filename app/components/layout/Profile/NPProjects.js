@@ -70,9 +70,9 @@ class NPProject extends React.Component {
                                             <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
                                         }
                                     </Col>
-                                    {value.matched === true &&
+                                    {(value.matched === true && value.isCompleted === false) &&
                                         <Col xs={12} sm={12} md={12} lg={12}>
-                                            <h4>Its a match! Check out their profile and whether or not to accept them!</h4>
+                                            <h4>{`${value.potential.fname} ${value.potential.lname} wants to match with you!`}</h4>
                                             <Col xs={12} sm={4} md={4} lg={4}>
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, true)}>Accept!</p>
                                             </Col>
