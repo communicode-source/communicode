@@ -20,7 +20,7 @@ class CompletedCheckoutForm extends React.Component {
         try {
             const card = this.props.stripe.elements();
             const { token } = await this.props.stripe.createToken(card);
-            this.props.deposit(token);
+            this.props.submit(token);
         }
         catch(err) {
             throw err;
@@ -41,8 +41,7 @@ class CompletedCheckoutForm extends React.Component {
 
 CompletedCheckoutForm.propTypes = {
     stripe: PropTypes.object,
-    deposit: PropTypes.func,
-    price: PropTypes.string
+    submit: PropTypes.func
 };
 
 export default injectStripe(CompletedCheckoutForm);

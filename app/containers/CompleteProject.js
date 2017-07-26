@@ -1,19 +1,21 @@
 import { connect } from 'react-redux';
-import { makeDeposit, getCompletedProjects } from './../actions/funcs/user';
+import { makeDeposit, getCompletedProjects, requestPayment } from './../actions/funcs/user';
 import CompleteProject from '../components/pages/CompleteProject';
 
 const mapStateToProps = (state, props) => {
     return {
         user: state.user,
         error: state.user.error,
-        projectId: props.param.id
+        projectId: props.params.id,
+        project: state.project.cproject
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         deposit: (user) => dispatch(makeDeposit(user)),
-        onGetComplete: (id) => dispatch(getCompletedProjects(id))
+        onGetComplete: (id) => dispatch(getCompletedProjects(id)),
+        requestPayment: (id, token) => dispatch(requestPayment(id, token))
     };
 };
 

@@ -25,7 +25,8 @@ import { updateProjectStepOne,
     makeDevMatchAPI,
     getCompleteProject,
     npMakedecision,
-    finishVolunteerProject} from '../api';
+    finishVolunteerProject,
+    getPaidForProject} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -737,6 +738,23 @@ export function* finishVolunteer() {
     }
 }
 
+export function* getPaid(action) {
+    try {
+        yield call(getPaidForProject, {id: action.id, stripeToken: action.token});
+        yield put({
+            type: types.REQUEST_COMPLETED_PROJECT_PAYMENT_SUCCESS,
+            notif: {msg: 'Successful payout, you should see the result within the next day or two', time: 5, classtype: 'info'},
+            id: action.id
+        });
+    }
+    catch(e) {
+        yield put({
+            type: types.REQUEST_COMPLETED_PROJECT_PAYMENT_FAIL,
+            notif: {msg: e.message, time: 5, classtype: 'error'}
+        });
+    }
+}
+
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
 }
@@ -852,6 +870,8 @@ function* watchFeed() {
 
 function* watchComplete() {
     yield takeLatest(types.REQUEST_COMPLETED_PROJECT, getProject);
+    yield takeLatest(types.REQUEST_COMPLETED_PROJECT_PAYMENT_SUCCESS, getProject);
+    yield takeLatest(types.REQUEST_COMPLETED_PROJECT_PAYMENT, getPaid);
 }
 
 

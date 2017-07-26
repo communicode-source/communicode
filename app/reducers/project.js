@@ -9,6 +9,11 @@ const project = (state = {
                 ...state,
                 newProjectName: action.data
             };
+        case types.REQUEST_COMPLETED_PROJECT_SUCCESS:
+            return {
+                ...state,
+                cproject: action.data
+            };
         default:
             return state;
     }

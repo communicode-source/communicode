@@ -8,7 +8,7 @@ class CompletedCheckout extends React.Component {
     render() {
         return (
             <Elements>
-                <CheckoutForm deposit={this.props.deposit} price={this.props.price}/>
+                <CheckoutForm submit={this.props.submit}/>
             </Elements>
         );
     }
@@ -16,7 +16,7 @@ class CompletedCheckout extends React.Component {
 
 CompletedCheckout.propTypes = {
     stripe: PropTypes.object,
-    deposit: PropTypes.func,
+    submit: PropTypes.func,
     price: PropTypes.string
 };
 

@@ -9,7 +9,9 @@ body {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+.createProjectWrapper label {
+  display: block !important;
+}
 a,
 p {
     color: $black;
