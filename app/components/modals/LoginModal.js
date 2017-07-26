@@ -34,7 +34,7 @@ class LoginModal extends React.Component {
                     <Modal.Title>Login to Communicode</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <LoginForm methods={{onLoginFacebook, onLoginGoogle, onLoginLocal}} error={error} />
+                    <LoginForm onOverlayLoginModal={this.props.onOverlayLoginModal} methods={{onLoginFacebook, onLoginGoogle, onLoginLocal}} error={error} />
                 </Modal.Body>
             </Modal>
         );

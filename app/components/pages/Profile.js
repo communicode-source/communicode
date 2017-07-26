@@ -13,7 +13,7 @@ class ProfilePage extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="container-fluid">
                 <Profile params={this.props.params}>
                     <About/>
                     <Projects/>

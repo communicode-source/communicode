@@ -27,8 +27,8 @@ import {Form} from 'react-bootstrap';
 class SettingsPage extends React.Component {
     render() {
         return (
-            <div>
-                <div id={classNames(styles.header)}>
+            <div className="container-fluid">
+                <div className="row" id={classNames(styles.header)}>
                     <CoverPhoto />
                     <AvatarPhoto />
                     <Header />

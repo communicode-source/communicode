@@ -3,6 +3,8 @@ import * as classes from '../../../assets/classes/LoginModal';
 import * as rules from '../../../rules';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import { Link } from 'react-router';
+
 
 const handleLogin = (data, methods) => {
     if(data.provider === 'local') {
@@ -50,9 +52,9 @@ const LoginForm = ( props ) => {
                     <GoogleLogin
                       clientId="42299952850-v2ofgh81ngrahtp8djhh1rf6j65cqgj3.apps.googleusercontent.com"
                       buttonText="Login"
-                      onSuccess={response => { data.accessToken = response.accessToken; data.provider = 'google'; data.tokenId = response.tokenId; handleLogin(data, methods);}}
+                      onSuccess={response => { data.accessToken = response.acessToken; data.provider = 'google'; data.tokenId = response.tokenId; handleLogin(data, methods);}}
                       onFailure={response => { return response; }}
-                      className="btn btn-block btn-google"
+                      className="btn btn-block btn-social btn-google"
                     >
                         <span className="fa fa-google"/>&nbsp;&nbsp;Login with Google
                     </GoogleLogin>
@@ -64,7 +66,7 @@ const LoginForm = ( props ) => {
                       appId="164246817399322"
                       fields="name,email,picture"
                       callback={response => { data.accessToken = response.accessToken; data.user = {name: response.name, email: response.email, userid: response.userID}; data.provider = 'facebook'; handleLogin(data, methods);}}
-                      cssClass="btn btn-block btn-facebook"
+                      cssClass="btn btn-block btn-social btn-facebook"
                       icon="fa fa-facebook"
                       textButton="&nbsp;&nbsp;Login with Facebook"
                       />
@@ -93,13 +95,16 @@ const LoginForm = ( props ) => {
             <div className="login-submit-button row">
                 <button onClick={() => handleLogin(data, methods)} type="submit" className={classes.SUBMIT_BUTTON}>Let's change the World!</button>
             </div>
+
+            <Link onClick={() => { this.props.onOverlayLoginModal(false); }} className={classes.FORGOT_PASSWORD} to="/forgot">Forgot Password?</Link>
         </div>
     );
 };
 
 LoginForm.propTypes = {
     methods: PropTypes.object,
-    error: PropTypes.string
+    error: PropTypes.string,
+    onOverlayLoginModal: PropTypes.func
 };
 
 export default LoginForm;

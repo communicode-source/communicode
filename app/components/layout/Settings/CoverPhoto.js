@@ -12,7 +12,7 @@ class AvatarPhoto extends React.Component {
     }
 
     render() {
-        let url = 'url(https://source.unsplash.com/random)';
+        let url = `url(${require('../../../assets/images/profile/cover.jpg')})`;
         if(this.props.user.profile.image && this.props.user.profile.image.cover) {
             url = `url(https://storage.googleapis.com/user-profile-cover/${this.props.user.profile.image.cover})`;
         }

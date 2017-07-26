@@ -36,7 +36,7 @@ const RegisterForm = ( props ) => {
                       buttonText="Login"
                       onSuccess={response => { handleUpdateProvider('google', response, onUpdateProvider); }}
                       onFailure={response => { return response; }}
-                      className="btn btn-block btn-google"
+                      className="btn btn-block btn-social btn-google"
                     >
                         <span className="fa fa-google"/>&nbsp;&nbsp;Register with Google
                     </GoogleLogin>
@@ -49,7 +49,7 @@ const RegisterForm = ( props ) => {
                       appId="164246817399322"
                       fields="name,email,picture"
                       callback={response => { handleUpdateProvider('facebook', response, onUpdateProvider);  }}
-                      cssClass="btn btn-block btn-facebook"
+                      cssClass="btn btn-block btn-social btn-facebook"
                       icon="fa fa-facebook"
                       textButton="&nbsp;&nbsp;Register with Facebook"
                       />

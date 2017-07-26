@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import { Link } from 'react-router';
+import { Row } from 'react-bootstrap';
 
 class Profile extends React.Component {
     constructor(props) {
@@ -89,8 +90,8 @@ class Profile extends React.Component {
 
         return (
             <div>
-                <div id={classNames(styles.header)}>
-                    <div style={{background: coverUrl}} id={classNames(styles.headerBg)}></div>
+                <Row id={classNames(styles.header)}>
+                    <div style={{background: coverUrl}} id={classNames(styles.headerBg)} />
                     <img src={avatarUrl} className={classNames(styles.profilePic)} />
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
@@ -121,7 +122,7 @@ class Profile extends React.Component {
                         </div>
                         {socialBar}
                     </div>
-                </div>
+                </Row>
                 <div id={classNames(styles.linkNav)}>
                     <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'About') ? styles.active : styles.inactive)} id={classNames(styles.abtLnk)}>About</h5>
                     {this.props.profile.accountType === false && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Reviews') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Reviews</h5>}

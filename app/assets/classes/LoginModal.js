@@ -35,4 +35,5 @@ export const LEFT_SIDE       = classNames(modal.leftSide);
 export const SOCIAL_CONTAINER   = classNames('col-md-12', modal['social-container']);
 export const SOCIAL_CONTAINER_2 = classNames('col-md-12', modal['social-container'], modal['social-container-2']);
 
-export const SUBMIT_BUTTON = classNames('col-md-12', main['primary-btn']);
+export const SUBMIT_BUTTON   = classNames('col-md-12', main['primary-btn']);
+export const FORGOT_PASSWORD = classNames('text-center', modal.forgot);
