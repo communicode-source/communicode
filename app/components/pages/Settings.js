@@ -15,6 +15,7 @@ import LastName from './../../containers/settings/LastName';
 import Orgname from './../../containers/settings/Orgname';
 import URL from './../../containers/settings/URL';
 import Skills from './../../containers/settings/Skills';
+import DevOnly from './../../containers/universal/ifDevOnly';
 import Interests from './../../containers/settings/Interests';
 import AvatarPhoto from './../../containers/settings/AvatarPhoto';
 import CoverPhoto from './../../containers/settings/CoverPhoto';
@@ -43,8 +44,10 @@ class SettingsPage extends React.Component {
                             <URL />
                             <Biography />
                             <Location />
-                            <Occupation />
-                            <Education />
+                            <DevOnly>
+                                <Occupation />
+                                <Education />
+                            </DevOnly>
                             <AboutButton />
                         </Form>
                     </div>
@@ -59,11 +62,13 @@ class SettingsPage extends React.Component {
                             <SocialMediaButton />
                         </Form>
                     </div>
-                    <div className={styles.item}>
-                        <h3>Skills</h3>
-                        <hr />
-                        <Skills />
-                    </div>
+                    <DevOnly>
+                        <div className={styles.item}>
+                            <h3>Skills</h3>
+                            <hr />
+                            <Skills />
+                        </div>
+                    </DevOnly>
                     <div className={styles.item}>
                         <h3>Interests</h3>
                         <hr />

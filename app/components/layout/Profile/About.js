@@ -28,16 +28,28 @@ class About extends React.Component {
     render() {
         let interests = (<p key="loading" className={classNames(styles.button)}>Loading...</p>);
         let skills;
-        let aboutBlock = (
-            <div>
-                <p>{this.props.biography || `${this.props.fname || 'Mr. Mysterious'} has not updated their bio yet.`}</p>
-                <div className={classNames(styles.moreinfo)}>
-                    <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {(this.props.location && this.props.location.map && this.props.location[0]) ? this.props.location[0] + ', ' + this.props.location[1] : `${this.props.fname || 'Mr. Mysterious'} has not updated this, that or they or in hiding...`}</p>
-                    <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.props.job || `${this.props.fname || 'Mr. Mysterious'} has no job, or is working undercover`}</p>
+        let aboutBlock;
+        if(this.props.accountType === false) {
+            aboutBlock = (
+                <div>
+                    <p>{this.props.biography || `${this.props.fname || 'Mr. Mysterious'} has not updated their bio yet.`}</p>
+                    <div className={classNames(styles.moreinfo)}>
+                        <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {(this.props.location && this.props.location.map && this.props.location[0]) ? this.props.location[0] + ', ' + this.props.location[1] : `${this.props.fname || 'Mr. Mysterious'} has not updated this yet.`}</p>
+                        <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.props.job || `${this.props.fname || 'Mr. Mysterious'} has no job.`}</p>
+                    </div>
                 </div>
-            </div>
-        );
-
+            );
+        }
+        else {
+            aboutBlock = (
+                <div>
+                    <p>{this.props.biography || `${this.props.fname || 'Unknown Org'} has not updated their mission yet.`}</p>
+                    <div className={classNames(styles.moreinfo)}>
+                        <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {(this.props.location && this.props.location.map && this.props.location[0]) ? this.props.location[0] + ', ' + this.props.location[1] : `${this.props.fname || 'Unknown Org'} has not updated this yet.`}</p>
+                    </div>
+                </div>
+            );
+        }
         if(this.props.interests) {
             interests = this.buildInterests.call(this);
         }
@@ -62,13 +74,15 @@ class About extends React.Component {
                     {aboutBlock || null}
                     <br />
                 </div>
-                <div className={classNames(styles.item)}>
-                    <h3>Skills</h3>
-                    <hr />
-                    <div className={classNames(styles.btns)}>
-                        {skills || null}
+                { (this.props.accountType === false) &&
+                    <div className={classNames(styles.item)}>
+                        <h3>Skills</h3>
+                        <hr />
+                        <div className={classNames(styles.btns)}>
+                            {skills || null}
+                        </div>
                     </div>
-                </div>
+                }
                 <div className={classNames(styles.item)}>
                     <h3>Interests</h3>
                     <hr />
@@ -89,6 +103,7 @@ About.propTypes = {
     location: PropTypes.array,
     job: PropTypes.string,
     fname: PropTypes.string,
+    accountType: PropTypes.bool
 };
 
 
