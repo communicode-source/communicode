@@ -671,6 +671,28 @@ export async function getCompleteProject(data) {
         if(responseData.msg) {
             createLocalStorageToken(responseData.msg);
         }
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function getPaidForProject({id, stripeToken}) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({id: id, stripeToken: stripeToken, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/payout', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('Error Getting Feed.');
+        }
+
 
         return responseData;
     }
