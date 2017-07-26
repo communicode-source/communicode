@@ -24,6 +24,12 @@ export async function registerUser(user) {
         else if(responseData === 102) {
             throw new Error('Problem creating user.');
         }
+        else if(responseData === 103) {
+            throw new Error('Password must be six characters');
+        }
+        else if(responseData === 105) {
+            throw new Error('Invalid email');
+        }
         else if(!responseData.msg) {
             throw new Error('Try logging in using that information.');
         }
@@ -254,6 +260,9 @@ export async function returnPasswordToAPIForRecovery(jwt, password) {
         }
         else if(responseData === '612') {
             throw new Error('No account with that email');
+        }
+        else if(responseData === '615') {
+            throw new Error('Password must be at least six characters.');
         }
         else if(responseData.err !== false) {
             throw new Error('Server error, try again later');

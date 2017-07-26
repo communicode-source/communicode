@@ -677,6 +677,9 @@ export function* makeDevMatch(action) {
             notif: {msg: 'Failed, maybe someone beat you to it, try again later!', time: 3, classtype: 'error'}
         });
     }
+    yield put({
+        type: types.REQUEST_FEED,
+    });
 }
 
 export function* getProject(action) {

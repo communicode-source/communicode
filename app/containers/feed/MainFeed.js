@@ -7,7 +7,8 @@ const mapStateToProps = (state) => {
         user: state.user,
         error: state.user.error,
         projects: state.feed.projects,
-        feed: state.feed
+        feed: state.feed,
+        userid: state.user.profile._id
     };
 };
 
