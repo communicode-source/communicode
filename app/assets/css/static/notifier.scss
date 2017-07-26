@@ -5,7 +5,7 @@ div.notification {
     left: 0px;
     width: 100vw;
     text-align: center;
-    font-size: 24px;
+    font-size: 18px;
     border-radius: 3px;
     z-index: 99;
     div {
@@ -15,35 +15,39 @@ div.notification {
         border-radius: inherit;
     }
     div span.smallInfo {
-        font-size: 10px;
+        font-size: 16px;
     }
     div.error {
         background-color: rgba(175, 38, 0, 1);
     }
     div.error:hover {
-        background-color: rgba(175, 38, 0, .3);
+        background-color: rgba(175, 38, 0, .6);
     }
     div.success {
         background-color: rgba(0, 99, 24, 1);
     }
     div.success:hover {
-        background-color: rgba(0, 99, 24, .3);
+        background-color: rgba(0, 99, 24, .6);
     }
     div.info {
         background-color: rgba(255, 180, 46, 1);
         color: $black;
     }
     div.info:hover {
-        background-color: rgba(255, 180, 46, .3);
+        background-color: rgba(255, 180, 46, .6);
         color: black;
     }
     i {
         position: absolute;
         right: 30px;
     }
-    div i {
-        margin-top: 3px;
+    div p i {
         border-radius: 100%;
         cursor: pointer;
+        font-size: 20px;
+    }
+
+    div p {
+      padding: 15px 0px 5px 0px;
     }
 }

@@ -57,14 +57,16 @@ class NPProject extends React.Component {
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
-                                    <Col xs={12} sm={4} md={4} lg={4}>
-                                        {(this.props.id === value.nonprofitId && value.isCompleted === false && value.confirmed === true) &&
-                                            <p className={styles.needsCompletion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Mark Complete</p>
-                                        }
-                                        {(this.props.id === value.nonprofitId && value.isCompleted === true) &&
-                                            <p className={styles.completion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}><i className={classNames('fa', 'fa-check')} aria-hidden="true"></i> Completed</p>
-                                        }
-                                    </Col>
+                                    {value.isDraft !== false &&
+                                        <Col xs={12} sm={4} md={4} lg={4}>
+                                            {(this.props.id === value.nonprofitId && value.isCompleted === false && value.confirmed === true) &&
+                                                <p className={styles.needsCompletion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Mark Complete</p>
+                                            }
+                                            {(this.props.id === value.nonprofitId && value.isCompleted === true) &&
+                                                <p className={styles.completion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}><i className={classNames('fa', 'fa-check')} aria-hidden="true"></i> Completed</p>
+                                            }
+                                        </Col>
+                                    }
                                     <Col xs={12} sm={4} md={4} lg={4}>
                                         {(this.props.id === value.nonprofitId && value.matched === false && value.confirmed === false) &&
                                             <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
@@ -77,7 +79,7 @@ class NPProject extends React.Component {
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, true)}>Accept!</p>
                                             </Col>
                                             <Col xs={12} sm={4} md={4} lg={4}>
-                                                <Link onClick={() => null} to={`/${value.potential.url}`}><p className={styles.completion}>Check out profile!</p></Link>
+                                                <Link onClick={() => null} to={`/${value.potential.url}`}><p className={styles.completion}>View profile</p></Link>
                                             </Col>
                                             <Col xs={12} sm={4} md={4} lg={4}>
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, false)}>Reject!</p>

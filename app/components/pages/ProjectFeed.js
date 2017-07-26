@@ -35,7 +35,7 @@ class ProjectFeed extends React.Component {
 
     render() {
         let projects;
-        if(this.props.projects) {
+        if(this.props.projects.length > 0) {
             projects = this.props.projects.map((value, key) => {
                 const nonprofiturl = '/' + value.nonprofitId.url;
                 return (
@@ -63,10 +63,10 @@ class ProjectFeed extends React.Component {
                                         </Col>
                                         <Col xs={12} sm={4} md={4} lg={4}>
                                             {(value.matched === false && value.confirmed === false) && <a onClick={this.match.bind(this, value._id)} className={styles.match}>Match Me <i className={classNames('fa', 'fa-heart-o')} aria-hidden="true"></i></a>}
-                                            {(value.matched === true && value.potential._id !== this.props.userid) && <span>Someone else has requested to work onthis project!</span>}
-                                            {(value.matched === true && value.potential._id === this.props.userid) && <span>Match is in progress!</span>}
+                                            {(value.matched === true && value.potential._id !== this.props.userid) && <span>Another match in progress. Sorry!</span>}
+                                            {(value.matched === true && value.potential._id === this.props.userid) && <span>Request Pending...<i className={classNames('fa', 'fa-heart')} aria-hidden="true"></i></span>}
                                             {(value.confirmed === true && value.potential && value.potential._id !== this.props.userid) && <span>Project has been taken!</span>}
-                                            {(value.confirmed === true && value.potential && value.potential._id === this.props.userid) && <span>You have gotten this project!</span>}
+                                            {(value.confirmed === true && value.potential && value.potential._id === this.props.userid) && <span className={styles.match}>Accepted <i className={classNames('fa', 'fa-heart')} aria-hidden="true"></i></span>}
                                         </Col>
                                         <Col xs={12} sm={4} md={4} lg={4} />
                                     </Row>
