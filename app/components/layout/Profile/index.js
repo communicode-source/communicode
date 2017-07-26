@@ -17,6 +17,9 @@ class Profile extends React.Component {
     }
 
     componentWillReceiveProps(props) {
+        if(props.profile_url !== this.props.profile_url) {
+            this.active = 'About';
+        }
         this.props = props;
         if(this.props.profile_url !== this.props.profile.url && this.props.profile.isFetching === false) {
             this.props.onGetProfileForUser(

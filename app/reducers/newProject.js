@@ -124,6 +124,27 @@ const newProject = (state = {
                 location: 1,
                 errmsgs: []
             };
+        case types.FINISH_VOLUNTEER_PROJECT:
+            return {
+                projectID: '',
+                title: '',
+                type: '',
+                description: '',
+                start: '',
+                end: '',
+                interestArea: [],
+                skills: ['HTML', 'CSS', 'JavaScript', 'Backend', 'Database'],
+                skillsReady: false,
+                coverImageURI: '',
+                price: 'volunteer',
+                priceWithService: 'volunteer',
+                track: '',
+                item: '',
+                completed: [],
+                trackOrItem: 'item',
+                location: 1,
+                errmsgs: []
+            };
         default:
             return state;
     }

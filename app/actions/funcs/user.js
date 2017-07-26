@@ -163,3 +163,11 @@ export function getCompletedProjects(id) {
         id
     };
 };
+
+export function npConfirmDecision(id, decision) {
+    return {
+        type: types.NONPROFIT_SELECT_DEVELOPER,
+        id,
+        decision
+    };
+};

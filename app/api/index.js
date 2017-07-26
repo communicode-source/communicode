@@ -679,6 +679,49 @@ export async function getCompleteProject(data) {
     }
 }
 
+export async function npMakedecision({id, decision}) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({id: id, decision: decision, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/decide', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('Error matching, try again later.');
+        }
+
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function finishVolunteerProject() {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/projects/update/volunteer/active', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('Error matching, try again later.');
+        }
+
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
 
 function createLocalStorageToken(token) {
     localStorage.setItem('id_token', token);

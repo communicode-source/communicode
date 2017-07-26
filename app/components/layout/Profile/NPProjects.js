@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from './../../../assets/css/pages/profile.scss';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
+import {Link} from 'react-router';
 
 class NPProject extends React.Component {
     constructor(props) {
@@ -27,12 +28,14 @@ class NPProject extends React.Component {
             return <div className={styles.talents} key={key}>{value}</div>;
         });
     }
+    handleDecDev(id, decision) {
+        this.props.NPMadeDecision(id, decision);
+    }
 
     build() {
         if(!this.props.projects || !this.props.projects.map || !this.props.projects[0]) {
             return null;
         }
-
         return this.props.projects.map((value, key) => {
             return (
                 <Row className={styles.newProjectRow} key={key}>
@@ -55,7 +58,7 @@ class NPProject extends React.Component {
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4}>
-                                        {(this.props.id === value.nonprofitId && value.isCompleted === false) &&
+                                        {(this.props.id === value.nonprofitId && value.isCompleted === false && value.confirmed === true) &&
                                             <p className={styles.needsCompletion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Mark Complete</p>
                                         }
                                         {(this.props.id === value.nonprofitId && value.isCompleted === true) &&
@@ -63,10 +66,24 @@ class NPProject extends React.Component {
                                         }
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4}>
-                                        {(this.props.id === value.nonprofitId && value.isActive === false) &&
+                                        {(this.props.id === value.nonprofitId && value.matched === false && value.confirmed === false) &&
                                             <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
                                         }
                                     </Col>
+                                    {value.matched === true &&
+                                        <Col xs={12} sm={12} md={12} lg={12}>
+                                            <h4>Its a match! Check out their profile and whether or not to accept them!</h4>
+                                            <Col xs={12} sm={4} md={4} lg={4}>
+                                                <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, true)}>Accept!</p>
+                                            </Col>
+                                            <Col xs={12} sm={4} md={4} lg={4}>
+                                                <Link onClick={() => null} to={`/${value.potential.url}`}><p className={styles.completion}>Check out profile!</p></Link>
+                                            </Col>
+                                            <Col xs={12} sm={4} md={4} lg={4}>
+                                                <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, false)}>Reject!</p>
+                                            </Col>
+                                        </Col>
+                                    }
                                     <Col xs={12} sm={4} md={4} lg={4} />
                                 </Row>
                             </Col>
@@ -92,7 +109,8 @@ NPProject.propTypes = {
     id: PropTypes.string,
     getNonProfitProjects: PropTypes.func,
     checkProjectOff: PropTypes.func,
-    deleteProject: PropTypes.func
+    deleteProject: PropTypes.func,
+    NPMadeDecision: PropTypes.func
 };
 
 export default NPProject;

@@ -23,7 +23,9 @@ import { updateProjectStepOne,
     updateCoverPhoto,
     getFeedForUser,
     makeDevMatchAPI,
-    getCompleteProject} from '../api';
+    getCompleteProject,
+    npMakedecision,
+    finishVolunteerProject} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -701,6 +703,40 @@ export function* getProject(action) {
     }
 }
 
+export function* makeMatchForNP(action) {
+    const id = action.id;
+    const decision = action.decision;
+    try {
+        yield call(npMakedecision, {id, decision});
+        yield put({
+            type: types.SUCCESSFUL_CHANGE_MATCH,
+            notif: {msg: 'Success!', time: 3, classtype: 'info'}
+        });
+    }
+    catch(e) {
+        yield put({
+            type: types.SUCCESSFUL_CHANGE_MATCH,
+            notif: {msg: 'Error, try again in a few minutes', time: 4, classtype: 'error'}
+        });
+    }
+}
+
+export function* finishVolunteer() {
+    try {
+        const profile = yield select(getStateUserData);
+        yield call(finishVolunteerProject);
+        yield put({
+            type: types.FINISH_VOLUNTEER_PROJECT,
+            data: {msg: {url: profile.profile.url}}
+        });
+    }
+    catch(e) {
+        yield put({
+            type: types.FINISH_REVIEW_PROJECT_FAILED
+        });
+    }
+}
+
 function* watchRegisterNewUser() {
     yield takeEvery(types.LOCAL_REGISTER_CLICK, registerNewUser);
 }
@@ -757,9 +793,11 @@ function* watchFetchUserProfile() {
     yield takeLatest(types.START_PROFILE_NP_PROJECTS_LOAD, getNPProjects);
     yield takeLatest(types.CHECK_OFF_PROFILE_PROJECT, updateProjectById);
     yield takeEvery(types.SUCCESS_MARKED_PROJECT_COMPLETE, getNPProjects);
+    yield takeEvery(types.SUCCESSFUL_CHANGE_MATCH, getNPProjects);
     yield takeEvery(types.SUCCESSFULLY_DELETED_NP_FROM_PROJECT, getNPProjects);
     yield takeEvery(types.BUTTON_CLICK_TO_DELETE_PROJECT, deleteProjectForNP);
     yield takeEvery(types.BUTTON_CLICK_TO_CHANGE_FOLLOWING_STATUS, addOrRemoveFollower);
+    yield takeEvery(types.NONPROFIT_SELECT_DEVELOPER, makeMatchForNP);
 }
 
 function* watchCreateNewPortfolioProject() {
@@ -784,6 +822,7 @@ function* watchCreateNewProjectStep4() {
 
 function* watchFinishProjectCreation() {
     yield takeEvery(types.FINISH_REVIEW_PROJECT_BUTTON_PRESS, finishCreateProject);
+    yield takeEvery(types.FINISH_REVIEW_VOLUNTEER_BUTTON_PRESS, finishVolunteer);
 }
 
 function* watchForUpdatingUserSettings() {
