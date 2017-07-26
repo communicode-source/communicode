@@ -171,8 +171,8 @@ const About = () =>
                     </div>
                 </div>
             </div>
+            <SubscribeComponent/>
         </div>
-        <SubscribeComponent/>
     </div>;
 
 export default About;

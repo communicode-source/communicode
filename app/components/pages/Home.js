@@ -129,8 +129,8 @@ const Home = () =>
                     </p>
                 </div>
             </div>
+            <SubscribeComponent/>
         </div>
-        <SubscribeComponent/>
     </div>;
 
 export default Home;

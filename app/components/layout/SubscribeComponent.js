@@ -6,35 +6,37 @@ import main from '../../assets/css/main.scss';
 
 
 const Subscribe = () =>
-    <div className="row">
-        <div className={classNames('col-md-12', common['create-account'])}>
-            <center>
-                <div>
-                    <form onSubmit={() => ReactGA.event({category: 'User', action: 'Subscribed to the mailing list'})} action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
-                        <div className={main.text}>
-                            <h2>Convinced?</h2>
-                            <h4>Don't worry, we'll be here soon. And we can't do it without you.</h4>
-                            <div className={classNames('input-group', common['input-container'])}>
-                                <span className={classNames('input-group-addon', common['email-addon'])} id="basic-addon1">
-                                    <i className="fa fa-envelope-o" aria-hidden="true"/>
-                                </span>
-                                <div>
-                                    <input type="email" className={classNames('form-control', common.input, 'email')} name="EMAIL" placeholder="Email Address" required />
+    <div className="container-fluid">
+        <div className="row">
+            <div className={classNames('col-md-12', common['create-account'])}>
+                <center>
+                    <div>
+                        <form onSubmit={() => ReactGA.event({category: 'User', action: 'Subscribed to the mailing list'})} action="//communicode.us15.list-manage.com/subscribe/post?u=bbb63083dbb4eed5b711d098c&amp;id=9119f49dfd" method="post" target="_blank">
+                            <div className={main.text}>
+                                <h2>Want to Stay in Touch?</h2>
+                                <h4>Sign up for our mailing list to get updated on the latest features and nonprofit news.</h4>
+                                <div className={classNames('input-group', common['input-container'])}>
+                                    <span className={classNames('input-group-addon', common['email-addon'])} id="basic-addon1">
+                                        <i className="fa fa-envelope-o" aria-hidden="true"/>
+                                    </span>
+                                    <div>
+                                        <input type="email" className={classNames('form-control', common.input, 'email')} name="EMAIL" placeholder="Email Address" required />
+                                    </div>
+                                    <div style={{position: 'absolute', 'left': '-5000px'}} aria-hidden="true"><input type="text" name="b_bbb63083dbb4eed5b711d098c_9119f49dfd" tabIndex="-1" value="" /></div>
+                                    <span className={classNames('input-group-btn', common['mail-submit'])}>
+                                        <button className={classNames('btn', main['primary-btn'], common.hiddenMobile)} type="submit">
+                                            Help Us Change the World <i className="fa fa-arrow-right" aria-hidden="true"/>
+                                        </button>
+                                        <button id="mc-embedded-subscribe" className={classNames('btn', main['primary-btn'], common.hiddenDesktop)} type="submit">
+                                            <i className="fa fa-arrow-right" aria-hidden="true"/>
+                                        </button>
+                                    </span>
                                 </div>
-                                <div style={{position: 'absolute', 'left': '-5000px'}} aria-hidden="true"><input type="text" name="b_bbb63083dbb4eed5b711d098c_9119f49dfd" tabIndex="-1" value="" /></div>
-                                <span className={classNames('input-group-btn', common['mail-submit'])}>
-                                    <button className={classNames('btn', main['primary-btn'], common.hiddenMobile)} type="submit">
-                                        Help Us Change the World <i className="fa fa-arrow-right" aria-hidden="true"/>
-                                    </button>
-                                    <button id="mc-embedded-subscribe" className={classNames('btn', main['primary-btn'], common.hiddenDesktop)} type="submit">
-                                        <i className="fa fa-arrow-right" aria-hidden="true"/>
-                                    </button>
-                                </span>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </center>
+                        </form>
+                    </div>
+                </center>
+            </div>
         </div>
     </div>;
 

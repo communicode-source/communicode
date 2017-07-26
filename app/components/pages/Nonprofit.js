@@ -66,8 +66,8 @@ const Nonprofit = () =>
                     </center>
                 </div>
             </div>
+            <SubscribeComponent/>
         </div>
-        <SubscribeComponent/>
     </div>;
 
 export default Nonprofit;
