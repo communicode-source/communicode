@@ -19,7 +19,8 @@ const RegisterForm = ( props ) => {
       onRegisterFacebook,
       onRegisterGoogle,
       onUpdateProvider,
-      user
+      user,
+      error
     } = props;
 
     let email;
@@ -54,7 +55,13 @@ const RegisterForm = ( props ) => {
                       />
                 </div>
             </div>
-
+            <form>
+                <div className={classes.INPUT_FIELD}>
+                    <div className={classes.INPUT_LABEL}>
+                        <h6 className={classes.INPUT_LABEL_ERROR}>{error}</h6>
+                    </div>
+                </div>
+            </form>
             {(user.provider === 'local' || !user.provider) &&
                 (<form>
                     <div className={classes.INPUT_FIELD}>

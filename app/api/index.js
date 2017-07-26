@@ -25,7 +25,7 @@ export async function registerUser(user) {
             throw new Error('Problem creating user.');
         }
         else if(!responseData.msg) {
-            throw new Error('Problem fetching JWT');
+            throw new Error('Try logging in using that information.');
         }
 
         // Save the JWT into local storage
