@@ -57,7 +57,7 @@ class NPProject extends React.Component {
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
-                                    {value.isDraft !== false &&
+                                    {value.isDraft === false &&
                                         <Col xs={12} sm={4} md={4} lg={4}>
                                             {(this.props.id === value.nonprofitId && value.isCompleted === false && value.confirmed === true) &&
                                                 <p className={styles.needsCompletion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Mark Complete</p>

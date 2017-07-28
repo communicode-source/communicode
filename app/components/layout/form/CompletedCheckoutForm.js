@@ -19,6 +19,7 @@ class CompletedCheckoutForm extends React.Component {
         // tokenize, since there's only one in this group.
         try {
             const card = this.props.stripe.elements();
+            card.currency = 'usd';
             const { token } = await this.props.stripe.createToken(card);
             this.props.submit(token);
         }
