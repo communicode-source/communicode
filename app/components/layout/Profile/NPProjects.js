@@ -43,7 +43,7 @@ class NPProject extends React.Component {
                         <Row>
                             <Col xs={12} sm={12} md={3} lg={3}>
                                 <div className={styles.projectType}>
-                                    <i className={classNames('fa', 'fa-code')} aria-hidden="true"></i>
+                                    <img width="45px" src={require('./../../../assets/images/icons/black/websiteblack.png')} />
                                 </div>
                             </Col>
                             <Col xs={12} sm={12} md={9} lg={9}>

@@ -75,12 +75,11 @@
                 .icon {
                     text-align: center;
                     margin: 15px auto;
-                    width: 70px;
-                    height: 70px;
+                    width: 80px;
+                    height: 80px;
                     background-color: $yellow;
                     border-radius: 50%;
-                    i {
-                        font-size: 3em;
+                    img {
                         position: relative;
                         top: 50%;
                         transform: translateY(-50%);
