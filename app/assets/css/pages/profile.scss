@@ -371,8 +371,9 @@ a.editProfile:hover {
 }
 
 .projectsContainer {
-  max-width: 600px;
   padding: 50px 20px;
+  width: 100%;
+  max-width:1200px;
 
   .projectType {
     font-size: 36px;
@@ -389,7 +390,6 @@ a.editProfile:hover {
   }
 
   .skillsWrapper {
-    display: inline-flex;
     margin: 5px 0px 15px 0px;
 
     .talents {
@@ -406,8 +406,7 @@ a.editProfile:hover {
     font-size: 14px;
     margin-bottom: 20px;
     width: 100%;
-    max-width: 600px;
-    word-break: break-all
+    max-width: 800px;
   }
 
   .newProjectRow {

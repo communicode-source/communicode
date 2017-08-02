@@ -25,7 +25,7 @@ class NPProject extends React.Component {
 
     displaySkills(skills) {
         return skills.map((value, key) => {
-            return <div className={styles.talents} key={key}>{value}</div>;
+            return <li className={styles.talents} key={key}>{value}</li>;
         });
     }
     handleDecDev(id, decision) {
@@ -33,32 +33,48 @@ class NPProject extends React.Component {
     }
 
     build() {
+        const typeWidth = {
+            'website': '40px',
+            'issues': '10px',
+            'setup': '40px',
+            'mobile': '25px',
+            'backend': '40px'
+        };
+
         if(!this.props.projects || !this.props.projects.map || !this.props.projects[0]) {
             return null;
         }
+
         return this.props.projects.map((value, key) => {
             return (
                 <Row className={styles.newProjectRow} key={key}>
                     <Col xs={12} sm={12} md={12} lg={12}>
                         <Row>
-                            <Col xs={12} sm={12} md={3} lg={3}>
+                            <Col xs={12} sm={12} md={2} lg={2}>
                                 <div className={styles.projectType}>
-                                    <img width="45px" src={require('./../../../assets/images/icons/black/websiteblack.png')} />
+                                    <img width={typeWidth[value.item.toLowerCase()]} src={require(`./../../../assets/images/icons/black/${value.item.toLowerCase()}black.png`)} />
                                 </div>
                             </Col>
-                            <Col xs={12} sm={12} md={9} lg={9}>
+                            <Col xs={12} sm={12} md={10} lg={10}>
                                 <Row>
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <h3>{value.title}</h3>
                                     </Col>
                                     <Col xs={12} sm={12} md={12} lg={12} className={styles.skillsWrapper}>
-                                        {this.displaySkills(value.skills)}
+                                        <ul className="list-inline">{this.displaySkills(value.skills)}</ul>
                                     </Col>
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
+                                    {value.isActive === true &&
+                                        <Col xs={12} sm={2} md={2} lg={2}>
+                                            {(this.props.id === value.nonprofitId && value.matched === false && value.confirmed === false) &&
+                                                <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
+                                            }
+                                        </Col>
+                                    }
                                     {value.isDraft === false &&
-                                        <Col xs={12} sm={4} md={4} lg={4}>
+                                        <Col xs={12} sm={2} md={2} lg={2}>
                                             {(this.props.id === value.nonprofitId && value.isCompleted === false && value.confirmed === true) &&
                                                 <p className={styles.needsCompletion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Mark Complete</p>
                                             }
@@ -67,23 +83,19 @@ class NPProject extends React.Component {
                                             }
                                         </Col>
                                     }
-                                    <Col xs={12} sm={4} md={4} lg={4}>
-                                        {(this.props.id === value.nonprofitId && value.matched === false && value.confirmed === false) &&
-                                            <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
-                                        }
-                                    </Col>
                                     {(value.matched === true && value.isCompleted === false) &&
                                         <Col xs={12} sm={12} md={12} lg={12}>
                                             <h4>{`${value.potential.fname} ${value.potential.lname} wants to match with you!`}</h4>
-                                            <Col xs={12} sm={4} md={4} lg={4}>
+                                            <Col xs={12} sm={2} md={2} lg={2}>
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, true)}>Accept!</p>
                                             </Col>
-                                            <Col xs={12} sm={4} md={4} lg={4}>
-                                                <Link onClick={() => null} to={`/${value.potential.url}`}><p className={styles.completion}>View profile</p></Link>
+                                            <Col xs={12} sm={2} md={2} lg={2}>
+                                                <Link target="_blank" onClick={() => null} to={`/${value.potential.url}`}><p className={styles.completion}>View profile</p></Link>
                                             </Col>
-                                            <Col xs={12} sm={4} md={4} lg={4}>
+                                            <Col xs={12} sm={2} md={2} lg={2}>
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, false)}>Reject!</p>
                                             </Col>
+                                            <Col xs={12} sm={6} md={6} lg={6} />
                                         </Col>
                                     }
                                     <Col xs={12} sm={4} md={4} lg={4} />

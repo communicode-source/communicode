@@ -21,7 +21,7 @@ class ProjectFeed extends React.Component {
 
     displaySkills(skills) {
         return skills.map((value, key) => {
-            return <div className={styles.talents} key={key}>{value}</div>;
+            return <li className={styles.talents} key={key}>{value}</li>;
         });
     }
 
@@ -35,6 +35,14 @@ class ProjectFeed extends React.Component {
 
     render() {
         let projects;
+        const typeWidth = {
+            'website': '40px',
+            'issues': '10px',
+            'setup': '40px',
+            'mobile': '25px',
+            'backend': '40px'
+        };
+
         if(this.props.projects.length > 0) {
             projects = this.props.projects.map((value, key) => {
                 const nonprofiturl = '/' + value.nonprofitId.url;
@@ -44,7 +52,7 @@ class ProjectFeed extends React.Component {
                             <Row>
                                 <Col xs={12} sm={12} md={2} lg={2}>
                                     <div className={styles.projectType}>
-                                        <i className={classNames('fa', 'fa-code')} aria-hidden="true"></i>
+                                        <img width={typeWidth[value.item.toLowerCase()]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase()}black.png`)} />
                                     </div>
                                 </Col>
                                 <Col xs={12} sm={12} md={10} lg={10}>
@@ -56,7 +64,7 @@ class ProjectFeed extends React.Component {
                                             <p>Posted By: <Link to={nonprofiturl}>{value.nonprofitId.organizationname}</Link></p>
                                         </Col>
                                         <Col xs={12} sm={12} md={12} lg={12} className={styles.skillsWrapper}>
-                                            {this.displaySkills(value.skills)}
+                                            <ul className="list-inline">{this.displaySkills(value.skills)}</ul>
                                         </Col>
                                         <Col xs={12} sm={12} md={12} lg={12}>
                                             <p className={styles.description}>{value.description}</p>

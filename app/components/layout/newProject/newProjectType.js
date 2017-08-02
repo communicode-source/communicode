@@ -4,6 +4,8 @@ import styles from './../../../assets/css/pages/createProject.scss';
 
 import Website from './types/website';
 import Mobile from './types/mobile';
+import Setup from './types/setup';
+import Backend from './types/backend';
 
 class TypeBox extends React.Component {
     constructor(props) {
@@ -41,6 +43,14 @@ class TypeBox extends React.Component {
 
         if(this.props.project.item === 'Mobile') {
             select = <Mobile selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Setup') {
+            select = <Setup selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Backend') {
+            select = <Backend selectProjectType={this.props.selectProjectType} type={this.props.type} />;
         }
 
         if(this.props.project.item === 'Issues') {
