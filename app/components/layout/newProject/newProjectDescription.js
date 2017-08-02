@@ -17,10 +17,17 @@ class DescriptionBox extends React.Component {
     }
 
     render() {
+        let greeting = (<h4>Give it a description:</h4>);
+        let placeholder = 'New super awesome creation...';
+        if(this.props.item === 'Issues') {
+            greeting = <h4>Describe your Issue:</h4>;
+            placeholder = 'Thoroughly describe your issue here...';
+        }
+
         return (
             <div className={styles.question}>
-                <h4>Give it a description:</h4>
-                <textarea value={this.props.description} onChange={this.handleDescriptionEnter.bind(this)} placeholder="New super awesome website..."/>
+                {greeting}
+                <textarea value={this.props.description} onChange={this.handleDescriptionEnter.bind(this)} placeholder={placeholder}/>
             </div>
         );
     }
@@ -28,7 +35,8 @@ class DescriptionBox extends React.Component {
 
 DescriptionBox.propTypes = {
     description: PropTypes.string,
-    onDescriptionEnter: PropTypes.func
+    onDescriptionEnter: PropTypes.func,
+    item: PropTypes.string
 };
 
 export default DescriptionBox;

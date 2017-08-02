@@ -6,5 +6,6 @@ export default {
     UserAccountWebsite: 500,
     ECommerceWebsite: 2000,
     StaticIOSApplication: 150,
-    StaticAndroidApplication: 150
+    StaticAndroidApplication: 150,
+    Issue: 'volunteer'
 };

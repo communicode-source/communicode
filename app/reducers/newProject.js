@@ -1,15 +1,16 @@
 import * as types from './../actions/types';
 import prices from '../components/layout/newProject/types/prices';
+import keywords from '../components/layout/newProject/types/keywords';
 
 const newProject = (state = {
     projectID: '',
     title: '',
     type: '',
     description: '',
-    start: '',
-    end: '',
+    start: new Date().getFullYear() + '-' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '-' + ('0' + new Date().getDate()).slice(-2),
+    end: new Date().getFullYear() + '-' + ('0' + (new Date().getMonth() + 1)).slice(-2) + '-' + ('0' + (new Date().getDate() + 7)).slice(-2),
     interestArea: [],
-    skills: ['HTML', 'CSS', 'JavaScript', 'Backend', 'Database'],
+    skills: [],
     skillsReady: false,
     coverImageURI: '',
     price: 'volunteer',
@@ -31,7 +32,13 @@ const newProject = (state = {
         case types.NEW_PROJECT_TITLE_ENTER:
             return {...state, title: action.title};
         case types.NEW_PROJECT_TYPE_SELECTION:
-            return {...state, type: action.select, price: (prices[action.select]), priceWithService: (prices[action.select] / 0.901).toFixed(2) };
+            return {
+                ...state,
+                type: action.select,
+                price: (prices[action.select]),
+                priceWithService: (prices[action.select] / 0.901).toFixed(2),
+                skills: keywords[action.select],
+            };
         case types.NEW_PROJECT_DESCRIPTION_ENTER:
             return {...state, description: action.description};
         case types.NEW_PROJECT_START_DATE_SELECT:

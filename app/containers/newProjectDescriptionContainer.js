@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        description: state.newProject.description
+        description: state.newProject.description,
+        item: state.newProject.item
     };
 };
 

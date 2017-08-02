@@ -17,6 +17,14 @@ class talentsBar extends React.Component {
       // <div class="button">
       //     Skilla <i class="fa fa-times" aria-hidden="true"></i>
       // </div>
+        if(this.props.skills.length === 0) {
+            return (
+                <div>
+                    <h5 className={styles.noSkillsNecessary}>It looks like there are no skills necessary for this category! Review your project now.</h5>
+                </div>
+            );
+        }
+
         return this.props.skills.map((item, index) => {
             return (<div className={styles.button} key={index} onClick={this.handleSkillRemove.bind(this, item)}>{item}<i className={classNames('fa', 'fa-times')} aria-hidden="true"></i></div>);
         });
@@ -26,7 +34,6 @@ class talentsBar extends React.Component {
         return (
             <div className={styles.question}>
                 <h4>Confirm the talents needed:</h4>
-                <i className={styles.warning}>You must have at least three talents listed.</i>
                 <div id={styles.talents}>
                     {this.getTalentsList.call(this)}
                 </div>

@@ -11,6 +11,16 @@ class TypeBox extends React.Component {
         this.props = props;
     }
 
+    componentWillMount() {
+        if(this.props.project.item === 'Issues') {
+            this.handleTypeSelect({
+                target: {
+                    value: 'Issue'
+                }
+            });
+        }
+    }
+
     componentWillReceiveProps(props) {
         this.props = props;
     }
@@ -24,7 +34,7 @@ class TypeBox extends React.Component {
 
     render() {
         let select;
-
+        let greeting = (<h4>Pick a project type:</h4>);
         if(this.props.project.item === 'Website') {
             select = <Website selectProjectType={this.props.selectProjectType} type={this.props.type} />;
         }
@@ -33,9 +43,14 @@ class TypeBox extends React.Component {
             select = <Mobile selectProjectType={this.props.selectProjectType} type={this.props.type} />;
         }
 
+        if(this.props.project.item === 'Issues') {
+            greeting = <div></div>;
+            select = <div></div>;
+        }
+
         return (
             <div className={styles.question}>
-                <h4>Pick a project type:</h4>
+                {greeting}
                 {select}
             </div>
         );

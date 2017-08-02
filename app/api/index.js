@@ -723,13 +723,13 @@ export async function npMakedecision({id, decision}) {
     }
 }
 
-export async function finishVolunteerProject() {
+export async function finishVolunteerProject(projectId) {
     try {
         const options = {
             mode: 'cors',
             method: 'PUT',
             headers: jsonHeaders,
-            body: JSON.stringify({token: localStorage.getItem('id_token')})
+            body: JSON.stringify({projectId, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/projects/update/volunteer/active', options);

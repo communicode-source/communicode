@@ -34,38 +34,92 @@ class ReviewTicket extends React.Component {
         return (price * 0.099).toFixed(2);
     }
 
+    getAOrAn(type) {
+        const vowels = ['a', 'e', 'i', 'o', 'u'];
+        let isVowel = false;
+
+        vowels.forEach((vowel) => {
+            if(type.charAt(1).toLowerCase() === vowel.toLowerCase()) {
+                isVowel = true;
+            }
+        });
+
+        return isVowel ? 'an ' + type : 'a' + type;
+    }
+
+    buildParagraph(type, start, end, skills) {
+        let paragraph = '';
+        let formattedSkills;
+
+        if(!type || !start || !end) {
+            return 'You need to complete the sections to get a paragraph!';
+        }
+
+        if(skills) {
+            formattedSkills = this.formatArray(skills);
+        }
+
+        const displayType = this.getAOrAn(type);
+        paragraph = `Your project is ${displayType}. `;
+        paragraph += `It will appear in the feed of projects to be discovered by developers on ${start}. `;
+        paragraph += `It needs to be finished by ${end}. `;
+        skills.length !== 0 ? `It requires a knowledge of ${formattedSkills}` : '';
+
+        return paragraph;
+    }
+
     render() {
+        let title = 'You didn\'t provide a title!';
+        let description = 'You didn\'t provide a description!';
+        let billingStatement = 'You need to finish creating your project before it can be finished!';
+
+        if(this.props.project.title !== '') {
+            title = this.props.project.title;
+        }
+
+        if(this.props.project.description !== '') {
+            description = this.props.project.description;
+        }
+
+        // Check if all of this stuff exists before showing create a project button for volunteer projects
+        if(this.props.project.title && this.props.project.type && this.props.project.start && this.props.project.end && this.props.project.price === 'volunteer') {
+            billingStatement = (<div className={styles.createProjectWrapper}>
+                <p>None! This is a volunteer project. Press confirm to move on:</p>
+                <button onClick={() => { this.props.onConfirmProject(); }} className={styles.confirm}>Confirm Project</button>
+            </div>);
+        }
+
+        // Check if all of this stuff exists before showing create a project button for paid projects
+        if(this.props.project.title && this.props.project.type && this.props.project.start && this.props.project.end && this.props.project.price !== 'volunteer') {
+            billingStatement = (<div className={styles.createProjectWrapper}>
+                <ul className={styles.billingList}>
+                    <li>Price of Project: <span className={styles.price}>${this.props.project.price}</span></li>
+                    <li className={styles.addBottomBorder}>Services Fee <span>(what is this?)</span>: <span className={styles.price}>${this.calculateServiceFee()}</span></li>
+                    <li>Total: <span className={styles.price}>${this.props.project.priceWithService}</span></li>
+                </ul>
+                <ProjectCheckout finishProject={this.props.finishProject} price={this.props.project.priceWithService} />
+            </div>);
+        }
+
+
         return (
             <div className={styles.question}>
                 <Row>
                     <Col className={styles.leftSide} xs={12} sm={12} md={6} lg={6}>
                         <h4>Make sure everything looks good:</h4>
                         <ol className={styles.ticketList}>
-                            <li>Your Project Title: <p className={styles.propsValue}>{this.props.project.title}</p></li>
-                            <li>Your Project Description: <p className={styles.propsValue}>{this.props.project.description}</p></li>
+                            <li>Your Project Title: <p className={styles.propsValue}>{title}</p></li>
+                            <li>Your Project Description: <p className={styles.propsValue}>{description}</p></li>
                             <li>Your Project Paragraph:
-                                <p className={styles.propsValue}>Your project is a {this.props.project.type.replace(/([A-Z])/g, ' $1')}. It will appear in the feed of projects to be discovered by developers on {this.props.project.start} and it needs to be finished by {this.props.project.end}. It requires a knowledge of {this.formatArray(this.props.project.skills)}.</p>
+                                <p className={styles.propsValue}>
+                                    {this.buildParagraph(this.props.project.type.replace(/([A-Z])/g, ' $1'), this.props.project.start, this.props.project.end, this.props.project.skills)}
+                                </p>
                             </li>
                         </ol>
                     </Col>
                     <Col xs={12} sm={12} md={6} lg={6}>
                         <h4>Billing:</h4>
-                        {this.props.project.price !== 'volunteer' &&
-                            <div className={styles.createProjectWrapper}>
-                                <ul className={styles.billingList}>
-                                    <li>Price of Project: <span className={styles.price}>${this.props.project.price}</span></li>
-                                    <li className={styles.addBottomBorder}>Services Fee <span>(what is this?)</span>: <span className={styles.price}>${this.calculateServiceFee()}</span></li>
-                                    <li>Total: <span className={styles.price}>${this.props.project.priceWithService}</span></li>
-                                </ul>
-                                <ProjectCheckout finishProject={this.props.finishProject} price={this.props.project.priceWithService} />
-                            </div>
-                        }
-                        {this.props.project.price === 'volunteer' &&
-                            <div className={styles.createProjectWrapper}>
-                                <p>None! This is a volunteer project. Press confirm to move on:</p>
-                                <button onClick={() => { this.props.onConfirmProject(); }} className={styles.confirm}>Confirm Project</button>
-                            </div>
-                        }
+                        {billingStatement}
                     </Col>
                 </Row>
             </div>

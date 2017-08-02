@@ -725,7 +725,8 @@ export function* makeMatchForNP(action) {
 export function* finishVolunteer() {
     try {
         const profile = yield select(getStateUserData);
-        yield call(finishVolunteerProject);
+        const project = yield select(getStateProjectData);
+        yield call(finishVolunteerProject, { projectId: project.projectID});
         yield put({
             type: types.FINISH_VOLUNTEER_PROJECT,
             data: {msg: {url: profile.profile.url}}
