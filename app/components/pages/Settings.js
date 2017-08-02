@@ -35,6 +35,14 @@ class SettingsPage extends React.Component {
                 </div>
                 <div id={styles.about}>
                     <div className={styles.item}>
+                        <h3>Make a Stripe account to get paid</h3>
+                        <hr />
+                        <a
+                            target="_blank"
+                            href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_B6CI5ITmnWyLofYoQezSrK6kPYgj1umM&scope=read_write&state=${localStorage.getItem('id_token')}`}
+                        >Make a Stripe account</a>
+                    </div>
+                    <div className={styles.item}>
                         <h3>About</h3>
                         <hr />
                         <Form horizontal>
