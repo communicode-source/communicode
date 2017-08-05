@@ -18,26 +18,28 @@ class MainPasswordRecovery extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className={classNames('col-md-2')} />
-                <div className={classNames(styles.mainContent, 'col-sm-12', 'col-md-8')}>
-                    <h3>Forgot your password?</h3>
-                    <h4>No problem! Just follow the directions below to regain access to your account!</h4>
-                    <hr />
-                    {(this.props.passwordRecovery.errmsg !== '') ? <div className={classNames(styles.error)}><h4>{this.props.passwordRecovery.errmsg}</h4></div> : null}
-                    <div className={classNames(styles.form)}>
-                        <Guard logic={this.props.passwordRecovery.step.toString()} test="0">
-                            <EnterEmail email={this.props.email} onEmailSubmit={this.props.onEmailSubmit} onEmailEnter={this.props.onEmailEnter} />
-                        </Guard>
-                        <Guard logic={this.props.passwordRecovery.step.toString()} test="1">
-                            <EnterHash hash={this.props.url} onHashEnter={this.props.onHashEnter} onHashSubmit={this.props.onHashSubmit} />
-                        </Guard>
-                        <Guard logic={this.props.passwordRecovery.step.toString()} test="2">
-                            <EnterPassword password={this.props.password} onPasswordSubmit={this.props.onPasswordSubmit} onPasswordEnter={this.props.onPasswordEnter} />
-                        </Guard>
+            <div className="container">
+                <div className="row">
+                    <div className={classNames('col-md-2')}></div>
+                    <div className={classNames(styles.mainContent, 'col-sm-12', 'col-md-8')}>
+                        <h2>Forgot your password?</h2>
+                        <h4>Follow the directions  to regain access to your account.</h4>
+                        <hr />
+                        <div className={classNames(styles.form)}>
+                            <Guard logic={this.props.passwordRecovery.step.toString()} test="0">
+                                <EnterEmail email={this.props.email} onEmailSubmit={this.props.onEmailSubmit} onEmailEnter={this.props.onEmailEnter} />
+                            </Guard>
+                            {(this.props.passwordRecovery.errmsg !== '') ? <div className={styles.error}><label>{this.props.passwordRecovery.errmsg}</label></div> : null}
+                            <Guard logic={this.props.passwordRecovery.step.toString()} test="1">
+                                <EnterHash hash={this.props.url} onHashEnter={this.props.onHashEnter} onHashSubmit={this.props.onHashSubmit} />
+                            </Guard>
+                            <Guard logic={this.props.passwordRecovery.step.toString()} test="2">
+                                <EnterPassword password={this.props.password} onPasswordSubmit={this.props.onPasswordSubmit} onPasswordEnter={this.props.onPasswordEnter} />
+                            </Guard>
+                        </div>
                     </div>
+                    <div className={classNames('col-md-2')}></div>
                 </div>
-                <div className={classNames('col-md-2')} />
             </div>
         );
     }

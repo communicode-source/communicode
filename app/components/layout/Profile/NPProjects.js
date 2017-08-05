@@ -46,6 +46,7 @@ class NPProject extends React.Component {
         }
 
         return this.props.projects.map((value, key) => {
+            console.log(value.title + ': ' + value.isActive);
             return (
                 <Row className={styles.newProjectRow} key={key}>
                     <Col xs={12} sm={12} md={12} lg={12}>
@@ -66,9 +67,9 @@ class NPProject extends React.Component {
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
-                                    {value.isActive === true &&
+                                    {(value.isActive === true && value.matched === false && value.confirmed === false) &&
                                         <Col xs={12} sm={2} md={2} lg={2}>
-                                            {(this.props.id === value.nonprofitId && value.matched === false && value.confirmed === false) &&
+                                            {(this.props.id === value.nonprofitId) &&
                                                 <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
                                             }
                                         </Col>

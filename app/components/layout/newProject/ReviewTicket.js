@@ -14,18 +14,11 @@ class ReviewTicket extends React.Component {
         this.props = props;
     }
 
-    formatArray(arr) {
-        let outStr = '';
-        if (arr.length === 1) {
-            outStr = arr[0];
-        }
-        else if (arr.length === 2) {
-            outStr = arr.join(' and ');
-        }
-        else if (arr.length > 2) {
-            outStr = arr.slice(0, -1).join(', ') + ', and ' + arr.slice(-1);
-        }
-        return outStr;
+    formatSkillsArray(arr) {
+        // Check if the array has more than two characters for formatting the commans/ands
+        return arr.length <= 2
+            ? arr.join('and')
+            : arr.slice(0, -1).join(', ') + ', and ' + arr.slice(-1);
     }
 
     calculateServiceFee() {
@@ -56,7 +49,7 @@ class ReviewTicket extends React.Component {
         }
 
         if(skills) {
-            formattedSkills = this.formatArray(skills);
+            formattedSkills = this.formatSkillsArray(skills);
         }
 
         const displayType = this.getAOrAn(type);

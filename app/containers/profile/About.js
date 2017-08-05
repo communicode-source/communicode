@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
         location: state.profile.location,
         job: state.profile.job,
         fname: (state.profile.accountType === true) ? state.profile.organizationname : state.profile.fname,
-        accountType: state.user.profile.accountType
+        accountType: state.profile.accountType
     };
 };
 

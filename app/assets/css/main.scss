@@ -7,10 +7,12 @@
     GLOBAL STYLES
 =========================================
 -----------------------------------------*/
-html {
-  height: 100%;
+* {
+    margin: 0;
 }
-
+html, body {
+    height: 100%;
+}
 body {
   /* height: 100%; */
   /* Made Buttons Unclickable */
@@ -36,7 +38,7 @@ body {
 }
 
 footer, .push {
-  height: 180px !important;
+  height: 200px;
 }
 
 /*---------------------------------------
