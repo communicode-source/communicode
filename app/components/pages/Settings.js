@@ -19,6 +19,7 @@ import DevOnly from './../../containers/universal/ifDevOnly';
 import Interests from './../../containers/settings/Interests';
 import AvatarPhoto from './../../containers/settings/AvatarPhoto';
 import CoverPhoto from './../../containers/settings/CoverPhoto';
+import StripeAccount from './../../containers/settings/StripeAccountSettingsContainer';
 // import ProfilePictureUpload from './../../containers/settings/ProfilePictureUploadContainer';
 import styles from './../../assets/css/pages/settings.scss';
 import classNames from 'classnames';
@@ -34,14 +35,7 @@ class SettingsPage extends React.Component {
                     <Header />
                 </div>
                 <div id={styles.about}>
-                    <div className={styles.item}>
-                        <h3>Make a Stripe account to get paid</h3>
-                        <hr />
-                        <a
-                            target="_blank"
-                            href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_B6CI5ITmnWyLofYoQezSrK6kPYgj1umM&scope=read_write&state=${localStorage.getItem('id_token')}`}
-                        >Make a Stripe account</a>
-                    </div>
+                    <StripeAccount />
                     <div className={styles.item}>
                         <h3>About</h3>
                         <hr />
