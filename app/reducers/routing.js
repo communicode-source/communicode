@@ -74,6 +74,12 @@ function routing(state = initialState, action) {
         return {...state, locationBeforeTransitions: location};
     }
 
+    if(action.type === types.RECOVERY_PASSWORD_SUCCESS) {
+        const pathname = '/';
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
     return state;
 }
 

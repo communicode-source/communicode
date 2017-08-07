@@ -19,7 +19,7 @@ class Bio extends React.Component {
         return (
             <FormGroup className={styles.formGroup}>
                 <Col className={classNames(styles.biography)} componentClass={ControlLabel} sm={12} md={12} lg={12}>
-                    {(this.props.accountType === false) ? 'Biography' : 'Mission'} &nbsp; <i className={classNames('fa', 'fa-commenting-o')} aria-hidden="true"></i>
+                    {(this.props.accountType === false) ? 'Biography' : 'Explain Your Mission'} &nbsp; <i className={classNames('fa', 'fa-commenting-o')} aria-hidden="true"></i>
                 </Col>
                 <Col sm={12}>
                     <FormControl
