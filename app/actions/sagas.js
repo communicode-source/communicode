@@ -596,7 +596,7 @@ export function* addOrRemoveFollower(action) {
 }
 
 export function * addNotification(action) {
-    if(!action.notif || !action.data) {
+    if(!action.notif && !action.data) {
         return null;
     }
     yield put({
