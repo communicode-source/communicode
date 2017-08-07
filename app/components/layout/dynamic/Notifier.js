@@ -33,9 +33,9 @@ export default class Notifier extends React.Component {
             const node = (
                 <div className={styles[this.props.messages[0].classtype]}>
                     <p>
-                        {this.props.messages[0].msg}
-                        {this.props.messages[0].time === 0 && (<span className={styles.smallInfo}> Click the X to dismiss</span>)}
-                        <i onClick={this.handlePrematureRemoval.bind(this, time)} className={classNames('fa', 'fa-times-circle')} aria-hidden="true">
+                        {this.props.messages.length > 1 && <div className={styles.hangLeftCount}>{this.props.messages.length}<span className={styles.smaller}>left</span></div>}
+                        <div className={styles.messageContent}>{this.props.messages[0].msg}</div>
+                        <i onClick={this.handlePrematureRemoval.bind(this, time)} className={classNames('fa', 'fa-times-circle-o')} aria-hidden="true">
                         </i>
                     </p>
                 </div>);

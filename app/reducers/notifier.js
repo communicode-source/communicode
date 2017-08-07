@@ -1,7 +1,8 @@
 import * as types from './../actions/types';
 
 const notifier = (state = {
-    messages: []
+    messages: [
+    ]
 }, action) => {
     const current = [...state.messages];
     switch(action.type) {

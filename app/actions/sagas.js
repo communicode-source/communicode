@@ -847,7 +847,7 @@ function* watchFinishProjectCreation() {
 function* watchForUpdatingUserSettings() {
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_ABOUT_ME_CLICK, updateUserAboutMeSettings);
     yield takeLatest(types.TYPING_IN_SETTINGS_UPDATE_SOCIALS_CLICK, updateUserAboutMeSettingsLinks);
-    yield takeLatest(types.LOAD_SKILLS_INTO_DB, updateUserAboutMeSettingsSkills);
+    yield takeEvery(types.LOAD_SKILLS_INTO_DB, updateUserAboutMeSettingsSkills);
     yield takeLatest(types.LOADING_USER_INFO_INTO_THE_SETTINGS, loadUserSettingsToSettings);
     yield takeLatest(types.UPLOAD_AVATAR_IMAGE, uploadUserAvatarImage);
     yield takeLatest(types.UPLOAD_COVER_IMAGE, uploadUserCoverImage);
