@@ -35,7 +35,9 @@ class SettingsPage extends React.Component {
                     <Header />
                 </div>
                 <div id={styles.about}>
-                    <StripeAccount />
+                    <DevOnly>
+                        <StripeAccount />
+                    </DevOnly>
                     <div className={styles.item}>
                         <h3>About</h3>
                         <hr />

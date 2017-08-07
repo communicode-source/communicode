@@ -1,11 +1,11 @@
 import * as types from '../actions/types';
 const passwordRecovery = (state = {
     email: '',
-    hash: '',
+    hash: localStorage.getItem('pwrecoveryHash') || '',
     url: '',
     password: '',
     jwt: '',
-    step: 0,
+    step: (localStorage.getItem('pwrecoveryHash')) ? 1 : 0,
     isFetching: false,
     failed: false,
     errormsg: '',
@@ -17,6 +17,7 @@ const passwordRecovery = (state = {
         case types.SUBMIT_RECOVERY_EMAIL:
             return {...state, loadingmsg: 'Waiting for server response'};
         case types.RECOVERY_EMAIL_SUCCESS:
+            localStorage.setItem('pwrecovryHash', action.data);
             return {...state, step: 1, hash: action.data, loadingmsg: '', errmsg: ''};
         case types.RECOVERY_EMAIL_FAILURE:
             return {...state, step: 0, errmsg: action.error, email: state.email, loadingmsg: ''};

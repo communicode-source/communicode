@@ -33,27 +33,25 @@ class NPProject extends React.Component {
     }
 
     build() {
-        const typeWidth = {
-            'website': '40px',
-            'issues': '10px',
-            'setup': '40px',
-            'mobile': '25px',
-            'backend': '40px'
-        };
+        // const typeWidth = {
+        //     'website': '40px',
+        //     'issues': '10px',
+        //     'setup': '40px',
+        //     'mobile': '25px',
+        //     'backend': '40px'
+        // };
 
         if(!this.props.projects || !this.props.projects.map || !this.props.projects[0]) {
             return null;
         }
-
+        // <img width={typeWidth[value.item.toLowerCase()]} src={require(`./../../../assets/images/icons/black/${value.item.toLowerCase()}black.png`)} />
         return this.props.projects.map((value, key) => {
-            console.log(value.title + ': ' + value.isActive);
             return (
                 <Row className={styles.newProjectRow} key={key}>
                     <Col xs={12} sm={12} md={12} lg={12}>
                         <Row>
                             <Col xs={12} sm={12} md={2} lg={2}>
                                 <div className={styles.projectType}>
-                                    <img width={typeWidth[value.item.toLowerCase()]} src={require(`./../../../assets/images/icons/black/${value.item.toLowerCase()}black.png`)} />
                                 </div>
                             </Col>
                             <Col xs={12} sm={12} md={10} lg={10}>

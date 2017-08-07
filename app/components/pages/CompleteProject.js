@@ -1,6 +1,4 @@
 import React, { PropTypes } from 'react';
-import Checkout from './../layout/form/CompletedCheckout';
-import CheckoutForm from './../layout/form/CompletedCheckoutForm';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/profile.scss';
 // import { Row, Col } from 'react-bootstrap';
@@ -33,9 +31,7 @@ class ProjectFeed extends React.Component {
                     <div>
                         <h3>{this.props.project.title}</h3>
                         <div className={styles.createProjectWrapper}>
-                            <Checkout submit={this.getPaid.bind(this, this.props.projectId)}>
-                                <CheckoutForm />
-                            </Checkout>
+                            <button onClick={() => this.props.requestPayment(this.props.projectId)}>Get Paid</button>
                         </div>
                     </div>
                 }

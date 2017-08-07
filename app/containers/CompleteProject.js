@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         deposit: (user) => dispatch(makeDeposit(user)),
         onGetComplete: (id) => dispatch(getCompletedProjects(id)),
-        requestPayment: (id, token) => dispatch(requestPayment(id, token))
+        requestPayment: (id) => dispatch(requestPayment(id))
     };
 };
 

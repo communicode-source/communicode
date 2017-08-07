@@ -140,3 +140,22 @@ export function uploadCoverImage(file) {
         file
     };
 }
+
+export function removeStripeAccountClick() {
+    return {
+        type: types.UNLINK_STRIPE_ACCOUNT_BUTTON_CLICK
+    };
+}
+
+export function checkCodeForUnlinking(code) {
+    return {
+        type: types.CHECK_UNLINK_CODE,
+        code
+    };
+}
+
+export function getMostRecentUser() {
+    return {
+        type: types.SUCCESS_IN_UPDATING_SETTINGS
+    };
+}

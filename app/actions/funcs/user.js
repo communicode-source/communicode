@@ -172,10 +172,9 @@ export function npConfirmDecision(id, decision) {
     };
 };
 
-export function requestPayment(id, token) {
+export function requestPayment(id) {
     return {
         type: types.REQUEST_COMPLETED_PROJECT_PAYMENT,
-        id,
-        token
+        id
     };
 };

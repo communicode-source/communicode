@@ -78,19 +78,16 @@ export async function loginUser(data) {
     }
 }
 
-export async function decodeJWT(isAuthenticated) {
+export async function decodeJWT() {
     try {
-        let jwt = '';
-        if(isAuthenticated) {
-            jwt = getLocalStorage('id_token');
-        }
-
         const options = {
             mode: 'cors',
-            method: 'GET',
+            method: 'POST',
+            headers: jsonHeaders,
+            body: JSON.stringify({token: getLocalStorage('id_token')})
         };
 
-        const response = await fetch(API_URL + '/jwt/decode/' + jwt, options);
+        const response = await fetch(API_URL + '/user/me', options);
 
         return response.json();
     }
@@ -678,13 +675,13 @@ export async function getCompleteProject(data) {
     }
 }
 
-export async function getPaidForProject({id, stripeToken}) {
+export async function getPaidForProject({id}) {
     try {
         const options = {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({id: id, stripeToken: stripeToken, token: localStorage.getItem('id_token')})
+            body: JSON.stringify({id: id, token: localStorage.getItem('id_token')})
         };
 
         const response = await fetch(API_URL + '/projects/payout', options);
@@ -738,6 +735,49 @@ export async function finishVolunteerProject(projectId) {
             throw new Error('Error matching, try again later.');
         }
 
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function getEmailCodeForUnlinkingStripeAccount() {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/user/unlink/getemail', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error(responseData.msg);
+        }
+
+        return responseData;
+    }
+    catch(e) {
+        throw e;
+    }
+}
+
+export async function unlinkStripeAccount({code}) {
+    try {
+        const options = {
+            mode: 'cors',
+            method: 'PUT',
+            headers: jsonHeaders,
+            body: JSON.stringify({code: code, token: localStorage.getItem('id_token')})
+        };
+
+        const response = await fetch(API_URL + '/user/unlink/stripe', options);
+        const responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error(responseData.msg);
+        }
         return responseData;
     }
     catch(e) {

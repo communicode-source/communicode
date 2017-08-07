@@ -1,4 +1,5 @@
 import StripeAccount from './../../components/layout/Settings/StripeAccount';
+import {removeStripeAccountClick, checkCodeForUnlinking, getMostRecentUser} from './../../actions/funcs/settings';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
@@ -9,7 +10,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        default: () => dispatch(null)
+        getEmailClick: () => dispatch(removeStripeAccountClick()),
+        checkCodeClick: (code) => dispatch(checkCodeForUnlinking(code)),
+        getMostRecentUser: () => dispatch(getMostRecentUser())
     };
 };
 

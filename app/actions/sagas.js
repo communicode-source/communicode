@@ -26,7 +26,9 @@ import { updateProjectStepOne,
     getCompleteProject,
     npMakedecision,
     finishVolunteerProject,
-    getPaidForProject} from '../api';
+    getPaidForProject,
+    unlinkStripeAccount,
+    getEmailCodeForUnlinkingStripeAccount} from '../api';
 import * as types from './types';
 
 const getStateProjectData = (state) => state.newProject;
@@ -594,10 +596,14 @@ export function* addOrRemoveFollower(action) {
 }
 
 export function * addNotification(action) {
+    if(!action.notif || !action.data) {
+        return null;
+    }
     yield put({
         type: types.ADD_NOTIF_TO_QUEUE,
         message: action.notif || action.data.notif
     });
+    return null;
 }
 
 export function* uploadUserAvatarImage(action) {
@@ -741,7 +747,7 @@ export function* finishVolunteer() {
 
 export function* getPaid(action) {
     try {
-        yield call(getPaidForProject, {id: action.id, stripeToken: action.token});
+        yield call(getPaidForProject, {id: action.id});
         yield put({
             type: types.REQUEST_COMPLETED_PROJECT_PAYMENT_SUCCESS,
             notif: {msg: 'Successful payout, you should see the result within the next day or two', time: 5, classtype: 'info'},
@@ -752,6 +758,38 @@ export function* getPaid(action) {
         yield put({
             type: types.REQUEST_COMPLETED_PROJECT_PAYMENT_FAIL,
             notif: {msg: e.message, time: 5, classtype: 'error'}
+        });
+    }
+}
+
+function* getEmailForStripeUnlink() {
+    try {
+        yield call(getEmailCodeForUnlinkingStripeAccount);
+        yield put({
+            type: types.RECEIVE_API_CONFIRMATION_OF_EMAIL,
+            notif: {msg: 'Check your email!', time: 10, classtype: 'info'}
+        });
+    }
+    catch(e) {
+        yield put({
+            type: types.RECEIVE_API_CONFIRMATION_OF_FAILURE,
+            notif: {msg: e.message, time: 7, classtype: 'error'}
+        });
+    }
+}
+
+function* submitCodeForUnlinking(action) {
+    try {
+        yield call(unlinkStripeAccount, {code: action.code});
+        yield put({
+            type: types.SUCCESSFULLY_UNLINKED_STRIPE_ACCOUNT,
+            notif: {msg: 'Check your email!', time: 10, classtype: 'info'}
+        });
+    }
+    catch(e) {
+        yield put({
+            type: types.UNSUCCESSFULLY_UNLINKED_STRIPE_ACCOUNT,
+            notif: {msg: e.message, time: 7, classtype: 'error'}
         });
     }
 }
@@ -851,17 +889,23 @@ function* watchForUpdatingUserSettings() {
     yield takeLatest(types.LOADING_USER_INFO_INTO_THE_SETTINGS, loadUserSettingsToSettings);
     yield takeLatest(types.UPLOAD_AVATAR_IMAGE, uploadUserAvatarImage);
     yield takeLatest(types.UPLOAD_COVER_IMAGE, uploadUserCoverImage);
+    yield takeLatest(types.UNLINK_STRIPE_ACCOUNT_BUTTON_CLICK, getEmailForStripeUnlink);
+    yield takeLatest(types.CHECK_UNLINK_CODE, submitCodeForUnlinking);
 }
 
 function* watchForTypesThatChangeTheUser() {
     yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, getLoggedInUser);
+    yield takeEvery(types.SUCCESSFULLY_UNLINKED_STRIPE_ACCOUNT, getLoggedInUser);
 }
 
 function* watchForNotifs() {
-    yield takeLatest(types.SUCCESS_IN_UPDATING_SETTINGS, addNotification);
-    yield takeLatest(types.UPDATING_SETTINGS_FAILED, addNotification);
-    yield takeLatest(types.MAKE_MATCH_FAILED, addNotification);
-    yield takeLatest(types.MAKE_MATCH_SUCCESS, addNotification);
+    yield takeEvery(types.SUCCESS_IN_UPDATING_SETTINGS, addNotification);
+    yield takeEvery(types.UPDATING_SETTINGS_FAILED, addNotification);
+    yield takeEvery(types.MAKE_MATCH_FAILED, addNotification);
+    yield takeEvery(types.UNSUCCESSFULLY_UNLINKED_STRIPE_ACCOUNT, addNotification);
+    yield takeEvery(types.SUCCESSFULLY_UNLINKED_STRIPE_ACCOUNT, addNotification);
+    yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_FAILURE, addNotification);
+    yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_EMAIL, addNotification);
 }
 
 function* watchFeed() {
