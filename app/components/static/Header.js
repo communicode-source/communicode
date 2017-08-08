@@ -105,6 +105,10 @@ class Header extends React.Component {
                             {isAuthenticated &&
                                 <ul className="nav navbar-nav navbar-right right">
                                     {mainNavContent}
+                                    {(this.props.user.profile.accountType === false) &&
+                                        <li className="dropdown">
+                                            <Link className={styles.a} to="/me/projects">My Projects</Link>
+                                        </li>}
                                     <li className="dropdown">
                                         <Link className={dropdownClassnames} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                             <NavbarGreeting isAuthenticated={isAuthenticated} profile={user.profile} />

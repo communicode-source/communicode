@@ -654,25 +654,21 @@ export async function makeDevMatchAPI(id) {
     }
 }
 
-export async function getCompleteProject(data) {
+export async function getCompleteProject() {
     try {
         const options = {
             mode: 'cors',
             method: 'POST',
             headers: jsonHeaders,
-            body: JSON.stringify({id: data.id, projectId: data.projectId, token: localStorage.getItem('id_token')})
+            body: JSON.stringify({token: localStorage.getItem('id_token')})
         };
 
-        const response = await fetch(API_URL + '/projects/get', options);
+        const response = await fetch(API_URL + '/projects/developer', options);
         const responseData = await response.json();
         if(responseData.err === true) {
-            throw new Error('Error Getting Feed.');
+            throw new Error('Error Getting Completed Projects.');
         }
-
-        if(responseData.msg) {
-            createLocalStorageToken(responseData.msg);
-        }
-        return responseData;
+        return responseData.msg;
     }
     catch(e) {
         throw e;

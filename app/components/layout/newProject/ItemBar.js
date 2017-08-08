@@ -69,25 +69,25 @@ class ItemBar extends React.Component {
                 </Row>
 
                 <Row style={secondRowStyle} id={classNames(styles.types)}>
-                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Branding')} className={classNames(styles.item, (this.props.item === 'Data') ? styles.on : styles.off)}>
+                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Branding')} className={classNames(styles.item, (this.props.item === 'Branding') ? styles.on : styles.off)}>
                         <div className={styles.icon}>
                             <img width="40px" src={require('./../../../assets/images/icons/black/brandingblack.png')} />
                         </div>
                         <h5>Branding</h5>
                     </Col>
-                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Prototyping')} className={classNames(styles.item, (this.props.item === 'Data') ? styles.on : styles.off)}>
+                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Prototyping')} className={classNames(styles.item, (this.props.item === 'Prototyping') ? styles.on : styles.off)}>
                         <div className={styles.icon}>
                             <img width="40px" src={require('./../../../assets/images/icons/black/prototypingblack.png')} />
                         </div>
                         <h5>Prototyping</h5>
                     </Col>
-                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Social Media')} className={classNames(styles.item, (this.props.item === 'Data') ? styles.on : styles.off)}>
+                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Social Media')} className={classNames(styles.item, (this.props.item === 'Social Media') ? styles.on : styles.off)}>
                         <div className={styles.icon}>
                             <img width="45px" src={require('./../../../assets/images/icons/black/socialmediablack.png')} />
                         </div>
                         <h5>Social Media</h5>
                     </Col>
-                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Advertisements')} className={classNames(styles.item, (this.props.item === 'Data') ? styles.on : styles.off)}>
+                    <Col xs={6} sm={2} md={2} onClick={this.handleItemSelect.bind(this, 'Advertisements')} className={classNames(styles.item, (this.props.item === 'Advertisements') ? styles.on : styles.off)}>
                         <div className={styles.icon}>
                             <img width="40px" src={require('./../../../assets/images/icons/black/advertisementsblack.png')} />
                         </div>
