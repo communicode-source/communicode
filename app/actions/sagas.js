@@ -757,7 +757,7 @@ export function* getPaid(action) {
     catch(e) {
         yield put({
             type: types.REQUEST_COMPLETED_PROJECT_PAYMENT_FAIL,
-            notif: {msg: e.message, time: 5, classtype: 'error'}
+            notif: {msg: 'Something went wrong, try again later or contact us at contact@communicode.co', time: 5, classtype: 'error'}
         });
     }
 }
@@ -906,6 +906,7 @@ function* watchForNotifs() {
     yield takeEvery(types.SUCCESSFULLY_UNLINKED_STRIPE_ACCOUNT, addNotification);
     yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_FAILURE, addNotification);
     yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_EMAIL, addNotification);
+    yield takeEvery(types.REQUEST_COMPLETED_PROJECT_PAYMENT_FAIL, addNotification);
 }
 
 function* watchFeed() {

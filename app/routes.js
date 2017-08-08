@@ -39,7 +39,7 @@ export const routes = (
             <Route path="/interests" component={Interests} />
             <Route path="/me/feed" component={ProjectFeed} />
             <Route path="/me/settings" component={Settings} />
-            <Route path="/complete/:id" component={Complete} />
+            <Route path="/me/projects" component={Complete} />
         </Route>
         <Route path="/404" component={NotFoundPage} notFound />
         <Route path="/:url" component={Profile} />
