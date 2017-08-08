@@ -437,7 +437,7 @@ export function* finishCreateProject(action) {
             id: state.profile._id,
             token: action.data,
             email: state.profile.email,
-            price: project.priceWithService,
+            type: project.type,
             projectId: project.projectID
         });
 

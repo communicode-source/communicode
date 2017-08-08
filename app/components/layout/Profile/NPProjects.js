@@ -65,7 +65,7 @@ class NPProject extends React.Component {
                                     <Col xs={12} sm={12} md={12} lg={12}>
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
-                                    {(value.isActive === true && value.matched === false && value.confirmed === false) &&
+                                    {(value.isActive === true && value.matched === false && value.confirmed === false || value.isDraft === true) &&
                                         <Col xs={12} sm={2} md={2} lg={2}>
                                             {(this.props.id === value.nonprofitId) &&
                                                 <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
