@@ -165,7 +165,11 @@ export async function getProfile(url) {
         };
 
         const response = await fetch(API_URL + '/user/profile/' + url, options);
-        const responseData = await response.json();
+        let responseData = await response.json();
+        if(responseData.err === true) {
+            throw new Error('NO user with that url');
+        }
+        responseData = responseData.msg;
         options.method = 'POST';
         options.body = JSON.stringify({token: localStorage.getItem('id_token')});
         const response2 = await fetch(API_URL + '/connection/stats/' + responseData._id, options);

@@ -272,7 +272,7 @@ export function* getUserProfile(action) {
     catch(e) {
         yield put({
             type: types.GET_USER_PROFILE_FAILURE,
-            error: e
+            error: e.message
         });
     }
 }

@@ -80,6 +80,12 @@ function routing(state = initialState, action) {
         return {...state, locationBeforeTransitions: location};
     }
 
+    if(action.type === types.GET_USER_PROFILE_FAILURE) {
+        const pathname = '/404';
+        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
+        return {...state, locationBeforeTransitions: location};
+    }
+
     return state;
 }
 
