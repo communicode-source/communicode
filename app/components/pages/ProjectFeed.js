@@ -34,7 +34,7 @@ class ProjectFeed extends React.Component {
     }
 
     render() {
-        let projects;
+        let projects = (<div>Sorry, no projects yet! Come back later and spread the news so more Nonprofits join and post projects!</div>);
         const typeWidth = {
             'website': '40px',
             'issues': '10px',

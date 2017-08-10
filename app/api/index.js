@@ -615,7 +615,7 @@ export async function getFeedForUser(id) {
             body: JSON.stringify({object: id, token: localStorage.getItem('id_token')})
         };
 
-        const response = await fetch(API_URL + '/projects/all', options);
+        const response = await fetch(API_URL + '/projects/feed', options);
         const responseData = await response.json();
         if(responseData.err === true) {
             throw new Error('Error Getting Feed.');
