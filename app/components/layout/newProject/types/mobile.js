@@ -14,9 +14,9 @@ const Mobile = ({ selectProjectType, type }) => (
             <option value={null}>Select a Type...</option>
             <option value="SmallIOSApplication">Small iOS Application ($100)</option>
             <option value="SmallAndroidApplication">Small Android Application ($100)</option>
+            <option value="MediumIOSApplication">Medium iOS Application ($300)</option>
             <option value="MediumAndroidApplication">Medium Android Application ($300)</option>
-            <option value="MediumAndroidApplication">Medium Android Application ($300)</option>
-            <option value="LargeAndroidApplication">Large Android Application ($500)</option>
+            <option value="LargeIOSApplication">Large iOS Application ($500)</option>
             <option value="LargeAndroidApplication">Large Android Application ($500)</option>
         </select>
         <p style={{fontStyle: 'italic', padding: '10px'}}>Note: We recommend creating two separate projects for Android and iOS.</p>
