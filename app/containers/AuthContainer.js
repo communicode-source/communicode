@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { setRedirectUrl } from './../actions/funcs/redirect';
+import { getLoggedInUser } from './../actions/funcs/user';
 import Auth from '../components/Auth';
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setRedirectUrl: (currentUrl) => dispatch(setRedirectUrl(currentUrl))
+        setRedirectUrl: (currentUrl) => dispatch(setRedirectUrl(currentUrl)),
+        getCurrentUser: () => dispatch(getLoggedInUser())
     };
 };
 
