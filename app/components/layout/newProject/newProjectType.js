@@ -6,6 +6,11 @@ import Website from './types/website';
 import Mobile from './types/mobile';
 import Setup from './types/setup';
 import Backend from './types/backend';
+import DataAnalytics from './types/DataAnalytics';
+import Branding from './types/Branding';
+import Prototyping from './types/Prototyping';
+import SocialMedia from './types/SocialMedia';
+import Advertisement from './types/Advertisements';
 
 class TypeBox extends React.Component {
     constructor(props) {
@@ -56,6 +61,26 @@ class TypeBox extends React.Component {
         if(this.props.project.item === 'Issues') {
             greeting = <div></div>;
             select = <div></div>;
+        }
+
+        if(this.props.project.item === 'Data') {
+            select = <DataAnalytics selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Branding') {
+            select = <Branding selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Prototyping') {
+            select = <Prototyping selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Social Media') {
+            select = <SocialMedia selectProjectType={this.props.selectProjectType} type={this.props.type} />;
+        }
+
+        if(this.props.project.item === 'Advertisements') {
+            select = <Advertisement selectProjectType={this.props.selectProjectType} type={this.props.type} />;
         }
 
         return (

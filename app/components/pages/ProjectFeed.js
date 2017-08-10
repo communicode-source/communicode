@@ -40,7 +40,11 @@ class ProjectFeed extends React.Component {
             'issues': '10px',
             'setup': '40px',
             'mobile': '25px',
-            'backend': '40px'
+            'backend': '40px',
+            'data': '45px',
+            'branding': '40px',
+            'prototyping': '40px',
+            'advertisements': '40px'
         };
 
         if(this.props.projects.length > 0) {
