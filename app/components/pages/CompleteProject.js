@@ -23,13 +23,17 @@ class ProjectFeed extends React.Component {
         this.props.requestPayment(projectId);
     }
 
+
     generateProjects() {
         return this.props.project.map((proj, key) => {
+            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, proj._id)}>Get Paid</button>) : (<div>Make a strip account first from your settings page!</div>);
             return (
                 <div key={key}>
                     <h3>{proj.title}</h3>
                     <div className={styles.createProjectWrapper}>
-                        {(proj.paid === false && proj.isCompleted === true) && <button onClick={this.getPaid.bind(this, proj._id)}>Get Paid</button>}
+                        {(proj.paid === false && proj.isCompleted === true && proj.totalCost !== null) && stripePart }
+                        {(proj.paid === true && proj.isCompleted === true && proj.totalCost !== null) && <div>You should see the payment in your stripe account now!</div> }
+                        {(proj.paid === false && proj.isCompleted === true && proj.totalCost === null) && <div>This was a volunteer project! Thank you!!</div> }
                     </div>
                     <hr />
                 </div>

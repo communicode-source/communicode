@@ -5,6 +5,7 @@ class Auth extends React.Component {
     constructor(props) {
         super(props);
         this.props = props;
+        this.props.getCurrentUser();
     }
 
     componentDidMount() {
@@ -32,7 +33,8 @@ Auth.propTypes = {
     children: PropTypes.object,
     isAuthenticated: PropTypes.bool,
     setRedirectUrl: PropTypes.func,
-    currentURL: PropTypes.string
+    currentURL: PropTypes.string,
+    getCurrentUser: PropTypes.func
 };
 
 export default Auth;
