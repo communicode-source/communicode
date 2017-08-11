@@ -44,13 +44,14 @@ class ProjectFeed extends React.Component {
             'data': '45px',
             'branding': '40px',
             'prototyping': '40px',
+            'socialmedia': '40px',
             'advertisements': '40px'
         };
 
         if(this.props.projects.length > 0) {
             projects = this.props.projects.map((value, key) => {
                 const nonprofiturl = '/' + value.nonprofitId.url;
-                let image = <img width={typeWidth[value.item.toLowerCase()]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase()}black.png`)} />;
+                let image = <img width={typeWidth[value.item.toLowerCase().replace(/\s/g, '')]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase().replace(/\s/g, '')}black.png`)} />;
                 return (
                     <Row className={styles.newProjectRow} key={key}>
                         <Col xs={12} sm={12} md={12} lg={12}>
