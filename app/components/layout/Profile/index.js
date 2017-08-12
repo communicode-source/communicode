@@ -71,7 +71,7 @@ class Profile extends React.Component {
 
         if(this.props.profile.image !== undefined) {
             if(this.props.profile.image.avatar) {
-                avatarUrl = 'https://storage.googleapis.com/user-profile-avatars/' + this.props.profile.image.avatar;
+                avatarUrl = `url(https://storage.googleapis.com/user-profile-avatars/${this.props.profile.image.avatar})`;
             }
 
             if(this.props.profile.image.cover) {
@@ -92,7 +92,8 @@ class Profile extends React.Component {
             <div>
                 <Row id={classNames(styles.header)}>
                     <div style={{background: coverUrl}} id={classNames(styles.headerBg)} />
-                    <img src={avatarUrl} className={classNames(styles.profilePic)} />
+                    <div style={{background: avatarUrl}} className={classNames(styles.profilePic)} />
+
                     <div id={classNames(styles.info)}>
                         <h1>{name}</h1>
                         {(this.props.userID !== this.props.profile._id && this.props.userID) &&

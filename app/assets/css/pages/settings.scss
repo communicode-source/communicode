@@ -32,10 +32,9 @@ a:hover {
     text-align: center;
     #headerBg {
         background-attachment: fixed !important;
-        background-position: center center !important;
         background-size: cover !important;
         //background-color: red;
-        height: 150px;
+        height: 250px;
         width: 100%;
         cursor: pointer;
         // margin-top: 20px;
@@ -43,8 +42,8 @@ a:hover {
 
     .avatarContainer {
       width: 100%;
-      max-width: 125px;
-      height: 125px;
+      max-width: 150px;
+      height: 150px;
       margin: 0 auto;
       margin-top: -65px;
       background-size: cover !important;

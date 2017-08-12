@@ -340,11 +340,16 @@ a.editProfile:hover {
     #header {
         #headerBg {
             height: 250px;
+            background-size: cover !important;
+            background-attachment: fixed !important;
         }
-        img {
-            width: 125px;
-            height: 125px;
-            margin-top: -65px;
+        .profilePic {
+          height: 150px;
+          width: 150px;
+          margin: -65px auto;
+          margin-bottom: 25px;
+          border-radius: 50%;
+          background-size: cover !important;
         }
     }
 }

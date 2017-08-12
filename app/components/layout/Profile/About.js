@@ -35,7 +35,7 @@ class About extends React.Component {
                     <p>{this.props.biography || `${this.props.fname || 'Mr. Mysterious'} has not updated their bio yet.`}</p>
                     <div className={classNames(styles.moreinfo)}>
                         <p><i className="fa fa-location-arrow" aria-hidden="true"></i> {(this.props.location && this.props.location.map && this.props.location[0]) ? this.props.location[0] + ', ' + this.props.location[1] : `${this.props.fname || 'Mr. Mysterious'} has not updated this yet.`}</p>
-                        <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.props.job || `${this.props.fname || 'Mr. Mysterious'} has no job.`}</p>
+                        <p><i className="fa fa-map-marker" aria-hidden="true"></i> {this.props.job || `${this.props.fname || 'Mr. Mysterious'} has not updated his job.`}</p>
                     </div>
                 </div>
             );
