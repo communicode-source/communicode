@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import NPProjects from './../../containers/profile/NPProjects';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/profile.scss';
 // import { Row, Col } from 'react-bootstrap';
@@ -48,6 +49,11 @@ class ProjectFeed extends React.Component {
                     <h1>Completed Projects</h1>
                     <h4>Loading...</h4>
                 </div>
+            );
+        }
+        if(this.props.user.profile.accountType === true) {
+            return (
+                <NPProjects />
             );
         }
         return (

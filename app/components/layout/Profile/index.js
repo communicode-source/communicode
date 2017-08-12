@@ -126,7 +126,6 @@ class Profile extends React.Component {
                 <div id={classNames(styles.linkNav)}>
                     <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'About') ? styles.active : styles.inactive)} id={classNames(styles.abtLnk)}>About</h5>
                     {this.props.profile.accountType === false && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Reviews') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Reviews</h5>}
-                    {this.props.profile.accountType === true && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Projects') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Projects</h5>}
                 </div>
                 {main}
             </div>
