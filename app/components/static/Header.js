@@ -114,7 +114,7 @@ class Header extends React.Component {
                                         </Link>
                                         <ul className={classNames('dropdown-menu', styles.dropdown)}>
                                             <li><Link to={url}>My Profile</Link></li>
-                                            <li><Link to="/me/settings">Settings / Edit Profile</Link></li>
+                                            <li><Link to="/me/settings">Edit Profile</Link></li>
                                             <li><Logout /></li>
                                         </ul>
                                     </li>
