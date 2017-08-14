@@ -40,7 +40,7 @@ class Profile extends React.Component {
 
     render() {
         let name = this.props.profile.organizationname;
-        let avatarUrl = require('../../../assets/images/profile/avatar.jpg');
+        let avatarUrl = `url(${require('../../../assets/images/profile/avatar.jpg')})`;
         let coverUrl = `url(${require('../../../assets/images/profile/cover.jpg')})`;
         let socialBar = (<div></div>);
         let main;
@@ -104,15 +104,6 @@ class Profile extends React.Component {
                                 <div id={classNames(styles.follow)}>Edit Profile</div>
                             </Link>
                         }
-                        {!this.props.profile.accountType &&
-                            <div className={classNames(styles.rating, styles.stars)}>
-                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                                <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
-                                <i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>
-                            </div>
-                        }
                         <div id={classNames(styles.followContainer)}>
                             <div id={classNames(styles.left)}>
                                 <p><b>{this.props.profile.following || 0}</b> <br /> Following</p>
@@ -124,16 +115,35 @@ class Profile extends React.Component {
                         {socialBar}
                     </div>
                 </Row>
-                <div id={classNames(styles.linkNav)}>
-                    <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'About') ? styles.active : styles.inactive)} id={classNames(styles.abtLnk)}>About</h5>
-                    {this.props.profile.accountType === false && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Reviews') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Reviews</h5>}
-                </div>
                 {main}
             </div>
 
         );
     }
 }
+
+/*
+
+Removed links:
+
+<div id={classNames(styles.linkNav)}>
+    <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'About') ? styles.active : styles.inactive)} id={classNames(styles.abtLnk)}>About</h5>
+    {this.props.profile.accountType === false && <h5 onClick={this.handleLinkClick.bind(this)} className={classNames(styles.link, (this.active === 'Reviews') ? styles.active : styles.inactive)} id={classNames(styles.rvwLnk)}>Reviews</h5>}
+</div>
+
+Star Rating"
+
+{!this.props.profile.accountType &&
+    <div className={classNames(styles.rating, styles.stars)}>
+        <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+        <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+        <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+        <i className={classNames('fa', 'fa-star')} aria-hidden="true"></i>
+        <i className={classNames('fa', 'fa-star-half-o')} aria-hidden="true"></i>
+    </div>
+}
+
+*/
 
 Profile.propTypes = {
     onTogglePortfolioModal: PropTypes.func,

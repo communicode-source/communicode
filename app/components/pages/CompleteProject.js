@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import NPProjects from './../../containers/profile/NPProjects';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/profile.scss';
-// import { Row, Col } from 'react-bootstrap';
-// import { Link } from 'react-router';
+import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 class ProjectFeed extends React.Component {
     constructor(props) {
@@ -24,20 +24,64 @@ class ProjectFeed extends React.Component {
         this.props.requestPayment(projectId);
     }
 
+    displaySkills(skills) {
+        return skills.map((value, key) => {
+            return <li className={styles.talents} key={key}>{value}</li>;
+        });
+    }
 
     generateProjects() {
-        return this.props.project.map((proj, key) => {
-            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, proj._id)}>Get Paid</button>) : (<div>Make a strip account first from your settings page!</div>);
+        const typeWidth = {
+            'website': '40px',
+            'issues': '10px',
+            'setup': '40px',
+            'mobile': '25px',
+            'backend': '40px',
+            'data': '45px',
+            'branding': '40px',
+            'prototyping': '40px',
+            'socialmedia': '40px',
+            'advertisements': '40px'
+        };
+
+        return this.props.project.map((value, key) => {
+            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div>Make a strip account first from your settings page!</div>);
+            const nonprofiturl = '/' + value.nonprofitId.url;
+            let image = <img width={typeWidth[value.item.toLowerCase().replace(/\s/g, '')]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase().replace(/\s/g, '')}black.png`)} />;
             return (
-                <div key={key}>
-                    <h3>{proj.title}</h3>
-                    <div className={styles.createProjectWrapper}>
-                        {(proj.paid === false && proj.isCompleted === true && proj.totalCost !== null) && stripePart }
-                        {(proj.paid === true && proj.isCompleted === true && proj.totalCost !== null) && <div>You should see the payment in your stripe account now!</div> }
-                        {(proj.paid === false && proj.isCompleted === true && proj.totalCost === null) && <div>This was a volunteer project! Thank you!!</div> }
-                    </div>
-                    <hr />
-                </div>
+                <Row className={styles.newProjectRow} key={key}>
+                    <Col xs={12} sm={12} md={12} lg={12}>
+                        <Row>
+                            <Col xs={12} sm={12} md={2} lg={2}>
+                                <div className={styles.projectType}>
+                                    {image}
+                                </div>
+                            </Col>
+                            <Col xs={12} sm={12} md={10} lg={10}>
+                                <Row>
+                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                        <h3>{value.title}</h3>
+                                    </Col>
+                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                        <p>Posted By: <Link to={nonprofiturl}>{value.nonprofitId.organizationname}</Link></p>
+                                    </Col>
+                                    <Col xs={12} sm={12} md={12} lg={12} className={styles.skillsWrapper}>
+                                        <ul className="list-inline">{this.displaySkills(value.skills)}</ul>
+                                    </Col>
+                                    <Col xs={12} sm={12} md={12} lg={12}>
+                                        <p className={styles.description}>{value.description}</p>
+                                    </Col>
+                                    <Col xs={12} sm={4} md={4} lg={4}>
+                                        {(value.paid === false && value.isCompleted === true && value.totalCost !== null) && stripePart }
+                                        {(value.paid === true && value.isCompleted === true && value.totalCost !== null) && <div>You should see the payment in your stripe account now!</div> }
+                                        {(value.paid === false && value.isCompleted === true && value.totalCost === null) && <div>This was a volunteer project! Thank you!!</div> }
+                                    </Col>
+                                    <Col xs={12} sm={4} md={4} lg={4} />
+                                </Row>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
             );
         });
     }
@@ -53,13 +97,15 @@ class ProjectFeed extends React.Component {
         }
         if(this.props.user.profile.accountType === true) {
             return (
-                <NPProjects />
+                <div id={styles.feed} className={classNames(styles.projectsContainer, 'container')}>
+                    <h1>Your Projects</h1>
+                    <NPProjects />
+                </div>
             );
         }
         return (
             <div id={styles.feed} className={classNames(styles.projectsContainer, 'container')}>
-                <h1>Completed Projects</h1>
-                <hr />
+                <h1 className={styles.projectTitle}>Completed Projects</h1>
                 {this.generateProjects()}
             </div>
         );

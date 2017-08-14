@@ -71,14 +71,14 @@ class NPProject extends React.Component {
                                         <p className={styles.description}>{value.description}</p>
                                     </Col>
                                     {(value.isActive === true && value.matched === false && value.confirmed === false || value.isDraft === true) &&
-                                        <Col xs={12} sm={2} md={2} lg={2}>
+                                        <Col xs={12} sm={3} md={3} lg={3}>
                                             {(this.props.id === value.nonprofitId) &&
                                                 <p className={classNames(styles.needsCompletion, styles.delete)} onClick={this.handleDeleteProjectClick.bind(this, value._id)}>Delete Project</p>
                                             }
                                         </Col>
                                     }
                                     {value.isDraft === false &&
-                                        <Col xs={12} sm={2} md={2} lg={2}>
+                                        <Col xs={12} sm={3} md={3} lg={3}>
                                             {(this.props.id === value.nonprofitId && value.isCompleted === false && value.confirmed === true) &&
                                                 <p className={styles.needsCompletion} onClick={this.handleCompletedProjectClick.bind(this, value._id)}>Mark Complete</p>
                                             }
@@ -90,13 +90,13 @@ class NPProject extends React.Component {
                                     {(value.matched === true && value.isCompleted === false) &&
                                         <Col xs={12} sm={12} md={12} lg={12}>
                                             <h4>{`${value.potential.fname} ${value.potential.lname} wants to match with you!`}</h4>
-                                            <Col xs={12} sm={2} md={2} lg={2}>
+                                            <Col xs={12} sm={3} md={3} lg={3}>
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, true)}>Accept!</p>
                                             </Col>
-                                            <Col xs={12} sm={2} md={2} lg={2}>
+                                            <Col xs={12} sm={3} md={3} lg={3}>
                                                 <Link target="_blank" onClick={() => null} to={`/${value.potential.url}`}><p className={styles.completion}>View profile</p></Link>
                                             </Col>
-                                            <Col xs={12} sm={2} md={2} lg={2}>
+                                            <Col xs={12} sm={3} md={3} lg={3}>
                                                 <p className={styles.completion} onClick={this.handleDecDev.bind(this, value._id, false)}>Reject!</p>
                                             </Col>
                                             <Col xs={12} sm={6} md={6} lg={6} />

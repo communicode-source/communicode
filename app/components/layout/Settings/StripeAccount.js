@@ -55,10 +55,10 @@ class UserStripeAccountSettings extends React.Component {
                                 onChange={this.onCodeEnter.bind(this)}
                             />
                         </Col>
-                        <Col sm={4}>
+                        <Col className={styles.addBottomPaddingSubmit} sm={4}>
                             <button type="submit" className={classNames(styles.update, styles.submitCode)}>Submit Code</button>
                         </Col>
-                        <Col sm={12}>
+                        <Col className={styles.addBottomPadding} sm={12}>
                             <button onClick={this.onGetEmailClick.bind(this)} className={styles.update}>Send Email Code</button>
                         </Col>
                     </FormGroup>
