@@ -64,7 +64,6 @@
 .interest-picture.chosen .fa-plus, .interest-picture.chosen h2 {
   display: none;
 }
-
 .interestsSubmitButton {
   position: fixed;
   bottom: 0;
@@ -75,6 +74,7 @@
   margin: 0px;
   padding: 20px;
   cursor: pointer !important;
+  z-index: 2000;
 }
 
 // This is a class for a DIV if we happen to have/load an uneven number of interests.

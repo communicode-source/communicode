@@ -416,6 +416,12 @@ a.editProfile:hover {
 
   .newProjectRow {
     margin-bottom: 50px;
+
+    button {
+      background-color: $yellow;
+      border: 1px solid $yellow;
+      border-radius: 3px;
+    }
   }
 
   .needsCompletion {
