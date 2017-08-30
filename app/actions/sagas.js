@@ -907,6 +907,7 @@ function* watchForNotifs() {
     yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_FAILURE, addNotification);
     yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_EMAIL, addNotification);
     yield takeEvery(types.REQUEST_COMPLETED_PROJECT_PAYMENT_FAIL, addNotification);
+    yield takeEvery(types.REQUEST_COMPLETED_PROJECT_PAYMENT_SUCCESS, addNotification);
 }
 
 function* watchFeed() {

@@ -43,7 +43,6 @@ class ProjectFeed extends React.Component {
             'socialmedia': '40px',
             'advertisements': '40px'
         };
-
         return this.props.project.map((value, key) => {
             const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div>Make a strip account first from your settings page!</div>);
             const nonprofiturl = '/' + value.nonprofitId.url;
