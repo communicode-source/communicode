@@ -90,7 +90,7 @@ class ProjectFeed extends React.Component {
         if(!this.props.project) {
             return (
                 <div id={styles.feed} className={classNames(styles.projectsContainer, 'container')}>
-                    <h1>Completed Projects</h1>
+                    <h1>Your Projects</h1>
                     <h4>Loading...</h4>
                 </div>
             );
