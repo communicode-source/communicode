@@ -106,8 +106,6 @@ const newProject = (state = {
             return {...state, location: 3};
         case types.STEP_4_NEW_PROJECT_BUTTON_PRESS:
             return {...state, location: 4};
-        case types.STEP_5_NEW_PROJECT_BUTTON_PRESS:
-            return {...state, location: 5};
         case types.FINISH_PROJECT_BUTTON_PRESS:
             return {...state};
         case types.FINISH_REVIEW_PROJECT_SUCCESS:

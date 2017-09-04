@@ -57,12 +57,6 @@ function routing(state = initialState, action) {
     }
 
     if(action.type === types.STEP_4_NEW_PROJECT_BUTTON_PRESS) {
-        const pathname = '/project/step/4';
-        const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
-        return {...state, locationBeforeTransitions: location};
-    }
-
-    if(action.type === types.STEP_5_NEW_PROJECT_BUTTON_PRESS) {
         const pathname = '/project/review';
         const location = {...state.locationBeforeTransitions, pathname, action: 'PUSH'};
         return {...state, locationBeforeTransitions: location};

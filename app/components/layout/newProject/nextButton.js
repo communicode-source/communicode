@@ -20,8 +20,6 @@ class nextButton extends React.Component {
             case 2:
                 return 'Step 3';
             case 3:
-                return 'Step 4';
-            case 4:
                 return 'Review and Create';
             default:
                 break;

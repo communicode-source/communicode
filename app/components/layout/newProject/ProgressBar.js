@@ -8,14 +8,13 @@ class ProgressBar extends React.Component {
         super(props);
         this.props = props;
         this.mapLocationToName = [
-            'Start', 'Info', 'More Info', 'Details', 'Review'
+            'Start', 'Info', 'More Info', 'Review'
         ];
         this.mapNameToFunc = {
             Start: this.props.moveToStepOne,
             Info: this.props.moveToStepTwo,
             MoreInfo: this.props.moveToStepThree,
-            Details: this.props.moveToStepFour,
-            Review: this.props.moveToStepFive,
+            Review: this.props.moveToStepFour,
         };
     }
 
@@ -33,9 +32,7 @@ class ProgressBar extends React.Component {
                 <span> > </span>
                 <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 3) ? styles.active : styles.inactive)}>More Info</a>
                 <span> > </span>
-                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 4) ? styles.active : styles.inactive)}>Details</a>
-                <span> > </span>
-                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 5) ? styles.active : styles.inactive)}>Review</a>
+                <a href="#" onClick={this.handleLinkClick.bind(this)} className={classNames((this.props.location === 4) ? styles.active : styles.inactive)}>Review</a>
             </div>
         );
     }

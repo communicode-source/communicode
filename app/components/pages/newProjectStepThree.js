@@ -3,7 +3,8 @@ import NewProjectStepThree from './../../containers/newProjectStepThreeContainer
 import NewProjectProgressBar from './../../containers/newProjectProgressBar';
 import NewProjectNextButton from './../../containers/newProjectNextButton';
 import NewProjectDateSelectors from './../../containers/newProjectDateSelectorsContainer';
-import NewProjectTopicSelector from './../../containers/newProjectTopicSelector';
+// import NewProjectTopicSelector from './../../containers/newProjectTopicSelector';
+import NewProjectTalentsBar from './../../containers/newProjectTalentsBarContainer';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/createProject.scss';
 
@@ -13,7 +14,7 @@ const StepThree = () => (
             <NewProjectProgressBar />
             <NewProjectStepThree>
                 <NewProjectDateSelectors />
-                <NewProjectTopicSelector />
+                <NewProjectTalentsBar />
                 <NewProjectNextButton />
             </NewProjectStepThree>
         </div>
