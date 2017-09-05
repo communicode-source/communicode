@@ -30,6 +30,15 @@ class ProjectFeed extends React.Component {
         });
     }
 
+    slugify(text) {
+        return text.toString().toLowerCase()
+          .replace(/\s+/g, '-')           // Replace spaces with -
+          .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+          .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+          .replace(/^-+/, '')             // Trim - from start of text
+          .replace(/-+$/, '');            // Trim - from end of text
+    }
+
     generateProjects() {
         const typeWidth = {
             'website': '40px',
@@ -44,7 +53,7 @@ class ProjectFeed extends React.Component {
             'advertisements': '40px'
         };
         return this.props.project.map((value, key) => {
-            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div>Make a strip account first from your settings page!</div>);
+            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div><a className={styles.complete} target="_blank" href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_B6CI5ITmnWyLofYoQezSrK6kPYgj1umM&scope=read_write&state=${localStorage.getItem('id_token')}`}>Create Stripe Account</a></div>);
             const nonprofiturl = '/' + value.nonprofitId.url;
             let image = <img width={typeWidth[value.item.toLowerCase().replace(/\s/g, '')]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase().replace(/\s/g, '')}black.png`)} />;
             return (
@@ -72,8 +81,8 @@ class ProjectFeed extends React.Component {
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4}>
                                         {(value.paid === false && value.isCompleted === true && value.totalCost !== null) && stripePart }
-                                        {(value.paid === true && value.isCompleted === true && value.totalCost !== null) && <div>You should see the payment in your stripe account now!</div> }
-                                        {(value.paid === false && value.isCompleted === true && value.totalCost === null) && <div>This was a volunteer project! Thank you!!</div> }
+                                        {(value.paid === true && value.isCompleted === true && value.totalCost !== null) && <div className={styles.complete}>Payment Complete!</div> }
+                                        {(value.paid === false && value.isCompleted === true && value.totalCost === null) && <div className={styles.complete}>Volunteer Project!</div> }
                                     </Col>
                                     <Col xs={12} sm={4} md={4} lg={4} />
                                 </Row>

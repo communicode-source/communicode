@@ -31,7 +31,7 @@ class UserStripeAccountSettings extends React.Component {
     render() {
         let stripe = (
             <div>
-                <h3>Make a Stripe account to get paid</h3>
+                <h3>Create a Stripe account to receive payments</h3>
                 <hr />
                 <a
                     target="_blank"

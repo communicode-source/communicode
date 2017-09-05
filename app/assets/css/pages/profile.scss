@@ -457,6 +457,19 @@ a.editProfile:hover {
   }
 }
 
+.complete {
+  border: 1px solid #ffb42e;
+  border-radius: 3px;
+  color: #333;
+  background: #ffb42e;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.complete:hover {
+  color: #333;
+}
+
 #feed {
   max-width: 800px;
 
