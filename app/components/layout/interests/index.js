@@ -42,8 +42,14 @@ class MainInterests extends React.Component {
 
     render() {
         let button;
+        let header = 'Choose what describes your organization: ';
+
         if(this.stateInterests.length > 0) {
             button = <button onClick={() => { this.handleSubmit(); }} className={classNames(interestsCss.interestsSubmitButton)}>Let's do this! <i className={classNames('fa', 'fa-arrow-right')} aria-hidden="true"></i></button>;
+        }
+
+        if(!this.user.accountType) {
+            header = 'Choose what you\'re interested in helping: ';
         }
 
         const interestsBoxes = this.interests.map((json, index) => {
@@ -57,6 +63,9 @@ class MainInterests extends React.Component {
             <div>
                 <NameModal />
                 <Row className={classNames(interestsCss['interests-main'])}>
+                    <Col sm={12} md={12}>
+                        <h2 className={interestsCss.title}>{header}</h2>
+                    </Col>
                     {interestsBoxes}
                 </Row>
                 {button}

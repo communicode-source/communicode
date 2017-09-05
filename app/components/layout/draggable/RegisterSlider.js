@@ -40,21 +40,23 @@ const handleRegister = (sliderValue, user, methods) => {
 
 const RegisterSlider = ({ user, methods }) => {
     return (
-        <Slider
-          defaultValue={50}
-          trackStyle={{ backgroundColor: '#333', height: 40, borderRadius: 50 }}
-          handleStyle={{
-              borderColor: '#333',
-              height: 50,
-              width: 50,
-              marginLeft: -25,
-              marginTop: -5,
-              backgroundColor: '#fff',
-              marks: {number: 'hi'}
-          }}
-          railStyle={{ backgroundColor: '#ffb42e', height: 40, borderRadius: 50 }}
-          onAfterChange={(val) => { handleRegister(val, {...user}, {...methods}); }}
-        />
+        <div>
+            <Slider
+              defaultValue={50}
+              trackStyle={{ backgroundColor: '#333', height: 40, borderRadius: 50 }}
+              handleStyle={{
+                  borderColor: '#333',
+                  height: 50,
+                  width: 50,
+                  marginLeft: -25,
+                  marginTop: -5,
+                  backgroundColor: '#fff',
+                  marks: {number: 'hi'}
+              }}
+              railStyle={{ backgroundColor: '#ffb42e', height: 40, borderRadius: 50 }}
+              onAfterChange={(val) => { handleRegister(val, {...user}, {...methods}); }}
+            />
+        </div>
     );
 };
 

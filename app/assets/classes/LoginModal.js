@@ -37,3 +37,5 @@ export const SOCIAL_CONTAINER_2 = classNames('col-md-12', modal['social-containe
 
 export const SUBMIT_BUTTON   = classNames('col-md-12', main['primary-btn']);
 export const FORGOT_PASSWORD = classNames('text-center', modal.forgot);
+
+export const SLIDER_DESCRIPTION = classNames(modal.sliderDescription);
