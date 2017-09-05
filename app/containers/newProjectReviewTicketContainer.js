@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        project: state.newProject
+        project: state.newProject,
+        isLoading: state.newProject.isLoading
     };
 };
 

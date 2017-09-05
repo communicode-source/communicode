@@ -125,11 +125,19 @@
       color: #333;
       text-align: center;
       i {
-        padding: 0px 10px;
+        padding: 0px 2px;
         color: #333;
       }
     }
     .forgot {
       margin-top: 15px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    #pFlex {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
     }
 }

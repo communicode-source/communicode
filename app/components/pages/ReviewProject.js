@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewProject from './../../containers/ReviewProject';
 import NewProjectNextButton from './../../containers/newProjectNextButton';
+import NewProjectProgressBar from './../../containers/newProjectProgressBar';
 import classNames from 'classnames';
 import styles from './../../assets/css/pages/createProject.scss';
 

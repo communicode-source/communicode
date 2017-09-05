@@ -99,7 +99,7 @@ const RegisterForm = ( props ) => {
                     <h6 className={classes.NONPROFIT_SLIDE}>Non-profit<i className={classes.ARROW_RIGHT} aria-hidden="true"></i></h6>
                 </div>
                 <RegisterSlider user={user} methods={{onRegisterLocal, onRegisterFacebook, onRegisterGoogle}} />
-                <p className={classes.SLIDER_DESCRIPTION}><i className="fa fa-arrow-left" aria-hidden="true"></i> Drag slider to register <i className="fa fa-arrow-right" aria-hidden="true"></i></p>
+                <p className={classes.SLIDER_DESCRIPTION}><i className="fa fa-arrow-left" aria-hidden="true"></i> Drag slider towards nonprofit or developer <i className="fa fa-arrow-right" aria-hidden="true"></i></p>
             </div>
         </div>
     );

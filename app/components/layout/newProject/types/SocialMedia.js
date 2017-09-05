@@ -12,8 +12,8 @@ const SocialMedia = ({ selectProjectType, type }) => (
     <div>
         <select value={(type === '') ? 'Select a Type' : type} onChange={(e) => { handleTypeSelect(e, selectProjectType); }} name="type">
             <option value={null}>Select a Type...</option>
-            <option value="SocialMediaConsulting">UI/UX Consulting (Volunteer)</option>
-            <option value="SocialMediaSetup">Full Site Prototype (Volunteer)</option>
+            <option value="SocialMediaConsulting">Social Media Outreach Consulting (Volunteer)</option>
+            <option value="SocialMediaSetup">Social Media Setup (Volunteer)</option>
             <option value="SocialMediaCampaign">Full Social Campaign ($20)</option>
         </select>
         <ul style={{listStyleType: 'disc', padding: '10px 20px'}}>

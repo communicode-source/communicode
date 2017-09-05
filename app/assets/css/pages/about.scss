@@ -58,6 +58,7 @@ hr {
   border-width: 2px;
   border-top: 5px solid $black;
   border-color: $yellow;
+  margin: 20px auto;
 }
 
 .mission {
@@ -219,7 +220,7 @@ hr {
 #for-good {
   background-color: $black;
   width: 100%;
-  color: white;
+  color: #fff;
   text-align: center;
   margin: 0 auto !important;
   padding: 50px;
@@ -237,6 +238,7 @@ hr {
   text-align: center;
   font-size: 14px;
   line-height: 25px;
+  color: #fff;
 }
 
 #for-good center {

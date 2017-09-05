@@ -78,6 +78,14 @@ a:hover {
           }
         }
     }
+    .profilePic {
+      height: 150px;
+      width: 150px;
+      margin: -65px auto;
+      margin-bottom: 25px;
+      border-radius: 50%;
+      background-size: cover !important;
+    }
 }
 #linkNav {
     text-align: center;
@@ -479,5 +487,14 @@ a.editProfile:hover {
 
   .projectTitle {
     margin: 40px auto 60px auto;
+  }
+
+  h4.noProjects {
+    padding: 160px;
+
+    a {
+      text-decoration: underline;
+      font-size: 18px;
+    }
   }
 }

@@ -74,26 +74,27 @@ class ReviewTicket extends React.Component {
             description = this.props.project.description;
         }
 
-        // Check if all of this stuff exists before showing create a project button for volunteer projects
-        if(this.props.project.title && this.props.project.type && this.props.project.start && this.props.project.end && this.props.project.price === 'volunteer') {
-            billingStatement = (<div className={styles.createProjectWrapper}>
-                <p>None! This is a volunteer project. Press confirm to move on:</p>
-                <button onClick={() => { this.props.onConfirmProject(); }} className={styles.confirm}>Confirm Project</button>
-            </div>);
-        }
+        if(!this.props.isLoading) {
+            // Check if all of this stuff exists before showing create a project button for volunteer projects
+            if(this.props.project.title && this.props.project.type && this.props.project.start && this.props.project.end && this.props.project.price === 'volunteer') {
+                billingStatement = (<div className={styles.createProjectWrapper}>
+                    <p>None! This is a volunteer project. Press confirm to move on:</p>
+                    <button type="button" onClick={() => { this.props.onConfirmProject(); }} className={styles.confirm}>Confirm Project</button>
+                </div>);
+            }
 
-        // Check if all of this stuff exists before showing create a project button for paid projects
-        if(this.props.project.title && this.props.project.type && this.props.project.start && this.props.project.end && this.props.project.price !== 'volunteer') {
-            billingStatement = (<div className={styles.createProjectWrapper}>
-                <ul className={styles.billingList}>
-                    <li>Price of Project: <span className={styles.price}>${this.props.project.price}</span></li>
-                    <li className={styles.addBottomBorder}>Services Fee <span>(what is this?)</span>: <span className={styles.price}>${this.calculateServiceFee()}</span></li>
-                    <li>Total: <span className={styles.price}>${this.props.project.priceWithService}</span></li>
-                </ul>
-                <ProjectCheckout finishProject={this.props.finishProject} price={this.props.project.priceWithService} />
-            </div>);
+            // Check if all of this stuff exists before showing create a project button for paid projects
+            if(this.props.project.title && this.props.project.type && this.props.project.start && this.props.project.end && this.props.project.price !== 'volunteer') {
+                billingStatement = (<div className={styles.createProjectWrapper}>
+                    <ul className={styles.billingList}>
+                        <li>Price of Project: <span className={styles.price}>${this.props.project.price}</span></li>
+                        <li className={styles.addBottomBorder}>Services Fee <span>(what is this?)</span>: <span className={styles.price}>${this.calculateServiceFee()}</span></li>
+                        <li>Total: <span className={styles.price}>${this.props.project.priceWithService}</span></li>
+                    </ul>
+                    <ProjectCheckout finishProject={this.props.finishProject} price={this.props.project.priceWithService} />
+                </div>);
+            }
         }
-
 
         return (
             <div className={styles.question}>
@@ -122,6 +123,7 @@ class ReviewTicket extends React.Component {
 
 ReviewTicket.propTypes = {
     project: PropTypes.object,
+    isLoading: PropTypes.bool,
     finishProject: PropTypes.func,
     onConfirmProject: PropTypes.func
 };

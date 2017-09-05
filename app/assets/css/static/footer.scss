@@ -8,6 +8,7 @@
   footer {
     padding: 25px;
     height: 200px;
+    background: #ddd;
   }
   footer ul {
     padding: 0;
@@ -21,6 +22,7 @@ footer .copyright {
 
 footer {
   background-color: $black;
+  background: #333;
   padding-top: 50px;
   // margin-top: 200px;
   /* Seems necessary for overlap. Adjust to breakpoints or remove */

@@ -127,7 +127,8 @@ const newProject = (state = {
                 completed: [],
                 trackOrItem: 'item',
                 location: 1,
-                errmsgs: []
+                errmsgs: [],
+                isLoading: false
             };
         case types.FINISH_VOLUNTEER_PROJECT:
             return {
@@ -148,7 +149,13 @@ const newProject = (state = {
                 completed: [],
                 trackOrItem: 'item',
                 location: 1,
-                errmsgs: []
+                errmsgs: [],
+                isLoading: false
+            };
+        case types.FINISH_REVIEW_PROJECT_BUTTON_PRESS:
+            return {
+                ...state,
+                isLoading: true
             };
         default:
             return state;

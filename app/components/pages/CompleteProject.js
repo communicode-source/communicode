@@ -52,6 +52,7 @@ class ProjectFeed extends React.Component {
             'socialmedia': '40px',
             'advertisements': '40px'
         };
+
         return this.props.project.map((value, key) => {
             const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div><a className={styles.complete} target="_blank" href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_B6CI5ITmnWyLofYoQezSrK6kPYgj1umM&scope=read_write&state=${localStorage.getItem('id_token')}`}>Create Stripe Account</a></div>);
             const nonprofiturl = '/' + value.nonprofitId.url;
@@ -95,14 +96,23 @@ class ProjectFeed extends React.Component {
     }
 
     render() {
+        let noProjectMessage = (<h4 className={styles.noProjects}>No Projects Found. <a href="/project/step/1">Start one now!</a></h4>);
+
+        if(!this.props.user.accountType) {
+            noProjectMessage = (<h4 className={styles.noProjects}>No Projects Found. <a href="/me/feed">Get a match now!</a></h4>);
+        }
+
         if(!this.props.project) {
             return (
                 <div id={styles.feed} className={classNames(styles.projectsContainer, 'container')}>
                     <h1>Your Projects</h1>
-                    <h4>Loading...</h4>
+                    <center>
+                        {noProjectMessage}
+                    </center>
                 </div>
             );
         }
+
         if(this.props.user.profile.accountType === true) {
             return (
                 <div id={styles.feed} className={classNames(styles.projectsContainer, 'container')}>
