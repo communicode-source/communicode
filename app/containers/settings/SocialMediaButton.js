@@ -4,7 +4,7 @@ import {socialsClick} from './../..//actions/funcs/settings';
 
 const mapStateToProps = () => {
     return {
-        title: 'Update Social Media'
+        title: 'Save Changes to Social Media'
     };
 };
 

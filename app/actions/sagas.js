@@ -677,7 +677,7 @@ export function* makeDevMatch(action) {
         yield call(makeDevMatchAPI, id);
         yield put({
             type: types.MAKE_MATCH_SUCCESS,
-            notif: {msg: 'Made request to work on this project!', time: 3, classtype: 'info'}
+            notif: {msg: 'Match Request Accepted. Project moved to My Projects.', time: 3, classtype: 'info'}
         });
     }
     catch(e) {
@@ -908,6 +908,8 @@ function* watchForNotifs() {
     yield takeEvery(types.RECEIVE_API_CONFIRMATION_OF_EMAIL, addNotification);
     yield takeEvery(types.REQUEST_COMPLETED_PROJECT_PAYMENT_FAIL, addNotification);
     yield takeEvery(types.REQUEST_COMPLETED_PROJECT_PAYMENT_SUCCESS, addNotification);
+    yield takeEvery(types.MAKE_MATCH_SUCCESS, addNotification);
+    yield takeEvery(types.MAKE_MATCH_FAILED, addNotification);
 }
 
 function* watchFeed() {

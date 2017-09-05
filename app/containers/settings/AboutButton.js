@@ -4,7 +4,7 @@ import {aboutClick} from './../..//actions/funcs/settings';
 
 const mapStateToProps = () => {
     return {
-        title: 'Update About Me'
+        title: 'Save Changes to About Me'
     };
 };
 

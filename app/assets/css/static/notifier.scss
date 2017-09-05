@@ -26,14 +26,14 @@ div.notification {
     }
     div.success {
         background-color: rgba(0, 99, 24, 1);
-        color: white;
+        color: #333;
     }
     div.success:hover {
         background-color: rgba(0, 99, 24, .6);
     }
     div.info {
         background-color: rgba(255, 180, 46, 1);
-        color: white;
+        color: #333;
     }
     div.info:hover {
         background-color: rgba(255, 180, 46, .6);
@@ -46,7 +46,7 @@ div.notification {
         border-radius: 100%;
         cursor: pointer;
         font-size: 20px;
-        bottom: 25%;
+        bottom: 30%;
     }
 
     div p {
@@ -68,8 +68,14 @@ div.notification {
       }
       div.messageContent {
           max-width: 80%;
-          margin-left: 140px;
-          color: white;
+          color: #333;
       }
     }
+}
+
+@media (min-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .messageContent {
+    margin-left: 140px;
+  }
 }

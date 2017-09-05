@@ -50,6 +50,9 @@ class ProjectFeed extends React.Component {
 
         if(this.props.projects.length > 0) {
             projects = this.props.projects.map((value, key) => {
+                if(!value.title || !value.description) {
+                    return '';
+                }
                 const nonprofiturl = '/' + value.nonprofitId.url;
                 let image = <img width={typeWidth[value.item.toLowerCase().replace(/\s/g, '')]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase().replace(/\s/g, '')}black.png`)} />;
                 return (

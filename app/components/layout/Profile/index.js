@@ -40,7 +40,7 @@ class Profile extends React.Component {
 
     render() {
         let name = this.props.profile.organizationname;
-        let avatarUrl = `url(${require('../../../assets/images/profile/avatar.jpg')})`;
+        let avatarUrl = `url(${require('../../../assets/images/profile/default.png')})`;
         let coverUrl = `url(${require('../../../assets/images/profile/cover.jpg')})`;
         let socialBar = (<div></div>);
         let main;

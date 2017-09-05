@@ -12,7 +12,7 @@ class AvatarPhoto extends React.Component {
     }
 
     render() {
-        let url = `url(${require('../../../assets/images/profile/avatar.jpg')})`;
+        let url = `url(${require('../../../assets/images/profile/default.png')})`;
         if(this.props.user.profile.image && this.props.user.profile.image.avatar) {
             url = `url(https://storage.googleapis.com/user-profile-avatars/${this.props.user.profile.image.avatar})`;
         }
