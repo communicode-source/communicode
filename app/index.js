@@ -8,6 +8,10 @@ import configureStore from './store/configureStore';
 import pushStateToStorage from './middleware/storeInLocalStorage';
 import Root from './containers/Root';
 
+// Workaround to include these in final css
+require('rc-slider/assets/index.css');
+require('rodal/lib/rodal.css');
+
 
 const initialState = (localStorage.getItem('profile') !== null)
     ? {

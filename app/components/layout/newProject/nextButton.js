@@ -28,12 +28,14 @@ class nextButton extends React.Component {
     }
 
     handleNextPageClick() {
-        this.props.moveToNextPage(this.props.location);
+        if(this.props.enabled) {
+            this.props.moveToNextPage(this.props.location);
+        }
     }
 
     render() {
         return (
-            <a onClick={this.handleNextPageClick.bind(this)} className={styles.nextStep}>
+            <a onClick={this.handleNextPageClick.bind(this)} className={this.props.enabled ? styles.nextStep : styles.nextStepDisabled}>
                 {this.getButtonText()} <i className={classNames('fa', 'fa-arrow-right')} aria-hidden="true"></i>
             </a>
         );
@@ -42,6 +44,7 @@ class nextButton extends React.Component {
 
 nextButton.propTypes = {
     location: PropTypes.number,
+    enabled: PropTypes.bool,
     moveToNextPage: PropTypes.func
 };
 

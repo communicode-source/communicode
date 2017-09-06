@@ -13,7 +13,7 @@ const StepOne = () => (
             <NewProjectProgressBar />
             <NewProjectStepOne>
                 <NewProjectItemBar />
-                <NewProjectNextButton />
+                <NewProjectNextButton step={1}/>
             </NewProjectStepOne>
         </div>
     </div>

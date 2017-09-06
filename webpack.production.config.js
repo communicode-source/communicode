@@ -120,6 +120,9 @@ module.exports = {
             test: /\.json?$/,
             loader: 'json',
         }, {
+            test: /\.css?$/,
+            loader: ExtractTextPlugin.extract('style', 'css')
+        }, {
             test: /\.scss$/,
             // we extract the styles into their own .css file instead of having
             // them inside the js.

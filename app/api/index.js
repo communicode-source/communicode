@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 // const API_URL = 'http://localhost:3000';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://api-dot-communicode-167922.appspot.com';
 const jsonHeaders = {
     'Accept': 'application/json',
     'Content-Type': 'application/json'

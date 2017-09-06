@@ -15,7 +15,7 @@ const StepThree = () => (
             <NewProjectStepThree>
                 <NewProjectDateSelectors />
                 <NewProjectTalentsBar />
-                <NewProjectNextButton />
+                <NewProjectNextButton step={3}/>
             </NewProjectStepThree>
         </div>
     </div>

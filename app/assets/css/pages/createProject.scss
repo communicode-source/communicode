@@ -226,14 +226,20 @@
             margin-left: -150px;
         }
     }
-    .nextStep {
-        cursor: pointer;
+    .nextStep, .nextStepDisabled {
         text-decoration: none;
         display: block;
-        color: $yellow;
         text-align: right;
         font-size: 1.5em;
         margin-top: 40px;
+    }
+    .nextStep {
+        cursor: pointer;
+        color: $yellow;
+    }
+    .nextStepDisabled {
+        color: darken($light-gray, 25%);
+        cursor: not-allowed;
     }
     #talents {
         display: flex;

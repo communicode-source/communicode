@@ -35,7 +35,6 @@ class NameModal extends React.Component {
             <div className={classes.INPUT_FIELD}>
                 <div className={classes.INPUT_LABEL}>
                     <h6 className={classes.INPUT_LABEL_NAME}>Organization Name</h6>
-                    <h6 className={classes.INPUT_LABEL_ERROR}>sample error</h6>
                 </div>
                 <input onChange={this.handleOrgnameEnter.bind(this)} value={this.props.orgname} type="text" placeholder="Organization Name" required />
             </div>
@@ -48,7 +47,6 @@ class NameModal extends React.Component {
                 <div className={classes.INPUT_FIELD}>
                     <div className={classes.INPUT_LABEL}>
                         <h6 className={classes.INPUT_LABEL_NAME}>First Name</h6>
-                        <h6 className={classes.INPUT_LABEL_ERROR}>sample error</h6>
                     </div>
                     <input onChange={this.handleFnameEnter.bind(this)} value={this.props.fname} type="text" placeholder="First Name" required />
                 </div>

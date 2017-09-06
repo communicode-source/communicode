@@ -32,7 +32,7 @@ const RegisterForm = ( props ) => {
             <div className={classes.ROW}>
                 <div className={classes.SOCIAL_CONTAINER}>
                     <GoogleLogin
-                      clientId="42299952850-v2ofgh81ngrahtp8djhh1rf6j65cqgj3.apps.googleusercontent.com"
+                      clientId="912774964280-jsj9vq5r3lkbjg4fhrhrp52q2od1i5l8.apps.googleusercontent.com"
                       buttonText="Login"
                       onSuccess={response => { handleUpdateProvider('google', response, onUpdateProvider); }}
                       onFailure={response => { return response; }}

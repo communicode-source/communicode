@@ -527,16 +527,16 @@ export function* updateUserAboutMeSettingsSkills() {
 
 export function* getNPProjects() {
     try {
-        const state = yield select(getProfileState);
-        const projects = yield call(getNonProfitProjects, state._id);
+        // const state = yield select(getProfileState);
+        const projects = yield call(getNonProfitProjects, JSON.parse(localStorage.getItem('profile'))._id);
         yield* handleServerResponse(
-            projects,
-            types.ATTACH_PROFILE_PROJECTS,
-            'FAILED',
-            'Failed, sorry!'
+           projects,
+           types.ATTACH_PROFILE_PROJECTS,
+           'FAILED',
+           'Failed, sorry!'
         );
     }
-    catch(e) {
+    catch (e) {
         yield put({
             type: 'FAILED'
         });

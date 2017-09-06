@@ -42,9 +42,6 @@ module.exports = {
             }
         ]),
         new ExtractTextPlugin('assets/[name]-[hash].min.css'),
-        new StaticSiteGeneratorPlugin({
-            paths: sitemap.staticPaths.concat('/404.html'),
-        }),
         new SitemapPlugin(sitemap.baseURL, sitemap.publicPaths, {
             skipGzip: true
         }),

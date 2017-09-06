@@ -5,7 +5,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     entry: [
         'webpack-dev-server/client?http://localhost:3001',
         'webpack/hot/only-dev-server',
@@ -57,6 +57,10 @@ module.exports = {
                 test: /\.json?$/,
                 loader: 'json',
             },
+          {
+            test: /\.css?$/,
+            loader: 'style!css'
+          },
             {
                 test: /\.scss$/,
                 loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass',

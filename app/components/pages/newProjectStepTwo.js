@@ -16,7 +16,7 @@ const StepTwo = () => (
                 <NewProjectTitleContainer />
                 <NewProjectTypeSelector />
                 <NewProjectDescriptionContainer />
-                <NewProjectNextButton />
+                <NewProjectNextButton step={2}/>
             </NewProjectStepTwo>
         </div>
     </div>
