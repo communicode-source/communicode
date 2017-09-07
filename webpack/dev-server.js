@@ -1,0 +1,49 @@
+var Express = require('express');
+var webpack = require('webpack');
+
+var config = require('../src/config');
+var webpackConfig = require('./webpack.dev.config');
+var compiler = webpack(webpackConfig);
+
+var host = config.host || 'localhost';
+var port = (Number(config.port) + 1) || 3001;
+
+var serverOptions = {
+  contentBase: `http://${host}:${port}`,
+  quiet: true,
+  noInfo: true,
+  hot: true,
+  inline: true,
+  lazy: false,
+  publicPath: webpackConfig.output.publicPath,
+  headers: { 'Access-Control-Allow-Origin': '*' },
+  stats: {
+    // Hopefully reduced clutter
+    assets: false,
+    cached: false,
+    chunks: false,
+    colors: true,
+    depth: false,
+    entrypoints: false,
+    errors: false, // These are shown in the browser
+    errorDetails: true,
+    hash: false,
+    modules: false,
+    publicPath: false,
+    warnings: true
+  }
+};
+
+var app = new Express();
+
+app.use(require('webpack-dev-middleware')(compiler, serverOptions));
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.listen(port, function onAppListening(err) {
+  if(err) {
+    console.error(err);
+  }
+  else {
+    console.info('Webpack dev server listing on port %s', port);
+  }
+});

@@ -1,0 +1,12 @@
+type Conversation {
+    id: ID!
+    name: String
+    participants: [User]
+    messages: [Message]
+}
+
+type Message {
+    id: ID!
+    conversation: Conversation!
+    sender: [User]
+}

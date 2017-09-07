@@ -1,0 +1,19 @@
+input UserInput {
+    username: String
+}
+
+type User {
+    id: ID!
+    username: String
+    # Password Hash
+}
+
+type Query {
+    users: [User]
+    user(id: ID!): User
+}
+
+type Mutation {
+    createUser(input: UserInput): User
+    updateUser(id: ID!, input: UserInput): User
+}
