@@ -1,0 +1,30 @@
+version: "2"
+services:
+  server:
+    build: .
+    command: "pm2-docker process.json --web"
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+      - "9615:9615"
+    links:
+      - mongodb
+    environment:
+      - NODE_ENV=development
+      - PORT=8080
+      - PORT=3000
+    volumes:
+      - .:/user/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - application_network
+  mongodb:
+    image: mongo:3.0
+    # In case mongod is running on host
+    ports:
+    - "27017:27016"
+    networks:
+      - application_network
+networks:
+  application_network:
+    driver: bridge

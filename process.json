@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "api",
+      "script": "./bin/api.js",
+      "watch": true,
+      "ignore_watch": ["logs", ".git", ".idea", "node_modules"]
+    },
+    {
+      "name": "server",
+      "script": "./bin/server.js",
+      "watch": true,
+      "ignore_watch": ["logs", ".git", ".idea", "node_modules"]
+    }
+  ]
+}
