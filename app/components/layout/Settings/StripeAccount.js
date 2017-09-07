@@ -35,7 +35,7 @@ class UserStripeAccountSettings extends React.Component {
                 <hr />
                 <a
                     target="_blank"
-                    href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_B6CI5ITmnWyLofYoQezSrK6kPYgj1umM&scope=read_write&state=${localStorage.getItem('id_token')}`}
+                    href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_BLcHo4igxLScdtNGnw4QnYxdXCjCEdbe&scope=read_write&state=${localStorage.getItem('id_token')}`}
                 >Make a Stripe account</a>
             </div>
         );

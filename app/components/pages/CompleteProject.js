@@ -54,7 +54,7 @@ class ProjectFeed extends React.Component {
         };
 
         return this.props.project.map((value, key) => {
-            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div><a className={styles.complete} target="_blank" href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_B6CI5ITmnWyLofYoQezSrK6kPYgj1umM&scope=read_write&state=${localStorage.getItem('id_token')}`}>Create Stripe Account</a></div>);
+            const stripePart = (this.props.user.profile.customer.isCustomer === true) ? (<button onClick={this.getPaid.bind(this, value._id)}>Get Paid</button>) : (<div><a className={styles.complete} target="_blank" href={`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_BLcHo4igxLScdtNGnw4QnYxdXCjCEdbe&scope=read_write&state=${localStorage.getItem('id_token')}`}>Create Stripe Account</a></div>);
             const nonprofiturl = '/' + value.nonprofitId.url;
             let image = <img width={typeWidth[value.item.toLowerCase().replace(/\s/g, '')]} src={require(`./../../assets/images/icons/black/${value.item.toLowerCase().replace(/\s/g, '')}black.png`)} />;
             return (

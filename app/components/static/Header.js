@@ -67,15 +67,12 @@ class Header extends React.Component {
                         <ul className={styles.left}>
                             <li className="no-hover">
                                 <i className={navLogoClassnames}>
-                                    <img className={styles.logo} src={CLogoLight}/>
+                                    <Link className={styles.logoLink} to="/"><img className={styles.logo} src={CLogoLight}/></Link>
                                 </i>
                             </li>
                         </ul>
                         <div className={headerNavCollapseClassnames} id="mainNav">
                             <ul className="nav navbar-nav navbar-left">
-                                <li className="no-hover">
-                                    <Link className={styles.a} to="/">Home</Link>
-                                </li>
                                 <li className="no-hover">
                                     <Link className={styles.a} to="/about">About Us</Link>
                                 </li>
