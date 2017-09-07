@@ -75,6 +75,10 @@ nav .logo {
   padding: 0;
 }
 
+.dropdown > li >a {
+  color: #fff !important;
+}
+
 #MenuController {
   height: 25px;
   width: auto;
@@ -99,6 +103,10 @@ a:hover {
 
 .dropdown > ul > li > a:hover {
   background-color: #e4e3e1;
+}
+
+.dropdown {
+  background-color: $black;
 }
 
 .dropdown > ul > li a > i {

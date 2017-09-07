@@ -1,0 +1,88 @@
+@import "types";
+
+.interests-main {
+  margin: 0 auto;
+  padding: 50px;
+
+  h2.title {
+    text-align: left;
+    padding-bottom: 30px;
+  }
+}
+
+.interest {
+  margin: 20px 0px;
+  cursor: pointer;
+}
+
+/**
+* Start of actual interest box styling.
+**/
+.interest-picture {
+  height: 300px;
+	text-align: center;
+	background-position: center center !important;
+	-moz-box-shadow:    inset 0 0 5px #333;
+	-webkit-box-shadow: inset 0 0 5px #333;
+	box-shadow:         inset 0 0 5px #333;
+}
+// General text styling for what will be seen in the Interest card.
+.interest-picture h2 {
+	color: #F2F2F2;
+	padding-top: 10px;
+  margin-top: 0px;
+  font-size: 24px;
+}
+
+// Styling the selected Interest card.
+.interest-picture.chosen {
+	-moz-box-shadow:    inset 0 0 10px #333 !important;
+	-webkit-box-shadow: inset 0 0 10px #333 !important;
+	box-shadow:         inset 0 0 10px #333 !important;
+}
+
+// Changing the styling for the header of the selected Interest card.
+.interest-picture .fa-plus {
+  display: block;
+  font-size: 80px;
+	font-weight: 200;
+  color: #f2f2f2;
+  padding-top: 75px;
+  padding-bottom: 5px;
+  //text-shadow: 0px 0px 10px #333;
+}
+// Show the checkmark of the selected card.
+.interest-picture.chosen .fa-check {
+  display: block;
+  font-size: 100px;
+	font-weight: 200;
+  color: #f2f2f2;
+  padding-top: 90px;
+  padding-bottom: 5px;
+  //text-shadow: 0px 0px 10px #333;
+}
+
+.interest-picture .fa-check {
+  display: none;
+}
+
+.interest-picture.chosen .fa-plus, .interest-picture.chosen h2 {
+  display: none;
+}
+.interestsSubmitButton {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ffb42e;
+  border: 1px solid #ffb42e;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 20px;
+  cursor: pointer !important;
+  z-index: 2000;
+}
+
+// This is a class for a DIV if we happen to have/load an uneven number of interests.
+.hold {
+  display: none;
+}

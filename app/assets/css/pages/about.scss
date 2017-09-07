@@ -58,6 +58,7 @@ hr {
   border-width: 2px;
   border-top: 5px solid $black;
   border-color: $yellow;
+  margin: 20px auto;
 }
 
 .mission {
@@ -177,6 +178,7 @@ hr {
 
 .small-info p {
   text-align: left !important;
+  color: $white;
 }
 
 .info-background {
@@ -190,6 +192,7 @@ hr {
 
 .more-info-container {
   padding: 50px;
+  margin-right: 0px !important;
 }
 
 #more-info-good {
@@ -217,7 +220,7 @@ hr {
 #for-good {
   background-color: $black;
   width: 100%;
-  color: white;
+  color: #fff;
   text-align: center;
   margin: 0 auto !important;
   padding: 50px;
@@ -235,6 +238,7 @@ hr {
   text-align: center;
   font-size: 14px;
   line-height: 25px;
+  color: #fff;
 }
 
 #for-good center {

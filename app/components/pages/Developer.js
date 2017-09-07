@@ -67,8 +67,8 @@ const Developer = () =>
                     </center>
                 </div>
             </div>
+            <SubscribeComponent/>
         </div>
-        <SubscribeComponent/>
     </div>;
 
 export default Developer;

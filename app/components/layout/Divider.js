@@ -3,7 +3,7 @@ import home from '../../assets/css/pages/home.scss';
 import classNames from 'classnames';
 
 const Divider = () =>
-    <div>
+    <div className="container-fluid">
         <div className="row">
             <div className={classNames('col-md-12', home.divider)}>
 

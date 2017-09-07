@@ -25,16 +25,15 @@
         .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
             font-weight: 300 !important;
         }
-        #root {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
     </style>
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
-<body id="root" class="view-login">
-<%- app.html %>
+<body class="view-login">
+    <div id="root">
+        <%- app.html %>
+    </div>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,7 +47,6 @@
             navMain.collapse('hide');
         });
     });
-
 </script>
 
 </html>

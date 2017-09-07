@@ -5,9 +5,29 @@ import { browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { AppContainer } from 'react-hot-loader';
 import configureStore from './store/configureStore';
+import pushStateToStorage from './middleware/storeInLocalStorage';
 import Root from './containers/Root';
 
-const store = configureStore();
+// Workaround to include these in final css
+require('rc-slider/assets/index.css');
+require('rodal/lib/rodal.css');
+
+
+const initialState = (localStorage.getItem('profile') !== null)
+    ? {
+        user: {
+            profile: JSON.parse(localStorage.getItem('profile'))
+        }
+    } : {};
+
+initialState.isAuthenticated = (localStorage.getItem('id_token') !== null && localStorage.getItem('profile') !== null) ? true : false;
+
+const store = configureStore(initialState);
+
+store.subscribe(() => {
+    pushStateToStorage(store.getState());
+});
+
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(

@@ -1,0 +1,81 @@
+@import '../colors';
+div.notification {
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 100vw;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 3px;
+    z-index: 99;
+    div {
+        color: white;
+        min-height: 30px;
+        padding: 4px;
+        border-radius: inherit;
+    }
+    div span.smallInfo {
+        font-size: 8px;
+    }
+    div.error {
+        background-color: rgba(175, 38, 0, 1);
+        color: white;
+    }
+    div.error:hover {
+        background-color: rgba(175, 38, 0, .6);
+    }
+    div.success {
+        background-color: rgba(0, 99, 24, 1);
+        color: #333;
+    }
+    div.success:hover {
+        background-color: rgba(0, 99, 24, .6);
+    }
+    div.info {
+        background-color: rgba(255, 180, 46, 1);
+        color: #333;
+    }
+    div.info:hover {
+        background-color: rgba(255, 180, 46, .6);
+    }
+    i {
+        position: absolute;
+        right: 30px;
+    }
+    div p i {
+        border-radius: 100%;
+        cursor: pointer;
+        font-size: 20px;
+        bottom: 30%;
+    }
+
+    div p {
+      padding: 15px 0px 5px 0px;
+      margin-bottom: 0px;
+      div.hangLeftCount {
+          position: absolute;
+          left: 14px;
+          font-size: 30px;
+          padding: 0px;
+          margin: 0px;
+          bottom: 3px;
+          span.smaller::before {
+              content: "  ";
+          }
+          span.smaller {
+              font-size: 8px;
+          }
+      }
+      div.messageContent {
+          max-width: 80%;
+          color: #333;
+      }
+    }
+}
+
+@media (min-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+  .messageContent {
+    margin-left: 140px;
+  }
+}

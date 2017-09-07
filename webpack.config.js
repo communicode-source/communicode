@@ -5,9 +5,9 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     entry: [
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:3001',
         'webpack/hot/only-dev-server',
         'react-hot-loader/patch',
         path.join(__dirname, 'app/index.js'),
@@ -28,12 +28,16 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
+            "global.GENTLY": false,
         }),
     ],
     eslint: {
         configFile: '.eslintrc',
         failOnWarning: false,
         failOnError: false,
+    },
+    node: {
+        __dirname: true,
     },
     module: {
         preLoaders: [
@@ -53,6 +57,10 @@ module.exports = {
                 test: /\.json?$/,
                 loader: 'json',
             },
+          {
+            test: /\.css?$/,
+            loader: 'style!css'
+          },
             {
                 test: /\.scss$/,
                 loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!sass',

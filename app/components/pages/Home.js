@@ -107,7 +107,7 @@ const Home = () =>
                     <h3>Expand Your Portfolio</h3>
                     <hr />
                     <p>
-                        Need a few more projects to create a portfolio? Communicode
+                        Need a few more projects for your portfolio? Communicode
                         gives you the opportunity to expand your portfolio, entirely free.
                     </p>
                 </div>
@@ -129,8 +129,8 @@ const Home = () =>
                     </p>
                 </div>
             </div>
+            <SubscribeComponent/>
         </div>
-        <SubscribeComponent/>
     </div>;
 
 export default Home;

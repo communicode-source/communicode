@@ -1,31 +1,36 @@
-import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import * as types from '../actions/types';
 
-const filter = (state = '', action) => {
-    switch(action.type) {
-        case types.FILTER:
-            return action.filter;
-        default:
-            return state;
-    }
-};
-
-const subscription = (state = '', action) => {
-    switch(action.type) {
-        case types.SUBSCRIBE:
-            return action.email;
-        case types.SUBSCRIBE_USER:
-            return action.email;
-        default:
-            return state;
-    }
-};
+// Import reducers
+import user from './user';
+import interests from './interests';
+import overlay from './overlay';
+import redirect from './redirect';
+import passwordRecovery from './passwordRecovery';
+import routing from './routing';
+import search from './search';
+import project from './project';
+import profile from './profile';
+import isAuthenticated from './isAuthenticated';
+import newProject from './newProject';
+import settings from './settings';
+import notifier from './notifier';
+import feed from './feed';
 
 const rootReducer = combineReducers({
-    subscription,
-    filter,
+    user,
     routing,
+    interests,
+    redirect,
+    overlay,
+    passwordRecovery,
+    isAuthenticated,
+    newProject,
+    search,
+    project,
+    settings,
+    profile,
+    notifier,
+    feed
 });
 
 export default rootReducer;
