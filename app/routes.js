@@ -11,7 +11,7 @@ import Settings from './components/pages/Settings';
 import PasswordRecovery from './components/pages/PasswordRecovery';
 import Developers from './components/pages/Developer';
 import Nonprofits from './components/pages/Nonprofit';
-import Search from './components/pages/Search';
+// import Search from './components/pages/Search';
 import NotFoundPage from './components/pages/NotFound';
 import newProjectStepOne from './components/pages/newProjectStepOne';
 import newProjectStepTwo from './components/pages/newProjectStepTwo';
@@ -29,7 +29,6 @@ export const routes = (
         <Route path="/developers" component={Developers} />
         <Route path="/nonprofits" component={Nonprofits} />
         <Route path="/forgot" component={PasswordRecovery} />
-        <Route path="/search" component={Search} />
         <Route component={Auth}>
             <Route path="/project/step/1" component={newProjectStepOne} />
             <Route path="/project/step/2" component={newProjectStepTwo} />
@@ -46,5 +45,7 @@ export const routes = (
         <Route path="*" component={NotFoundPage} notFound />
     </Route>
 );
+
+// <Route path="/search" component={Search} />
 
 export default routes;

@@ -385,7 +385,7 @@ export function* createNewProjectStep3() {
             project: {
                 startTime: state.start,
                 endTime: state.end,
-                interests: state.interestArea
+                skills: state.skills
             }
         });
 
@@ -474,7 +474,7 @@ export function* updateUserAboutMeSettings() {
         yield put({
             type: types.UPDATING_SETTINGS_FAILED,
             error: e,
-            notif: {classtype: 'error', msg: 'Failed to update About Section :(', time: 6}
+            notif: {classtype: 'error', msg: e.message, time: 6}
         });
     }
 }

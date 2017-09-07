@@ -374,7 +374,7 @@ export async function updateUserSettings(settings) {
         const response = await fetch(API_URL + '/user/update', options);
         const responseData = await response.json();
         if(responseData.err === true) {
-            throw new Error('Something went wrong');
+            throw new Error('Error Updating Settings');
         }
         responseData.notif = {msg: 'Successfully updated About portion of settings!', time: 5, classtype: 'info'};
         return responseData;
