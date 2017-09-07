@@ -1,6 +1,0 @@
-dist
-node_modules
-coverage
-webpack.*.js
-*server.dev.js
-app/middleware/logger.js

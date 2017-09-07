@@ -1,6 +1,0 @@
-runtime: nodejs
-env: flex
-
-# This is placed in the dist folder. DO NOT DEPLOY FROM PROJECT FOLDER!!
-skip_files:
-- ^node_modules/
