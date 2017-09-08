@@ -2,11 +2,11 @@
 # Life will be much easier if everything is store explicitly
 
 type User {
-    accountType: UserType
+    accountType: UserType!
     # datejoined: DateTime # See api/modules/types/ for custom types
-    email: Email
-    firstname: String
-    lastname: String
+    email: Email!
+    firstname: String!
+    lastname: String!
     # interests: [UserInterests] # UserInterests is some enum
     # nonprofit: NonprofitData # only exists if `accountType === NONPROFIT` else null
     # developer: DeveloperData # only exists if `accountType === DEVELOPER` else null
