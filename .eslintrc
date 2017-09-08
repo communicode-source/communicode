@@ -12,6 +12,7 @@
     "react/prefer-stateless-function": 0,
     "react/forbid-prop-types": 0,
     "import/default": 0,
+    "import/prefer-default-export": 0,
     "import/extensions": 0,
     "import/no-duplicated": 0,
     "import/named": 0,

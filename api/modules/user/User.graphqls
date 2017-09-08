@@ -1,0 +1,25 @@
+# Make sure to break everything down into data structures!
+# Life will be much easier if everything is store explicitly
+
+type User {
+    accountType: UserType
+    # datejoined: DateTime # See api/modules/types/ for custom types
+    email: Email
+    firstname: String
+    lastname: String
+    # interests: [UserInterests] # UserInterests is some enum
+    # nonprofit: NonprofitData # only exists if `accountType === NONPROFIT` else null
+    # developer: DeveloperData # only exists if `accountType === DEVELOPER` else null
+    # More fields go here
+}
+
+enum UserType {
+    DEVELOPER,
+    NONPROFIT,
+    ADMIN
+}
+
+type Query {
+    # This is just a placeholder. In reality, we'd want arguments with this
+    user: User!
+}

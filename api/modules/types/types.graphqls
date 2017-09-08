@@ -1,0 +1,6 @@
+scalar Email
+scalar URL
+scalar DateTime
+# scalar LimitedString
+# scalar Password
+scalar UUID

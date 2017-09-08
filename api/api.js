@@ -1,19 +1,26 @@
 import Express from 'express';
-import graphqlHTTP from 'express-graphql';
-import { buildSchema } from 'graphql';
+import bodyParser from 'body-parser';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+
+import './loaders';
 
 import config from '../src/config';
-import { types, resolvers } from './schema';
+import schema from './schema';
 
 require('pretty-error').start();
 
 const app = new Express();
 
-app.use('/graphql', graphqlHTTP({
-  schema: buildSchema(types),
-  rootValue: resolvers,
-  graphiql: __DEVELOPMENT__
+app.use('/graphql', bodyParser.json(), graphqlExpress({
+  schema,
+  debug: __DEVELOPMENT__
 }));
+
+if(__DEVELOPMENT__) {
+  app.use('/graphiql', graphiqlExpress({
+    endpointURL: '/graphql'
+  }));
+}
 
 if(config.apiPort) {
   app.listen(config.apiPort, (err) => {
